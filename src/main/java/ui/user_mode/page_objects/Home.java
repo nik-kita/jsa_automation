@@ -2,11 +2,9 @@ package ui.user_mode.page_objects;
 
 import org.openqa.selenium.By;
 import ui.BasePageObject;
-import ui.BasePart;
 import ui.engine.OnixLocator;
 import ui.engine.OnixWebDriver;
-import ui.specific.AppBanner;
-import ui.user_mode.general_parts.HomePart;
+import ui.user_mode.general_parts.home.HomePart;
 
 public class Home extends BasePageObject implements HomePart {
     public Home(OnixWebDriver driver) {

@@ -1,28 +1,29 @@
-package ui.user_mode.page_objects.workouts;
+package ui.user_mode.page_objects.home.workouts;
 
 import org.openqa.selenium.By;
 import ui.BasePageObject;
 import ui.engine.OnixLocator;
 import ui.engine.OnixWebDriver;
-import ui.user_mode.general_parts.HomePart;
+import ui.user_mode.general_parts.home.HomePart;
 
-public class MyWorkouts extends BasePageObject implements HomePart {
-    public MyWorkouts(OnixWebDriver driver) {
+public class Browse extends BasePageObject implements HomePart {
+    public Browse(OnixWebDriver driver) {
         super(driver);
     }
+
     public Personalised clickPersonalisedTab() {
-        driver.findElement(Browse.Locator.PERSONALISED_TAB).click();
+        driver.findElement(Locator.PERSONALISED_TAB).click();
         return new Personalised(driver);
     }
-    public Browse clickBrowseTab() {
-        driver.findElement(Personalised.Locator.BROWSE_TAB).click();
-        return new Browse(driver);
+    public MyWorkouts clickMyWorkoutsTab() {
+        driver.findElement(Locator.MY_WORKOUTS_TAB).click();
+        return new MyWorkouts(driver);
     }
+
 
     public enum Locator implements OnixLocator {
         PERSONALISED_TAB(By.cssSelector(".tab-nav-bar-container [href='#/workouts/personalised']")),
-        BROWSE_TAB(By.cssSelector(".tab-nav-bar-container [href='#/workouts/browse']")),
-
+        MY_WORKOUTS_TAB(By.cssSelector(".tab-nav-bar-container [href='#/workouts/myworkouts']"))
         ;
         private By path;
 
@@ -35,7 +36,4 @@ public class MyWorkouts extends BasePageObject implements HomePart {
             return path;
         }
     }
-
-
-
 }

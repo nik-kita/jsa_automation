@@ -4,6 +4,8 @@ import ui.engine.OnixLocator;
 import org.openqa.selenium.By;
 import ui.BasePart;
 import ui.engine.OnixWebDriver;
+import ui.user_mode.general_parts.home.HomeHeaderPart;
+import ui.user_mode.general_parts.home.HomePart;
 import ui.user_mode.page_objects.Main;
 import ui.user_mode.page_objects.Pricing;
 
@@ -11,7 +13,7 @@ public interface MainHeader extends BasePart {
 
     default Main goMainPage() {
         OnixWebDriver driver = getDriver();
-        driver.findElement(HomePart.HeaderLocator.JSA_LOGO).click();
+        driver.findElement(HomeHeaderPart.HomeHeaderLocator.JSA_LOGO).click();
         return new Main(driver);
     }
     default Pricing goPricingPage() {

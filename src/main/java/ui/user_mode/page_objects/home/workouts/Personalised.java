@@ -1,10 +1,10 @@
-package ui.user_mode.page_objects.workouts;
+package ui.user_mode.page_objects.home.workouts;
 
 import org.openqa.selenium.By;
 import ui.BasePageObject;
 import ui.engine.OnixLocator;
 import ui.engine.OnixWebDriver;
-import ui.user_mode.general_parts.HomePart;
+import ui.user_mode.general_parts.home.HomePart;
 
 public class Personalised extends BasePageObject implements HomePart {
     public Personalised(OnixWebDriver driver) {
