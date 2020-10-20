@@ -16,7 +16,7 @@ public class SearchVideos extends BasePageObject implements HomeHeaderPart {
     }
 
     public enum Locator implements OnixLocator {
-        BACK_ARROW(By.cssSelector(".back_link_arrow a")),
+        BACK_ARROW(By.cssSelector("a.back_link_arrow img")),
 
 
 
