@@ -1,8 +1,8 @@
-package user_mode.general_parts;
+package ui.user_mode.general_parts;
 
-import engine.OnixLocator;
+import ui.engine.OnixLocator;
 import org.openqa.selenium.By;
-import user_mode.BasePart;
+import ui.BasePart;
 
 public interface HomeHeader extends BasePart {
 

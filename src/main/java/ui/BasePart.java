@@ -1,6 +1,6 @@
-package user_mode;
+package ui;
 
-import engine.OnixWebDriver;
+import ui.engine.OnixWebDriver;
 
 public interface BasePart {
     OnixWebDriver getDriver();
