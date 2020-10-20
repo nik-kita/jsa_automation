@@ -3,8 +3,23 @@ package ui.user_mode.general_parts;
 import ui.engine.OnixLocator;
 import org.openqa.selenium.By;
 import ui.BasePart;
+import ui.engine.OnixWebDriver;
+import ui.user_mode.page_objects.Home;
+import ui.user_mode.page_objects.Main;
+import ui.user_mode.page_objects.Pricing;
 
 public interface MainHeader extends BasePart {
+
+    default Main goMainPage() {
+        OnixWebDriver driver = getDriver();
+        driver.findElement(HomeHeader.HeaderLocator.JSA_LOGO).click();
+        return new Main(driver);
+    }
+    default Pricing goPricingPage() {
+        OnixWebDriver driver = getDriver();
+        driver.findElement(HeaderLocator.PRICING_HEADER_BUTTON).click();
+        return new Pricing(driver);
+    }
 
     enum HeaderLocator implements OnixLocator {
         JSA_LOGO(By.cssSelector("a[href='/'] img")),

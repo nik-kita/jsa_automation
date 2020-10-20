@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <listeners>
+        <listener class-name="ui.OnixScreenFailListener"/>
+    </listeners>
+    <test verbose="2" preserve-order="true" name="/home/nik/jsa_automation_tests/src/test/java/ui/smoke"
+    parallel="classes" thread-count="4">
+        <classes>
+            <class name="ui.smoke.login.HomeTest">
+                <methods>
+                    <include name="homeLoginModeTest"/>
+                    <include name="userCabinetDropdownTest"/>
+                </methods>
+            </class>
+            <class name="ui.smoke.login.MainLoginModeTest">
+                <methods>
+                    <include name="generalHeaderLoginModeTest"/>
+                    <include name="checkMainPageSameAsLogout"/>
+                    <include name="checkGeneralFooterSameAsLogoutTest"/>
+                </methods>
+            </class>
+            <class name="ui.smoke.login.PaymentMethodPopupTest">
+                <methods>
+                    <include name="paymentMethodCardTest"/>
+                    <include name="paymentMethodPayPalTest"/>
+                </methods>
+            </class>
+            <class name="ui.smoke.login.PricingLoginModeTest">
+                <methods>
+                    <include name="pricingLoginModeTest"/>
+                </methods>
+            </class>
+            <class name="ui.smoke.login.PricingPlansLoginModeTest">
+                <methods>
+                    <include name="pricingPlansLoginModeTest"/>
+                    <include name="blockTab"/>
+                </methods>
+            </class>
+            <class name="ui.smoke.logout.BlogPageTest">
+                <methods>
+                    <include name="blogPageTest"/>
+                </methods>
+            </class>
+            <class name="ui.smoke.logout.ChallengeTest">
+                <methods>
+                    <include name="challengePageTest"/>
+                </methods>
+            </class>
+            <class name="ui.smoke.logout.JoinNowPageTest">
+                <methods>
+                    <include name="joinNowPageTest"/>
+                </methods>
+            </class>
+            <class name="ui.smoke.logout.LoginPageTest">
+                <methods>
+                    <include name="loginPageTest"/>
+                </methods>
+            </class>
+            <class name="ui.smoke.logout.MainPageTest">
+                <methods>
+                    <include name="generalHeaderTest"/>
+                    <include name="mainPageTest"/>
+                    <include name="generalFooterTest"/>
+                </methods>
+            </class>
+            <class name="ui.smoke.logout.PricingTest">
+                <methods>
+                    <include name="pricingTest"/>
+                </methods>
+            </class>
+            <class name="ui.smoke.logout.ResetPasswordTest">
+                <methods>
+                    <include name="resetPasswordPageTest"/>
+                </methods>
+            </class>
+            <class name="ui.smoke.logout.TransformationsTest">
+                <methods>
+                    <include name="transformationsTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

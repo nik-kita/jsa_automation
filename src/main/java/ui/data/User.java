@@ -37,7 +37,7 @@ public class User {
     public static User getValidUser() {
         Properties properties = new Properties();
         try {
-            properties.load(new FileReader("src/resources/credentials.properties"));
+            properties.load(new FileReader("src/main/resources/credentials.properties"));
         } catch (IOException e) {
             System.err.println("It looks like you forgot to create 'src/resources/credentials.properties' file");
         }

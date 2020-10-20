@@ -4,14 +4,16 @@ import org.openqa.selenium.By;
 import ui.BasePart;
 import ui.engine.OnixLocator;
 import ui.engine.OnixWebDriver;
+import ui.user_mode.page_objects.Blog;
 
 
 public interface Footer extends BasePart {
-//    default BlogPO goBlogPageFromFooter() {
-//        OnixWebDriver driver = getDriver();
-//        driver.findElement(FooterLocator.BLOG_SUPPORT_LINK).click();
-//        return new BlogPO(driver);
-//    }
+
+    default Blog goBlogPageFromFooter() {
+        OnixWebDriver driver = getDriver();
+        driver.findElement(FooterLocator.BLOG_SUPPORT_LINK).click();
+        return new Blog(driver);
+    }
 
     OnixWebDriver getDriver();
 

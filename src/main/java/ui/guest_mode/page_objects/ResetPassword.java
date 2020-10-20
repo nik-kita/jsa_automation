@@ -5,8 +5,10 @@ import org.openqa.selenium.By;
 import ui.BasePageObject;
 import ui.engine.OnixLocator;
 import ui.engine.OnixWebDriver;
+import ui.guest_mode.general_parts.Footer;
+import ui.guest_mode.general_parts.MainHeader;
 
-public class ResetPassword extends BasePageObject {
+public class ResetPassword extends BasePageObject implements Footer, MainHeader {
     public ResetPassword(OnixWebDriver driver) {
         super(driver);
     }
