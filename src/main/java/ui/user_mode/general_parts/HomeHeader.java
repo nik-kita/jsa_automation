@@ -6,7 +6,7 @@ import ui.BasePart;
 
 public interface HomeHeader extends BasePart {
 
-    enum Locator implements OnixLocator {
+    enum HeaderLocator implements OnixLocator {
         JSA_LOGO(By.xpath("//a[@href='/']")),
         HOME(By.cssSelector("#navbar [href='#/home']")),
         WORKOUTS(By.cssSelector("#navbar [href='#/workouts']")),
@@ -19,7 +19,7 @@ public interface HomeHeader extends BasePart {
 
         private By path;
 
-        Locator(By path) {
+        HeaderLocator(By path) {
             this.path = path;
         }
         @Override
