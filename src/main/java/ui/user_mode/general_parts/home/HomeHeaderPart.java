@@ -7,6 +7,7 @@ import ui.engine.OnixWebDriver;
 import ui.user_mode.page_objects.Home;
 import ui.user_mode.page_objects.Main;
 import ui.user_mode.page_objects.UserCabinetDropdown;
+import ui.user_mode.page_objects.home.learn.Learn;
 import ui.user_mode.page_objects.home.nutrition.Meals;
 import ui.user_mode.page_objects.home.workouts.Personalised;
 
@@ -36,6 +37,11 @@ public interface HomeHeaderPart extends BasePart {
         OnixWebDriver driver = getDriver();
         driver.findElement(HomeHeaderLocator.NUTRITION).click();
         return new Meals(driver);
+    }
+    default Learn clickLearnTab() {
+        OnixWebDriver driver = getDriver();
+        driver.findElement(HomeHeaderLocator.LEARN).click();
+        return new Learn(driver);
     }
 
     enum HomeHeaderLocator implements OnixLocator {

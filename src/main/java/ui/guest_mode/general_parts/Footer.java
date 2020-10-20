@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import ui.BasePart;
 import ui.engine.OnixLocator;
 import ui.engine.OnixWebDriver;
-import ui.user_mode.page_objects.Blog;
+import ui.guest_mode.page_objects.Blog;
 
 
 public interface Footer extends BasePart {

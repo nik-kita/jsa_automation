@@ -7,7 +7,7 @@ import ui.shortcuts.RouteHacks;
 import ui.user_mode.page_objects.Home;
 
 public abstract class JsaLoginBaseTestRunner extends OnixTestRunner {
-    Home homeLoginModePO;
+    public Home homeLoginModePO;
 
     @BeforeClass
     public void loginWelcome() {

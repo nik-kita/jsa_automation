@@ -1,4 +1,4 @@
-package ui.user_mode.page_objects;
+package ui.guest_mode.page_objects;
 
 import org.openqa.selenium.By;
 import ui.BasePageObject;
