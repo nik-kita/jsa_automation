@@ -1,4 +1,4 @@
-package ui.smoke.login.learn;
+package ui.smoke.login.home.learn;
 
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;

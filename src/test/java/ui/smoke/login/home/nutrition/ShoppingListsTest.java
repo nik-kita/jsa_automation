@@ -1,6 +1,5 @@
-package ui.smoke.login.nutrition;
+package ui.smoke.login.home.nutrition;
 
-import org.checkerframework.checker.units.qual.A;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;

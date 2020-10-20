@@ -1,4 +1,4 @@
-package ui.smoke.login.nutrition;
+package ui.smoke.login.home.workouts;
 
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
@@ -8,23 +8,23 @@ import ui.engine.OnixLocator;
 import ui.smoke.login.JsaLoginBaseTestRunner;
 import ui.user_mode.general_parts.home.HomeHeaderPart;
 import ui.user_mode.general_parts.home.HomePart;
-import ui.user_mode.page_objects.home.nutrition.Recipes;
+import ui.user_mode.page_objects.home.workouts.MyWorkouts;
 
-public class RecipesTest extends JsaLoginBaseTestRunner {
+public class MyWorkoutsTest extends JsaLoginBaseTestRunner {
     @BeforeClass
-    public void goRecipes() {
-        homeLoginModePO.clickNutritionTab().clickRecipesTab();
+    public void goMyWorkoutsPage() {
+        homeLoginModePO.clickWorkoutsTab().clickMyWorkoutsTab();
     }
-    @Test(dataProvider = "getRecipesLocators")
-    public void recipesTest(OnixLocator locator) {
+    @Test(dataProvider = "getMyWorkoutsLocators")
+    public void myWorkoutsTest(OnixLocator locator) {
         new OnixAssert(driver).checkCountOfElementByLocator(locator, 1);
     }
     @DataProvider
-    public Object[] getRecipesLocators() {
+    public Object[] getMyWorkoutsLocators() {
         return mergeArrays(
-                HomePart.HomeFlyLocator.values(),
                 HomeHeaderPart.HomeHeaderLocator.values(),
-                Recipes.Locator.values()
+                HomePart.HomeFlyLocator.values(),
+                MyWorkouts.Locator.values()
         );
     }
 }

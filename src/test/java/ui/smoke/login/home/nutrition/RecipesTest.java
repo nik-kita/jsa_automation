@@ -1,4 +1,4 @@
-package ui.smoke.login.nutrition;
+package ui.smoke.login.home.nutrition;
 
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
@@ -8,23 +8,23 @@ import ui.engine.OnixLocator;
 import ui.smoke.login.JsaLoginBaseTestRunner;
 import ui.user_mode.general_parts.home.HomeHeaderPart;
 import ui.user_mode.general_parts.home.HomePart;
-import ui.user_mode.page_objects.home.nutrition.Meals;
+import ui.user_mode.page_objects.home.nutrition.Recipes;
 
-public class MealsTest extends JsaLoginBaseTestRunner {
+public class RecipesTest extends JsaLoginBaseTestRunner {
     @BeforeClass
-    public void goMeals() {
-        homeLoginModePO.clickNutritionTab();
+    public void goRecipes() {
+        homeLoginModePO.clickNutritionTab().clickRecipesTab();
     }
-    @Test(dataProvider = "getMealsLocators")
-    public void mealsTest(OnixLocator locator) {
+    @Test(dataProvider = "getRecipesLocators")
+    public void recipesTest(OnixLocator locator) {
         new OnixAssert(driver).checkCountOfElementByLocator(locator, 1);
     }
     @DataProvider
-    public Object[] getMealsLocators() {
+    public Object[] getRecipesLocators() {
         return mergeArrays(
-                HomeHeaderPart.HomeHeaderLocator.values(),
                 HomePart.HomeFlyLocator.values(),
-                Meals.Locator.values()
+                HomeHeaderPart.HomeHeaderLocator.values(),
+                Recipes.Locator.values()
         );
     }
 }
