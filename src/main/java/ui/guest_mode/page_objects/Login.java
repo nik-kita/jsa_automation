@@ -7,7 +7,7 @@ import ui.data.User;
 import ui.engine.OnixLocator;
 import ui.engine.OnixWebDriver;
 import ui.engine.OnixWebElement;
-import ui.user_mode.page_objects.Home;
+import ui.user_mode.page_objects.home.Home;
 
 public class Login extends BasePageObject {
 

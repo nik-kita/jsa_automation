@@ -1,27 +1,20 @@
-package ui.user_mode.page_objects;
-
+package ui.user_mode.page_objects.home;
 
 import org.openqa.selenium.By;
 import ui.BasePageObject;
+import ui.BasePart;
 import ui.engine.OnixLocator;
 import ui.engine.OnixWebDriver;
+import ui.specific.AppBanner;
 import ui.user_mode.general_parts.Footer;
 import ui.user_mode.general_parts.HomeHeader;
 
-public class Home extends BasePageObject implements Footer, HomeHeader {
+public class Home extends BasePageObject implements Footer, HomeHeader, BasePart {
     public Home(OnixWebDriver driver) {
         super(driver);
+        AppBanner.closeIfPresent(driver);
     }
 
-    public UserCabinetDropdown openUserDropDown() {
-        driver.findElement(HeaderLocator.MY_CABINET_DROPDOWN).click();
-        return new UserCabinetDropdown(driver);
-    }
-
-    public Main goMainPage() {
-        driver.findElement(HeaderLocator.JSA_LOGO).click();
-        return new Main(driver);
-    }
 
 
     public enum Locator implements OnixLocator {
@@ -35,7 +28,6 @@ public class Home extends BasePageObject implements Footer, HomeHeader {
         UPGRADE_TO_ACCESS_BTN(By.cssSelector(".facebook_group [href='/users/pricing/']")),
         SUPPORT_BUTTON(By.xpath("//button[contains(text(), 'Support')]")),
 
-
         ;
 
         private By path;
@@ -47,9 +39,7 @@ public class Home extends BasePageObject implements Footer, HomeHeader {
         public By getPath() {
             return path;
         }
-
-
-
     }
+
 
 }

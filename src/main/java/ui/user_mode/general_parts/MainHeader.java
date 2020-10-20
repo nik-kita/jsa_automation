@@ -4,7 +4,6 @@ import ui.engine.OnixLocator;
 import org.openqa.selenium.By;
 import ui.BasePart;
 import ui.engine.OnixWebDriver;
-import ui.user_mode.page_objects.Home;
 import ui.user_mode.page_objects.Main;
 import ui.user_mode.page_objects.Pricing;
 

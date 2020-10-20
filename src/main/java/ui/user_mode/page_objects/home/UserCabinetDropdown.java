@@ -1,23 +1,21 @@
-package ui.user_mode.page_objects;
+package ui.user_mode.page_objects.home;
 
 
 import org.openqa.selenium.By;
 import ui.BasePageObject;
 import ui.engine.OnixLocator;
 import ui.engine.OnixWebDriver;
-import ui.guest_mode.page_objects.Main;
-import ui.user_mode.general_parts.Footer;
-import ui.user_mode.general_parts.HomeHeader;
+import ui.guest_mode.page_objects.AfterLogout;
 
-public class UserCabinetDropdown extends BasePageObject implements HomeHeader, Footer {
+
+public class UserCabinetDropdown extends BasePageObject {
     public UserCabinetDropdown(OnixWebDriver driver) {
         super(driver);
     }
 
-    public Main logout() {
+    public AfterLogout logout() {
         driver.findElement(Locator.LOG_OUT).click();
-        driver.findElement(HeaderLocator.JSA_LOGO).click();
-        return new Main(driver);
+        return new AfterLogout(driver);
     }
 
 
