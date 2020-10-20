@@ -26,10 +26,12 @@ public class PricingPlans extends BasePageObject implements Footer {
     }
 
     public PaymentMethodPopup subscribeStandard() {
+        driver.scrollPageDown();
         driver.findElement(Locator.SUBSCRIBE_BTN_STANDARD_PLAN).click();
         return new PaymentMethodPopup(driver);
     }
     public PaymentMethodPopup subscribePremium() {
+        driver.scrollPageDown();
         driver.findElement(Locator.SUBSCRIBE_BTN_PREMIUM_PLAN).click();
         return new PaymentMethodPopup(driver);
     }
@@ -46,6 +48,7 @@ public class PricingPlans extends BasePageObject implements Footer {
     }
 
     public PricingPlans clickSubscriptionsButton() {
+        driver.scrollPageDown();
         driver.findElement(Locator.SUBSCRIPTIONS_BUTTON).click();
         return this;
     }
