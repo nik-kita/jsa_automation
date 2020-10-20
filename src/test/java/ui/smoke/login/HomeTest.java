@@ -5,8 +5,8 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ui.OnixAssert;
 import ui.engine.OnixLocator;
-import ui.user_mode.page_objects.home.Home;
-import ui.user_mode.page_objects.home.UserCabinetDropdown;
+import ui.user_mode.page_objects.Home;
+import ui.user_mode.page_objects.UserCabinetDropdown;
 
 public class HomeTest extends JsaLoginBaseTestRunner {
 

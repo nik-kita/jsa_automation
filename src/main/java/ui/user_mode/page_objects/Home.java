@@ -1,4 +1,4 @@
-package ui.user_mode.page_objects.home;
+package ui.user_mode.page_objects;
 
 import org.openqa.selenium.By;
 import ui.BasePageObject;
@@ -6,13 +6,11 @@ import ui.BasePart;
 import ui.engine.OnixLocator;
 import ui.engine.OnixWebDriver;
 import ui.specific.AppBanner;
-import ui.user_mode.general_parts.Footer;
-import ui.user_mode.general_parts.HomeHeader;
+import ui.user_mode.general_parts.HomePart;
 
-public class Home extends BasePageObject implements Footer, HomeHeader, BasePart {
+public class Home extends BasePageObject implements HomePart {
     public Home(OnixWebDriver driver) {
         super(driver);
-        AppBanner.closeIfPresent(driver);
     }
 
 
@@ -26,7 +24,6 @@ public class Home extends BasePageObject implements Footer, HomeHeader, BasePart
         MY_PROGRESS_DIV_LINK(By.cssSelector("[href='#/home/my-progress']")),
         CHALLENGE_DIV_LINK(By.cssSelector("[href='#/home/challenges']")),
         UPGRADE_TO_ACCESS_BTN(By.cssSelector(".facebook_group [href='/users/pricing/']")),
-        SUPPORT_BUTTON(By.xpath("//button[contains(text(), 'Support')]")),
 
         ;
 

@@ -7,7 +7,6 @@ import ui.engine.OnixLocator;
 import ui.engine.OnixWebDriver;
 import ui.user_mode.general_parts.Footer;
 import ui.user_mode.general_parts.MainHeader;
-import ui.user_mode.page_objects.home.Home;
 
 public class Main extends BasePageObject implements Footer, MainHeader {
     public Main(OnixWebDriver driver) {

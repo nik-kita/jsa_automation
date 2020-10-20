@@ -6,7 +6,6 @@ import ui.BasePageObject;
 import ui.engine.OnixLocator;
 import ui.engine.OnixWebDriver;
 import ui.user_mode.general_parts.Footer;
-import ui.user_mode.page_objects.home.Home;
 
 public class PricingPlans extends BasePageObject implements Footer {
     public PricingPlans(OnixWebDriver driver) {

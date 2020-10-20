@@ -11,7 +11,7 @@ public interface MainHeader extends BasePart {
 
     default Main goMainPage() {
         OnixWebDriver driver = getDriver();
-        driver.findElement(HomeHeader.HeaderLocator.JSA_LOGO).click();
+        driver.findElement(HomePart.HeaderLocator.JSA_LOGO).click();
         return new Main(driver);
     }
     default Pricing goPricingPage() {
