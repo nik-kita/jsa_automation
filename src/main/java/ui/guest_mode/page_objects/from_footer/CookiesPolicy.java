@@ -13,7 +13,7 @@ public class CookiesPolicy extends BasePageObject implements MainHeader, Footer 
     }
 
     public boolean isThisPage() {
-        return driver.isElementPresent(TermsOfService.Locator.H4_TITLE);
+        return driver.isElementPresent(Locator.H4_TITLE);
     }
 
     public enum Locator implements OnixLocator {

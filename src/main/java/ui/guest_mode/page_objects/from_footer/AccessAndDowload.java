@@ -7,8 +7,9 @@ import ui.engine.OnixWebDriver;
 import ui.guest_mode.general_parts.Footer;
 import ui.guest_mode.general_parts.MainHeader;
 
-public class PrivacyPolicy extends BasePageObject implements MainHeader, Footer {
-    public PrivacyPolicy(OnixWebDriver driver) {
+public class AccessAndDowload extends BasePageObject implements MainHeader, Footer {
+
+    public AccessAndDowload(OnixWebDriver driver) {
         super(driver);
     }
 
@@ -17,7 +18,7 @@ public class PrivacyPolicy extends BasePageObject implements MainHeader, Footer 
     }
 
     public enum Locator implements OnixLocator {
-        H4_TITLE(By.xpath("//h4[contains(text(), 'Privacy Policy'")),
+        H4_TITLE(By.xpath("//h4[contains(text(), 'Access & Download'")),
 
 
         ;

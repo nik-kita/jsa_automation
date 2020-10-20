@@ -5,9 +5,7 @@ import ui.BasePart;
 import ui.engine.OnixLocator;
 import ui.engine.OnixWebDriver;
 import ui.guest_mode.page_objects.Blog;
-import ui.guest_mode.page_objects.from_footer.CookiesPolicy;
-import ui.guest_mode.page_objects.from_footer.PrivacyPolicy;
-import ui.guest_mode.page_objects.from_footer.TermsOfService;
+import ui.guest_mode.page_objects.from_footer.*;
 
 
 public interface Footer extends BasePart {
@@ -32,6 +30,23 @@ public interface Footer extends BasePart {
         driver.findElement(FooterLocator.TERMS_OF_SERVICE_LINK).click();
         return new TermsOfService(driver);
     }
+    default ReportBugs goReportBugsFromFooter() {
+        OnixWebDriver driver = getDriver();
+        driver.findElement(FooterLocator.BUG_SUPPORT_LINK).click();
+        return new ReportBugs(driver);
+    }
+    default ContactUs goContactUsFromFooter() {
+        OnixWebDriver driver = getDriver();
+        driver.findElement(FooterLocator.CONTACT_US_LINK).click();
+        return new ContactUs(driver);
+    }
+    default AccessAndDowload goAccessAndDownloadFromFooter() {
+        OnixWebDriver driver = getDriver();
+        driver.findElement(FooterLocator.ACCESS_LINK).click();
+        return new AccessAndDowload(driver);
+    }
+
+
 
 
     OnixWebDriver getDriver();

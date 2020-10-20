@@ -1,4 +1,4 @@
-package ui.guest_mode.page_objects.from_footer;
+package ui.guest_mode.page_objects.from_footer.faqs;
 
 import org.openqa.selenium.By;
 import ui.BasePageObject;
@@ -6,18 +6,19 @@ import ui.engine.OnixLocator;
 import ui.engine.OnixWebDriver;
 import ui.guest_mode.general_parts.Footer;
 import ui.guest_mode.general_parts.MainHeader;
+import ui.guest_mode.page_objects.from_footer.ContactUs;
 
-public class PrivacyPolicy extends BasePageObject implements MainHeader, Footer {
-    public PrivacyPolicy(OnixWebDriver driver) {
+public class Faqs extends BasePageObject implements MainHeader, Footer {
+    public Faqs(OnixWebDriver driver) {
         super(driver);
     }
 
     public boolean isThisPage() {
-        return driver.isElementPresent(Locator.H4_TITLE);
+        return driver.isElementPresent(Locator.H1_TITLE);
     }
 
     public enum Locator implements OnixLocator {
-        H4_TITLE(By.xpath("//h4[contains(text(), 'Privacy Policy'")),
+        H1_TITLE(By.xpath("//h1[contains(text(), 'How can we help?'")),
 
 
         ;
