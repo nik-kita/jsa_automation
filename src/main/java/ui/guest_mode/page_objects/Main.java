@@ -6,7 +6,7 @@ import ui.BasePageObject;
 import ui.engine.OnixLocator;
 import ui.engine.OnixWebDriver;
 import ui.guest_mode.general_parts.Footer;
-import ui.specific_pages.JsaCookies;
+import ui.specific.JsaCookies;
 import ui.user_mode.general_parts.MainHeader;
 
 public class Main extends BasePageObject implements Footer, MainHeader {

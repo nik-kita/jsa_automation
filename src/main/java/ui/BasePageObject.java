@@ -1,7 +1,7 @@
 package ui;
 
 import ui.engine.OnixWebDriver;
-import ui.specific_pages.JsaCookies;
+import ui.specific.JsaCookies;
 
 public class BasePageObject {
     protected OnixWebDriver driver;

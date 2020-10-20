@@ -1,4 +1,4 @@
-package ui.specific_pages;
+package ui.specific;
 
 
 import org.openqa.selenium.By;
