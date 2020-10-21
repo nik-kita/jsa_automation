@@ -1,31 +1,35 @@
-package ui.smoke.login;
+package ui.smoke.logout.main;
 
 
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ui.OnixAssert;
+import ui.OnixTestRunner;
 import ui.engine.OnixLocator;
-import ui.user_mode.page_objects.main.Main;
+import ui.guest_mode.page_objects.main.Main;
 
-public class MainLoginModeTest extends JsaLoginBaseTestRunner {
-    Main mainLoginModePO;
+public class MainPageTest extends OnixTestRunner {
+
     @BeforeClass
-    public void goMain() {
-        mainLoginModePO = homeLoginModePO.goMainPage();
+    public void goHomePage() {
+        openSite();
     }
 
-    @Test(dataProvider = "getGeneralHeaderLoginModeLocators")
-    public void generalHeaderLoginModeTest(OnixLocator locator) {
-        new OnixAssert(driver).checkCountOfElementByLocator(locator, 1);
+    @Test(dataProvider = "getGeneralHeaderLocators")
+    public void generalHeaderTest(OnixLocator locator) {
+        openSite();
+        new OnixAssert(getDriver()).
+                checkCountOfElementByLocator(locator, 1);
     }
+
     @DataProvider
-    public Object[] getGeneralHeaderLoginModeLocators() {
+    public Object[] getGeneralHeaderLocators() {
         return Main.HeaderLocator.values();
     }
 
     @Test(dataProvider = "getMainPageLocators")
-    public void checkMainPageSameAsLogout(OnixLocator locator) {
+    public void mainPageTest(OnixLocator locator) {
         new OnixAssert(getDriver()).
                 checkCountOfElementByLocator(locator, 1);
     }
@@ -36,7 +40,7 @@ public class MainLoginModeTest extends JsaLoginBaseTestRunner {
     }
 
     @Test(dataProvider = "getGeneralFooterLocators")
-    public void checkGeneralFooterSameAsLogoutTest(OnixLocator locator) {
+    public void generalFooterTest(OnixLocator locator) {
         new OnixAssert(getDriver()).
                 checkCountOfElementByLocator(locator, 1);
     }
@@ -45,5 +49,4 @@ public class MainLoginModeTest extends JsaLoginBaseTestRunner {
     public Object[] getGeneralFooterLocators() {
         return Main.FooterLocator.values();
     }
-
 }

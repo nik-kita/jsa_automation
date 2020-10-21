@@ -1,10 +1,11 @@
-package ui.smoke.login;
+package ui.smoke.login.home;
 
 
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ui.OnixAssert;
 import ui.engine.OnixLocator;
+import ui.smoke.login.JsaLoginBaseTestRunner;
 import ui.user_mode.page_objects.home.Home;
 import ui.user_mode.page_objects.home.UserCabinetDropdown;
 

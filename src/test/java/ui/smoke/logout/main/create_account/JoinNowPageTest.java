@@ -1,4 +1,4 @@
-package ui.smoke.logout;
+package ui.smoke.logout.main.create_account;
 
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;

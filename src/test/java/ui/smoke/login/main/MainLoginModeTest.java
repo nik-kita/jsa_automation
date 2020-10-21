@@ -1,35 +1,32 @@
-package ui.smoke.logout;
+package ui.smoke.login.main;
 
 
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ui.OnixAssert;
-import ui.OnixTestRunner;
 import ui.engine.OnixLocator;
-import ui.guest_mode.page_objects.main.Main;
+import ui.smoke.login.JsaLoginBaseTestRunner;
+import ui.user_mode.page_objects.main.Main;
 
-public class MainPageTest extends OnixTestRunner {
-
+public class MainLoginModeTest extends JsaLoginBaseTestRunner {
+    Main mainLoginModePO;
     @BeforeClass
-    public void goHomePage() {
-        openSite();
+    public void goMain() {
+        mainLoginModePO = homeLoginModePO.goMainPage();
     }
 
-    @Test(dataProvider = "getGeneralHeaderLocators")
-    public void generalHeaderTest(OnixLocator locator) {
-        openSite();
-        new OnixAssert(getDriver()).
-                checkCountOfElementByLocator(locator, 1);
+    @Test(dataProvider = "getGeneralHeaderLoginModeLocators")
+    public void generalHeaderLoginModeTest(OnixLocator locator) {
+        new OnixAssert(driver).checkCountOfElementByLocator(locator, 1);
     }
-
     @DataProvider
-    public Object[] getGeneralHeaderLocators() {
+    public Object[] getGeneralHeaderLoginModeLocators() {
         return Main.HeaderLocator.values();
     }
 
     @Test(dataProvider = "getMainPageLocators")
-    public void mainPageTest(OnixLocator locator) {
+    public void checkMainPageSameAsLogout(OnixLocator locator) {
         new OnixAssert(getDriver()).
                 checkCountOfElementByLocator(locator, 1);
     }
@@ -40,7 +37,7 @@ public class MainPageTest extends OnixTestRunner {
     }
 
     @Test(dataProvider = "getGeneralFooterLocators")
-    public void generalFooterTest(OnixLocator locator) {
+    public void checkGeneralFooterSameAsLogoutTest(OnixLocator locator) {
         new OnixAssert(getDriver()).
                 checkCountOfElementByLocator(locator, 1);
     }
@@ -49,4 +46,5 @@ public class MainPageTest extends OnixTestRunner {
     public Object[] getGeneralFooterLocators() {
         return Main.FooterLocator.values();
     }
+
 }

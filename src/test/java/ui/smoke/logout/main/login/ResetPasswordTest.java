@@ -1,4 +1,4 @@
-package ui.smoke.logout;
+package ui.smoke.logout.main.login;
 
 
 import org.testng.annotations.BeforeClass;
