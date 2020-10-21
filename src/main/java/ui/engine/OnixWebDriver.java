@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -210,6 +211,19 @@ public class OnixWebDriver {
         }
         driver.switchTo().window(current);
         return this;
+    }
+
+    public String getUrl() {
+        return driver.getCurrentUrl();
+    }
+
+    public OnixWebDriver hoverToElementLocated(By path) {
+        Actions actions = new Actions(driver);
+        actions.moveToElement(this.waitVisibility(path).getSeleniumWebElement());
+        return this;
+    }
+    public OnixWebDriver hoverToElementLocated(OnixLocator locator) {
+        return hoverToElementLocated(locator.getPath());
     }
 
 }
