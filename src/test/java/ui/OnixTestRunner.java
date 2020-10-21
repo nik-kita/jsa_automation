@@ -30,6 +30,8 @@ public class OnixTestRunner {
         // Set the notification setting it will override the default setting
         prefs.put("profile.default_content_setting_values.notifications", 2);
         ChromeOptions options = new ChromeOptions();
+        //chrome notification about automation will not displayed
+        options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
         options.setExperimentalOption("prefs", prefs);
         // pass the options object in Chrome driver
         WebDriver chrome = new ChromeDriver(options);

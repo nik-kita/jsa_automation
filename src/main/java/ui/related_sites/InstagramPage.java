@@ -5,13 +5,18 @@ import ui.BasePageObject;
 import ui.engine.OnixLocator;
 import ui.engine.OnixWebDriver;
 
-public class GooglePlayPage extends BasePageObject implements InCurrentTab {
-    public GooglePlayPage(OnixWebDriver driver) {
+public class InstagramPage extends BasePageObject implements InAnotherTab {
+    public InstagramPage(OnixWebDriver driver) {
         super(driver);
+        driver.registerCurrentTab("instagram");
     }
+
+
+
+
     public enum Locator implements OnixLocator {
-        GOOGLE_PLAY_LOGO(By.xpath("//a[@title='Google Play Logo']")),
-        JSA_TITLE(By.xpath("//h1//span[contains(text(), 'James Smith Academy')]"))
+        INSTAGRAM_LOGO(By.cssSelector("a[href='/'] img[alt='Instagram']")),
+
         ;
         private By path;
 

@@ -5,10 +5,11 @@ import ui.BasePageObject;
 import ui.engine.OnixLocator;
 import ui.engine.OnixWebDriver;
 
-public class AppStorePage extends BasePageObject {
+public class AppStorePage extends BasePageObject implements InCurrentTab {
     public AppStorePage(OnixWebDriver driver) {
         super(driver);
     }
+
     public enum Locator implements OnixLocator {
         APPLE_LOGO(By.xpath("//ul[contains(@class, 'list')]//a[@data-analytics-title='apple home']")),
         JSA_TITLE(By.xpath("//h1[contains(text(), 'James Smith Academy')]"))

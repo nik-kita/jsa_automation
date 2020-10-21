@@ -9,7 +9,9 @@ import ui.guest_mode.general_parts.Footer;
 import ui.guest_mode.general_parts.MainHeader;
 import ui.guest_mode.page_objects.main.create_account.CreateAccount;
 import ui.related_sites.AppStorePage;
+import ui.related_sites.FacebookPage;
 import ui.related_sites.GooglePlayPage;
+import ui.related_sites.InstagramPage;
 import ui.specific.JsaCookies;
 
 public class Main extends BasePageObject implements Footer, MainHeader {
@@ -38,6 +40,16 @@ public class Main extends BasePageObject implements Footer, MainHeader {
     public AppStorePage clickAppStoreButtonInDownloadSection() {
         driver.findElement(Locator.APPSTORE_BUTTON_DOWNLOAD).click();
         return new AppStorePage(driver);
+    }
+    public InstagramPage clickMyInstagramBannerButton() {
+        driver.findElement(Locator.INSTAGRAM_BUTTON_INTRODUCTION).click();
+        driver.switchRecentlyOpenedTab("jsa");
+        return new InstagramPage(driver);
+    }
+    public FacebookPage clickFacebookBannerButton() {
+        driver.findElement(Locator.FACEBOOK_BUTTON_INTRODUCTION).click();
+        driver.switchRecentlyOpenedTab("jsa");
+        return new FacebookPage(driver);
     }
 
 

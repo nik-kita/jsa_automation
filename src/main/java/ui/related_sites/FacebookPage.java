@@ -5,13 +5,16 @@ import ui.BasePageObject;
 import ui.engine.OnixLocator;
 import ui.engine.OnixWebDriver;
 
-public class GooglePlayPage extends BasePageObject implements InCurrentTab {
-    public GooglePlayPage(OnixWebDriver driver) {
+public class FacebookPage extends BasePageObject implements InAnotherTab {
+    public FacebookPage(OnixWebDriver driver) {
         super(driver);
+        driver.registerCurrentTab("facebook");
     }
+
     public enum Locator implements OnixLocator {
-        GOOGLE_PLAY_LOGO(By.xpath("//a[@title='Google Play Logo']")),
-        JSA_TITLE(By.xpath("//h1//span[contains(text(), 'James Smith Academy')]"))
+        FACEBOOK_LOGO(By.cssSelector("a[href='https://www.facebook.com/']")),
+        JAMES_SMITH_H2(By.xpath("//h1//span[contains(text(), 'James Smith')]"))
+
         ;
         private By path;
 

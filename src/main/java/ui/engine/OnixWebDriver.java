@@ -164,16 +164,6 @@ public class OnixWebDriver {
         return new OnixWebElement(e);
     }
 
-    public OnixWebDriver tabWhereTitleContains(String name) {
-        Set<String> tabs = driver.getWindowHandles();
-        for (String s : tabs) {
-            if (s.contains(name)) {
-                break;
-            }
-        }
-        return this;
-    }
-
     HashMap<String, String> tabs;
 
     public OnixWebDriver registerCurrentTab(String name) {
@@ -190,6 +180,7 @@ public class OnixWebDriver {
     public OnixWebDriver closeTabsExceptCurrent() {
         String current = driver.getWindowHandle();
         for(String s : driver.getWindowHandles()) {
+            driver.switchTo().window(s);
             if(!s.equals(current)) {
                 driver.close();
             }
@@ -225,5 +216,22 @@ public class OnixWebDriver {
     public OnixWebDriver hoverToElementLocated(OnixLocator locator) {
         return hoverToElementLocated(locator.getPath());
     }
+
+    public OnixWebDriver switchRecentlyOpenedTab(String nameForOldTab) {
+        this.registerCurrentTab(nameForOldTab);
+        for(String s : driver.getWindowHandles()) {
+            if(!s.equals(tabs.get(nameForOldTab))) {
+                driver.switchTo().window(s);
+            }
+        }
+        return this;
+    }
+
+    public OnixWebDriver back() {
+        driver.navigate().back();
+        return this;
+    }
+
+
 
 }
