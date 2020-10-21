@@ -1,6 +1,7 @@
 package ui.guest_mode.page_objects.main;
 
 
+import org.checkerframework.checker.units.qual.C;
 import org.openqa.selenium.By;
 import ui.BasePageObject;
 import ui.engine.OnixLocator;
@@ -50,6 +51,23 @@ public class Main extends BasePageObject implements Footer, MainHeader {
         driver.findElement(Locator.FACEBOOK_BUTTON_INTRODUCTION).click();
         driver.switchRecentlyOpenedTab("jsa");
         return new FacebookPage(driver);
+    }
+    public Challenge clickAboutChallengesButton() {
+        driver.findElement(Locator.ABOUT_CHALLENGES_MOTIVATION).click();
+        return new Challenge(driver);
+    }
+    public Transformations clickSeeMoreTransformationsButton() {
+        driver.findElement(Locator.TRANSFORMATIONS_BUTTON_MEMBER_TRANSFORMATIONS).click();
+        return new Transformations(driver);
+    }
+
+    public FamousDailyEmails cheaterClickFamousDailyEmail() {
+        String fakeEmail = "fakeEmail@gmail.com";
+        String script = "document.querySelector(\"button[type='submit']\").removeAttribute(\"disabled\")";
+        driver.findElement(Locator.EMAIL_INPUT_DAILY_EMAILS).sendKeys(fakeEmail);
+        driver.executeJsScript(script);
+        driver.findElement(Locator.SIGN_UP_DAILY_EMAILS).click();
+        return new FamousDailyEmails(driver);
     }
 
 

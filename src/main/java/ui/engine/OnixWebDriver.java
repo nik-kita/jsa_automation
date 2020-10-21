@@ -232,6 +232,11 @@ public class OnixWebDriver {
         return this;
     }
 
+    public OnixWebDriver executeJsScript(String script) {
+        ((JavascriptExecutor) driver).executeScript(script);
+        return this;
+    }
+
 
 
 }
