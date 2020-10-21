@@ -5,8 +5,10 @@ import org.openqa.selenium.By;
 import ui.BasePageObject;
 import ui.engine.OnixLocator;
 import ui.engine.OnixWebDriver;
+import ui.guest_mode.general_parts.Footer;
+import ui.guest_mode.general_parts.MainHeader;
 
-public class Pricing extends BasePageObject {
+public class Pricing extends BasePageObject implements MainHeader, Footer {
 
     public Pricing(OnixWebDriver driver) {
         super(driver);

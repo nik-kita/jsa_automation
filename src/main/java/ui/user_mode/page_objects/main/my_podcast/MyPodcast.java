@@ -4,8 +4,10 @@ import org.openqa.selenium.By;
 import ui.BasePageObject;
 import ui.engine.OnixLocator;
 import ui.engine.OnixWebDriver;
+import ui.user_mode.general_parts.Footer;
+import ui.user_mode.general_parts.MainHeader;
 
-public class MyPodcast extends BasePageObject {
+public class MyPodcast extends BasePageObject implements MainHeader, Footer {
     public MyPodcast(OnixWebDriver driver) {
         super(driver);
     }

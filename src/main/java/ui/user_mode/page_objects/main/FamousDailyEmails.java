@@ -1,11 +1,11 @@
-package ui.guest_mode.page_objects.main;
+package ui.user_mode.page_objects.main;
 
 import org.openqa.selenium.By;
 import ui.BasePageObject;
 import ui.engine.OnixLocator;
 import ui.engine.OnixWebDriver;
-import ui.guest_mode.general_parts.Footer;
-import ui.guest_mode.general_parts.MainHeader;
+import ui.user_mode.general_parts.Footer;
+import ui.user_mode.general_parts.MainHeader;
 
 public class FamousDailyEmails extends BasePageObject implements MainHeader, Footer {
     public FamousDailyEmails(OnixWebDriver driver) {
