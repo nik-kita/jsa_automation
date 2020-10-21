@@ -5,9 +5,8 @@ import org.openqa.selenium.By;
 import ui.BasePart;
 import ui.engine.OnixWebDriver;
 import ui.user_mode.general_parts.home.HomeHeaderPart;
-import ui.user_mode.general_parts.home.HomePart;
-import ui.user_mode.page_objects.Main;
-import ui.user_mode.page_objects.Pricing;
+import ui.user_mode.page_objects.main.Main;
+import ui.user_mode.page_objects.main.pricing.Pricing;
 
 public interface MainHeader extends BasePart {
 

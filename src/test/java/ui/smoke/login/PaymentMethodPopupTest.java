@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import ui.OnixAssert;
 import ui.engine.OnixLocator;
-import ui.user_mode.page_objects.PaymentMethodPopup;
+import ui.user_mode.page_objects.main.pricing.pricingplans.PaymentMethodPopup;
 
 public class PaymentMethodPopupTest extends JsaLoginBaseTestRunner {
     PaymentMethodPopup paymentMethodPopup;

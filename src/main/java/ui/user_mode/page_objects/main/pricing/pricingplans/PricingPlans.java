@@ -1,4 +1,4 @@
-package ui.user_mode.page_objects;
+package ui.user_mode.page_objects.main.pricing.pricingplans;
 
 
 import org.openqa.selenium.By;
@@ -6,18 +6,15 @@ import ui.BasePageObject;
 import ui.engine.OnixLocator;
 import ui.engine.OnixWebDriver;
 import ui.user_mode.general_parts.Footer;
+import ui.user_mode.page_objects.home.Home;
 
 public class PricingPlans extends BasePageObject implements Footer {
+    OnixLocator activeBlockButton = OnixLocator.makeOnixLocator(By.xpath("//*[contains(text(), 'Blocks')][@class='active']"));
     public PricingPlans(OnixWebDriver driver) {
         super(driver);
-//        try {
-//            Thread.sleep(4000);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-//        if(driver.findElements(PricingPlansLoginModePO.BlocksTabLocator.BUY_NOW_BUTTON).size() > 0) {
-//            this.clickSubscriptionsButton();
-//        }
+        if(driver.isElementPresent(activeBlockButton)) {
+            clickSubscriptionsButton();
+        }
     }
 
     public Home goHome() {

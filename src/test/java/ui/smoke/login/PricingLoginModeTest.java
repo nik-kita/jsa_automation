@@ -6,7 +6,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ui.OnixAssert;
 import ui.engine.OnixLocator;
-import ui.user_mode.page_objects.Pricing;
+import ui.user_mode.page_objects.main.pricing.Pricing;
 
 public class PricingLoginModeTest extends JsaLoginBaseTestRunner {
     @BeforeClass

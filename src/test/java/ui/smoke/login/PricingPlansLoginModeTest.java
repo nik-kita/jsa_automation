@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import ui.OnixAssert;
 import ui.engine.OnixLocator;
-import ui.user_mode.page_objects.PricingPlans;
+import ui.user_mode.page_objects.main.pricing.pricingplans.PricingPlans;
 
 public class PricingPlansLoginModeTest extends JsaLoginBaseTestRunner {
     PricingPlans pricingPlansLoginModePO;

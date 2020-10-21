@@ -1,4 +1,4 @@
-package ui.user_mode.page_objects;
+package ui.user_mode.page_objects.main.pricing;
 
 
 import org.openqa.selenium.By;
@@ -7,6 +7,7 @@ import ui.engine.OnixLocator;
 import ui.engine.OnixWebDriver;
 import ui.user_mode.general_parts.Footer;
 import ui.user_mode.general_parts.MainHeader;
+import ui.user_mode.page_objects.main.pricing.pricingplans.PricingPlans;
 
 public class Pricing extends BasePageObject implements Footer, MainHeader {
     public Pricing(OnixWebDriver driver) {

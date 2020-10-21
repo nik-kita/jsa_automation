@@ -1,4 +1,4 @@
-package ui.user_mode.page_objects;
+package ui.user_mode.page_objects.home;
 
 
 import org.openqa.selenium.By;
