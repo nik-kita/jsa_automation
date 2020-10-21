@@ -7,6 +7,9 @@ import ui.engine.OnixLocator;
 import ui.engine.OnixWebDriver;
 import ui.guest_mode.general_parts.Footer;
 import ui.guest_mode.general_parts.MainHeader;
+import ui.guest_mode.page_objects.main.create_account.CreateAccount;
+import ui.related_sites.AppStorePage;
+import ui.related_sites.GooglePlayPage;
 import ui.specific.JsaCookies;
 
 public class Main extends BasePageObject implements Footer, MainHeader {
@@ -15,10 +18,31 @@ public class Main extends BasePageObject implements Footer, MainHeader {
         JsaCookies.acceptIfCookiesPresent(driver);
     }
 
+    public CreateAccount clickGetStartedButton() {
+        driver.findElement(Locator.GET_STARTED_BUTTON).click();
+        return new CreateAccount(driver);
+    }
+
+    public GooglePlayPage clickPlayStoreBannerButton() {
+        driver.findElement(Locator.PLAY_STORE_BUTTON_BANNER).click();
+        return new GooglePlayPage(driver);
+    }
+    public GooglePlayPage clickPlayStoreButtonInDownloadSection() {
+        driver.findElement(Locator.PLAY_STORE_BUTTON_DOWNLOAD).click();
+        return new GooglePlayPage(driver);
+    }
+    public AppStorePage clickAppStoreBannerButton() {
+        driver.findElement(Locator.APPSTORE_BUTTON_BANNER).click();
+        return new AppStorePage(driver);
+    }
+    public AppStorePage clickAppStoreButtonInDownloadSection() {
+        driver.findElement(Locator.APPSTORE_BUTTON_DOWNLOAD).click();
+        return new AppStorePage(driver);
+    }
 
 
     public enum Locator implements OnixLocator {
-        GET_STARTED_BUTTON_BANNER(By.cssSelector(".banner a[href='/users/register/']")),
+        GET_STARTED_BUTTON(By.cssSelector(".banner a[href='/users/register/']")),
         PLAY_STORE_BUTTON_BANNER(By.cssSelector(".banner img[alt='playstore']")),
         APPSTORE_BUTTON_BANNER(By.cssSelector(".banner img[alt='appstore']")),
         INSTAGRAM_BUTTON_INTRODUCTION(By.cssSelector(".introduction .insta")),

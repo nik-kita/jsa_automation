@@ -1,5 +1,5 @@
 ####### My ignores ######
-ui.MyTest.java
+MyTest.java
 credentials.properties
 Laboratory.java
 allure-results/
