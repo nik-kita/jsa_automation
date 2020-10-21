@@ -1,24 +1,22 @@
-package ui.guest_mode.page_objects;
-
+package ui.guest_mode.page_objects.main.my_podcast;
 
 import org.openqa.selenium.By;
 import ui.BasePageObject;
 import ui.engine.OnixLocator;
 import ui.engine.OnixWebDriver;
-import ui.guest_mode.general_parts.Footer;
-import ui.guest_mode.general_parts.MainHeader;
 
-public class ResetPassword extends BasePageObject implements Footer, MainHeader {
-    public ResetPassword(OnixWebDriver driver) {
+public class PodcastEpisode extends BasePageObject {
+    public PodcastEpisode(OnixWebDriver driver) {
         super(driver);
     }
-
+    public MyPodcast clickBackToMyPodcast() {
+        driver.findElement(Locator.BACK_ARROW_LINK).click();
+        return new MyPodcast(driver);
+    }
     public enum Locator implements OnixLocator {
-        EMAIL_INPUT(By.cssSelector("input#id_email")),
-        ENTER_BUTTON(By.cssSelector("input[type='submit']"))
+        BACK_ARROW_LINK(By.cssSelector("[href='/podcasts/']")),
         ;
         private By path;
-
         Locator(By path) {
             this.path = path;
         }

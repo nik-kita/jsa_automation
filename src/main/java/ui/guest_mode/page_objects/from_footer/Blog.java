@@ -1,4 +1,4 @@
-package ui.guest_mode.page_objects;
+package ui.guest_mode.page_objects.from_footer;
 
 import org.openqa.selenium.By;
 import ui.BasePageObject;

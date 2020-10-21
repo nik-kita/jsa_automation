@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import ui.OnixAssert;
 import ui.OnixTestRunner;
 import ui.engine.OnixLocator;
-import ui.guest_mode.page_objects.Challenge;
+import ui.guest_mode.page_objects.main.Challenge;
 
 public class ChallengeTest extends OnixTestRunner {
 

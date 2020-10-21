@@ -1,9 +1,10 @@
-package ui.guest_mode.page_objects;
+package ui.guest_mode.page_objects.main.create_account;
 
 
 import org.openqa.selenium.By;
 import ui.engine.OnixLocator;
 import ui.engine.OnixWebDriver;
+import ui.guest_mode.page_objects.main.Main;
 
 public class CreateAccount {
     OnixWebDriver driver;

@@ -8,7 +8,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import ui.engine.OnixWebDriver;
-import ui.guest_mode.page_objects.Main;
+import ui.guest_mode.page_objects.main.Main;
 
 import java.util.HashMap;
 import java.util.Map;

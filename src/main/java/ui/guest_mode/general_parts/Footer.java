@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import ui.BasePart;
 import ui.engine.OnixLocator;
 import ui.engine.OnixWebDriver;
-import ui.guest_mode.page_objects.Blog;
+import ui.guest_mode.page_objects.from_footer.Blog;
 import ui.guest_mode.page_objects.from_footer.*;
 
 

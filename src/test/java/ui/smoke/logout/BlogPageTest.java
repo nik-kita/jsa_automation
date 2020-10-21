@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import ui.OnixAssert;
 import ui.OnixTestRunner;
 import ui.engine.OnixLocator;
-import ui.guest_mode.page_objects.Blog;
+import ui.guest_mode.page_objects.from_footer.Blog;
 
 public class BlogPageTest extends OnixTestRunner {
     Blog blogPO;

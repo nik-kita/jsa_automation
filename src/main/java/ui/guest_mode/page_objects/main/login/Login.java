@@ -1,4 +1,4 @@
-package ui.guest_mode.page_objects;
+package ui.guest_mode.page_objects.main.login;
 
 
 import org.openqa.selenium.By;
@@ -7,6 +7,7 @@ import ui.data.User;
 import ui.engine.OnixLocator;
 import ui.engine.OnixWebDriver;
 import ui.engine.OnixWebElement;
+import ui.guest_mode.page_objects.main.Main;
 import ui.user_mode.page_objects.home.Home;
 
 public class Login extends BasePageObject {

@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import ui.OnixAssert;
 import ui.OnixTestRunner;
 import ui.engine.OnixLocator;
-import ui.guest_mode.page_objects.ResetPassword;
+import ui.guest_mode.page_objects.main.login.ResetPassword;
 
 public class ResetPasswordTest extends OnixTestRunner {
     ResetPassword resetPasswordPO;

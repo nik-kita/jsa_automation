@@ -5,7 +5,9 @@ import org.openqa.selenium.By;
 import ui.BasePart;
 import ui.engine.OnixLocator;
 import ui.engine.OnixWebDriver;
-import ui.guest_mode.page_objects.*;
+import ui.guest_mode.page_objects.main.*;
+import ui.guest_mode.page_objects.main.create_account.CreateAccount;
+import ui.guest_mode.page_objects.main.login.Login;
 
 public interface MainHeader extends BasePart {
 

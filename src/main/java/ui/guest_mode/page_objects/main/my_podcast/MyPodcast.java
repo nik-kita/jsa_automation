@@ -1,4 +1,4 @@
-package ui.guest_mode.page_objects.my_podcast;
+package ui.guest_mode.page_objects.main.my_podcast;
 
 import org.openqa.selenium.By;
 import ui.BasePageObject;

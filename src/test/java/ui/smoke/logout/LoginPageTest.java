@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import ui.OnixAssert;
 import ui.OnixTestRunner;
 import ui.engine.OnixLocator;
-import ui.guest_mode.page_objects.Login;
+import ui.guest_mode.page_objects.main.login.Login;
 
 public class LoginPageTest extends OnixTestRunner {
     @BeforeClass

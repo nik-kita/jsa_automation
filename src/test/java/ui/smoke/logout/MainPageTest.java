@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import ui.OnixAssert;
 import ui.OnixTestRunner;
 import ui.engine.OnixLocator;
-import ui.guest_mode.page_objects.Main;
+import ui.guest_mode.page_objects.main.Main;
 
 public class MainPageTest extends OnixTestRunner {
 
