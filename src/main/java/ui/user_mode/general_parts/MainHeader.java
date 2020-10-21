@@ -27,7 +27,7 @@ public interface MainHeader extends BasePart {
         PRICING_HEADER_BUTTON(By.cssSelector(".nav a[href='/pricing/']")),
         TRANSFORMATIONS_HEADER_BUTTON(By.cssSelector(".nav a[href='/transformations/']")),
         CHALLENGE_HEADER_BUTTON(By.cssSelector(".nav a[href='/challenge/about/']")),
-
+        MY_PODCAST_HEADER_BUTTON(By.cssSelector(".nav a[href='/podcasts/']")),
         TO_USER_HOME_CORNER_LINK(By.cssSelector("[href='/users/']")),
 
 

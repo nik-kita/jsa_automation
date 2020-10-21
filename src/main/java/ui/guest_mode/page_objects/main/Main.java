@@ -1,14 +1,13 @@
 package ui.guest_mode.page_objects.main;
 
 
-import org.checkerframework.checker.units.qual.C;
 import org.openqa.selenium.By;
 import ui.BasePageObject;
 import ui.engine.OnixLocator;
 import ui.engine.OnixWebDriver;
 import ui.guest_mode.general_parts.Footer;
 import ui.guest_mode.general_parts.MainHeader;
-import ui.guest_mode.page_objects.main.create_account.CreateAccount;
+import ui.guest_mode.page_objects.main.login.CreateAccount;
 import ui.related_sites.AppStorePage;
 import ui.related_sites.FacebookPage;
 import ui.related_sites.GooglePlayPage;

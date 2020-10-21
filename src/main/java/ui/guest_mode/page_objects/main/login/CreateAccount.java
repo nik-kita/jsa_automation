@@ -1,9 +1,10 @@
-package ui.guest_mode.page_objects.main.create_account;
+package ui.guest_mode.page_objects.main.login;
 
 
 import org.openqa.selenium.By;
 import ui.engine.OnixLocator;
 import ui.engine.OnixWebDriver;
+import ui.guest_mode.page_objects.from_footer.TermsOfService;
 import ui.guest_mode.page_objects.main.Main;
 
 public class CreateAccount {
@@ -15,6 +16,16 @@ public class CreateAccount {
     public Main goMainPage() {
         driver.findElement(Locator.JSA_LOGO).click();
         return new Main(driver);
+    }
+
+    public Login clickSignInButton() {
+        driver.findElement(Locator.SIGN_IN_BUTTON).click();
+        return new Login(driver);
+    }
+
+    public TermsOfService clickTermsOfServiceLink() {
+        driver.findElement(Locator.TERMS_OF_SERVICE_LINK).click();
+        return new TermsOfService(driver);
     }
 
     public enum Locator implements OnixLocator {

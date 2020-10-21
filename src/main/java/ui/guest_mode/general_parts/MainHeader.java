@@ -6,8 +6,9 @@ import ui.BasePart;
 import ui.engine.OnixLocator;
 import ui.engine.OnixWebDriver;
 import ui.guest_mode.page_objects.main.*;
-import ui.guest_mode.page_objects.main.create_account.CreateAccount;
+import ui.guest_mode.page_objects.main.login.CreateAccount;
 import ui.guest_mode.page_objects.main.login.Login;
+import ui.guest_mode.page_objects.main.my_podcast.MyPodcast;
 
 public interface MainHeader extends BasePart {
 
@@ -46,6 +47,11 @@ public interface MainHeader extends BasePart {
         driver.findElement(HeaderLocator.JOIN_NOW_HEADER_BUTTON).click();
         return new CreateAccount(driver);
     }
+    default MyPodcast goMyPodcastPage() {
+        OnixWebDriver driver = getDriver();
+        driver.findElement(HeaderLocator.MY_PODCAST_HEADER_BUTTON).click();
+        return new MyPodcast(driver);
+    }
 
     enum HeaderLocator implements OnixLocator {
         JSA_LOGO(By.cssSelector("a[href='/'] img")),
@@ -53,6 +59,7 @@ public interface MainHeader extends BasePart {
         PRICING_HEADER_BUTTON(By.cssSelector(".nav a[href='/pricing/']")),
         TRANSFORMATIONS_HEADER_BUTTON(By.cssSelector(".nav a[href='/transformations/']")),
         CHALLENGE_HEADER_BUTTON(By.cssSelector(".nav a[href='/challenge/about/']")),
+        MY_PODCAST_HEADER_BUTTON(By.cssSelector(".nav a[href='/podcasts/']")),
         LOGIN_HEADER_BUTTON(By.cssSelector(".nav a[href='/users/login/']")),
         JOIN_NOW_HEADER_BUTTON(By.cssSelector(".nav a[href='/users/register/']")),
 

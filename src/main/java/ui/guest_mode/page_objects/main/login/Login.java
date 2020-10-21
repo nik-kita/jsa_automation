@@ -55,6 +55,11 @@ public class Login extends BasePageObject {
                 .login(user.getFacebookEmail(), user.getFacebookPassword());
     }
 
+    public CreateAccount clickCreateAccountButton() {
+        driver.findElement(Locator.CREATE_ACCOUNT_LINK).click();
+        return new CreateAccount(driver);
+    }
+
     private class FB {
         OnixWebDriver driver;
         public FB(OnixWebDriver driver) {

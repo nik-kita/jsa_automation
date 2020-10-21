@@ -7,10 +7,16 @@ import ui.engine.OnixLocator;
 import ui.engine.OnixWebDriver;
 import ui.guest_mode.general_parts.Footer;
 import ui.guest_mode.general_parts.MainHeader;
+import ui.guest_mode.page_objects.main.login.CreateAccount;
 
 public class Challenge extends BasePageObject implements Footer, MainHeader {
     public Challenge(OnixWebDriver driver) {
         super(driver);
+    }
+
+    public CreateAccount clickCreateAccountButton() {
+        driver.findElement(Locator.CREATE_ACCOUNT_BUTTON_INNER_PAGE).click();
+        return new CreateAccount(driver);
     }
 
 
