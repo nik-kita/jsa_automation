@@ -7,6 +7,8 @@ import org.testng.annotations.Test;
 import ui.OnixAssert;
 import ui.OnixTestRunner;
 import ui.engine.OnixLocator;
+import ui.guest_mode.general_parts.Footer;
+import ui.guest_mode.general_parts.MainHeader;
 import ui.guest_mode.page_objects.main.Main;
 
 public class MainPageTest extends OnixTestRunner {
@@ -16,17 +18,6 @@ public class MainPageTest extends OnixTestRunner {
         openSite();
     }
 
-    @Test(dataProvider = "getGeneralHeaderLocators")
-    public void generalHeaderTest(OnixLocator locator) {
-        openSite();
-        new OnixAssert(getDriver()).
-                checkCountOfElementByLocator(locator, 1);
-    }
-
-    @DataProvider
-    public Object[] getGeneralHeaderLocators() {
-        return Main.HeaderLocator.values();
-    }
 
     @Test(dataProvider = "getMainPageLocators")
     public void mainPageTest(OnixLocator locator) {
@@ -36,17 +27,10 @@ public class MainPageTest extends OnixTestRunner {
 
     @DataProvider
     public Object[] getMainPageLocators() {
-        return Main.Locator.values();
-    }
-
-    @Test(dataProvider = "getGeneralFooterLocators")
-    public void generalFooterTest(OnixLocator locator) {
-        new OnixAssert(getDriver()).
-                checkCountOfElementByLocator(locator, 1);
-    }
-
-    @DataProvider
-    public Object[] getGeneralFooterLocators() {
-        return Main.FooterLocator.values();
+        return mergeArrays(
+                Main.Locator.values(),
+                Main.HeaderLocator.values(),
+                Main.FooterLocator.values()
+        );
     }
 }

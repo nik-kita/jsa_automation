@@ -1,4 +1,4 @@
-package ui.guest_mode.main;
+package ui.user_mode.main;
 
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
@@ -6,15 +6,14 @@ import org.testng.annotations.Test;
 import ui.OnixAssert;
 import ui.OnixTestRunner;
 import ui.engine.OnixLocator;
-import ui.guest_mode.general_parts.Footer;
-import ui.guest_mode.general_parts.MainHeader;
-import ui.guest_mode.page_objects.main.FamousDailyEmails;
+import ui.user_mode.JsaLoginBaseTestRunner;
+import ui.user_mode.page_objects.main.FamousDailyEmails;
 
-public class FamousDailyEmailsTest extends OnixTestRunner {
+public class FamousDailyEmailsTest extends JsaLoginBaseTestRunner {
     FamousDailyEmails famousDailyEmails;
     @BeforeClass
     public void goFamousDailyEmails() {
-        famousDailyEmails = openSite().cheaterClickFamousDailyEmail();
+        famousDailyEmails = homeLoginModePO.goMainPage().cheaterClickFamousDailyEmail();
     }
     @Test(dataProvider = "getFamousEmailsLocators")
     public void famousDailyEmailsTest(OnixLocator locator) {

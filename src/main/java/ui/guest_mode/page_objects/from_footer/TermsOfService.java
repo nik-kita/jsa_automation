@@ -19,7 +19,7 @@ public class TermsOfService extends BasePageObject implements Footer, MainHeader
     }
 
     public enum Locator implements OnixLocator {
-        H4_TITLE(By.xpath("//h4[contains(text(), 'Services Terms'")),
+        H4_TITLE(By.xpath("//h4[contains(text(), 'Services Terms')]")),
 
 
         ;

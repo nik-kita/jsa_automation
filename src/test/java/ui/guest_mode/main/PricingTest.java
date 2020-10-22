@@ -6,6 +6,8 @@ import org.testng.annotations.Test;
 import ui.OnixAssert;
 import ui.OnixTestRunner;
 import ui.engine.OnixLocator;
+import ui.guest_mode.general_parts.Footer;
+import ui.guest_mode.general_parts.MainHeader;
 import ui.guest_mode.page_objects.main.Pricing;
 
 public class PricingTest extends OnixTestRunner {
@@ -22,6 +24,10 @@ public class PricingTest extends OnixTestRunner {
 
     @DataProvider
     public Object[] getPricingLocators() {
-        return Pricing.Locator.values();
+        return mergeArrays(
+                Pricing.Locator.values(),
+                Pricing.FooterLocator.values(),
+                Pricing.HeaderLocator.values()
+        );
     }
 }

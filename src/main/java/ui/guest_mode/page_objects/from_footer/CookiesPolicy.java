@@ -17,7 +17,7 @@ public class CookiesPolicy extends BasePageObject implements MainHeader, Footer 
     }
 
     public enum Locator implements OnixLocator {
-        H4_TITLE(By.xpath("//h4[contains(text(), 'Cookies Policy'")),
+        H4_TITLE(By.xpath("//h4[contains(text(), 'Cookies Policy')]")),
 
 
         ;

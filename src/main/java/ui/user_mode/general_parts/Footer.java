@@ -4,14 +4,52 @@ import ui.engine.OnixWebDriver;
 import ui.engine.OnixLocator;
 import org.openqa.selenium.By;
 import ui.BasePart;
+import ui.user_mode.page_objects.from_footer.*;
+import ui.user_mode.page_objects.from_footer.faqs.Faqs;
 
 
 public interface Footer extends BasePart {
-//    default BlogPO goBlogPageFromFooter() {
-//        OnixWebDriver driver = getDriver();
-//        driver.findElement(FooterLocator.BLOG_SUPPORT_LINK).click();
-//        return new BlogPO(driver);
-//    }
+
+default Blog goBlogPageFromFooter() {
+    OnixWebDriver driver = getDriver();
+    driver.findElement(ui.guest_mode.general_parts.Footer.FooterLocator.BLOG_SUPPORT_LINK).click();
+    return new Blog(driver);
+}
+    default CookiesPolicy goCookiesPolicyFromFooter() {
+        OnixWebDriver driver = getDriver();
+        driver.findElement(ui.guest_mode.general_parts.Footer.FooterLocator.COOKIES_POLICY_LINK).click();
+        return new CookiesPolicy(driver);
+    }
+    default PrivacyPolicy goPrivacyPolicyFromFooter() {
+        OnixWebDriver driver = getDriver();
+        driver.findElement(ui.guest_mode.general_parts.Footer.FooterLocator.PRIVACY_POLICY_LINK).click();
+        return new PrivacyPolicy(driver);
+    }
+    default TermsOfService goTermsOfServiceFromFooter() {
+        OnixWebDriver driver = getDriver();
+        driver.findElement(ui.guest_mode.general_parts.Footer.FooterLocator.TERMS_OF_SERVICE_LINK).click();
+        return new TermsOfService(driver);
+    }
+    default ReportBugs goReportBugsFromFooter() {
+        OnixWebDriver driver = getDriver();
+        driver.findElement(ui.guest_mode.general_parts.Footer.FooterLocator.BUG_SUPPORT_LINK).click();
+        return new ReportBugs(driver);
+    }
+    default ContactUs goContactUsFromFooter() {
+        OnixWebDriver driver = getDriver();
+        driver.findElement(ui.guest_mode.general_parts.Footer.FooterLocator.CONTACT_US_LINK).click();
+        return new ContactUs(driver);
+    }
+    default AccessAndDownload goAccessAndDownloadFromFooter() {
+        OnixWebDriver driver = getDriver();
+        driver.findElement(ui.guest_mode.general_parts.Footer.FooterLocator.ACCESS_LINK).click();
+        return new AccessAndDownload(driver);
+    }
+    default Faqs goFaqsFromFooter() {
+        OnixWebDriver driver = getDriver();
+        driver.findElement(ui.guest_mode.general_parts.Footer.FooterLocator.FAQS_LINK).click();
+        return new Faqs(driver);
+    }
 
     OnixWebDriver getDriver();
 

@@ -42,12 +42,12 @@ public interface MainHeader extends BasePart {
         return new Login(driver);
     }
 
-    default CreateAccount goJoinNowPage() {
+    default CreateAccount goCreateAccountPage() {
         OnixWebDriver driver = getDriver();
         driver.findElement(HeaderLocator.JOIN_NOW_HEADER_BUTTON).click();
         return new CreateAccount(driver);
     }
-    default MyPodcast goMyPodcastPage() {
+    default MyPodcast goMyPodcastPageFromHeader() {
         OnixWebDriver driver = getDriver();
         driver.findElement(HeaderLocator.MY_PODCAST_HEADER_BUTTON).click();
         return new MyPodcast(driver);

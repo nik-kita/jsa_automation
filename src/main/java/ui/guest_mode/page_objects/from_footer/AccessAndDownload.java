@@ -1,15 +1,15 @@
-package ui.user_mode.page_objects.from_footer;
+package ui.guest_mode.page_objects.from_footer;
 
 import org.openqa.selenium.By;
 import ui.BasePageObject;
 import ui.engine.OnixLocator;
 import ui.engine.OnixWebDriver;
-import ui.user_mode.general_parts.Footer;
-import ui.user_mode.general_parts.MainHeader;
+import ui.guest_mode.general_parts.Footer;
+import ui.guest_mode.general_parts.MainHeader;
 
-public class AccessAndDowload extends BasePageObject implements MainHeader, Footer {
+public class AccessAndDownload extends BasePageObject implements MainHeader, Footer {
 
-    public AccessAndDowload(OnixWebDriver driver) {
+    public AccessAndDownload(OnixWebDriver driver) {
         super(driver);
     }
 
@@ -18,7 +18,7 @@ public class AccessAndDowload extends BasePageObject implements MainHeader, Foot
     }
 
     public enum Locator implements OnixLocator {
-        H4_TITLE(By.xpath("//h4[contains(text(), 'Access & Download'")),
+        H4_TITLE(By.xpath("//h4[contains(text(), 'Access & Download')]")),
 
 
         ;

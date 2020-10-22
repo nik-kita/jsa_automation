@@ -17,7 +17,7 @@ public class PrivacyPolicy extends BasePageObject implements MainHeader, Footer 
     }
 
     public enum Locator implements OnixLocator {
-        H4_TITLE(By.xpath("//h4[contains(text(), 'Privacy Policy'")),
+        H4_TITLE(By.xpath("//h4[contains(text(), 'Privacy Policy')]")),
 
 
         ;

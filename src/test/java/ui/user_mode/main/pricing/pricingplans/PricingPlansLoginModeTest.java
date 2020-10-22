@@ -1,4 +1,4 @@
-package ui.user_mode.main.pricing;
+package ui.user_mode.main.pricing.pricingplans;
 
 
 import org.testng.annotations.BeforeClass;

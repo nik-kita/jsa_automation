@@ -1,4 +1,4 @@
-package ui.guest_mode.main;
+package ui.guest_mode;
 
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;

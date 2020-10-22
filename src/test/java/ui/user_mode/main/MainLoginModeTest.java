@@ -16,14 +16,7 @@ public class MainLoginModeTest extends JsaLoginBaseTestRunner {
         mainLoginModePO = homeLoginModePO.goMainPage();
     }
 
-    @Test(dataProvider = "getGeneralHeaderLoginModeLocators")
-    public void generalHeaderLoginModeTest(OnixLocator locator) {
-        new OnixAssert(driver).checkCountOfElementByLocator(locator, 1);
-    }
-    @DataProvider
-    public Object[] getGeneralHeaderLoginModeLocators() {
-        return Main.HeaderLocator.values();
-    }
+
 
     @Test(dataProvider = "getMainPageLocators")
     public void checkMainPageSameAsLogout(OnixLocator locator) {
@@ -33,18 +26,13 @@ public class MainLoginModeTest extends JsaLoginBaseTestRunner {
 
     @DataProvider
     public Object[] getMainPageLocators() {
-        return Main.Locator.values();
+        return mergeArrays(
+                Main.Locator.values(),
+                Main.HeaderLocator.values(),
+                Main.FooterLocator.values()
+        );
     }
 
-    @Test(dataProvider = "getGeneralFooterLocators")
-    public void checkGeneralFooterSameAsLogoutTest(OnixLocator locator) {
-        new OnixAssert(getDriver()).
-                checkCountOfElementByLocator(locator, 1);
-    }
 
-    @DataProvider
-    public Object[] getGeneralFooterLocators() {
-        return Main.FooterLocator.values();
-    }
 
 }

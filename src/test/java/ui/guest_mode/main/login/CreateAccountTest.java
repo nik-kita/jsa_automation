@@ -8,19 +8,19 @@ import ui.OnixTestRunner;
 import ui.engine.OnixLocator;
 import ui.guest_mode.page_objects.main.login.CreateAccount;
 
-public class JoinNowPageTest extends OnixTestRunner {
+public class CreateAccountTest extends OnixTestRunner {
     @BeforeClass
-    public void goJoinNowPage() {
-        openSite().goJoinNowPage();
+    public void goCreateAccount() {
+        openSite().goCreateAccountPage();
     }
 
-    @Test(dataProvider = "getJoinNowLocators")
+    @Test(dataProvider = "getCreateAccountLocators")
     public void joinNowPageTest(OnixLocator locator) {
         new OnixAssert(driver).checkCountOfElementByLocator(locator, 1);
     }
 
     @DataProvider
-    public Object[] getJoinNowLocators() {
+    public Object[] getCreateAccountLocators() {
         return CreateAccount.Locator.values();
     }
 }
