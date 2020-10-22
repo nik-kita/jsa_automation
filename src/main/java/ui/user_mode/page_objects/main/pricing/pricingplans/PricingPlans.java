@@ -35,6 +35,7 @@ public class PricingPlans extends BasePageObject implements Footer {
 
     public PaymentMethodPopup buyNow() {
         clickBlocksButton();
+        driver.scrollPageDown();
         driver.findElement(BlocksTabLocator.BUY_NOW_BUTTON).click();
         return new PaymentMethodPopup(driver);
     }
@@ -45,7 +46,7 @@ public class PricingPlans extends BasePageObject implements Footer {
     }
 
     public PricingPlans clickSubscriptionsButton() {
-        driver.scrollPageDown();
+        driver.scrollPageUp();
         driver.findElement(Locator.SUBSCRIPTIONS_BUTTON).click();
         return this;
     }

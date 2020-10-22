@@ -17,7 +17,7 @@ public class Faqs extends BasePageObject implements MainHeader, Footer {
     }
 
     public enum Locator implements OnixLocator {
-        H1_TITLE(By.xpath("//h1[contains(text(), 'How can we help?'")),
+        H1_TITLE(By.xpath("//h1[contains(text(), 'How can we help?')]")),
 
 
         ;

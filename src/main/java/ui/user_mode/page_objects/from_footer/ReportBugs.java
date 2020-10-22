@@ -17,7 +17,7 @@ public class ReportBugs extends BasePageObject implements MainHeader, Footer {
     }
 
     public enum Locator implements OnixLocator {
-        H1_TITLE(By.xpath("//h1[contains(text(), 'Report Bugs'")),
+        H1_TITLE(By.xpath("//h1[contains(text(), 'Report Bugs')]")),
 
 
         ;

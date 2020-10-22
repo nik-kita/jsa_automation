@@ -18,7 +18,7 @@ public class AccessAndDownload extends BasePageObject implements MainHeader, Foo
     }
 
     public enum Locator implements OnixLocator {
-        H4_TITLE(By.xpath("//h4[contains(text(), 'Access & Download'")),
+        H4_TITLE(By.xpath("//h4[contains(text(), 'Access & Download')]")),
 
 
         ;

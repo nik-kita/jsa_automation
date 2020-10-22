@@ -30,6 +30,14 @@ public class OnixTestRunner {
         // Set the notification setting it will override the default setting
         prefs.put("profile.default_content_setting_values.notifications", 2);
         ChromeOptions options = new ChromeOptions();
+        //--------
+        options.addArguments("--start-maximized");
+        options.addArguments("--disable-web-security");
+        options.addArguments("--no-proxy-server");
+        options.setExperimentalOption("prefs", prefs);
+        prefs.put("credentials_enable_service", false);
+        prefs.put("profile.password_manager_enabled", false);
+        //--------
         //chrome notification about automation will not displayed
         options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
         options.setExperimentalOption("prefs", prefs);
