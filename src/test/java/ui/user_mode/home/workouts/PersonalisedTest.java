@@ -7,7 +7,7 @@ import ui.OnixAssert;
 import ui.engine.OnixLocator;
 import ui.user_mode.JsaLoginBaseTestRunner;
 
-import ui.user_mode.page_objects.home.workouts.Personalised;
+import ui.user_mode.page_objects.home_header.workouts.Personalised;
 
 public class PersonalisedTest extends JsaLoginBaseTestRunner {
     @BeforeClass

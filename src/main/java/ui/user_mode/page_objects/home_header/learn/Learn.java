@@ -1,4 +1,4 @@
-package ui.user_mode.page_objects.home.learn;
+package ui.user_mode.page_objects.home_header.learn;
 
 import org.openqa.selenium.By;
 import ui.BasePageObject;

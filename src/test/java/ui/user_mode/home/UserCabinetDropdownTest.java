@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 import ui.OnixAssert;
 import ui.engine.OnixLocator;
 import ui.user_mode.JsaLoginBaseTestRunner;
-import ui.user_mode.page_objects.home.UserCabinetDropdown;
+import ui.user_mode.page_objects.home_header.UserCabinetDropdown;
 
 public class UserCabinetDropdownTest extends JsaLoginBaseTestRunner {
     @Test(dataProvider = "getUserCabinetDropdownLocators")

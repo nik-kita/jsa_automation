@@ -8,7 +8,7 @@ import ui.engine.OnixLocator;
 import ui.user_mode.JsaLoginBaseTestRunner;
 import ui.user_mode.general_parts.home.HomeHeaderPart;
 import ui.user_mode.general_parts.home.HomePart;
-import ui.user_mode.page_objects.home.nutrition.Meals;
+import ui.user_mode.page_objects.home_header.nutrition.Meals;
 
 public class MealsTest extends JsaLoginBaseTestRunner {
     @BeforeClass

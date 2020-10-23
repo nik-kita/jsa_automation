@@ -1,4 +1,4 @@
-package ui.user_mode.page_objects.home.workouts;
+package ui.user_mode.page_objects.home_header.workouts;
 
 import org.openqa.selenium.By;
 import ui.BasePageObject;

@@ -5,16 +5,13 @@ import org.openqa.selenium.By;
 import ui.BasePageObject;
 import ui.engine.OnixLocator;
 import ui.engine.OnixWebDriver;
-import ui.user_mode.page_objects.main.FamousDailyEmails;
-import ui.user_mode.page_objects.main.Challenge;
-import ui.user_mode.page_objects.main.Transformations;
 import ui.related_sites.AppStorePage;
 import ui.related_sites.FacebookPage;
 import ui.related_sites.GooglePlayPage;
 import ui.related_sites.InstagramPage;
 import ui.user_mode.general_parts.Footer;
 import ui.user_mode.general_parts.MainHeader;
-import ui.user_mode.page_objects.home.Home;
+import ui.user_mode.page_objects.home_header.home.Home;
 
 public class Main extends BasePageObject implements Footer, MainHeader {
     public Main(OnixWebDriver driver) {

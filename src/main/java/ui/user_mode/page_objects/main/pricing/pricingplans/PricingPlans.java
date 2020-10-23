@@ -5,10 +5,12 @@ import org.openqa.selenium.By;
 import ui.BasePageObject;
 import ui.engine.OnixLocator;
 import ui.engine.OnixWebDriver;
+import ui.guest_mode.page_objects.main.Challenge;
 import ui.user_mode.general_parts.Footer;
-import ui.user_mode.page_objects.home.Home;
+import ui.user_mode.general_parts.home.account.AccountHeader;
+import ui.user_mode.page_objects.home_header.home.Home;
 
-public class PricingPlans extends BasePageObject implements Footer {
+public class PricingPlans extends BasePageObject implements Footer, AccountHeader {
     OnixLocator activeBlockButton = OnixLocator.makeOnixLocator(By.xpath("//*[contains(text(), 'Blocks')][@class='active']"));
     public PricingPlans(OnixWebDriver driver) {
         super(driver);
@@ -18,7 +20,7 @@ public class PricingPlans extends BasePageObject implements Footer {
     }
 
     public Home goHome() {
-        driver.findElement(Locator.HOME_HEADER_BUTTON).click();
+        driver.findElement(AccountHeaderLocator.HOME_HEADER_BUTTON).click();
         return new Home(driver);
     }
 
@@ -53,11 +55,6 @@ public class PricingPlans extends BasePageObject implements Footer {
 
 
     public enum Locator implements OnixLocator {
-        JSA_LOGO(By.cssSelector("a[href='/'] img")),
-        HOME_HEADER_BUTTON(By.cssSelector(".nav [href='/users/']")),
-        ACCOUNT_HEADER_BUTTON(By.cssSelector(".nav [href='/users/account/']")),
-        PRICING_PLANS_HEADER_BUTTON(By.cssSelector(".nav [href='/users/pricing/']")),
-        LOGOUT_BUTTON(By.cssSelector(".login[href='/accounts/logout']")),
         SUBSCRIPTIONS_BUTTON(By.xpath("//*[contains(text(), 'Subscriptions')]")),
         BLOCKS_BUTTON(By.xpath("//*[contains(text(), 'Blocks')]")),
         SUBSCRIBE_BTN_STANDARD_PLAN(By.id("standardSubscriptionButton")),

@@ -8,7 +8,7 @@ import ui.engine.OnixLocator;
 import ui.user_mode.JsaLoginBaseTestRunner;
 import ui.user_mode.general_parts.home.HomeHeaderPart;
 import ui.user_mode.general_parts.home.HomePart;
-import ui.user_mode.page_objects.home.nutrition.ShoppingLists;
+import ui.user_mode.page_objects.home_header.nutrition.ShoppingLists;
 
 public class ShoppingListsTest extends JsaLoginBaseTestRunner {
     @BeforeClass

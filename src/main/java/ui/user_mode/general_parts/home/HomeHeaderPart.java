@@ -4,12 +4,12 @@ import org.openqa.selenium.By;
 import ui.BasePart;
 import ui.engine.OnixLocator;
 import ui.engine.OnixWebDriver;
-import ui.user_mode.page_objects.home.Home;
+import ui.user_mode.page_objects.home_header.home.Home;
 import ui.user_mode.page_objects.main.Main;
-import ui.user_mode.page_objects.home.UserCabinetDropdown;
-import ui.user_mode.page_objects.home.learn.Learn;
-import ui.user_mode.page_objects.home.nutrition.Meals;
-import ui.user_mode.page_objects.home.workouts.Personalised;
+import ui.user_mode.page_objects.home_header.UserCabinetDropdown;
+import ui.user_mode.page_objects.home_header.learn.Learn;
+import ui.user_mode.page_objects.home_header.nutrition.Meals;
+import ui.user_mode.page_objects.home_header.workouts.Personalised;
 
 public interface HomeHeaderPart extends BasePart {
     default UserCabinetDropdown openUserDropDown() {

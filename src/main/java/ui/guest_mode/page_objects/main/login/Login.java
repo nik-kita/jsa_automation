@@ -8,7 +8,7 @@ import ui.engine.OnixLocator;
 import ui.engine.OnixWebDriver;
 import ui.engine.OnixWebElement;
 import ui.guest_mode.page_objects.main.Main;
-import ui.user_mode.page_objects.home.Home;
+import ui.user_mode.page_objects.home_header.home.Home;
 
 public class Login extends BasePageObject {
 

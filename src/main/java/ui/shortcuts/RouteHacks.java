@@ -5,7 +5,7 @@ import ui.BasePageObject;
 import ui.data.User;
 import ui.engine.OnixWebDriver;
 import ui.guest_mode.page_objects.main.login.Login;
-import ui.user_mode.page_objects.home.Home;
+import ui.user_mode.page_objects.home_header.home.Home;
 
 public class RouteHacks extends BasePageObject {
     OnixWebDriver driver;

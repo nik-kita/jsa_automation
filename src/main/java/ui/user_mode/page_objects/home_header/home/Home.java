@@ -1,4 +1,4 @@
-package ui.user_mode.page_objects.home;
+package ui.user_mode.page_objects.home_header.home;
 
 import org.openqa.selenium.By;
 import ui.BasePageObject;
@@ -11,10 +11,15 @@ public class Home extends BasePageObject implements HomePart {
         super(driver);
     }
 
+    public Account clickAccountIcon() {
+        driver.findElement(Locator.MY_PLAN_ACCOUNT_ICON_LINK).click();
+        return new Account(driver);
+    }
+
 
 
     public enum Locator implements OnixLocator {
-        MY_PLAN_IMG_LINK(By.cssSelector("[href='/users/account/my-plan")),
+        MY_PLAN_ACCOUNT_ICON_LINK(By.cssSelector("[href='/users/account/my-plan")),
         GET_STARTED_6_STEPS_DIV_LINK(By.cssSelector("[href='#/home/step-two']")),
         MY_GOAL_DIV_LINK(By.cssSelector("[href='#/home/my-goal']")),
         STEPS_DIV_LINK(By.cssSelector("[href='#/home/steps']")),

@@ -7,7 +7,7 @@ import ui.OnixAssert;
 import ui.engine.OnixLocator;
 import ui.user_mode.JsaLoginBaseTestRunner;
 import ui.user_mode.general_parts.home.HomeHeaderPart;
-import ui.user_mode.page_objects.home.learn.SearchVideos;
+import ui.user_mode.page_objects.home_header.learn.SearchVideos;
 
 public class SearchVideosTest extends JsaLoginBaseTestRunner {
     @BeforeClass
