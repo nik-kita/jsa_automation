@@ -1,5 +1,6 @@
 package ui.engine;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 public class OnixWebElement {
@@ -19,5 +20,16 @@ public class OnixWebElement {
 
     public void sendKeys(CharSequence keysToSend) {
         element.sendKeys(keysToSend);
+    }
+
+    public String text() {
+        return element.getText();
+    }
+
+    public OnixWebElement findElementInsideThis(OnixLocator locator) {
+        return new OnixWebElement(element.findElement(locator.getPath()));
+    }
+    public OnixWebElement findElementInsideThis(By path) {
+        return new OnixWebElement(element.findElement(path));
     }
 }
