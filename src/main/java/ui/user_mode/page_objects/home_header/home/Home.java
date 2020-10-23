@@ -5,6 +5,7 @@ import ui.BasePageObject;
 import ui.engine.OnixLocator;
 import ui.engine.OnixWebDriver;
 import ui.user_mode.general_parts.home.HomePart;
+import ui.user_mode.page_objects.home_header.home.my_goal.MyGoal;
 
 public class Home extends BasePageObject implements HomePart {
     public Home(OnixWebDriver driver) {
@@ -14,6 +15,10 @@ public class Home extends BasePageObject implements HomePart {
     public Account clickAccountIcon() {
         driver.findElement(Locator.MY_PLAN_ACCOUNT_ICON_LINK).click();
         return new Account(driver);
+    }
+    public MyGoal clickMyGoalLink() {
+        driver.findElement(Locator.MY_GOAL_DIV_LINK).click();
+        return new MyGoal(driver);
     }
 
 

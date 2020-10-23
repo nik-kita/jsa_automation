@@ -23,13 +23,14 @@ public class MyGoal extends BasePageObject implements HomeHeaderPart {
         return driver.findElements(weeklyGoal).size();
     }
     public MyGoal clickAcceptWeeklyGoal(String name) {
-        OnixWebElement e = driver.findElement(By.xpath(String.format("//div[@class='weekly_goal_list_item']//p[contains(text(), '%s')]", name)));
+        OnixWebElement e = driver.findElement(By.xpath(String.format("//p[contains(text(), '%s')]/../../..", name)));
         e.findElementInsideThis(By.cssSelector("img.save_goal")).click();
         return this;
     }
     public MyGoal clickDeleteWeeklyGoal(String name) {
-        OnixWebElement e = driver.findElement(By.xpath(String.format("//div[@class='weekly_goal_list_item']//p[contains(text(), '%s')]", name)));
+        OnixWebElement e = driver.findElement(By.xpath(String.format("//p[contains(text(), '%s')]/../../..", name)));
         e.findElementInsideThis(By.cssSelector("img.delete_goal")).click();
+        driver.alertAccept();
         return this;
     }
     public MyGoal clickAcceptWeeklyGoal(int number) {
@@ -40,11 +41,13 @@ public class MyGoal extends BasePageObject implements HomeHeaderPart {
     public MyGoal clickDeleteWeeklyGoal(int number) {
         OnixWebElement e = driver.findElements(weeklyGoal).get(number);
         e.findElementInsideThis(By.cssSelector("img.delete_goal")).click();
+        driver.alertAccept();
         return this;
     }
     public MyGoal removeAllWeeklyGoals() {
         for(OnixWebElement e : driver.findElements(weeklyGoal)) {
             e.findElementInsideThis(By.cssSelector("img.delete_goal")).click();
+            driver.alertAccept();
         }
         return this;
     }
@@ -82,6 +85,10 @@ public class MyGoal extends BasePageObject implements HomeHeaderPart {
         driver.findElement(Locator.SAVE_BUTTON).click();
         return this;
     }
+    public NewWeeklyGoal clickNewGoalButton() {
+        driver.findElement(Locator.NEW_GOAL_BUTTON).click();
+        return new NewWeeklyGoal(driver);
+    }
 
 
     public enum Locator implements OnixLocator {
@@ -89,7 +96,7 @@ public class MyGoal extends BasePageObject implements HomeHeaderPart {
         GOAL_SELECT(By.cssSelector("select[name='goalCategory']")),
         MORE_DETAIL_TEXTAREA(By.cssSelector("textarea[name='goal']")),
         SAVE_BUTTON(By.xpath("//button[contains(text(), 'Save')]")),
-        NEW_GOAL_BUTTON(By.xpath("div[contains(@class, 'main_goal')]//button[text()='New Goal']")),
+        NEW_GOAL_BUTTON(By.xpath("//div[contains(@class, 'weekly_goal_list')]//button[text()='New Goal']")),
 
 
         ;
