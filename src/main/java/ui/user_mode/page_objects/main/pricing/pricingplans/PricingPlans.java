@@ -14,9 +14,9 @@ public class PricingPlans extends BasePageObject implements Footer, AccountHeade
     OnixLocator activeBlockButton = OnixLocator.makeOnixLocator(By.xpath("//*[contains(text(), 'Blocks')][@class='active']"));
     public PricingPlans(OnixWebDriver driver) {
         super(driver);
-        if(driver.isElementPresent(activeBlockButton)) {
-            clickSubscriptionsButton();
-        }
+//        if(driver.isElementPresent(activeBlockButton)) {
+//            clickSubscriptionsButton();
+//        }
     }
 
     public Home goHome() {

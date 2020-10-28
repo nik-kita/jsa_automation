@@ -32,6 +32,13 @@ public class Transformations extends BasePageObject implements Footer, MainHeade
                 .findElement(Locator.SEE_MORE_BUTTON)
                 .getSeleniumWebElement().isDisplayed();
     }
+    public boolean seeMore() {
+        if(isSeeMoreButtonPresent()) {
+            clickSeeMoreButton();
+            return true;
+        }
+        return false;
+    }
 
     public enum Locator implements OnixLocator {
         SEE_MORE_BUTTON(By.cssSelector(".transformation_wr a")),

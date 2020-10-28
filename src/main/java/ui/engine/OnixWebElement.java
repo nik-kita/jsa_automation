@@ -1,5 +1,6 @@
 package ui.engine;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -14,6 +15,7 @@ public class OnixWebElement {
         return element;
     }
 
+    @Step("Click")
     public void click() {
         element.click();
     }

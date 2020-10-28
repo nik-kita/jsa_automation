@@ -20,7 +20,7 @@ public class JsaCookies {
                 e.printStackTrace();
             }
             if (driver.findElements(Locator.DIALOG_BODY).size() > 0) {
-                driver.findElement(Locator.OK_BUTTON).click();
+                driver.waitToClick(Locator.OK_BUTTON).click();
                 driver.setSetting("jsacookies", true);
             }
         }

@@ -1,6 +1,7 @@
 package ui.guest_mode.page_objects.main;
 
 
+import io.qameta.allure.Allure;
 import org.openqa.selenium.By;
 import ui.BasePageObject;
 import ui.engine.OnixLocator;

@@ -1,5 +1,6 @@
 package ui.engine;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -27,7 +28,7 @@ public class OnixWebDriver {
         }
         return false;
     }
-
+    @Step("Find {0}")
     public OnixWebElement findElement(OnixLocator locator) {
         return new OnixWebElement((driver.findElement(locator.getPath())));
     }

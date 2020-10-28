@@ -2,14 +2,24 @@ package ui;
 
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.Allure;
+import org.commonmark.parser.Parser;
+import org.commonmark.renderer.html.HtmlRenderer;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.ITestContext;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import ui.engine.OnixWebDriver;
 import ui.guest_mode.page_objects.main.Main;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -44,7 +54,7 @@ public class OnixTestRunner {
         // pass the options object in Chrome driver
         WebDriver chrome = new ChromeDriver(options);
         chrome.manage().window().maximize();
-        chrome.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
+        chrome.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         driver = new OnixWebDriver(chrome);
     }
 
@@ -73,5 +83,30 @@ public class OnixTestRunner {
             }
         }
         return result;
+    }
+
+
+    public void allureAddMarkdownDescriptionFromFile(String fileName) {
+        String html = null;
+        try {
+            html = HtmlRenderer
+                    .builder()
+                    .build()
+                    .render(Parser
+                            .builder()
+                            .build()
+                            .parse(Files
+                                    .readString(Path.of("src/test/resources/tests/" + fileName), StandardCharsets.UTF_8)));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Allure.descriptionHtml(html);
+    }
+    public void allureAddTxtFileAttachment(String fileName) {
+        try {
+            Allure.addAttachment(fileName, new FileInputStream("src/test/resources/tests/" + fileName));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }
