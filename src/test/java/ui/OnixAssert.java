@@ -8,6 +8,12 @@ import ui.engine.OnixWebDriver;
 
 public class OnixAssert {
     OnixWebDriver driver;
+    SoftAssert softAssert;
+
+    public void assertAll() {
+        softAssert.assertAll();
+        softAssert = null;
+    }
 
     public OnixAssert(OnixWebDriver driver) {
         this.driver = driver;
@@ -24,7 +30,10 @@ public class OnixAssert {
         Assert.assertTrue(first > second, errorMessage);
     }
 
-    public SoftAssert softCheckFirstGreaterSecond(int first, int second, SoftAssert softAssert) {
+    public SoftAssert softCheckFirstGreaterSecond(int first, int second) {
+        if(softAssert == null) {
+            softAssert = new SoftAssert();
+        }
         String errorMessage = "\n\n" +
                 "\n----------------------------" +
                 "\nIn " + getClass().getClassLoader().getName() +
@@ -47,7 +56,10 @@ public class OnixAssert {
         Assert.assertEquals(actual, expected, errorMessage);
     }
 
-    public SoftAssert softCheckCount(int actual, int expected, SoftAssert softAssert) {
+    public SoftAssert softCheckCount(int actual, int expected) {
+        if(softAssert == null) {
+            softAssert = new SoftAssert();
+        }
         String errorMessage = "\n\n" +
                 "\n----------------------------" +
                 "\nIn " + getClass().getClassLoader().getName() +
@@ -74,11 +86,13 @@ public class OnixAssert {
         Assert.assertEquals(actualElCount, expectedElCount, errorMessage);
     }
 
-    public SoftAssert softCheckCountOfElementByLocator(OnixLocator locator, int expectedElCount, SoftAssert softAssert) {
+    public SoftAssert softCheckCountOfElementByLocator(OnixLocator locator, int expectedElCount) {
+        if(softAssert == null) {
+            softAssert = new SoftAssert();
+        }
         int actualElCount = driver
                 .findElements(locator)
                 .size();
-
         String errorMessage = "\n\n" +
                 "\n----------------------------" +
                 "\nIn " + locator.getClass().getName() +

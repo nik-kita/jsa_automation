@@ -25,6 +25,7 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 public class OnixTestRunner {
+    public OnixAssert onixAssert;
     public OnixWebDriver driver;
     private Main mainPO;
     String baseUrl = "https://www.jamessmithacademy.com/";
@@ -54,8 +55,9 @@ public class OnixTestRunner {
         // pass the options object in Chrome driver
         WebDriver chrome = new ChromeDriver(options);
         chrome.manage().window().maximize();
-        chrome.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+        chrome.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         driver = new OnixWebDriver(chrome);
+        onixAssert = new OnixAssert(driver);
     }
 
     @AfterClass

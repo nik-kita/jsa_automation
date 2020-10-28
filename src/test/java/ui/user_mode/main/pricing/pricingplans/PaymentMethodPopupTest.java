@@ -38,10 +38,9 @@ public class PaymentMethodPopupTest extends JsaLoginBaseTestRunner {
     @Test(dataProvider = "getPaymentMethodPayPalLocators")
     public void paymentMethodPayPalTest(OnixLocator locator) {
         PaymentMethodPopup.PayPalIframe frame = paymentMethodPopup.switchToPayPalIframe();
-        SoftAssert soft = new SoftAssert();
-        new OnixAssert(driver).softCheckCountOfElementByLocator(locator, 1, soft);
+        onixAssert.softCheckCountOfElementByLocator(locator, 1);
         paymentMethodPopup = frame.clickCardTab();
-        soft.assertAll();
+        onixAssert.assertAll();
     }
 
     @DataProvider

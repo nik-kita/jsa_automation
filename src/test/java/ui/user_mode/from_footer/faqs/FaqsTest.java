@@ -17,7 +17,7 @@ public class FaqsTest extends JsaLoginBaseTestRunner {
     }
     @Test(dataProvider = "getFaqsLocators")
     public void faqsTest(OnixLocator locator) {
-        new OnixAssert(driver).checkCountOfElementByLocator(locator, 1);
+        onixAssert.checkCountOfElementByLocator(locator, 1);
     }
     @DataProvider
     public Object[] getFaqsLocators() {

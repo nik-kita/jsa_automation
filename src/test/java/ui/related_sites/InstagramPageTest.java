@@ -15,7 +15,7 @@ public class InstagramPageTest extends OnixTestRunner {
     }
     @Test(dataProvider = "getInstagramPageLocators")
     public void instagramPageTest(OnixLocator locator) {
-        new OnixAssert(driver).checkCountOfElementByLocator(locator, 1);
+        onixAssert.checkCountOfElementByLocator(locator, 1);
     }
     @DataProvider
     public Object[] getInstagramPageLocators() {

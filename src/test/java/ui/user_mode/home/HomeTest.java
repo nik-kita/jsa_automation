@@ -15,7 +15,7 @@ public class HomeTest extends JsaLoginBaseTestRunner {
 
     @Test(dataProvider = "getHomeLoginModeLocators")
     public void homeLoginModeTest(OnixLocator locator) {
-        new OnixAssert(driver).checkCountOfElementByLocator(locator, 1);
+        onixAssert.checkCountOfElementByLocator(locator, 1);
     }
 
     @DataProvider

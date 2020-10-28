@@ -23,6 +23,7 @@ public class Main extends BasePageObject implements Footer, MainHeader {
 
     public CreateAccount clickGetStartedButton() {
         driver.findElement(Locator.GET_STARTED_BUTTON).click();
+        logger.info("Click 'Get Started'");
         return new CreateAccount(driver);
     }
 

@@ -17,7 +17,7 @@ public class AccessAndDownloadTest extends JsaLoginBaseTestRunner {
     }
     @Test(dataProvider = "getAccessAndDownloadLocators")
     public void accessAndDownloadTest(OnixLocator locator) {
-        new OnixAssert(driver).checkCountOfElementByLocator(locator, 1);
+        onixAssert.checkCountOfElementByLocator(locator, 1);
     }
     @DataProvider
     public Object[] getAccessAndDownloadLocators() {

@@ -16,7 +16,7 @@ public class CreateAccountTest extends OnixTestRunner {
 
     @Test(dataProvider = "getCreateAccountLocators")
     public void joinNowPageTest(OnixLocator locator) {
-        new OnixAssert(driver).checkCountOfElementByLocator(locator, 1);
+        onixAssert.checkCountOfElementByLocator(locator, 1);
     }
 
     @DataProvider

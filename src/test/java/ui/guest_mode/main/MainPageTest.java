@@ -21,7 +21,7 @@ public class MainPageTest extends OnixTestRunner {
 
     @Test(dataProvider = "getMainPageLocators")
     public void mainPageTest(OnixLocator locator) {
-        new OnixAssert(getDriver()).
+        onixAssert.
                 checkCountOfElementByLocator(locator, 1);
     }
 

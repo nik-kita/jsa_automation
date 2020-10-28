@@ -16,7 +16,7 @@ public class SearchVideosTest extends JsaLoginBaseTestRunner {
     }
     @Test(dataProvider = "getSearchVideosLocators")
     public void searchVideosTest(OnixLocator locator) {
-        new OnixAssert(driver).checkCountOfElementByLocator(locator, 1);
+        onixAssert.checkCountOfElementByLocator(locator, 1);
     }
     @DataProvider
     public Object[] getSearchVideosLocators() {

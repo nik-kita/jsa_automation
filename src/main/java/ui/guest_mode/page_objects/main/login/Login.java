@@ -44,13 +44,17 @@ public class Login extends BasePageObject {
 
     public Home login(User validUser) {
         fillUserInput(validUser.getName());
+        logger.info("Fill input for name or email");
         fillPasswordInput(validUser.getPassword());
+        logger.info("Fill input for password");
         getSubmitButton().click();
+        logger.info("Click 'Submit'");
         return new Home(driver);
     }
 
     public Home loginByFB(User user) {
         driver.findElement(Locator.FACEBOOK_BUTTON).click();
+        logger.info("Click 'Facebook' button");
         return new FB(driver)
                 .login(user.getFacebookEmail(), user.getFacebookPassword());
     }
@@ -90,6 +94,7 @@ public class Login extends BasePageObject {
 
     public ResetPassword clickForgotPassword() {
         driver.findElement(Locator.FORGOT_PASSWORD_LINK).click();
+        logger.info("Click 'Forgot password'");
         return new ResetPassword(driver);
     }
 

@@ -16,7 +16,7 @@ public class ContactUsTest extends OnixTestRunner {
     }
     @Test(dataProvider = "getContactUsLocators")
     public void contactUsTest(OnixLocator locator) {
-        new OnixAssert(driver).checkCountOfElementByLocator(locator, 1);
+        onixAssert.checkCountOfElementByLocator(locator, 1);
     }
     @DataProvider
     public Object[] getContactUsLocators() {

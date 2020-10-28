@@ -17,7 +17,7 @@ public class LoginPageTest extends OnixTestRunner {
 
     @Test(dataProvider = "getLoginPageLocators")
     public void loginPageTest(OnixLocator locator) {
-        new OnixAssert(driver).checkCountOfElementByLocator(locator, 1);
+        onixAssert.checkCountOfElementByLocator(locator, 1);
     }
 
     @DataProvider

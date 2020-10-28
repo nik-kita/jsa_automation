@@ -18,7 +18,7 @@ public class TransformationsTest extends OnixTestRunner {
 
     @Test(dataProvider = "getTransformationsLocators")
     public void transformationsTest(OnixLocator locator) {
-        new OnixAssert(getDriver())
+        onixAssert
                 .checkCountOfElementByLocator(locator, 1);
     }
 

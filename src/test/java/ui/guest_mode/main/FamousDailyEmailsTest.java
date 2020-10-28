@@ -18,7 +18,7 @@ public class FamousDailyEmailsTest extends OnixTestRunner {
     }
     @Test(dataProvider = "getFamousEmailsLocators")
     public void famousDailyEmailsTest(OnixLocator locator) {
-        new OnixAssert(driver).checkCountOfElementByLocator(locator, 1);
+        onixAssert.checkCountOfElementByLocator(locator, 1);
     }
     @DataProvider
     public Object[] getFamousEmailsLocators() {

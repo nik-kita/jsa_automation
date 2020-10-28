@@ -32,10 +32,9 @@ public class PricingPlansLoginModeTest extends JsaLoginBaseTestRunner {
     @Test(dataProvider = "getBlockTabLocators")
     public void blockTab(OnixLocator locator) {
         pricingPlansLoginModePO.clickBlocksButton();
-        SoftAssert softAssert = new SoftAssert();
-        new OnixAssert(driver).softCheckCountOfElementByLocator(locator, 1, softAssert);
+        onixAssert.softCheckCountOfElementByLocator(locator, 1);
         pricingPlansLoginModePO.clickSubscriptionsButton();
-        softAssert.assertAll();
+        onixAssert.assertAll();
     }
 
     @DataProvider

@@ -18,7 +18,7 @@ public class ResetPasswordTest extends OnixTestRunner {
 
     @Test(dataProvider = "getResetPasswordLocators")
     public void resetPasswordPageTest(OnixLocator locator) {
-        new OnixAssert(driver).checkCountOfElementByLocator(locator, 1);
+        onixAssert.checkCountOfElementByLocator(locator, 1);
     }
     @DataProvider
     public Object[] getResetPasswordLocators() {

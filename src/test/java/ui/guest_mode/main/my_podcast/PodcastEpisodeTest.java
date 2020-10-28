@@ -16,7 +16,7 @@ public class PodcastEpisodeTest extends OnixTestRunner {
     }
     @Test(dataProvider = "getPodcastEpisodeLocators")
     public void podcastEpisodeTest(OnixLocator locator) {
-        new OnixAssert(driver).checkCountOfElementByLocator(locator, 1);
+        onixAssert.checkCountOfElementByLocator(locator, 1);
     }
     @DataProvider
     public Object[] getPodcastEpisodeLocators() {

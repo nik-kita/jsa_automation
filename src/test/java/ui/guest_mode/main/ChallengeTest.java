@@ -17,7 +17,7 @@ public class ChallengeTest extends OnixTestRunner {
 
     @Test(dataProvider = "getChallengePageLocators")
     public void challengePageTest(OnixLocator locator) {
-        new OnixAssert(getDriver()).
+        onixAssert.
                 checkCountOfElementByLocator(locator, 1);
     }
 

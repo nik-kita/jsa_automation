@@ -17,7 +17,7 @@ public class BrowseTest extends JsaLoginBaseTestRunner {
     }
     @Test(dataProvider = "getBrowseLocators")
     public void browseTest(OnixLocator locator) {
-        new OnixAssert(driver).checkCountOfElementByLocator(locator, 1);
+        onixAssert.checkCountOfElementByLocator(locator, 1);
     }
     @DataProvider
     public Object[] getBrowseLocators() {

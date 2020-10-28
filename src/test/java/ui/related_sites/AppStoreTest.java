@@ -16,7 +16,7 @@ public class AppStoreTest extends OnixTestRunner {
     }
     @Test(dataProvider = "getAppStorePageLocators")
     public void appStoreTest(OnixLocator locator) {
-        new OnixAssert(driver).checkCountOfElementByLocator(locator, 1);
+        onixAssert.checkCountOfElementByLocator(locator, 1);
     }
     @DataProvider
     public Object[] getAppStorePageLocators() {

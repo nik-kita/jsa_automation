@@ -14,7 +14,8 @@ import ui.user_mode.page_objects.home_header.workouts.Personalised;
 public interface HomeHeaderPart extends BasePart {
     default UserCabinetDropdown openUserDropDown() {
         OnixWebDriver driver = getDriver();
-        driver.findElement(HomeHeaderPart.HomeHeaderLocator.MY_CABINET_DROPDOWN).click();
+        driver.findElement(HomeHeaderLocator.MY_CABINET_DROPDOWN).click();
+        getLogger().info("Click user icon in up right corner");
         return new UserCabinetDropdown(driver);
     }
     default Main goMainPage() {

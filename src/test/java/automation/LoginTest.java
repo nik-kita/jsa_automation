@@ -11,6 +11,6 @@ public class LoginTest extends OnixTestRunner {
     @Test
     public void loginWithFBTest() {
         openSite().goLoginPage().loginByFB(User.getValidUser());
-        new OnixAssert(driver).checkCountOfElementByLocator(HomeHeaderPart.HomeHeaderLocator.HOME, 1);
+        onixAssert.checkCountOfElementByLocator(HomeHeaderPart.HomeHeaderLocator.HOME, 1);
     }
 }

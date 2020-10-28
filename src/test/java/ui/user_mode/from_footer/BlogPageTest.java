@@ -19,7 +19,7 @@ public class BlogPageTest extends JsaLoginBaseTestRunner {
     @Test(dataProvider = "getBlogPageLocators")
     public void blogPageTest(OnixLocator[] locators) {
         for(OnixLocator locator : locators) {
-            new OnixAssert(driver).checkCountOfElementByLocator(locator, 1);
+            onixAssert.checkCountOfElementByLocator(locator, 1);
         }
     }
     @DataProvider

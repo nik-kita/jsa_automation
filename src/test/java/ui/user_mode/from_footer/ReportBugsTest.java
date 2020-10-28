@@ -16,7 +16,7 @@ public class ReportBugsTest extends JsaLoginBaseTestRunner {
     }
     @Test(dataProvider = "getReportBugsLocators")
     public void reportBugsTest(OnixLocator locator) {
-        new OnixAssert(driver).checkCountOfElementByLocator(locator, 1);
+        onixAssert.checkCountOfElementByLocator(locator, 1);
     }
     @DataProvider
     public Object[] getReportBugsLocators() {

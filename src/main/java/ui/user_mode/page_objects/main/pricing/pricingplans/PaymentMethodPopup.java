@@ -17,7 +17,9 @@ public class PaymentMethodPopup {
     public PricingPlans exit() {
 
         driver.waitToClick(Locator.EXIT_X_BUTTON).click();
-        driver.waitInvisibilityOf(Locator.EXIT_X_BUTTON);
+        if(driver.isElementPresent(Locator.EXIT_X_BUTTON)) {
+            driver.waitInvisibilityOf(Locator.EXIT_X_BUTTON);
+        }
         return new PricingPlans(driver);
     }
 

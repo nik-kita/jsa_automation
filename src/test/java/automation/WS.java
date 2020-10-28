@@ -36,27 +36,26 @@ public class WS extends OnixTestRunner {
                 .goPricingPage()
                 .goPricingPlans()
                 .subscribeStandard();
-        SoftAssert softAssert = new SoftAssert();
         for (OnixLocator l : PaymentMethodPopup.Locator.values()) {
-            softAssert = new OnixAssert(driver).softCheckCountOfElementByLocator(l, 1, softAssert);
+            onixAssert.softCheckCountOfElementByLocator(l, 1);
         }
         paymentMethodPopup = paymentMethodPopup
                 .exit()
                 .subscribePremium();
         for (OnixLocator l : PaymentMethodPopup.Locator.values()) {
-            softAssert = new OnixAssert(driver).softCheckCountOfElementByLocator(l, 1, softAssert);
+            onixAssert.softCheckCountOfElementByLocator(l, 1);
         }
         paymentMethodPopup = paymentMethodPopup
                 .exit()
                 .buyNow();
         for (OnixLocator l : PaymentMethodPopup.Locator.values()) {
-            softAssert = new OnixAssert(driver).softCheckCountOfElementByLocator(l, 1, softAssert);
+            onixAssert.softCheckCountOfElementByLocator(l, 1);
         }
         main = paymentMethodPopup
                 .exit()
                 .clickLogoutHeaderButton()
                 .goMainPage();
-        softAssert.assertAll();
+        onixAssert.assertAll();
     }
 
     @Test(testName = "Transformations")
@@ -64,21 +63,20 @@ public class WS extends OnixTestRunner {
         allureAddTxtFileAttachment("transformations.txt");
         Transformations transformations = main
                 .clickSeeMoreTransformationsButton();
-        SoftAssert softAssert = new SoftAssert();
         int before = Integer.MIN_VALUE;
         while (transformations.seeMore()) {
             int current = transformations.countTransformations();
-            softAssert = new OnixAssert(driver).softCheckFirstGreaterSecond(current, before, softAssert);
+            onixAssert.softCheckFirstGreaterSecond(current, before);
             System.out.println(before + "  " + current);
             before = current;
         }
         main = transformations.goMainPage();
-        softAssert.assertAll();
+        onixAssert.assertAll();
     }
 
     @Test(testName = "Blog")
     public void test_3() {
-        Allure.link("https://docs.google.com/spreadsheets/d/1gudjZ7fh4aUsozP7aPIovLnI4qGdbUFpIHJ6AbTlbC4/edit?usp=sharing");
+        Allure.link("Test Case in Google Sheets","https://docs.google.com/spreadsheets/d/1gudjZ7fh4aUsozP7aPIovLnI4qGdbUFpIHJ6AbTlbC4/edit#gid=633091546&range=B40");
         Blog blog = main.goBlogPageFromFooter();
         int total = blog.countPosts();
         int fromEveryTab = 0;
@@ -88,28 +86,23 @@ public class WS extends OnixTestRunner {
         }
         fromEveryTab -= total;
         main = blog.goMainPage();
-        new OnixAssert(driver).checkCount(total, fromEveryTab);
+        onixAssert.checkCount(total, fromEveryTab);
     }
 
     @Test(testName = "Login")
     public void test_4() {
-        SoftAssert softAssert = new SoftAssert();
         Home home = main.goLoginPage().login(User.getValidUser());
-        softAssert = new OnixAssert(driver)
-                .softCheckCountOfElementByLocator(Home.Locator.CHALLENGE_DIV_LINK, 1, softAssert);
+        onixAssert.softCheckCountOfElementByLocator(Home.Locator.CHALLENGE_DIV_LINK, 1);
         main = home.openUserDropDown().logout().goMainPage();
         ResetPassword resetPassword = main.goLoginPage().clickForgotPassword();
-        softAssert = new OnixAssert(driver)
-                .softCheckCountOfElementByLocator(ResetPassword.Locator.EMAIL_INPUT, 1, softAssert);
+        onixAssert.softCheckCountOfElementByLocator(ResetPassword.Locator.EMAIL_INPUT, 1);
         main = resetPassword.goMainPage();
         home = main.goLoginPage().loginByFB(User.getValidUser());
-        softAssert = new OnixAssert(driver)
-                .softCheckCountOfElementByLocator(Home.Locator.CHALLENGE_DIV_LINK, 1, softAssert);
+        onixAssert.softCheckCountOfElementByLocator(Home.Locator.CHALLENGE_DIV_LINK, 1);
         main = home.openUserDropDown().logout().goMainPage();
         CreateAccount createAccount = main.clickGetStartedButton();
-        softAssert = new OnixAssert(driver)
-                .softCheckCountOfElementByLocator(CreateAccount.Locator.CREATE_ACCOUNT_BUTTON, 1, softAssert);
+        onixAssert.softCheckCountOfElementByLocator(CreateAccount.Locator.CREATE_ACCOUNT_BUTTON, 1);
         main = createAccount.goMainPage();
-        softAssert.assertAll();
+        onixAssert.assertAll();
     }
 }

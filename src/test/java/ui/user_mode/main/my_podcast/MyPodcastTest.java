@@ -18,7 +18,7 @@ public class MyPodcastTest extends JsaLoginBaseTestRunner {
     }
     @Test(dataProvider = "getMyPodcastLocators")
     public void myPodcastTest(OnixLocator locator) {
-        new OnixAssert(driver).checkCountOfElementByLocator(locator, 1);
+        onixAssert.checkCountOfElementByLocator(locator, 1);
     }
     @DataProvider
     public Object[] getMyPodcastLocators() {

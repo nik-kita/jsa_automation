@@ -15,6 +15,7 @@ public class UserCabinetDropdown extends BasePageObject {
 
     public AfterLogout logout() {
         driver.findElement(Locator.LOG_OUT).click();
+        logger.info("Click 'Logout'");
         return new AfterLogout(driver);
     }
 

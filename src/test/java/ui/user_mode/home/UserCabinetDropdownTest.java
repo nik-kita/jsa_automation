@@ -11,7 +11,7 @@ public class UserCabinetDropdownTest extends JsaLoginBaseTestRunner {
     @Test(dataProvider = "getUserCabinetDropdownLocators")
     public void userCabinetDropdownTest(OnixLocator locator) {
         homeLoginModePO.openUserDropDown();
-        new OnixAssert(driver).checkCountOfElementByLocator(locator, 1);
+        onixAssert.checkCountOfElementByLocator(locator, 1);
     }
 
     @DataProvider

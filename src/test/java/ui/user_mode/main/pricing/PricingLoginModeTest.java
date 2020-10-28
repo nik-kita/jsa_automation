@@ -18,7 +18,7 @@ public class PricingLoginModeTest extends JsaLoginBaseTestRunner {
 
     @Test(dataProvider = "getPricingLoginModePageLocators")
     public void pricingLoginModeTest(OnixLocator locator) {
-        new OnixAssert(driver).checkCountOfElementByLocator(locator, 1);
+        onixAssert.checkCountOfElementByLocator(locator, 1);
     }
     @DataProvider
     public Object[] getPricingLoginModePageLocators() {

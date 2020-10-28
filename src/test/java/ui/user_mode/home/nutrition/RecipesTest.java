@@ -17,7 +17,7 @@ public class RecipesTest extends JsaLoginBaseTestRunner {
     }
     @Test(dataProvider = "getRecipesLocators")
     public void recipesTest(OnixLocator locator) {
-        new OnixAssert(driver).checkCountOfElementByLocator(locator, 1);
+        onixAssert.checkCountOfElementByLocator(locator, 1);
     }
     @DataProvider
     public Object[] getRecipesLocators() {

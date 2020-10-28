@@ -16,7 +16,7 @@ public class TermsOfServiceTest extends OnixTestRunner {
     }
     @Test(dataProvider = "getTermsOfServiceLocators")
     public void termsOfServiceTest(OnixLocator locator) {
-        new OnixAssert(driver).checkCountOfElementByLocator(locator, 1);
+        onixAssert.checkCountOfElementByLocator(locator, 1);
     }
     @DataProvider
     public Object[] getTermsOfServiceLocators() {

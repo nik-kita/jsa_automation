@@ -15,7 +15,7 @@ public class GooglePlayTest extends OnixTestRunner {
     }
     @Test(dataProvider = "getPlayStoreLocators")
     public void googlePlayPageTest(OnixLocator locator) {
-        new OnixAssert(driver).checkCountOfElementByLocator(locator, 1);
+        onixAssert.checkCountOfElementByLocator(locator, 1);
     }
     @DataProvider
     public Object[] getPlayStoreLocators() {

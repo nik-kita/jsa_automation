@@ -16,7 +16,7 @@ public class PrivacyPolicyTest extends JsaLoginBaseTestRunner {
     }
     @Test(dataProvider = "getPrivacyPolicyLocators")
     public void privacyPolicyTest(OnixLocator locator) {
-        new OnixAssert(driver).checkCountOfElementByLocator(locator, 1);
+        onixAssert.checkCountOfElementByLocator(locator, 1);
     }
     @DataProvider
     public Object[] getPrivacyPolicyLocators() {

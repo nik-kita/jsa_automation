@@ -19,7 +19,7 @@ public class PricingTest extends OnixTestRunner {
 
     @Test(dataProvider = "getPricingLocators")
     public void pricingTest(OnixLocator locator) {
-        new OnixAssert(getDriver()).checkCountOfElementByLocator(locator, 1);
+        onixAssert.checkCountOfElementByLocator(locator, 1);
     }
 
     @DataProvider
