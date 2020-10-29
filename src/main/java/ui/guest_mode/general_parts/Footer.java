@@ -7,6 +7,7 @@ import ui.engine.OnixWebDriver;
 import ui.guest_mode.page_objects.from_footer.Blog;
 import ui.guest_mode.page_objects.from_footer.*;
 import ui.guest_mode.page_objects.from_footer.faqs.Faqs;
+import ui.related_sites.*;
 
 
 public interface Footer extends BasePart {
@@ -50,6 +51,39 @@ public interface Footer extends BasePart {
         OnixWebDriver driver = getDriver();
         driver.findElement(FooterLocator.FAQS_LINK).click();
         return new Faqs(driver);
+    }
+
+    default GooglePlayPage downloadAppPlayStoreFromFooter() {
+        OnixWebDriver driver = getDriver();
+        driver.findElement(FooterLocator.PLAY_STORE_BUTTON).click();
+        return new GooglePlayPage(driver);
+    }
+
+    default AppStorePage downloadAppAppStoreFromFooter() {
+        OnixWebDriver driver = getDriver();
+        driver.findElement(FooterLocator.APPSTORE_BUTTON).click();
+        return new AppStorePage(driver);
+    }
+
+    default FacebookPage clickFacebookFromFooter() {
+        OnixWebDriver driver = getDriver();
+        driver.findElement(FooterLocator.FACEBOOK_LINK).click();
+        driver.switchAnotherTab("jsa");
+        return new FacebookPage(driver);
+    }
+
+    default InstagramPage clickInstagramFromFooter() {
+        OnixWebDriver driver = getDriver();
+        driver.findElement(FooterLocator.INSTAGRAM_LINK).click();
+        driver.switchAnotherTab("jsa");
+        return new InstagramPage(driver);
+    }
+
+    default SpotifyPage clickSpotifyFromFooter() {
+        OnixWebDriver driver = getDriver();
+        driver.findElement(FooterLocator.SPOTIFY_PLAYLIST_LINK).click();
+        driver.switchAnotherTab("jsa");
+        return new SpotifyPage(driver);
     }
 
 

@@ -41,12 +41,12 @@ public class Main extends BasePageObject implements Footer, MainHeader {
     }
     public InstagramPage clickMyInstagramBannerButton() {
         driver.findElement(Locator.INSTAGRAM_BUTTON_INTRODUCTION).click();
-        driver.switchRecentlyOpenedTab("jsa");
+        driver.switchAnotherTab("jsa");
         return new InstagramPage(driver);
     }
     public FacebookPage clickFacebookBannerButton() {
         driver.findElement(Locator.FACEBOOK_BUTTON_INTRODUCTION).click();
-        driver.switchRecentlyOpenedTab("jsa");
+        driver.switchAnotherTab("jsa");
         return new FacebookPage(driver);
     }
     public Challenge clickAboutChallengesButton() {

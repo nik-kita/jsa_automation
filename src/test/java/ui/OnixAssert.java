@@ -103,4 +103,15 @@ public class OnixAssert {
         softAssert.assertEquals(actualElCount, expectedElCount, errorMessage);
         return softAssert;
     }
+    public void checkUrlContains(String wordInUrl) {
+        String url = driver.getUrl();
+        Assert.assertTrue(url.toLowerCase().contains(wordInUrl.toLowerCase()));
+    }
+    public void softCheckUrlContains(String wordInUrl) {
+        if(softAssert == null) {
+            softAssert = new SoftAssert();
+        }
+        String url = driver.getUrl();
+        softAssert.assertTrue(url.toLowerCase().contains(wordInUrl.toLowerCase()));
+    }
 }

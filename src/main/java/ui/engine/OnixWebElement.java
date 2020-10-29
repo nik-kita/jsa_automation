@@ -15,7 +15,6 @@ public class OnixWebElement {
         return element;
     }
 
-    @Step("Click")
     public void click() {
         element.click();
     }

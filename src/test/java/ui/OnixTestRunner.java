@@ -3,13 +3,16 @@ package ui;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Allure;
+import io.qameta.allure.AllureLifecycle;
 import org.commonmark.parser.Parser;
 import org.commonmark.renderer.html.HtmlRenderer;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.ITestContext;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import ui.engine.OnixWebDriver;
 import ui.guest_mode.page_objects.main.Main;
@@ -87,6 +90,16 @@ public class OnixTestRunner {
         return result;
     }
 
+    public void allureAddMarkdownDescription(String markdown) {
+        String html = HtmlRenderer
+                .builder()
+                .build()
+                .render(Parser
+                        .builder()
+                        .build()
+                        .parse(markdown));
+        Allure.descriptionHtml(html);
+    }
 
     public void allureAddMarkdownDescriptionFromFile(String fileName) {
         String html = null;

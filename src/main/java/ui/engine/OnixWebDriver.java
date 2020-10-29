@@ -215,7 +215,7 @@ public class OnixWebDriver {
         return hoverToElementLocated(locator.getPath());
     }
 
-    public OnixWebDriver switchRecentlyOpenedTab(String nameForOldTab) {
+    public OnixWebDriver switchAnotherTab(String nameForOldTab) {
         this.registerCurrentTab(nameForOldTab);
         for(String s : driver.getWindowHandles()) {
             if(!s.equals(tabs.get(nameForOldTab))) {

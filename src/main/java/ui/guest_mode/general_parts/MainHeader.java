@@ -15,7 +15,7 @@ public interface MainHeader extends BasePart {
     default Main goMainPage() {
         OnixWebDriver driver = getDriver();
         driver.findElement(HeaderLocator.JSA_LOGO).click();
-        getLogger().info("Click 'JSA' logo in header");
+        getLogger().debug("Click 'JSA' logo in header");
         return new Main(driver);
     }
     default Challenge goChallengePage() {
@@ -38,7 +38,7 @@ public interface MainHeader extends BasePart {
         return new Transformations(driver);
     }
     default Login goLoginPage() {
-        getLogger().info("Click 'Login' on header");
+        getLogger().debug("Click 'Login' on header");
         OnixWebDriver driver = getDriver();
         driver.findElement(HeaderLocator.LOGIN_HEADER_BUTTON).click();
         return new Login(driver);

@@ -44,11 +44,11 @@ public class Login extends BasePageObject {
 
     public Home login(User validUser) {
         fillUserInput(validUser.getName());
-        logger.info("Fill input for name or email");
+        logger.debug("Fill input for name or email");
         fillPasswordInput(validUser.getPassword());
-        logger.info("Fill input for password");
+        logger.debug("Fill input for password");
         getSubmitButton().click();
-        logger.info("Click 'Submit'");
+        logger.debug("Click 'Submit'");
         return new Home(driver);
     }
 

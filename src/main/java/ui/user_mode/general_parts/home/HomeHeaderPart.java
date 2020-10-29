@@ -15,7 +15,7 @@ public interface HomeHeaderPart extends BasePart {
     default UserCabinetDropdown openUserDropDown() {
         OnixWebDriver driver = getDriver();
         driver.findElement(HomeHeaderLocator.MY_CABINET_DROPDOWN).click();
-        getLogger().info("Click user icon in up right corner");
+        getLogger().debug("Click user icon in up right corner");
         return new UserCabinetDropdown(driver);
     }
     default Main goMainPage() {

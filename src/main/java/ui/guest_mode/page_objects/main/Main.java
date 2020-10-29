@@ -1,7 +1,6 @@
 package ui.guest_mode.page_objects.main;
 
 
-import io.qameta.allure.Allure;
 import org.openqa.selenium.By;
 import ui.BasePageObject;
 import ui.engine.OnixLocator;
@@ -23,7 +22,7 @@ public class Main extends BasePageObject implements Footer, MainHeader {
 
     public CreateAccount clickGetStartedButton() {
         driver.findElement(Locator.GET_STARTED_BUTTON).click();
-        logger.info("Click 'Get Started'");
+        logger.debug("Click 'Get Started'");
         return new CreateAccount(driver);
     }
 
@@ -45,12 +44,12 @@ public class Main extends BasePageObject implements Footer, MainHeader {
     }
     public InstagramPage clickMyInstagramBannerButton() {
         driver.findElement(Locator.INSTAGRAM_BUTTON_INTRODUCTION).click();
-        driver.switchRecentlyOpenedTab("jsa");
+        driver.switchAnotherTab("jsa");
         return new InstagramPage(driver);
     }
     public FacebookPage clickFacebookBannerButton() {
         driver.findElement(Locator.FACEBOOK_BUTTON_INTRODUCTION).click();
-        driver.switchRecentlyOpenedTab("jsa");
+        driver.switchAnotherTab("jsa");
         return new FacebookPage(driver);
     }
     public Challenge clickAboutChallengesButton() {
