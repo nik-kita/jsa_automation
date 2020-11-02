@@ -2,29 +2,33 @@ package ui.guest_mode.page_objects.main.login;
 
 
 import org.openqa.selenium.By;
+import ui.BasePageObject;
 import ui.engine.OnixLocator;
 import ui.engine.OnixWebDriver;
 import ui.guest_mode.page_objects.from_footer.TermsOfService;
 import ui.guest_mode.page_objects.main.Main;
 
-public class CreateAccount {
-    OnixWebDriver driver;
+public class CreateAccount extends BasePageObject {
+
     public CreateAccount(OnixWebDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
 
     public Main goMainPage() {
         driver.findElement(Locator.JSA_LOGO).click();
+        logger.debug("go 'Main' from 'Create Account'");
         return new Main(driver);
     }
 
     public Login clickSignInButton() {
         driver.findElement(Locator.SIGN_IN_BUTTON).click();
+        logger.debug("go 'Login' from 'Create Account'");
         return new Login(driver);
     }
 
     public TermsOfService clickTermsOfServiceLink() {
         driver.findElement(Locator.TERMS_OF_SERVICE_LINK).click();
+        logger.debug("go 'Terms of Service' from 'Create Account'");
         return new TermsOfService(driver);
     }
 

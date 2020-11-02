@@ -1,6 +1,7 @@
 package ui.specific;
 
 import org.openqa.selenium.By;
+import ui.BaseStatic;
 import ui.engine.OnixLocator;
 import ui.engine.OnixWebDriver;
 
@@ -22,8 +23,11 @@ public class BookSiteBanner {
             if (driver.isElementPresent(AppBanner.Locator.BANNER_CONTAINER)) {
                 driver.findElement(AppBanner.Locator.CLOSE_UP_CORNER_BUTTON).click();
                 driver.setSetting("bookBannerClosed", true);
+                BaseStatic.log.debug("close 'BookSiteBanner");
             }
+            BaseStatic.log.warn("try to close 'BookSiteBanner' but no such elements");
         }
+        BaseStatic.log.trace("try close 'BookSiteBanner' but it was already done");
     }
 
     public enum Locator implements OnixLocator {

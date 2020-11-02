@@ -16,6 +16,7 @@ public class Pricing extends BasePageObject implements Footer, MainHeader {
 
     public PricingPlans goPricingPlans() {
         driver.findElement(Locator.GET_STARTED_LEFT).click();
+        logger.debug("'PricingPlans' from 'Pricing'");
         return new PricingPlans(driver);
     }
 

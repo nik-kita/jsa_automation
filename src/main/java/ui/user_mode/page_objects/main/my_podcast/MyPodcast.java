@@ -8,18 +8,23 @@ import ui.user_mode.general_parts.Footer;
 import ui.user_mode.general_parts.MainHeader;
 
 public class MyPodcast extends BasePageObject implements MainHeader, Footer {
+
     public MyPodcast(OnixWebDriver driver) {
         super(driver);
     }
+
     OnixLocator oneEpisodeLocator = OnixLocator.makeOnixLocator(By.cssSelector(".content .podcast_image"));
+
     public PodcastEpisode clickEpisodeContains(String partOfTheEpisodeName) {
         OnixLocator uniqueEpisode = OnixLocator
                 .makeOnixLocator(By.xpath("//div[@class='content']//a[contains(text(), '" + partOfTheEpisodeName + "')]"));
         driver.findElement(uniqueEpisode).click();
+        logger.debug("'PodcastEpisode' from 'MyPodcast' that contains '" + partOfTheEpisodeName + "' word in name");
         return new PodcastEpisode(driver);
     }
     public PodcastEpisode clickSomeoneEpisode() {
         driver.findElement(oneEpisodeLocator).click();
+        logger.debug("'PodcastEpisode' from 'MyPodcast'");
         return new PodcastEpisode(driver);
     }
 

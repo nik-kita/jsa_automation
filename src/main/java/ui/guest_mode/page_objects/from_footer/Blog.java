@@ -52,6 +52,7 @@ public class Blog extends BasePageObject implements Footer, MainHeader {
         driver.scrollPageDown();
         int result =  driver.findElements(POST).size();
         driver.scrollPageUp();
+        logger.debug("count all page on current tab of 'Blog' page");
         return result;
     }
 

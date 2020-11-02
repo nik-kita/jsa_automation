@@ -13,6 +13,7 @@ public class ReportBugs extends BasePageObject implements MainHeader, Footer {
     }
 
     public boolean isThisPage() {
+        logger.debug("check is this is a 'ReportBugs' page");
         return driver.isElementPresent(Locator.H1_TITLE);
     }
 

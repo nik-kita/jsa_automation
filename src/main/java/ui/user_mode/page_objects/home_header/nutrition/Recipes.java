@@ -12,10 +12,12 @@ public class Recipes extends BasePageObject implements HomePart {
     }
     public Meals clickMealsTab() {
         driver.findElement(Locator.MEALS_TAB).click();
+        logger.debug("'Meals' from 'Recipes'");
         return new Meals(driver);
     }
     public ShoppingLists clickShoppingListsTab() {
         driver.findElement(Locator.SHOPPING_LISTS_TAB).click();
+        logger.debug("'ShoppingLists' from 'Recipes'");
         return new ShoppingLists(driver);
     }
 

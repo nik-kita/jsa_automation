@@ -15,53 +15,63 @@ public interface Footer extends BasePart {
     default Blog goBlogPageFromFooter() {
         OnixWebDriver driver = getDriver();
         driver.findElement(FooterLocator.BLOG_SUPPORT_LINK).click();
+        getLogger().debug("go to Blog page from footer");
         return new Blog(driver);
     }
     default CookiesPolicy goCookiesPolicyFromFooter() {
         OnixWebDriver driver = getDriver();
         driver.findElement(FooterLocator.COOKIES_POLICY_LINK).click();
+        getLogger().debug("go to Cookies Policy page from footer");
         return new CookiesPolicy(driver);
     }
     default PrivacyPolicy goPrivacyPolicyFromFooter() {
         OnixWebDriver driver = getDriver();
         driver.findElement(FooterLocator.PRIVACY_POLICY_LINK).click();
+        getLogger().debug("go to Privacy Policy from footer");
         return new PrivacyPolicy(driver);
     }
     default TermsOfService goTermsOfServiceFromFooter() {
         OnixWebDriver driver = getDriver();
         driver.findElement(FooterLocator.TERMS_OF_SERVICE_LINK).click();
+        getLogger().debug("go to 'Terms of Service' page from footer");
         return new TermsOfService(driver);
     }
     default ReportBugs goReportBugsFromFooter() {
         OnixWebDriver driver = getDriver();
         driver.findElement(FooterLocator.BUG_SUPPORT_LINK).click();
+        getLogger().debug("go to 'Report Bugs' from footer");
         return new ReportBugs(driver);
     }
     default ContactUs goContactUsFromFooter() {
         OnixWebDriver driver = getDriver();
         driver.findElement(FooterLocator.CONTACT_US_LINK).click();
+        getLogger().debug("go 'Contact Us' from footer");
         return new ContactUs(driver);
     }
     default AccessAndDownload goAccessAndDownloadFromFooter() {
         OnixWebDriver driver = getDriver();
         driver.findElement(FooterLocator.ACCESS_LINK).click();
+        getLogger().debug("go 'Access and Downloads' from footer");
         return new AccessAndDownload(driver);
     }
     default Faqs goFaqsFromFooter() {
         OnixWebDriver driver = getDriver();
         driver.findElement(FooterLocator.FAQS_LINK).click();
+        getLogger().debug("go 'FAQS' from footer");
         return new Faqs(driver);
     }
 
     default GooglePlayPage downloadAppPlayStoreFromFooter() {
         OnixWebDriver driver = getDriver();
         driver.findElement(FooterLocator.PLAY_STORE_BUTTON).click();
+        getLogger().debug("go to 'Google Play' page from footer");
         return new GooglePlayPage(driver);
     }
 
     default AppStorePage downloadAppAppStoreFromFooter() {
         OnixWebDriver driver = getDriver();
         driver.findElement(FooterLocator.APPSTORE_BUTTON).click();
+        getLogger().debug("go to 'AppStore' from footer");
         return new AppStorePage(driver);
     }
 
@@ -69,6 +79,7 @@ public interface Footer extends BasePart {
         OnixWebDriver driver = getDriver();
         driver.findElement(FooterLocator.FACEBOOK_LINK).click();
         driver.switchAnotherTab("jsa");
+        getLogger().debug("go to 'Facebook' form footer");
         return new FacebookPage(driver);
     }
 
@@ -76,6 +87,7 @@ public interface Footer extends BasePart {
         OnixWebDriver driver = getDriver();
         driver.findElement(FooterLocator.INSTAGRAM_LINK).click();
         driver.switchAnotherTab("jsa");
+        getLogger().debug("go to 'Instagram' from footer");
         return new InstagramPage(driver);
     }
 
@@ -83,6 +95,7 @@ public interface Footer extends BasePart {
         OnixWebDriver driver = getDriver();
         driver.findElement(FooterLocator.SPOTIFY_PLAYLIST_LINK).click();
         driver.switchAnotherTab("jsa");
+        getLogger().debug("go to 'Spotify' from footer");
         return new SpotifyPage(driver);
     }
 

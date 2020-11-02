@@ -13,10 +13,12 @@ public class Browse extends BasePageObject implements HomePart {
 
     public Personalised clickPersonalisedTab() {
         driver.findElement(Locator.PERSONALISED_TAB).click();
+        logger.debug("'Personalised' from 'Browse'");
         return new Personalised(driver);
     }
     public MyWorkouts clickMyWorkoutsTab() {
         driver.findElement(Locator.MY_WORKOUTS_TAB).click();
+        logger.debug("'MyWorkouts' from 'Browse'");
         return new MyWorkouts(driver);
     }
 

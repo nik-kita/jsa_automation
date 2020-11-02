@@ -10,13 +10,16 @@ public class NewWeeklyGoal extends BasePageObject {
     public NewWeeklyGoal(OnixWebDriver driver) {
         super(driver);
     }
+
     public MyGoal clickCloseButton() {
         driver.findElement(Locator.CLOSE_X_BUTTON).click();
+        logger.debug("'MyGoal' from 'NewWeeklyGoal'");
         return new MyGoal(driver);
     }
     public MyGoal save(String text) {
         driver.findElement(Locator.GAOL_TEXTAREA).sendKeys(text);
         driver.findElement(Locator.SAVE_BUTTON).click();
+        logger.debug("'MyGoal' from 'NewWeeklyGoal'");
         return new MyGoal(driver);
     }
 

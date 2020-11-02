@@ -14,10 +14,12 @@ public class Home extends BasePageObject implements HomePart {
 
     public Account clickAccountIcon() {
         driver.findElement(Locator.MY_PLAN_ACCOUNT_ICON_LINK).click();
+        logger.debug("'Account' from 'Home'");
         return new Account(driver);
     }
     public MyGoal clickMyGoalLink() {
         driver.findElement(Locator.MY_GOAL_DIV_LINK).click();
+        logger.debug("'MyGoal' from 'Home'");
         return new MyGoal(driver);
     }
 

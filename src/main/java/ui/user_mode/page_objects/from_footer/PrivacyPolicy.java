@@ -13,6 +13,7 @@ public class PrivacyPolicy extends BasePageObject implements MainHeader, Footer 
     }
 
     public boolean isThisPage() {
+        logger.debug("check is this is a 'PrivacyPolicy' page");
         return driver.isElementPresent(Locator.H4_TITLE);
     }
 

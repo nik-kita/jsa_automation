@@ -11,7 +11,9 @@ import ui.user_mode.general_parts.home.account.AccountHeader;
 import ui.user_mode.page_objects.home_header.home.Home;
 
 public class PricingPlans extends BasePageObject implements Footer, AccountHeader {
+
     OnixLocator activeBlockButton = OnixLocator.makeOnixLocator(By.xpath("//*[contains(text(), 'Blocks')][@class='active']"));
+
     public PricingPlans(OnixWebDriver driver) {
         super(driver);
 //        if(driver.isElementPresent(activeBlockButton)) {
@@ -21,17 +23,20 @@ public class PricingPlans extends BasePageObject implements Footer, AccountHeade
 
     public Home goHome() {
         driver.findElement(AccountHeaderLocator.HOME_HEADER_BUTTON).click();
+        logger.debug("'Home' from account header");
         return new Home(driver);
     }
 
     public PaymentMethodPopup subscribeStandard() {
         driver.scrollPageDown();
         driver.findElement(Locator.SUBSCRIBE_BTN_STANDARD_PLAN).click();
+        logger.debug("standard 'PaymentMethodPopup' from 'PricingPlans'");
         return new PaymentMethodPopup(driver);
     }
     public PaymentMethodPopup subscribePremium() {
         driver.scrollPageDown();
         driver.findElement(Locator.SUBSCRIBE_BTN_PREMIUM_PLAN).click();
+        logger.debug("premium 'PaymentMethodPopup' from 'PricingPlans'");
         return new PaymentMethodPopup(driver);
     }
 
@@ -39,6 +44,7 @@ public class PricingPlans extends BasePageObject implements Footer, AccountHeade
         clickBlocksButton();
         driver.scrollPageDown();
         driver.findElement(BlocksTabLocator.BUY_NOW_BUTTON).click();
+        logger.debug("block 'PaymentMethodPopup' from 'PricingPlans'");
         return new PaymentMethodPopup(driver);
     }
     public PricingPlans clickBlocksButton() {

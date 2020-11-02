@@ -16,6 +16,7 @@ public class Challenge extends BasePageObject implements Footer, MainHeader {
 
     public CreateAccount clickCreateAccountButton() {
         driver.findElement(Locator.CREATE_ACCOUNT_BUTTON_INNER_PAGE).click();
+        logger.debug("'Create Account' from 'Challenge'");
         return new CreateAccount(driver);
     }
 

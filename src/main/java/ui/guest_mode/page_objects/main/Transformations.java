@@ -24,6 +24,7 @@ public class Transformations extends BasePageObject implements Footer, MainHeade
     }
 
     public int countTransformations() {
+        logger.debug("count posts");
         return driver.findElements(TRANSFORMATION_BLOCK).size();
     }
 
@@ -37,6 +38,7 @@ public class Transformations extends BasePageObject implements Footer, MainHeade
             clickSeeMoreButton();
             return true;
         }
+        logger.debug("all posts are shown so 'see more' button is not exists");
         return false;
     }
 

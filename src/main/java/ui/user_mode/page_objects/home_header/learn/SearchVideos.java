@@ -7,11 +7,14 @@ import ui.engine.OnixWebDriver;
 import ui.user_mode.general_parts.home.HomeHeaderPart;
 
 public class SearchVideos extends BasePageObject implements HomeHeaderPart {
+
     public SearchVideos(OnixWebDriver driver) {
         super(driver);
     }
+
     public Learn clickBackArrow() {
         driver.findElement(Locator.BACK_ARROW).click();
+        logger.debug("'Learn' from 'SearchVideos'");
         return new Learn(driver);
     }
 

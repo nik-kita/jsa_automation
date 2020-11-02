@@ -8,6 +8,7 @@ public interface InAnotherTab extends BasePart {
         OnixWebDriver driver = getDriver();
         driver.switchToRegisterTab("jsa");
         driver.closeTabsExceptCurrent();
+        getLogger().debug("close '" + this.getClass() + "' and back to tab with 'jsa' content");
         return driver;
     }
 }

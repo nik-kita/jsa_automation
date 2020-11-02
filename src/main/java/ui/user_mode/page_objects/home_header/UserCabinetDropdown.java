@@ -9,13 +9,14 @@ import ui.guest_mode.page_objects.AfterLogout;
 
 
 public class UserCabinetDropdown extends BasePageObject {
+
     public UserCabinetDropdown(OnixWebDriver driver) {
         super(driver);
     }
 
     public AfterLogout logout() {
         driver.findElement(Locator.LOG_OUT).click();
-        logger.debug("Click 'Logout'");
+        logger.debug("'AfterLogout' from 'UserCabinetDropdown'");
         return new AfterLogout(driver);
     }
 

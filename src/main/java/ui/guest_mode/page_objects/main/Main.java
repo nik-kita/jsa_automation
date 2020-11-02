@@ -15,6 +15,7 @@ import ui.related_sites.InstagramPage;
 import ui.specific.JsaCookies;
 
 public class Main extends BasePageObject implements Footer, MainHeader {
+
     public Main(OnixWebDriver driver) {
         super(driver);
         JsaCookies.acceptIfCookiesPresent(driver);
@@ -22,42 +23,50 @@ public class Main extends BasePageObject implements Footer, MainHeader {
 
     public CreateAccount clickGetStartedButton() {
         driver.findElement(Locator.GET_STARTED_BUTTON).click();
-        logger.debug("Click 'Get Started'");
+        logger.debug("'Create Account' from 'Main'");
         return new CreateAccount(driver);
     }
 
     public GooglePlayPage clickPlayStoreBannerButton() {
         driver.findElement(Locator.PLAY_STORE_BUTTON_BANNER).click();
+        logger.debug("'Google Play' from 'Main'");
         return new GooglePlayPage(driver);
     }
     public GooglePlayPage clickPlayStoreButtonInDownloadSection() {
         driver.findElement(Locator.PLAY_STORE_BUTTON_DOWNLOAD).click();
+        logger.debug("'Google Play' from 'Main'");
         return new GooglePlayPage(driver);
     }
     public AppStorePage clickAppStoreBannerButton() {
         driver.findElement(Locator.APPSTORE_BUTTON_BANNER).click();
+        logger.debug("'AppStorePage' from 'Main'");
         return new AppStorePage(driver);
     }
     public AppStorePage clickAppStoreButtonInDownloadSection() {
         driver.findElement(Locator.APPSTORE_BUTTON_DOWNLOAD).click();
+        logger.debug("'AppStorePage' from 'Main'");
         return new AppStorePage(driver);
     }
     public InstagramPage clickMyInstagramBannerButton() {
         driver.findElement(Locator.INSTAGRAM_BUTTON_INTRODUCTION).click();
         driver.switchAnotherTab("jsa");
+        logger.debug("'InstagramPage' from 'Main'");
         return new InstagramPage(driver);
     }
     public FacebookPage clickFacebookBannerButton() {
         driver.findElement(Locator.FACEBOOK_BUTTON_INTRODUCTION).click();
         driver.switchAnotherTab("jsa");
+        logger.debug("'FacebookPage' from 'Main'");
         return new FacebookPage(driver);
     }
     public Challenge clickAboutChallengesButton() {
         driver.findElement(Locator.ABOUT_CHALLENGES_MOTIVATION).click();
+        logger.debug("'Challenge' from 'Main'");
         return new Challenge(driver);
     }
     public Transformations clickSeeMoreTransformationsButton() {
         driver.findElement(Locator.TRANSFORMATIONS_BUTTON_MEMBER_TRANSFORMATIONS).click();
+        logger.debug("'Transformations' from 'Main'");
         return new Transformations(driver);
     }
 
@@ -67,6 +76,8 @@ public class Main extends BasePageObject implements Footer, MainHeader {
         driver.findElement(Locator.EMAIL_INPUT_DAILY_EMAILS).sendKeys(fakeEmail);
         driver.executeJsScript(script);
         driver.findElement(Locator.SIGN_UP_DAILY_EMAILS).click();
+        logger.debug("'FamousDailyEmails' from 'Main'");
+        logger.warn("use cheater way to click 'input' button under the 'daily famous emails'");
         return new FamousDailyEmails(driver);
     }
 

@@ -15,43 +15,47 @@ public interface MainHeader extends BasePart {
     default Main goMainPage() {
         OnixWebDriver driver = getDriver();
         driver.findElement(HeaderLocator.JSA_LOGO).click();
-        getLogger().debug("Click 'JSA' logo in header");
+        getLogger().info("go 'Main' page by clicking 'JSA' logo on header");
         return new Main(driver);
     }
     default Challenge goChallengePage() {
         OnixWebDriver driver = getDriver();
         driver.findElement(HeaderLocator.CHALLENGE_HEADER_BUTTON).
                 click();
-
+        getLogger().debug("go to 'Challenge' page from header");
         return new Challenge(driver);
     }
     default Pricing goPricingPage() {
         OnixWebDriver driver = getDriver();
         driver.findElement(HeaderLocator.PRICING_HEADER_BUTTON).
                 click();
+        getLogger().debug("go to 'Pricing' page from header");
         return new Pricing(driver);
     }
     default Transformations goTransformationsPage() {
         OnixWebDriver driver = getDriver();
         driver.findElement(HeaderLocator.TRANSFORMATIONS_HEADER_BUTTON).
                 click();
+        getLogger().debug("go to 'Transformations' page from header");
         return new Transformations(driver);
     }
     default Login goLoginPage() {
-        getLogger().debug("Click 'Login' on header");
         OnixWebDriver driver = getDriver();
         driver.findElement(HeaderLocator.LOGIN_HEADER_BUTTON).click();
+        getLogger().debug("go 'Login' page from header");
         return new Login(driver);
     }
 
     default CreateAccount goCreateAccountPage() {
         OnixWebDriver driver = getDriver();
         driver.findElement(HeaderLocator.JOIN_NOW_HEADER_BUTTON).click();
+        getLogger().debug("go 'Create Account' page from header");
         return new CreateAccount(driver);
     }
     default MyPodcast goMyPodcastPageFromHeader() {
         OnixWebDriver driver = getDriver();
         driver.findElement(HeaderLocator.MY_PODCAST_HEADER_BUTTON).click();
+        getLogger().debug("go 'My Podcast' page from header");
         return new MyPodcast(driver);
     }
 

@@ -14,6 +14,7 @@ public class AccessAndDownload extends BasePageObject implements MainHeader, Foo
     }
 
     public boolean isThisPage() {
+        logger.debug("check is this a 'AccessAndDownload' page");
         return driver.isElementPresent(Locator.H4_TITLE);
     }
 

@@ -9,6 +9,7 @@ import ui.user_mode.general_parts.Footer;
 import ui.user_mode.general_parts.MainHeader;
 
 public class Transformations extends BasePageObject implements Footer, MainHeader {
+
     public Transformations(OnixWebDriver driver) {
         super(driver);
     }
@@ -25,13 +26,16 @@ public class Transformations extends BasePageObject implements Footer, MainHeade
     }
 
     public int countTransformations() {
+        logger.debug("count posts");
         return driver.findElements(TRANSFORMATION_BLOCK).size();
     }
 
     public boolean isSeeMoreButtonPresent() {
-        return driver
+        boolean result = driver
                 .findElement(Locator.SEE_MORE_BUTTON)
                 .getSeleniumWebElement().isDisplayed();
+        logger.trace("the 'see more button' is present = " + result);
+        return result;
     }
 
     public enum Locator implements OnixLocator {

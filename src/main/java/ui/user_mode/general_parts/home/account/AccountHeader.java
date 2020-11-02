@@ -16,26 +16,31 @@ public interface AccountHeader extends BasePart {
     default Home clickHomeHeaderButton() {
         OnixWebDriver onixWebDriver = getDriver();
         onixWebDriver.findElement(AccountHeaderLocator.HOME_HEADER_BUTTON).click();
+        getLogger().debug("'Home' from header");
         return new Home(onixWebDriver);
     }
     default Main clickJsaHeaderLogo() {
         OnixWebDriver driver = getDriver();
         driver.findElement(AccountHeaderLocator.JSA_LOGO).click();
+        getLogger().debug("'Main' from header");
         return new Main(driver);
     }
     default Account clickAccountHeaderButton() {
         OnixWebDriver driver = getDriver();
         driver.findElement(AccountHeaderLocator.ACCOUNT_HEADER_BUTTON).click();
+        getLogger().debug("'Account' from header");
         return new Account(driver);
     }
     default PricingPlans clickPricingPlansHeaderButton() {
         OnixWebDriver driver = getDriver();
         driver.findElement(AccountHeaderLocator.PRICING_PLANS_HEADER_BUTTON).click();
+        getLogger().debug("'PricingPlans' from header");
         return new PricingPlans(driver);
     }
     default AfterLogout clickLogoutHeaderButton() {
         OnixWebDriver driver = getDriver();
         driver.findElement(AccountHeaderLocator.LOGOUT_HEADER_BUTTON).click();
+        getLogger().debug("'AfterLogout' from header");
         return new AfterLogout(driver);
     }
 

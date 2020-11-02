@@ -13,6 +13,7 @@ public class Faqs extends BasePageObject implements MainHeader, Footer {
     }
 
     public boolean isThisPage() {
+        logger.debug("check is this is a 'Faqs' page");
         return driver.isElementPresent(Locator.H1_TITLE);
     }
 

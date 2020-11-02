@@ -2,24 +2,24 @@ package ui.user_mode.page_objects.main.pricing.pricingplans;
 
 
 import org.openqa.selenium.By;
+import ui.BasePageObject;
 import ui.engine.OnixLocator;
 import ui.engine.OnixWebDriver;
 
-public class PaymentMethodPopup {
-    public OnixWebDriver driver;
+public class PaymentMethodPopup extends BasePageObject {
     String PAYPAL_IFRAME_NAME;
 
 
     public PaymentMethodPopup(OnixWebDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
 
     public PricingPlans exit() {
-
         driver.waitToClick(Locator.EXIT_X_BUTTON).click();
         if(driver.isElementPresent(Locator.EXIT_X_BUTTON)) {
             driver.waitInvisibilityOf(Locator.EXIT_X_BUTTON);
         }
+        logger.debug("'PricingPlans' from 'PaymentMethodPopup'");
         return new PricingPlans(driver);
     }
 
@@ -33,7 +33,6 @@ public class PaymentMethodPopup {
                 .getSeleniumDriver()
                 .findElement(By.xpath("//iframe"))
                 .getAttribute("name");
-        System.out.println(PAYPAL_IFRAME_NAME);
         return this;
     }
     public PaymentMethodPopup clickCardTab() {
@@ -46,6 +45,7 @@ public class PaymentMethodPopup {
             clickPayPalTab();
         }
         driver.getSeleniumDriver().switchTo().frame(PAYPAL_IFRAME_NAME);
+        logger.debug("'PayPalIframe' from 'PayMethodPopup'");
         return new PayPalIframe(driver);
     }
 

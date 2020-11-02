@@ -7,15 +7,19 @@ import ui.engine.OnixWebDriver;
 import ui.user_mode.general_parts.home.HomePart;
 
 public class Meals extends BasePageObject implements HomePart {
+
     public Meals(OnixWebDriver driver) {
         super(driver);
     }
+
     public Recipes clickRecipesTab() {
         driver.findElement(Locator.RECIPES_TAB).click();
+        logger.debug("'Recipes' from 'Meals'");
         return new Recipes(driver);
     }
     public ShoppingLists clickShoppingListsTab() {
         driver.findElement(Locator.SHOPPING_LISTS_TAB).click();
+        logger.debug("'ShoppingLists' from 'Meals'");
         return new ShoppingLists(driver);
     }
     public enum Locator implements OnixLocator {

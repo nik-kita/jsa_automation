@@ -21,17 +21,20 @@ public class RouteHacks extends BasePageObject {
         driver.get(urlForLogin);
         Login loginPO = new Login(driver);
         User user = new User(nameOrEmail, password);
+        logger.debug("go 'Login' by simply use '" + loginEndPoint + "' endpoint in url");
         return loginPO.login(user);
     }
     public Home login(User user) {
         String urlForLogin = driver.getSeleniumDriver().getCurrentUrl() + loginEndPoint;
         driver.get(urlForLogin);
         Login loginPO = new Login(driver);
+        logger.debug("go 'Login' by simply use '" + loginEndPoint + "' endpoint in url");
         return loginPO.login(user);
     }
     public Home login() {
         String urlForLogin = driver.getSeleniumDriver().getCurrentUrl() + loginEndPoint;
         driver.get(urlForLogin);
+        logger.debug("go 'Login' by simply use '" + loginEndPoint + "' endpoint in url");
         return new Login(driver).login(User.getValidUser());
     }
 }

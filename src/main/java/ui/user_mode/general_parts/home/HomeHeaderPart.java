@@ -15,33 +15,38 @@ public interface HomeHeaderPart extends BasePart {
     default UserCabinetDropdown openUserDropDown() {
         OnixWebDriver driver = getDriver();
         driver.findElement(HomeHeaderLocator.MY_CABINET_DROPDOWN).click();
-        getLogger().debug("Click user icon in up right corner");
+        getLogger().debug("open 'UserCabinetDropdown' from home header");
         return new UserCabinetDropdown(driver);
     }
     default Main goMainPage() {
         OnixWebDriver driver = getDriver();
         driver.findElement(HomeHeaderPart.HomeHeaderLocator.JSA_LOGO).click();
+        getLogger().debug("'Main' from home header");
         return new Main(driver);
     }
     default Home clickHomeTab() {
         OnixWebDriver driver = getDriver();
         driver.findElement(HomeHeaderPart.HomeHeaderLocator.HOME).click();
+        getLogger().debug("'Home' from home header");
         return new Home(driver);
     }
 
     default Personalised clickWorkoutsTab() {
         OnixWebDriver driver = getDriver();
         driver.findElement(HomeHeaderPart.HomeHeaderLocator.WORKOUTS).click();
+        getLogger().debug("'Personalised' from home header");
         return new Personalised(driver);
     }
     default Meals clickNutritionTab() {
         OnixWebDriver driver = getDriver();
         driver.findElement(HomeHeaderLocator.NUTRITION).click();
+        getLogger().debug("'Meals' from home header");
         return new Meals(driver);
     }
     default Learn clickLearnTab() {
         OnixWebDriver driver = getDriver();
         driver.findElement(HomeHeaderLocator.LEARN).click();
+        getLogger().debug("'Learn' from home header");
         return new Learn(driver);
     }
 

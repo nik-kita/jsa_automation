@@ -4,6 +4,7 @@ import ui.engine.OnixLocator;
 import org.openqa.selenium.By;
 import ui.BasePart;
 import ui.engine.OnixWebDriver;
+import ui.user_mode.page_objects.home_header.home.Home;
 import ui.user_mode.page_objects.main.Challenge;
 import ui.user_mode.page_objects.main.Transformations;
 import ui.user_mode.page_objects.main.my_podcast.MyPodcast;
@@ -13,32 +14,42 @@ import ui.user_mode.page_objects.main.pricing.Pricing;
 
 public interface MainHeader extends BasePart {
 
+    default Home goHome() {
+        OnixWebDriver driver = getDriver();
+        driver.findElement(HeaderLocator.TO_USER_HOME_CORNER_LINK).click();
+        return new Home(driver);
+    }
+
     default Main goMainPage() {
         OnixWebDriver driver = getDriver();
         driver.findElement(HomeHeaderPart.HomeHeaderLocator.JSA_LOGO).click();
+        getLogger().debug("'Main' from header");
         return new Main(driver);
     }
     default Pricing goPricingPage() {
         OnixWebDriver driver = getDriver();
         driver.findElement(HeaderLocator.PRICING_HEADER_BUTTON).click();
+        getLogger().debug("'Pricing' from header");
         return new Pricing(driver);
     }
     default Challenge goChallengePage() {
         OnixWebDriver driver = getDriver();
         driver.findElement(ui.guest_mode.general_parts.MainHeader.HeaderLocator.CHALLENGE_HEADER_BUTTON).
                 click();
-
+        getLogger().debug("'Challenge' from header");
         return new Challenge(driver);
     }
     default Transformations goTransformationsPage() {
         OnixWebDriver driver = getDriver();
         driver.findElement(ui.guest_mode.general_parts.MainHeader.HeaderLocator.TRANSFORMATIONS_HEADER_BUTTON).
                 click();
+        getLogger().debug("'Transformations' from header");
         return new Transformations(driver);
     }
     default MyPodcast goMyPodcastPageFromHeader() {
         OnixWebDriver driver = getDriver();
         driver.findElement(ui.guest_mode.general_parts.MainHeader.HeaderLocator.MY_PODCAST_HEADER_BUTTON).click();
+        getLogger().debug("'MyPodcast' from header");
         return new MyPodcast(driver);
     }
 

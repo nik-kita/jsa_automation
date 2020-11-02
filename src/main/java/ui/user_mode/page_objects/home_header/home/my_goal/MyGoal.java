@@ -17,31 +17,43 @@ public class MyGoal extends BasePageObject implements HomeHeaderPart {
     public OnixLocator weeklyGoal = OnixLocator.makeOnixLocator(By.className("weekly_goal_list_item"));
 
     public boolean hasWeeklyGoal() {
-        return driver.isElementPresent(weeklyGoal);
+        boolean result = driver.isElementPresent(weeklyGoal);
+        if(result) {
+            logger.debug("page has weeklyGoal");
+        } else {
+            logger.debug("no weeklyGoal elements on page");
+        }
+        return result;
     }
     public int amountOfWeeklyGoals () {
-        return driver.findElements(weeklyGoal).size();
+        int result = driver.findElements(weeklyGoal).size();
+        logger.debug("there are " + result + " weeklyGoals on the page");
+        return result;
     }
     public MyGoal clickAcceptWeeklyGoal(String name) {
         OnixWebElement e = driver.findElement(By.xpath(String.format("//p[contains(text(), '%s')]/../../..", name)));
         e.findElementInsideThis(By.cssSelector("img.save_goal")).click();
+        logger.debug("accept weeklyGoal that contains '" + name + "' word");
         return this;
     }
     public MyGoal clickDeleteWeeklyGoal(String name) {
         OnixWebElement e = driver.findElement(By.xpath(String.format("//p[contains(text(), '%s')]/../../..", name)));
         e.findElementInsideThis(By.cssSelector("img.delete_goal")).click();
         driver.alertAccept();
+        logger.debug("delete weeklyGoal that contains '" + name + "' word by accepting delete alert");
         return this;
     }
     public MyGoal clickAcceptWeeklyGoal(int number) {
         OnixWebElement e = driver.findElements(weeklyGoal).get(number);
         e.findElementInsideThis(By.cssSelector("img.save_goal")).click();
+        logger.debug("accept weeklyGoal number " + number);
         return this;
     }
     public MyGoal clickDeleteWeeklyGoal(int number) {
         OnixWebElement e = driver.findElements(weeklyGoal).get(number);
         e.findElementInsideThis(By.cssSelector("img.delete_goal")).click();
         driver.alertAccept();
+        logger.debug("delete weeklyGoal number " + number + " by accepting delete alert");
         return this;
     }
     public MyGoal removeAllWeeklyGoals() {
@@ -49,12 +61,14 @@ public class MyGoal extends BasePageObject implements HomeHeaderPart {
             e.findElementInsideThis(By.cssSelector("img.delete_goal")).click();
             driver.alertAccept();
         }
+        logger.debug("delete all weeklyGoal on page");
         return this;
     }
 
 
     public Home clickBackArrow() {
         driver.findElement(Locator.BACK_ARROW).click();
+        logger.debug("'Home' from 'MyGoal'");
         return new Home(driver);
     }
     public MyGoal selectGoalByString(String select) {
@@ -65,11 +79,13 @@ public class MyGoal extends BasePageObject implements HomeHeaderPart {
                 break;
             }
         }
+        logger.debug("select goal that contains '" + select + "' in name");
         return this;
     }
     public MyGoal selectGoal(int number) {
         driver.findElement(Locator.GOAL_SELECT).click();
         driver.findElements(optionInGoalSelect).get(number).click();
+        logger.debug("select goal number " + number);
         return this;
     }
     public MyGoal selectGoal() {
@@ -79,6 +95,7 @@ public class MyGoal extends BasePageObject implements HomeHeaderPart {
         OnixWebElement textarea = driver.findElement(Locator.MORE_DETAIL_TEXTAREA);
         textarea.click();
         textarea.sendKeys(text);
+        logger.debug("fill 'more details' textarea with text:\n" + text);
         return this;
     }
     public MyGoal clickSaveButton() {
@@ -87,6 +104,7 @@ public class MyGoal extends BasePageObject implements HomeHeaderPart {
     }
     public NewWeeklyGoal clickNewGoalButton() {
         driver.findElement(Locator.NEW_GOAL_BUTTON).click();
+        logger.debug("'NewWeeklyGoal' from 'MyGoal'");
         return new NewWeeklyGoal(driver);
     }
 

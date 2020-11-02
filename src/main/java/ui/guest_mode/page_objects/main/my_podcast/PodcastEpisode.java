@@ -8,11 +8,14 @@ import ui.guest_mode.general_parts.Footer;
 import ui.guest_mode.general_parts.MainHeader;
 
 public class PodcastEpisode extends BasePageObject implements MainHeader, Footer {
+
     public PodcastEpisode(OnixWebDriver driver) {
         super(driver);
     }
+
     public MyPodcast clickBackToMyPodcast() {
         driver.findElement(Locator.BACK_ARROW_LINK).click();
+        logger.debug("'MyPodcast' from 'PodcastEpisode'");
         return new MyPodcast(driver);
     }
     public enum Locator implements OnixLocator {

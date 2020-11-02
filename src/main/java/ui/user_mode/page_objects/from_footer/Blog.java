@@ -25,26 +25,31 @@ public class Blog extends BasePageObject implements Footer, MainHeader {
 
     public Blog clickRecentPosts() {
         driver.findElement(Locator.RECENT_POSTS).click();
+        logger.debug("'Blog' with 'recent posts' active tab");
         return this;
     }
 
     public Blog clickOnlineFitness() {
         driver.findElement(Locator.ONLINE_FITNESS).click();
+        logger.debug("'Blog' with 'online fitness' active tab");
         return this;
     }
 
     public Blog clickNews() {
         driver.findElement(Locator.NEWS).click();
+        logger.debug("'Blog' with 'news' active tab");
         return this;
     }
 
     public Blog clickThinking() {
         driver.findElement(Locator.THINKING).click();
+        logger.debug("'Blog' with 'thinking' active tab");
         return this;
     }
 
     public Blog clickFeedback() {
         driver.findElement(Locator.FEEDBACK).click();
+        logger.debug("'Blog' with 'feedback' active tab");
         return this;
     }
 
@@ -52,6 +57,7 @@ public class Blog extends BasePageObject implements Footer, MainHeader {
         driver.scrollPageDown();
         int result =  driver.findElements(POST).size();
         driver.scrollPageUp();
+        logger.debug("count posts in current tab on 'Blog' page");
         return result;
     }
 

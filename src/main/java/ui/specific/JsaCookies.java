@@ -2,6 +2,7 @@ package ui.specific;
 
 
 import org.openqa.selenium.By;
+import ui.BaseStatic;
 import ui.engine.OnixLocator;
 import ui.engine.OnixWebDriver;
 
@@ -22,9 +23,11 @@ public class JsaCookies {
             if (driver.findElements(Locator.DIALOG_BODY).size() > 0) {
                 driver.waitToClick(Locator.OK_BUTTON).click();
                 driver.setSetting("jsacookies", true);
+                BaseStatic.log.debug("close 'JsaCookies' popup");
             }
+            BaseStatic.log.warn("try to close 'JsaCookies' popup but no such elements was found");
         }
-
+        BaseStatic.log.trace("try close 'JsaCookies' popup but it is already done");
     }
     public enum Locator implements OnixLocator {
         DIALOG_BODY(By.cssSelector("#CybotCookiebotDialog")),

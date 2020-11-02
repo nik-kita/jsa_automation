@@ -14,6 +14,7 @@ public class TermsOfService extends BasePageObject implements Footer, MainHeader
     }
 
     public boolean isThisPage() {
+        logger.debug("check is this is a 'TermsOfService' page");
         return driver.isElementPresent(Locator.H4_TITLE);
     }
 

@@ -13,6 +13,7 @@ public class AfterLogout extends BasePageObject implements Footer, MainHeader {
     }
 
     public boolean isThisPage() {
+        logger.debug("check is 'AfterLogout' page is opened");
         return driver.isElementPresent(successLogoutMessage);
     }
 
