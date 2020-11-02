@@ -15,7 +15,7 @@ public interface MainHeader extends BasePart {
     default Main goMainPage() {
         OnixWebDriver driver = getDriver();
         driver.findElement(HeaderLocator.JSA_LOGO).click();
-        getLogger().info("go 'Main' page by clicking 'JSA' logo on header");
+        getLogger().debug("go 'Main' page by clicking 'JSA' logo on header");
         return new Main(driver);
     }
     default Challenge goChallengePage() {

@@ -3,7 +3,7 @@
     <property name="LOG_FOLDER" value="logs"/>
     <timestamp key="bySecond" datePattern="yyyyMMdd'T'HHmmss"/>
 
-    <appender name="CONSOLE_error_only" class="ch.qos.logback.core.ConsoleAppender">
+    <appender name="TESTNG_error_only" class="com.github.sbabcoc.logback.testng.ReporterAppender">
          <withJansi>true</withJansi>
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
             <level>ERROR</level>
@@ -11,11 +11,11 @@
             <onMismatch>DENY</onMismatch>
         </filter>
         <encoder>
-            <pattern>%boldRed([%d{yyyy-MM-dd HH:mm:ss.SSS}] [%level] %msg%n)</pattern>
+            <pattern>%boldRed([%d{yyyy-MM-dd HH:mm:ss.SSS}] [%level] %msg%n%caller)</pattern>
         </encoder>
     </appender>
 
-    <appender name="CONSOLE_warn_only" class="ch.qos.logback.core.ConsoleAppender">
+    <appender name="TESTNG_warn_only" class="com.github.sbabcoc.logback.testng.ReporterAppender">
          <withJansi>true</withJansi>
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
             <level>WARN</level>
@@ -23,11 +23,11 @@
             <onMismatch>DENY</onMismatch>
         </filter>
         <encoder>
-            <pattern>%boldYellow([%d{yyyy-MM-dd HH:mm:ss.SSS}] [%level] %msg%n)</pattern>
+            <pattern>%boldYellow([%d{yyyy-MM-dd HH:mm:ss.SSS}] [%level] %msg%n%caller{1})</pattern>
         </encoder>
     </appender>
 
-    <appender name="CONSOLE_info_only" class="ch.qos.logback.core.ConsoleAppender">
+    <appender name="TESTNG_info_only" class="com.github.sbabcoc.logback.testng.ReporterAppender">
          <withJansi>true</withJansi>
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
             <level>INFO</level>
@@ -35,11 +35,11 @@
             <onMismatch>DENY</onMismatch>
         </filter>
         <encoder>
-            <pattern>%green([%d{yyyy-MM-dd HH:mm:ss.SSS}] [%level] %msg%n)</pattern>
+            <pattern>%green([%d{yyyy-MM-dd HH:mm:ss.SSS}] [%level] %msg%n%caller{1}%caller{1})</pattern>
         </encoder>
     </appender>
 
-    <appender name="CONSOLE_debug_only" class="ch.qos.logback.core.ConsoleAppender">
+    <appender name="TESTNG_debug_only" class="com.github.sbabcoc.logback.testng.ReporterAppender">
          <withJansi>true</withJansi>
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
             <level>DEBUG</level>
@@ -47,11 +47,11 @@
             <onMismatch>DENY</onMismatch>
         </filter>
         <encoder>
-            <pattern>%boldWhite([%d{yyyy-MM-dd HH:mm:ss.SSS}] [%level] %msg%n)</pattern>
+            <pattern>%boldWhite([%d{yyyy-MM-dd HH:mm:ss.SSS}] [%level] %msg%n%)</pattern>
         </encoder>
     </appender>
 
-    <appender name="CONSOLE_trace_only" class="ch.qos.logback.core.ConsoleAppender">
+    <appender name="TESTNG_trace_only" class="com.github.sbabcoc.logback.testng.ReporterAppender">
          <withJansi>true</withJansi>
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
             <level>TRACE</level>
@@ -64,6 +64,66 @@
     </appender>
 
 
+
+    <appender name="CONSOLE_error_only" class="ch.qos.logback.core.ConsoleAppender">
+        <withJansi>true</withJansi>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <encoder>
+            <pattern>%boldRed([%d{yyyy-MM-dd HH:mm:ss.SSS}] [%level] %msg%n%caller)</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="CONSOLE_warn_only" class="ch.qos.logback.core.ConsoleAppender">
+        <withJansi>true</withJansi>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>WARN</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <encoder>
+            <pattern>%boldYellow([%d{yyyy-MM-dd HH:mm:ss.SSS}] [%level] %msg%n%caller{3})</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="CONSOLE_info_only" class="ch.qos.logback.core.ConsoleAppender">
+        <withJansi>true</withJansi>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>INFO</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <encoder>
+            <pattern>%green([%d{yyyy-MM-dd HH:mm:ss.SSS}] [%level] %msg%n%caller{1}%caller{2})</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="CONSOLE_debug_only" class="ch.qos.logback.core.ConsoleAppender">
+        <withJansi>true</withJansi>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>DEBUG</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <encoder>
+            <pattern>%boldWhite([%d{yyyy-MM-dd HH:mm:ss.SSS}] [%level] %msg%n%caller{1})</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="CONSOLE_trace_only" class="ch.qos.logback.core.ConsoleAppender">
+        <withJansi>true</withJansi>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>TRACE</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <encoder>
+            <pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%level] %msg%n</pattern>
+        </encoder>
+    </appender>
 
 
 
@@ -82,21 +142,52 @@
 <!--            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS}%level%msg</pattern>-->
 <!--        </layout>-->
 <!--    </appender>-->
+    <appender name="TestNG" class="com.github.sbabcoc.logback.testng.ReporterAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
 
 
 
 
 
+    <logger name="automation" level="DEBUG">
+        <appender-ref ref="CONSOLE_error_only"/>
+        <appender-ref ref="CONSOLE_warn_only"/>
+        <appender-ref ref="CONSOLE_info_only"/>
+        <appender-ref ref="CONSOLE_debug_only"/>
+        <appender-ref ref="CONSOLE_trace_only"/>
+
+        <appender-ref ref="TESTNG_error_only"/>
+        <appender-ref ref="TESTNG_warn_only"/>
+        <appender-ref ref="TESTNG_info_only"/>
+        <appender-ref ref="TESTNG_debug_only"/>
+        <appender-ref ref="TESTNG_trace_only"/>
+
+    </logger>
     <logger name="ui" level="DEBUG">
         <appender-ref ref="CONSOLE_error_only"/>
         <appender-ref ref="CONSOLE_warn_only"/>
         <appender-ref ref="CONSOLE_info_only"/>
         <appender-ref ref="CONSOLE_debug_only"/>
         <appender-ref ref="CONSOLE_trace_only"/>
+
+        <appender-ref ref="TESTNG_error_only"/>
+        <appender-ref ref="TESTNG_warn_only"/>
+        <appender-ref ref="TESTNG_info_only"/>
+        <appender-ref ref="TESTNG_debug_only"/>
+        <appender-ref ref="TESTNG_trace_only"/>
+
     </logger>
 
 
     <root level="ALL">
-
+<!--        <appender-ref ref="TestNG"/>-->
+<!--        <appender-ref ref="CONSOLE_error_only"/>-->
+<!--        <appender-ref ref="CONSOLE_warn_only"/>-->
+<!--        <appender-ref ref="CONSOLE_info_only"/>-->
+<!--        <appender-ref ref="CONSOLE_debug_only"/>-->
+<!--        <appender-ref ref="CONSOLE_trace_only"/>-->
     </root>
 </configuration>

@@ -23,6 +23,12 @@
     </properties>
 
     <dependencies>
+        <!--appender name in logback.xml - "TestNG" https://mvnrepository.com/artifact/com.github.sbabcoc/logback-testng -->
+        <dependency>
+            <groupId>com.github.sbabcoc</groupId>
+            <artifactId>logback-testng</artifactId>
+            <version>1.3.1</version>
+        </dependency>
         <!--colors for logback patterns https://mvnrepository.com/artifact/org.fusesource.jansi/jansi -->
         <dependency>
             <groupId>org.fusesource.jansi</groupId>

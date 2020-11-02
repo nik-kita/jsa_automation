@@ -4,6 +4,7 @@ package ui;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Allure;
 import io.qameta.allure.AllureLifecycle;
+import io.qameta.allure.testng.AllureTestNg;
 import org.commonmark.parser.Parser;
 import org.commonmark.renderer.html.HtmlRenderer;
 import org.openqa.selenium.WebDriver;
@@ -16,6 +17,7 @@ import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import ui.engine.OnixWebDriver;
 import ui.guest_mode.page_objects.main.Main;
 
@@ -25,6 +27,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -38,6 +41,7 @@ public class OnixTestRunner {
     public OnixWebDriver getDriver() {
         return driver;
     }
+
 
     @BeforeClass
     public void settingDriver() {
@@ -66,6 +70,7 @@ public class OnixTestRunner {
 
         onixAssert = new OnixAssert(driver);
     }
+
 
     @AfterClass
     public void driverOff() {
