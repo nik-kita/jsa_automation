@@ -183,7 +183,7 @@
 
 
     <root level="ALL">
-<!--        <appender-ref ref="TestNG"/>-->
+        <appender-ref ref="TestNG"/>
 <!--        <appender-ref ref="CONSOLE_error_only"/>-->
 <!--        <appender-ref ref="CONSOLE_warn_only"/>-->
 <!--        <appender-ref ref="CONSOLE_info_only"/>-->
