@@ -9,6 +9,8 @@ import org.commonmark.renderer.html.HtmlRenderer;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
@@ -32,13 +34,14 @@ public class OnixTestRunner {
     public OnixWebDriver driver;
     private Main mainPO;
     String baseUrl = "https://www.jamessmithacademy.com/";
-
+    public Logger log;
     public OnixWebDriver getDriver() {
         return driver;
     }
 
     @BeforeClass
     public void settingDriver() {
+        log = LoggerFactory.getLogger(this.getClass());
         WebDriverManager.chromedriver().setup();
         Map<String, Object> prefs = new HashMap<>();
         // Set the notification setting it will override the default setting
@@ -60,6 +63,7 @@ public class OnixTestRunner {
         chrome.manage().window().maximize();
         chrome.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         driver = new OnixWebDriver(chrome);
+
         onixAssert = new OnixAssert(driver);
     }
 

@@ -23,16 +23,13 @@
     </properties>
 
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/org.fusesource.jansi/jansi -->
+        <!--colors for logback patterns https://mvnrepository.com/artifact/org.fusesource.jansi/jansi -->
         <dependency>
             <groupId>org.fusesource.jansi</groupId>
             <artifactId>jansi</artifactId>
             <version>2.0.1</version>
         </dependency>
-
-
-
-
+        <!--for sending emails form logback-->
         <dependency>
             <groupId>javax.mail</groupId>
             <artifactId>mail</artifactId>
@@ -44,8 +41,6 @@
             <version>1.1.1</version>
             <scope>runtime</scope>
         </dependency>
-
-
         <!-- https://mvnrepository.com/artifact/org.codehaus.groovy/groovy-all -->
         <dependency>
             <groupId>org.codehaus.groovy</groupId>
@@ -53,26 +48,13 @@
             <version>3.0.6</version>
             <type>pom</type>
         </dependency>
-
-
-
-
-
-
-
-
         <!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-core -->
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-core</artifactId>
             <version>1.2.3</version>
         </dependency>
-
-
-
-
-
-
+        <!--markdown parser-->
         <dependency>
             <groupId>com.atlassian.commonmark</groupId>
             <artifactId>commonmark</artifactId>
@@ -122,9 +104,7 @@
             <version>1.2.3</version>
             <scope>compile</scope>
         </dependency>
-
     </dependencies>
-
     <build>
         <plugins>
             <plugin>
