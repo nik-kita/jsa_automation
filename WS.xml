@@ -2,9 +2,9 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
     <listeners>
-        <listener class-name="org.testng.reporters.EmailableReporter"></listener>
+<!--        <listener class-name="org.testng.reporters.EmailableReporter"></listener>-->
         <listener class-name="ui.engine.loggers.CustomTestNGReporter"></listener>
-        <listener class-name="org.testng.reporters.FailedReporter"></listener>
+<!--        <listener class-name="org.testng.reporters.FailedReporter"></listener>-->
     </listeners>
     <test verbose="2" preserve-order="true" name="/home/nik/jsa_automation_tests/src/test/java/automation/WS.java">
         <classes>

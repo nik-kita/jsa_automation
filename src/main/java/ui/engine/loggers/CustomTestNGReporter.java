@@ -48,6 +48,12 @@ public class CustomTestNGReporter implements IReporter {
             customReportTemplateStr = customReportTemplateStr.replaceAll("\\$Test_Case_Detail\\$", customTestMethodSummary);
 
             // Write replaced test report content to custom-emailable-report.html.
+            System.out.println(outputDirectory + "/custom-emailable-report.html");
+            System.out.println(outputDirectory + "/custom-emailable-report.html");
+            System.out.println(outputDirectory + "/custom-emailable-report.html");
+            System.out.println(outputDirectory + "/custom-emailable-report.html");
+            System.out.println(outputDirectory + "/custom-emailable-report.html");
+            System.out.println(outputDirectory + "/custom-emailable-report.html");
             File targetFile = new File(outputDirectory + "/custom-emailable-report.html");
             FileWriter fw = new FileWriter(targetFile);
             fw.write(customReportTemplateStr);
