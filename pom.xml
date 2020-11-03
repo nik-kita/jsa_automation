@@ -23,6 +23,8 @@
     </properties>
 
     <dependencies>
+
+
         <!--appender name in logback.xml - "TestNG" https://mvnrepository.com/artifact/com.github.sbabcoc/logback-testng -->
         <dependency>
             <groupId>com.github.sbabcoc</groupId>

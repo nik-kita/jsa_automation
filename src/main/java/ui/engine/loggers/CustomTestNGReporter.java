@@ -10,27 +10,26 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class CustomTestNGReporter implements IReporter {
 
     //This is the customize emailabel report template file path.
     private static final String emailableReportTemplateFile = "src/main/resources/customize-emailable-report-template.html";
+    String outputDirectory = "";
 
     @Override
     public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites, String outputDirectory) {
-        System.out.println(emailableReportTemplateFile);
-        System.out.println(emailableReportTemplateFile);
-        System.out.println(emailableReportTemplateFile);
-        System.out.println(emailableReportTemplateFile);
-        System.out.println(emailableReportTemplateFile);
-        System.out.println(emailableReportTemplateFile);
+        this.outputDirectory = outputDirectory;
+
         try
         {
             // Get content data in TestNG report template file.
             String customReportTemplateStr = this.readEmailabelReportTemplate();
 
             // Create custom report title.
-            String customReportTitle = this.getCustomReportTitle("Custom TestNG Report");
+            String customReportTitle = this.getCustomReportTitle("R E P O R T");
 
             // Create test suite summary data.
             String customSuiteSummary = this.getTestSuiteSummary(suites);
@@ -47,18 +46,35 @@ public class CustomTestNGReporter implements IReporter {
             // Replace test methods place holder with custom test method summary.
             customReportTemplateStr = customReportTemplateStr.replaceAll("\\$Test_Case_Detail\\$", customTestMethodSummary);
 
+
+
+
+            //=========================
+            /**
+             * Create all folders for suite, month, and day if they are not already created
+             */
+            String fileName = myFileTreeGeneratorBySuiteNames(suites);
+            pathFolderFiller(fileName);
+            String fileName2 = myFileTreeGeneratorByTime(suites);
+            pathFolderFiller(fileName2);
+            //=========================
+
             // Write replaced test report content to custom-emailable-report.html.
-            System.out.println(outputDirectory + "/custom-emailable-report.html");
-            System.out.println(outputDirectory + "/custom-emailable-report.html");
-            System.out.println(outputDirectory + "/custom-emailable-report.html");
-            System.out.println(outputDirectory + "/custom-emailable-report.html");
-            System.out.println(outputDirectory + "/custom-emailable-report.html");
-            System.out.println(outputDirectory + "/custom-emailable-report.html");
-            File targetFile = new File(outputDirectory + "/custom-emailable-report.html");
+            File targetFile = new File(outputDirectory + "/" + fileName);
             FileWriter fw = new FileWriter(targetFile);
             fw.write(customReportTemplateStr);
             fw.flush();
             fw.close();
+
+            /**
+             * Repeat for another folder structure
+             */
+            File targetFile2 = new File(outputDirectory + "/" + fileName2);
+            FileWriter fw2 = new FileWriter(targetFile2);
+            fw2.write(customReportTemplateStr);
+            fw2.flush();
+            fw2.close();
+
 
         }catch(Exception ex)
         {
@@ -421,6 +437,48 @@ public class CustomTestNGReporter implements IReporter {
             }
         }
         return retStrBuf.toString();
+    }
+
+    public String myFileTreeGeneratorBySuiteNames(List<ISuite> suites) {
+        String suiteName = "/sort_by_suiteNames/";
+        String and = "_and_";
+        for(ISuite s : suites) {
+            suiteName += s.getName() + and;
+        }
+        suiteName = suiteName.substring(0, suiteName.length() - and.length()) + "/";
+        String date = new SimpleDateFormat("MMMM/dd_EEEE/$HH|mm|ss").format(new Date(System.currentTimeMillis()));
+        int index = date.indexOf("$");
+        String timeFolders = "/" + date.substring(0, index);
+        String originalName = date.substring(index + 1);
+        return (suiteName + timeFolders + originalName + ".html").replaceAll("\\s", "_");
+//        return (timeFolders + suiteName + originalName + ".html").replaceAll("\\s", "_");
+    }
+    public String myFileTreeGeneratorByTime(List<ISuite> suites) {
+        String date = new SimpleDateFormat("MMMM/dd_EEEE/$HH|mm|ss").format(new Date(System.currentTimeMillis()));
+        int index = date.indexOf("$");
+        String timeFolders = "/sort_by_time/" + date.substring(0, index);
+        String originalName = date.substring(index + 1);
+
+        String suiteName = "/";
+        String and = "_and_";
+        for(ISuite s : suites) {
+            suiteName += s.getName() + and;
+        }
+        suiteName = suiteName.substring(0, suiteName.length() - and.length()) + "/";
+        return (timeFolders + suiteName + originalName + ".html").replaceAll("\\s", "_");
+    }
+
+    public void pathFolderFiller(String fileName){
+        String path = "";
+        Matcher m = Pattern.compile("\\d{1,2}\\|\\d{1,2}\\|\\d{1,2}.").matcher(fileName);
+        if(m.find()) {
+            int index = m.start();
+            path = outputDirectory + fileName.substring(0, index);
+        }
+        File directory = new File(path);
+        if(!directory.exists()) {
+            directory.mkdirs();
+        }
     }
 
 }

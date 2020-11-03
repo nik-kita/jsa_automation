@@ -12,18 +12,19 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.testng.ITest;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.*;
 import ui.engine.OnixWebDriver;
 import ui.guest_mode.page_objects.main.Main;
+
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Method;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -32,7 +33,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
-public class OnixTestRunner {
+public class OnixTestRunner implements ITest {
     public OnixAssert onixAssert;
     public OnixWebDriver driver;
     private Main mainPO;
@@ -41,6 +42,24 @@ public class OnixTestRunner {
     public OnixWebDriver getDriver() {
         return driver;
     }
+
+    private ThreadLocal<String> testName = new ThreadLocal<>();
+
+    @BeforeMethod
+    public void BeforeMethod(Method method, Object[] testData){
+        Annotation[] declaredAnnotations = method.getDeclaredAnnotations();
+        boolean before = false;
+
+        for (Annotation annotation : declaredAnnotations){
+            if (annotation instanceof BeforeMethod)before = true;
+        }
+        if(before) {
+            Test a = method.getAnnotation(Test.class);
+            String name = a.testName();
+            testName.set(name);
+        }
+    }
+
 
 
     @BeforeClass
@@ -132,5 +151,10 @@ public class OnixTestRunner {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public String getTestName() {
+        return testName.get();
     }
 }
