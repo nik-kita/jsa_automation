@@ -23,6 +23,10 @@ public class Home extends BasePageObject implements HomePart {
         return new MyGoal(driver);
     }
 
+    public Steps clickStepsLink() {
+        driver.findElement(Locator.STEPS_DIV_LINK).click();
+        return new Steps(driver);
+    }
 
 
     public enum Locator implements OnixLocator {
