@@ -1,4 +1,5 @@
 ####### My ignores ######
+test-output/
 MyTest.java
 credentials.properties
 Laboratory.java
