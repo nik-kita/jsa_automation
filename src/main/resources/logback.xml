@@ -10,12 +10,16 @@
     </appender>
 
 
-    <logger name="ui" level="DEBUG">
+    <logger name="ui" level="INFO">
         <appender-ref ref="STDOUT"/>
     </logger>
-    <logger name="automation" level="Trace">
+    <logger name="automation" level="INFO">
         <appender-ref ref="STDOUT" />
     </logger>
+    <logger name="test_engine" level="INFO">
+        <appender-ref ref="STDOUT" />
+    </logger>
+
 
     <root level="INFO">
 <!--        <appender-ref ref="STDOUT" />-->

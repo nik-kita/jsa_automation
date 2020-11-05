@@ -5,7 +5,6 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ui.engine.OnixLocator;
 import ui.user_mode.JsaLoginBaseTestRunner;
-import ui.user_mode.general_parts.home.HomeHeaderPart;
 import ui.user_mode.page_objects.home_header.home.Steps;
 
 public class StepsTest extends JsaLoginBaseTestRunner {

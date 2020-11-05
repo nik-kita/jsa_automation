@@ -50,6 +50,11 @@ public class Blog extends BasePageObject implements Footer, MainHeader {
 
     public int countPosts() {
         driver.scrollPageDown();
+        try {
+            Thread.sleep(1500);
+        } catch (InterruptedException e) {
+            logger.error("In Blog.countPosts 'sleep' after every scrollPageDown..." + e.getMessage());
+        }
         int result =  driver.findElements(POST).size();
         driver.scrollPageUp();
         logger.debug("count all page on current tab of 'Blog' page");

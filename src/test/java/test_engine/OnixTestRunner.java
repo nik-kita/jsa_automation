@@ -1,10 +1,8 @@
-package ui;
+package test_engine;
 
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Allure;
-import io.qameta.allure.AllureLifecycle;
-import io.qameta.allure.testng.AllureTestNg;
 import org.commonmark.parser.Parser;
 import org.commonmark.renderer.html.HtmlRenderer;
 import org.openqa.selenium.WebDriver;
@@ -14,8 +12,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
 import org.testng.ITest;
-import org.testng.ITestContext;
-import org.testng.ITestResult;
 import org.testng.annotations.*;
 import ui.engine.OnixWebDriver;
 import ui.guest_mode.page_objects.main.Main;
@@ -29,12 +25,11 @@ import java.lang.reflect.Method;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
-public class OnixTestRunner /*implements ITest*/ {
+public class OnixTestRunner implements ITest {
     public OnixAssert onixAssert;
     public OnixWebDriver driver;
     private Main mainPO;
@@ -45,26 +40,27 @@ public class OnixTestRunner /*implements ITest*/ {
     }
 
 
-//    private ThreadLocal<String> testName = new ThreadLocal<>();
-//@Override
-//public String getTestName() {
-//    return testName.get();
-//}
-//    @BeforeMethod
-//    public void BeforeMethod(Method method, Object[] testData){
-//        Annotation[] declaredAnnotations = method.getDeclaredAnnotations();
-//        boolean before = false;
-//
-//        for (Annotation annotation : declaredAnnotations){
-//            if (annotation instanceof BeforeMethod)before = true;
-//        }
-//        if(before) {
-//            Test a = method.getAnnotation(Test.class);
-//            String name = a.testName();
-//            testName.set(name);
-//        }
-
-//    }
+    private ThreadLocal<String> testName = new ThreadLocal<>();
+@Override
+public String getTestName() {
+    return testName.get();
+}
+    @BeforeMethod
+    public void BeforeMethod(Method method, Object[] testData){
+        Annotation[] declaredAnnotations = method.getDeclaredAnnotations();
+        boolean before = false;
+        String name = method.getName();
+        for (Annotation annotation : declaredAnnotations){
+            if (annotation instanceof BeforeMethod)before = true;
+        }
+        if(before) {
+            Test a = method.getAnnotation(Test.class);
+            name = a.testName();
+            testName.set(name);
+        }
+        MDC.put("test", method.getName());
+        log.info("Test '" + name + "' is started");
+    }
 
 
 
@@ -96,14 +92,12 @@ public class OnixTestRunner /*implements ITest*/ {
 
         onixAssert = new OnixAssert(driver);
     }
-    @BeforeMethod
-    public void attachTestNameToLogger(Method method, Object[] testData) {
-        MDC.put("test", method.getName());
-    }
+
 
     @AfterMethod
     public void cleanLoggerFromTestInfo(Method method, Object[] testData) {
         MDC.remove("test");
+        log.info("Test '" + method.getName() + "' is completed");
     }
 
 

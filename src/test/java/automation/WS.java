@@ -1,12 +1,9 @@
 package automation;
 
 import io.qameta.allure.Allure;
-import io.qameta.allure.AllureLifecycle;
-import io.qameta.allure.testng.AllureTestNg;
-import org.checkerframework.checker.units.qual.A;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import ui.OnixTestRunner;
+import test_engine.OnixTestRunner;
 import ui.data.User;
 import ui.engine.OnixLocator;
 import ui.guest_mode.page_objects.from_footer.*;

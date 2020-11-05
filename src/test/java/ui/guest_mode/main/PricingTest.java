@@ -3,11 +3,8 @@ package ui.guest_mode.main;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import ui.OnixAssert;
-import ui.OnixTestRunner;
+import test_engine.OnixTestRunner;
 import ui.engine.OnixLocator;
-import ui.guest_mode.general_parts.Footer;
-import ui.guest_mode.general_parts.MainHeader;
 import ui.guest_mode.page_objects.main.Pricing;
 
 public class PricingTest extends OnixTestRunner {

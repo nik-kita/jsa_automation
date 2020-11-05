@@ -1,8 +1,7 @@
 package automation;
 
 import org.testng.annotations.Test;
-import ui.OnixAssert;
-import ui.OnixTestRunner;
+import test_engine.OnixTestRunner;
 import ui.data.User;
 import ui.user_mode.general_parts.home.HomeHeaderPart;
 

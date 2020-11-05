@@ -2,7 +2,7 @@ package ui.user_mode;
 
 
 import org.testng.annotations.BeforeClass;
-import ui.OnixTestRunner;
+import test_engine.OnixTestRunner;
 import ui.shortcuts.RouteHacks;
 import ui.user_mode.page_objects.home_header.home.Home;
 

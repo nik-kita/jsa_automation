@@ -3,7 +3,7 @@ package ui.user_mode.home.workouts;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import ui.OnixAssert;
+import test_engine.OnixAssert;
 import ui.engine.OnixLocator;
 import ui.user_mode.JsaLoginBaseTestRunner;
 import ui.user_mode.general_parts.home.HomeHeaderPart;

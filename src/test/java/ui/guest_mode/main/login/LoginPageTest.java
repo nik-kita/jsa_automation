@@ -4,8 +4,7 @@ package ui.guest_mode.main.login;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import ui.OnixAssert;
-import ui.OnixTestRunner;
+import test_engine.OnixTestRunner;
 import ui.engine.OnixLocator;
 import ui.guest_mode.page_objects.main.login.Login;
 

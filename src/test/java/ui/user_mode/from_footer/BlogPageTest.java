@@ -4,7 +4,6 @@ package ui.user_mode.from_footer;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import ui.OnixAssert;
 import ui.engine.OnixLocator;
 import ui.user_mode.page_objects.from_footer.Blog;
 import ui.user_mode.JsaLoginBaseTestRunner;
