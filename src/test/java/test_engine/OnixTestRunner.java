@@ -67,6 +67,7 @@ public String getTestName() {
     @BeforeClass
     public void settingDriver() {
         log = LoggerFactory.getLogger(this.getClass());
+        log.info("Start new Test class " + this.getClass().getName());
         MDC.put("testClass", this.getClass().getName());
         WebDriverManager.chromedriver().setup();
         Map<String, Object> prefs = new HashMap<>();
@@ -97,7 +98,7 @@ public String getTestName() {
     @AfterMethod
     public void cleanLoggerFromTestInfo(Method method, Object[] testData) {
         MDC.remove("test");
-        log.info("Test '" + method.getName() + "' is completed\n=======================================================================");
+        log.info("Test '" + method.getName() + "' is completed\n---------------------------------------------------------");
     }
 
 
