@@ -27,7 +27,7 @@ public class NewWeeklyGoal extends BasePageObject {
 
     public enum Locator implements OnixLocator {
         CLOSE_X_BUTTON(By.xpath("//button//img[contains(@src, 'close')]")),
-        GAOL_TEXTAREA(By.cssSelector("textarea[name='goal']")),
+        GAOL_TEXTAREA(By.cssSelector(".new_weekly_goal_form textarea[name='goal']")),
         SAVE_BUTTON(By.xpath("//div[@class='modal-window']//button[text()='Save']")),
 
         ;
