@@ -1,4 +1,4 @@
-package ui.user_mode.page_objects.home_header.home;
+package ui.user_mode.page_objects.home_header.home.my_progress;
 
 import org.openqa.selenium.By;
 import ui.BasePageObject;
@@ -6,8 +6,8 @@ import ui.engine.OnixLocator;
 import ui.engine.OnixWebDriver;
 import ui.user_mode.general_parts.home.HomeHeaderPart;
 
-public class MyProgerss extends BasePageObject implements HomeHeaderPart {
-    public MyProgerss(OnixWebDriver driver) {
+public class MyProgress extends BasePageObject implements HomeHeaderPart {
+    public MyProgress(OnixWebDriver driver) {
         super(driver);
     }
 

@@ -6,6 +6,7 @@ import ui.engine.OnixLocator;
 import ui.engine.OnixWebDriver;
 import ui.user_mode.general_parts.home.HomePart;
 import ui.user_mode.page_objects.home_header.home.my_goal.MyGoal;
+import ui.user_mode.page_objects.home_header.home.my_progress.MyProgress;
 
 public class Home extends BasePageObject implements HomePart {
     public Home(OnixWebDriver driver) {
@@ -28,6 +29,10 @@ public class Home extends BasePageObject implements HomePart {
         return new Steps(driver);
     }
 
+    public MyProgress clickMyProgressLink() {
+        driver.findElement(Locator.MY_PROGRESS_DIV_LINK).click();
+        return new MyProgress(driver);
+    }
 
     public enum Locator implements OnixLocator {
         MY_PLAN_ACCOUNT_ICON_LINK(By.cssSelector("[href='/users/account/my-plan")),

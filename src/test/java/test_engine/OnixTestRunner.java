@@ -59,7 +59,7 @@ public String getTestName() {
             testName.set(name);
         }
         MDC.put("test", method.getName());
-        log.info("Test '" + name + "' is started");
+        log.info("============================================\nTest '" + name + "' is started");
     }
 
 
@@ -97,7 +97,7 @@ public String getTestName() {
     @AfterMethod
     public void cleanLoggerFromTestInfo(Method method, Object[] testData) {
         MDC.remove("test");
-        log.info("Test '" + method.getName() + "' is completed");
+        log.info("Test '" + method.getName() + "' is completed\n=======================================================================");
     }
 
 

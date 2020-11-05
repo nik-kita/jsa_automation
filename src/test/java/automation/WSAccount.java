@@ -21,7 +21,7 @@ public class WSAccount extends OnixTestRunner {
         log.info("open site");
     }
 
-    @Test
+    @Test(testName = "Check base functionality of Home and relative pages")
     public void home() {
         Allure.link("Full test case information" , "https://docs.google.com/spreadsheets/d/1gudjZ7fh4aUsozP7aPIovLnI4qGdbUFpIHJ6AbTlbC4/edit?ts=5f7593b0#gid=1204697450&range=B2");
         Allure.step("Main page");
@@ -60,6 +60,7 @@ public class WSAccount extends OnixTestRunner {
         for(OnixLocator l : Steps.Locator.values()) {
             onixAssert.softCheckCountOfElementByLocator(l, 1);
         }
+
 
 
 
