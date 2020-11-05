@@ -12,6 +12,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.slf4j.MDC;
 import org.testng.ITest;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
@@ -33,7 +34,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
-public class OnixTestRunner implements ITest {
+public class OnixTestRunner /*implements ITest*/ {
     public OnixAssert onixAssert;
     public OnixWebDriver driver;
     private Main mainPO;
@@ -43,28 +44,34 @@ public class OnixTestRunner implements ITest {
         return driver;
     }
 
-    private ThreadLocal<String> testName = new ThreadLocal<>();
 
-    @BeforeMethod
-    public void BeforeMethod(Method method, Object[] testData){
-        Annotation[] declaredAnnotations = method.getDeclaredAnnotations();
-        boolean before = false;
+//    private ThreadLocal<String> testName = new ThreadLocal<>();
+//@Override
+//public String getTestName() {
+//    return testName.get();
+//}
+//    @BeforeMethod
+//    public void BeforeMethod(Method method, Object[] testData){
+//        Annotation[] declaredAnnotations = method.getDeclaredAnnotations();
+//        boolean before = false;
+//
+//        for (Annotation annotation : declaredAnnotations){
+//            if (annotation instanceof BeforeMethod)before = true;
+//        }
+//        if(before) {
+//            Test a = method.getAnnotation(Test.class);
+//            String name = a.testName();
+//            testName.set(name);
+//        }
 
-        for (Annotation annotation : declaredAnnotations){
-            if (annotation instanceof BeforeMethod)before = true;
-        }
-        if(before) {
-            Test a = method.getAnnotation(Test.class);
-            String name = a.testName();
-            testName.set(name);
-        }
-    }
+//    }
 
 
 
     @BeforeClass
     public void settingDriver() {
         log = LoggerFactory.getLogger(this.getClass());
+        MDC.put("testClass", this.getClass().getName());
         WebDriverManager.chromedriver().setup();
         Map<String, Object> prefs = new HashMap<>();
         // Set the notification setting it will override the default setting
@@ -89,6 +96,15 @@ public class OnixTestRunner implements ITest {
 
         onixAssert = new OnixAssert(driver);
     }
+    @BeforeMethod
+    public void attachTestNameToLogger(Method method, Object[] testData) {
+        MDC.put("test", method.getName());
+    }
+
+    @AfterMethod
+    public void cleanLoggerFromTestInfo(Method method, Object[] testData) {
+        MDC.remove("test");
+    }
 
 
     @AfterClass
@@ -101,6 +117,8 @@ public class OnixTestRunner implements ITest {
         mainPO = new Main(driver);
         return mainPO;
     }
+
+
 
     public Object[] mergeArrays(Object[]... arrays) {
         int length = 0;
@@ -128,7 +146,6 @@ public class OnixTestRunner implements ITest {
                         .parse(markdown));
         Allure.descriptionHtml(html);
     }
-
     public void allureAddMarkdownDescriptionFromFile(String fileName) {
         String html = null;
         try {
@@ -145,16 +162,12 @@ public class OnixTestRunner implements ITest {
         }
         Allure.descriptionHtml(html);
     }
+
     public void allureAddTxtFileAttachment(String fileName) {
         try {
             Allure.addAttachment(fileName, new FileInputStream("src/test/resources/tests/" + fileName));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-    }
-
-    @Override
-    public String getTestName() {
-        return testName.get();
     }
 }

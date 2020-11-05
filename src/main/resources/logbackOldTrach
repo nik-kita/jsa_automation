@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <property name="LOG_FOLDER" value="logs"/>
+    <timestamp key="bySecond" datePattern="yyyyMMdd'T'HHmmss"/>
+
+    <appender name="ng_error" class="com.github.sbabcoc.logback.testng.ReporterAppender">
+
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <encoder>
+            <pattern>%boldRed([%d{yyyy-MM-dd HH:mm:ss.SSS}] [%level] %msg%n%caller)</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="ng__warn" class="com.github.sbabcoc.logback.testng.ReporterAppender">
+
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>WARN</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <encoder>
+            <pattern>%boldYellow([%d{yyyy-MM-dd HH:mm:ss.SSS}] [%level] %msg%n%caller{1})</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="ng__info" class="com.github.sbabcoc.logback.testng.ReporterAppender">
+
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>INFO</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <encoder>
+            <pattern>%green([%d{yyyy-MM-dd HH:mm:ss.SSS}] [%level] %msg%n%caller{1})</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="ng_debug" class="com.github.sbabcoc.logback.testng.ReporterAppender">
+
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>DEBUG</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <encoder>
+            <pattern>%boldWhite([%d{yyyy-MM-dd HH:mm:ss.SSS}] [%level] %msg%n)</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="ng_trace" class="com.github.sbabcoc.logback.testng.ReporterAppender">
+
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>TRACE</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <encoder>
+            <pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%level] %msg%n</pattern>
+        </encoder>
+    </appender>
+
+
+    <appender name="CONSOLE_error_only" class="ch.qos.logback.core.ConsoleAppender">
+        <withJansi>true</withJansi>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <encoder>
+            <pattern>%boldRed([%d{yyyy-MM-dd HH:mm:ss.SSS}] [%level] %msg%n%caller)</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="CONSOLE_warn_only" class="ch.qos.logback.core.ConsoleAppender">
+        <withJansi>true</withJansi>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>WARN</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <encoder>
+            <pattern>%boldYellow([%d{yyyy-MM-dd HH:mm:ss.SSS}] [%level] %msg%n%caller{3})</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="CONSOLE_info_only" class="ch.qos.logback.core.ConsoleAppender">
+        <withJansi>true</withJansi>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>INFO</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <encoder>
+            <pattern>%green([%d{yyyy-MM-dd HH:mm:ss.SSS}] [%level] %msg%n%caller{1}%caller{2})</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="CONSOLE_debug_only" class="ch.qos.logback.core.ConsoleAppender">
+        <withJansi>true</withJansi>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>DEBUG</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <encoder>
+            <pattern>%boldWhite([%d{yyyy-MM-dd HH:mm:ss.SSS}] [%level] %msg%n%caller{1})</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="CONSOLE_trace_only" class="ch.qos.logback.core.ConsoleAppender">
+        <withJansi>true</withJansi>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>TRACE</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <encoder>
+            <pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%level] %msg%n</pattern>
+        </encoder>
+    </appender>
+
+
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+            <layout class="ui.engine.loggers.MyHTMLLayout">
+                <pattern>%relative%thread%level%logger%msg</pattern>
+            </layout>
+        </encoder>
+        <file>test.html</file>
+    </appender>
+    <!--    <appender name="EMAIL" class="ch.qos.logback.classic.net.SMTPAppender">-->
+    <!--        <smtpHost>smtp.gmail.com</smtpHost>-->
+    <!--        <smtpPort>587</smtpPort>-->
+    <!--        <STARTTLS>true</STARTTLS>-->
+    <!--        <asynchronousSending>false</asynchronousSending>-->
+    <!--        <username>volsknik@gmail.com</username>-->
+    <!--        <password>nik0089711kita</password>-->
+    <!--        <to>volsknik@gmail.com</to>-->
+    <!--        <to>nikita.moiseienko@onix-systems.com</to>-->
+    <!--        <from>volsknik@gmail.com</from>-->
+    <!--        <subject>TESTING: %logger{20} - %m</subject>-->
+    <!--        <layout class="ch.qos.logback.classic.html.HTMLLayout">-->
+    <!--            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS}%level%msg</pattern>-->
+    <!--        </layout>-->
+    <!--    </appender>-->
+    <!--    <appender name="TestNG" class="com.github.sbabcoc.logback.testng.ReporterAppender">-->
+    <!--        <encoder>-->
+    <!--            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>-->
+    <!--        </encoder>-->
+    <!--    </appender>-->
+
+
+    <logger name="automation" level="DEBUG">
+        <appender-ref ref="CONSOLE_error_only"/>
+        <appender-ref ref="CONSOLE_warn_only"/>
+        <appender-ref ref="CONSOLE_info_only"/>
+        <appender-ref ref="CONSOLE_debug_only"/>
+        <appender-ref ref="CONSOLE_trace_only"/>
+
+        <appender-ref ref="ng_error"/>
+        <appender-ref ref="ng__warn"/>
+        <appender-ref ref="ng__info"/>
+        <appender-ref ref="ng_debug"/>
+        <appender-ref ref="ng_trace"/>
+
+    </logger>
+    <logger name="ui" level="DEBUG">
+        <appender-ref ref="CONSOLE_error_only"/>
+        <appender-ref ref="CONSOLE_warn_only"/>
+        <appender-ref ref="CONSOLE_info_only"/>
+        <appender-ref ref="CONSOLE_debug_only"/>
+        <appender-ref ref="CONSOLE_trace_only"/>
+
+        <appender-ref ref="ng_error"/>
+        <appender-ref ref="ng__warn"/>
+        <appender-ref ref="ng__info"/>
+        <appender-ref ref="ng_debug"/>
+        <appender-ref ref="ng_trace"/>
+
+    </logger>
+
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <withJansi>true</withJansi>
+        <encoder>
+            <pattern>%X{test} %level %message </pattern>
+        </encoder>
+    </appender>
+
+
+    <root level="DEBUG">
+        <appender-ref ref="FILE"/>
+        <appender-ref ref="console"/>
+        <!--        <appender-ref ref="CONSOLE_error_only"/>-->
+        <!--        <appender-ref ref="CONSOLE_warn_only"/>-->
+        <!--        <appender-ref ref="CONSOLE_info_only"/>-->
+        <!--        <appender-ref ref="CONSOLE_debug_only"/>-->
+        <!--        <appender-ref ref="CONSOLE_trace_only"/>-->
+    </root>
+</configuration>
