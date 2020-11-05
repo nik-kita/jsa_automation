@@ -1,6 +1,7 @@
 package automation;
 
 import io.qameta.allure.Allure;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import test_engine.OnixTestRunner;
@@ -10,6 +11,7 @@ import ui.guest_mode.page_objects.main.Main;
 import ui.guest_mode.page_objects.main.login.Login;
 import ui.user_mode.page_objects.home_header.home.Challenges;
 import ui.user_mode.page_objects.home_header.home.Home;
+import ui.user_mode.page_objects.home_header.home.PersonalTrainer;
 import ui.user_mode.page_objects.home_header.home.Steps;
 import ui.user_mode.page_objects.home_header.home.my_goal.MyGoal;
 import ui.user_mode.page_objects.home_header.home.my_progress.MyProgress;
@@ -38,10 +40,16 @@ public class WSAccount extends OnixTestRunner {
         }
         Home home = login.login(User.getValidUser());
         Allure.step("Home page");
-        MyGoal myGoal = home.clickMyGoalLink();
         for(OnixLocator l : Home.Locator.values()) {
             onixAssert.softCheckCountOfElementByLocator(l, 1);
         }
+        MyGoal myGoal = home.clickMyGoalLink();
+        for(OnixLocator l : MyGoal.Locator.values()) {
+            onixAssert.softCheckCountOfElementByLocator(l, 1);
+        }
+        Allure.step("MyGoal page");
+        Allure.step("Remove all weekly goals if present");
+        myGoal.removeAllWeeklyGoals();
         String goal_1 = "Make this world little better by automation all tests in the world!";
         String goal_2 = "If not in all world so on this site...";
         Allure.step("Create two new weekly goals");
@@ -69,15 +77,21 @@ public class WSAccount extends OnixTestRunner {
             onixAssert.softCheckCountOfElementByLocator(l, 1);
         }
         Challenges challenges = myProgress.clickBackArrow().clickChallenges();
+        Allure.step("Challenges page is open");
         for(OnixLocator l : Challenges.Locator.values()) {
             onixAssert.softCheckCountOfElementByLocator(l, 1);
         }
-        challenges.clickBackArrow().clickUpgradeToAccess();
+        PricingPlans pricingPlans = challenges.clickBackArrow().clickUpgradeToAccess();
+        Allure.step("Click 'Upgrade to Access' -> PricingPlans page is open");
         for(OnixLocator l : PricingPlans.Locator.values()) {
             onixAssert.softCheckCountOfElementByLocator(l ,1);
         }
-
-
-
+        Allure.step("Open PersonalTrainer page");
+        PersonalTrainer personalTrainer = pricingPlans.goHome().clickSupportButton();
+        for(OnixLocator l : PersonalTrainer.Locator.values()) {
+            onixAssert.softCheckCountOfElementByLocator(l, 1);
+        }
+        main = personalTrainer.clickClose().openUserDropDown().logout().goMainPage();
+        Allure.step("Logout");
     }
 }

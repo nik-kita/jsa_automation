@@ -12,6 +12,11 @@ public class PersonalTrainer extends BasePageObject implements HomeHeaderPart {
         super(driver);
     }
 
+    public Home clickClose() {
+        driver.findElement(Locator.CLOSE_ICON).click();
+        return new Home(driver);
+    }
+
     public enum Locator implements OnixLocator {
         CLOSE_ICON(By.xpath("//div[contains(@class, 'header_two')]//img[contains(@src, 'ic_close')]")),
         INFO_ICON(By.xpath("//img[contains(@src, 'ic_info')]")),

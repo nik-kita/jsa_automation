@@ -112,7 +112,7 @@ public class MyGoal extends BasePageObject implements HomeHeaderPart {
 
 
     public enum Locator implements OnixLocator {
-        BACK_ARROW(By.cssSelector("[href='#/hom']")),
+        BACK_ARROW(By.xpath("//img[contains(@src, 'ic_back_purple')]")),
         GOAL_SELECT(By.cssSelector("select[name='goalCategory']")),
         MORE_DETAIL_TEXTAREA(By.cssSelector("textarea[name='goal']")),
         SAVE_BUTTON(By.xpath("//button[contains(text(), 'Save')]")),

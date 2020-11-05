@@ -52,7 +52,7 @@ public class Home extends BasePageObject implements HomePart {
     }
 
     public enum Locator implements OnixLocator {
-        MY_PLAN_ACCOUNT_ICON_LINK(By.cssSelector("[href='/users/account/my-plan")),
+        MY_PLAN_ACCOUNT_ICON_LINK(By.cssSelector("[href='/users/account/my-plan']")),
         GET_STARTED_6_STEPS_DIV_LINK(By.cssSelector("[href='#/home/step-two']")),
         MY_GOAL_DIV_LINK(By.cssSelector("[href='#/home/my-goal']")),
         STEPS_DIV_LINK(By.cssSelector("[href='#/home/steps']")),
