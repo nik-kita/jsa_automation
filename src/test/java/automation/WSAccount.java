@@ -11,6 +11,7 @@ import ui.guest_mode.page_objects.main.login.Login;
 import ui.user_mode.page_objects.home_header.home.Home;
 import ui.user_mode.page_objects.home_header.home.Steps;
 import ui.user_mode.page_objects.home_header.home.my_goal.MyGoal;
+import ui.user_mode.page_objects.home_header.home.my_progress.MyProgress;
 
 public class WSAccount extends OnixTestRunner {
     Main main;
@@ -56,10 +57,16 @@ public class WSAccount extends OnixTestRunner {
         onixAssert.softCheckCountOfElementByLocator(myGoal.doneActive, 1);
         Allure.step("Check activation checklist item");
         Steps steps = myGoal.clickBackArrow().clickStepsLink();
-        Allure.step("Steps page open");
+        Allure.step("Steps page is open");
         for(OnixLocator l : Steps.Locator.values()) {
             onixAssert.softCheckCountOfElementByLocator(l, 1);
         }
+        MyProgress myProgress = steps.clickHomeTab().clickMyProgressLink();
+        Allure.step("MyProgress page is open");
+        for(OnixLocator l : MyProgress.Locator.values()) {
+            onixAssert.softCheckCountOfElementByLocator(l, 1);
+        }
+
 
 
 

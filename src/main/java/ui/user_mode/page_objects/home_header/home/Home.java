@@ -35,6 +35,11 @@ public class Home extends BasePageObject implements HomePart {
         return new MyProgress(driver);
     }
 
+    public Challenges clickChallenges() {
+        driver.findElement(Locator.CHALLENGE_DIV_LINK).click();
+        return new Challenges(driver);
+    }
+
     public enum Locator implements OnixLocator {
         MY_PLAN_ACCOUNT_ICON_LINK(By.cssSelector("[href='/users/account/my-plan")),
         GET_STARTED_6_STEPS_DIV_LINK(By.cssSelector("[href='#/home/step-two']")),
