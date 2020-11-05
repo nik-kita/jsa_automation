@@ -8,10 +8,12 @@ import ui.data.User;
 import ui.engine.OnixLocator;
 import ui.guest_mode.page_objects.main.Main;
 import ui.guest_mode.page_objects.main.login.Login;
+import ui.user_mode.page_objects.home_header.home.Challenges;
 import ui.user_mode.page_objects.home_header.home.Home;
 import ui.user_mode.page_objects.home_header.home.Steps;
 import ui.user_mode.page_objects.home_header.home.my_goal.MyGoal;
 import ui.user_mode.page_objects.home_header.home.my_progress.MyProgress;
+import ui.user_mode.page_objects.main.pricing.pricingplans.PricingPlans;
 
 public class WSAccount extends OnixTestRunner {
     Main main;
@@ -66,11 +68,14 @@ public class WSAccount extends OnixTestRunner {
         for(OnixLocator l : MyProgress.Locator.values()) {
             onixAssert.softCheckCountOfElementByLocator(l, 1);
         }
-
-
-
-
-
+        Challenges challenges = myProgress.clickBackArrow().clickChallenges();
+        for(OnixLocator l : Challenges.Locator.values()) {
+            onixAssert.softCheckCountOfElementByLocator(l, 1);
+        }
+        challenges.clickBackArrow().clickUpgradeToAccess();
+        for(OnixLocator l : PricingPlans.Locator.values()) {
+            onixAssert.softCheckCountOfElementByLocator(l ,1);
+        }
 
 
 

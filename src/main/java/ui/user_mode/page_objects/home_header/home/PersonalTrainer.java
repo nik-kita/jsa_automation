@@ -6,27 +6,23 @@ import ui.engine.OnixLocator;
 import ui.engine.OnixWebDriver;
 import ui.user_mode.general_parts.home.HomeHeaderPart;
 
-public class Challenges extends BasePageObject implements HomeHeaderPart {
-    public Challenges(OnixWebDriver driver) {
+public class PersonalTrainer extends BasePageObject implements HomeHeaderPart {
+
+    public PersonalTrainer(OnixWebDriver driver) {
         super(driver);
     }
 
-    public Home clickBackArrow() {
-        driver.findElement(Locator.BACK_HOME_ARROW).click();
-        return new Home(driver);
-    }
-
     public enum Locator implements OnixLocator {
-        BACK_HOME_ARROW(By.xpath("//a[@href='#/home']/img")),
+        CLOSE_ICON(By.xpath("//div[contains(@class, 'header_two')]//img[contains(@src, 'ic_close')]")),
+        INFO_ICON(By.xpath("//img[contains(@src, 'ic_info')]")),
 
         ;
+
+        private By path;
 
         Locator(By path) {
             this.path = path;
         }
-
-        private By path;
-
         @Override
         public By getPath() {
             return path;

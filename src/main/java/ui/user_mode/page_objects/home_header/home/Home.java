@@ -8,6 +8,7 @@ import ui.user_mode.general_parts.home.HomePart;
 import ui.user_mode.page_objects.home_header.home.my_goal.MyGoal;
 import ui.user_mode.page_objects.home_header.home.my_progress.ImagesTab;
 import ui.user_mode.page_objects.home_header.home.my_progress.MyProgress;
+import ui.user_mode.page_objects.main.pricing.pricingplans.PricingPlans;
 
 public class Home extends BasePageObject implements HomePart {
     public Home(OnixWebDriver driver) {
@@ -38,6 +39,16 @@ public class Home extends BasePageObject implements HomePart {
     public Challenges clickChallenges() {
         driver.findElement(Locator.CHALLENGE_DIV_LINK).click();
         return new Challenges(driver);
+    }
+
+    public PricingPlans clickUpgradeToAccess() {
+        driver.findElement(Locator.UPGRADE_TO_ACCESS_BTN).click();
+        return new PricingPlans(driver);
+    }
+
+    public PersonalTrainer clickSupportButton() {
+        driver.findElement(HomeFlyLocator.SUPPORT_BUTTON).click();
+        return new PersonalTrainer(driver);
     }
 
     public enum Locator implements OnixLocator {
