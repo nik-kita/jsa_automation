@@ -10,7 +10,7 @@
     </appender>
 
 
-    <logger name="ui" level="TRACE">
+    <logger name="ui" level="DEBUG">
         <appender-ref ref="STDOUT"/>
     </logger>
     <logger name="automation" level="Trace">

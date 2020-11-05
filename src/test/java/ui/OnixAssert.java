@@ -1,6 +1,8 @@
 package ui;
 
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 import ui.engine.OnixLocator;
@@ -9,6 +11,7 @@ import ui.engine.OnixWebDriver;
 public class OnixAssert {
     OnixWebDriver driver;
     SoftAssert softAssert;
+    Logger logger;
 
     public void assertAll() {
         softAssert.assertAll();
@@ -16,6 +19,7 @@ public class OnixAssert {
     }
 
     public OnixAssert(OnixWebDriver driver) {
+        logger = LoggerFactory.getLogger(this.getClass());
         this.driver = driver;
     }
 
