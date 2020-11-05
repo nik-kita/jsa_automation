@@ -23,6 +23,11 @@ public class MyProgress extends BasePageObject implements HomeHeaderPart {
         return new MeasurementsTab(driver);
     }
 
+    public ImagesTab clickImagesTab() {
+        driver.findElement(Locator.IMAGES_TAB_BUTTON).click();
+        return new ImagesTab(driver);
+    }
+
     public enum Locator implements OnixLocator {
         BACK_HOME_ARROW(By.xpath("//a[@href='#/home']/img")),
         MEASUREMENTS_TAB_BUTTON(By.xpath("//a[text()='Measurements']")),
