@@ -1,6 +1,10 @@
 package test_engine;
 
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.databind.util.JSONPObject;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Allure;
 import org.commonmark.parser.Parser;
@@ -12,6 +16,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
 import org.testng.ITest;
+import org.testng.ITestContext;
+import org.testng.ITestNGMethod;
 import org.testng.annotations.*;
 import ui.engine.OnixWebDriver;
 import ui.guest_mode.page_objects.main.Main;
@@ -103,7 +109,7 @@ public String getTestName() {
 
 
     @AfterClass
-    public void driverOff() {
+    public void driverOff(ITestContext context) {
         driver.quit();
     }
 
