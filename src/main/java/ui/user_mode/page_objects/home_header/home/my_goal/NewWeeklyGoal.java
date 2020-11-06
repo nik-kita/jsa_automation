@@ -19,6 +19,7 @@ public class NewWeeklyGoal extends BasePageObject {
     public MyGoal save(String text) {
         driver.findElement(Locator.GAOL_TEXTAREA).sendKeys(text);
         driver.findElement(Locator.SAVE_BUTTON).click();
+        driver.waitInvisibilityOf(Locator.SAVE_BUTTON);
         logger.debug("'MyGoal' from 'NewWeeklyGoal'");
         return new MyGoal(driver);
     }

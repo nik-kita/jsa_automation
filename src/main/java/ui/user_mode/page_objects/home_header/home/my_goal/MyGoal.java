@@ -47,7 +47,8 @@ public class MyGoal extends BasePageObject implements HomeHeaderPart {
     }
     public MyGoal clickAcceptWeeklyGoal(int number) {
         OnixWebElement e = driver.findElements(weeklyGoal).get(number);
-        e.findElementInsideThis(By.cssSelector("img.save_goal")).click();
+        e = e.findElementInsideThis(By.cssSelector("img.save_goal"));
+        e.click();
         logger.debug("accept weeklyGoal number " + number);
         return this;
     }
