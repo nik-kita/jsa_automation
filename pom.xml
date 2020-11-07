@@ -23,6 +23,19 @@
     </properties>
 
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.22</version>
+        </dependency>
+
+
+
+
+
+
+
         <!-- https://mvnrepository.com/artifact/org.codehaus.janino/janino -->
         <dependency>
             <groupId>org.codehaus.janino</groupId>
