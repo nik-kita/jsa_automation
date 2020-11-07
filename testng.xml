@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite">
-    <test verbose="2" preserve-order="true" name="/home/nik/jsa_automation_tests/src/test/java/automation/MyTest.java">
+<suite name="All Test Suite"
+parallel="methods"
+thread-count="5">
+
+    <test verbose="2" preserve-order="true" name="/home/m/jsa_automation/src/test/java/ui/myTest/MyTest.java">
         <classes>
-            <class name="automation.MyTest">
-                <methods>
-                    <include name="test"/>
-                </methods>
-            </class>
+            <class name="ui.MyTest"/>
+            <class name="ui.myTest.MyTest"/>
+            <class name="MyTest"/>
         </classes>
     </test>
 </suite>

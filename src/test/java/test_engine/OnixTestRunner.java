@@ -12,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
 import org.testng.ITest;
+import org.testng.ITestResult;
 import org.testng.annotations.*;
 import ui.engine.OnixWebDriver;
 import ui.guest_mode.page_objects.main.Main;
@@ -29,39 +30,24 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
-public class OnixTestRunner implements ITest {
+public class OnixTestRunner  {
     public OnixAssert onixAssert;
     public OnixWebDriver driver;
     private Main mainPO;
     String baseUrl = "https://www.jamessmithacademy.com/";
     public Logger log;
+
     public OnixWebDriver getDriver() {
         return driver;
     }
 
 
-    private ThreadLocal<String> testName = new ThreadLocal<>();
-@Override
-public String getTestName() {
-    return testName.get();
-}
     @BeforeMethod
-    public void BeforeMethod(Method method, Object[] testData){
-        Annotation[] declaredAnnotations = method.getDeclaredAnnotations();
-        boolean before = false;
+    public void BeforeMethod(Method method, Object[] testData) {
         String name = method.getName();
-        for (Annotation annotation : declaredAnnotations){
-            if (annotation instanceof BeforeMethod)before = true;
-        }
-        if(before) {
-            Test a = method.getAnnotation(Test.class);
-            name = a.testName();
-            testName.set(name);
-        }
-        MDC.put("test", method.getName());
+        MDC.put("test", name);
         log.info("Test '" + name + "' is started");
     }
-
 
 
     @BeforeClass
@@ -93,13 +79,25 @@ public String getTestName() {
         onixAssert = new OnixAssert(driver);
     }
 
-
     @AfterMethod
-    public void cleanLoggerFromTestInfo(Method method, Object[] testData) {
-        MDC.remove("test");
-        log.info("Test '" + method.getName() + "' is completed");
-    }
+    public void getTestResult(ITestResult result) {
+        if (result.isSuccess()) {
+            log.info("Test '"
+                    + result.getMethod().getMethodName()
+                    + "' successfully completed in "
+                    + (result.getEndMillis() - result.getStartMillis())
+            + " ms!");
+        } else {
+            log.error("Test '"
+                    + result.getMethod().getMethodName()
+                    + "' FAIL! ("
+                    + (result.getEndMillis() - result.getStartMillis())
+                    + " ms)");
+        }
 
+
+        MDC.remove("test");
+    }
 
     @AfterClass
     public void driverOff() {
@@ -111,7 +109,6 @@ public String getTestName() {
         mainPO = new Main(driver);
         return mainPO;
     }
-
 
 
     public Object[] mergeArrays(Object[]... arrays) {
@@ -140,6 +137,7 @@ public String getTestName() {
                         .parse(markdown));
         Allure.descriptionHtml(html);
     }
+
     public void allureAddMarkdownDescriptionFromFile(String fileName) {
         String html = null;
         try {
