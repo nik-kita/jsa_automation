@@ -11,7 +11,9 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
+import org.testng.ISuite;
 import org.testng.ITest;
+import org.testng.ITestContext;
 import org.testng.annotations.*;
 import ui.engine.OnixWebDriver;
 import ui.guest_mode.page_objects.main.Main;
@@ -29,7 +31,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
-public class OnixTestRunner implements ITest {
+public class OnixTestRunner {
     public OnixAssert onixAssert;
     public OnixWebDriver driver;
     private Main mainPO;
@@ -39,30 +41,14 @@ public class OnixTestRunner implements ITest {
         return driver;
     }
 
-
-    private ThreadLocal<String> testName = new ThreadLocal<>();
-@Override
-public String getTestName() {
-    return testName.get();
-}
-    @BeforeMethod
-    public void BeforeMethod(Method method, Object[] testData){
-        Annotation[] declaredAnnotations = method.getDeclaredAnnotations();
-        boolean before = false;
-        String name = method.getName();
-        for (Annotation annotation : declaredAnnotations){
-            if (annotation instanceof BeforeMethod)before = true;
-        }
-        if(before) {
-            Test a = method.getAnnotation(Test.class);
-            name = a.testName();
-            testName.set(name);
-        }
-        MDC.put("test", method.getName());
-        log.info("Test '" + name + "' is started");
+    @BeforeSuite
+    public void addSuiteToMDC(ITestContext context) {
+        MDC.put("suiteName", context.getSuite().getName());
     }
+    @AfterSuite
+    public void removeSuiteFromMDX(ITestContext context) {
 
-
+    }
 
     @BeforeClass
     public void settingDriver() {
@@ -92,6 +78,20 @@ public String getTestName() {
 
         onixAssert = new OnixAssert(driver);
     }
+
+
+    @BeforeMethod
+    public void BeforeMethod(Method method, Object[] testData){
+
+        String name = method.getName();
+
+        MDC.put("test", method.getName());
+        log.info("Test '" + name + "' is started");
+    }
+
+
+
+
 
 
     @AfterMethod
