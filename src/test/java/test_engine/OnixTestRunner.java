@@ -12,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
 import org.testng.ITest;
+import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 import ui.engine.OnixWebDriver;
@@ -41,6 +42,14 @@ public class OnixTestRunner  {
         return driver;
     }
 
+    @BeforeSuite
+    public void mdcBeforeSuite(ITestContext context) {
+        MDC.put("suite", context.getSuite().getName());
+    }
+    @AfterSuite
+    public void mdcAfterSuite(ITestContext context) {
+
+    }
 
     @BeforeMethod
     public void BeforeMethod(Method method, Object[] testData) {
