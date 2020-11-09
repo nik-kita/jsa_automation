@@ -13,8 +13,7 @@ public class Transformations extends BasePageObject implements Footer, MainHeade
         super(driver);
     }
 
-    public OnixLocator TRANSFORMATION_BLOCK = OnixLocator
-            .makeOnixLocator(By
+    public OnixLocator TRANSFORMATION_BLOCK = makeOnixLocator(By
                     .xpath("//div[@class='masonry-grid']//div[contains(@class, 'masonry-block')][contains(@style, 'display: block')]"));
 
     public Transformations clickSeeMoreButton() {

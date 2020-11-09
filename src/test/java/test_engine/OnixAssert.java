@@ -34,19 +34,20 @@ public class OnixAssert {
     }
 
     public void checkFirstGreaterSecond(int first, int second) {
-        String errorMessage = "\n\n" +
-                "\n----------------------------" +
-                "\nIn " + getClass().toString() +
-                "\n----------------------------" +
-                "\n=== FIRST IS NOT GREATER THAN SECOND ===\n" +
-                "\nFirst is:  " + first +
-                "\nSecond is: " + second;
+        String errorMessage = "";
                 if(first < second) {
                     StackTraceElement stackTraceElement = Thread.currentThread().getStackTrace()[2];
                     String getclassloadername = stackTraceElement.getClassLoaderName();
                     String className = stackTraceElement.getClassName();
                     String methodName = stackTraceElement.getMethodName();
-                    logger.error("Assertion fail classloader " + getclassloadername + ", classname " + className + ", mehodname " + methodName + "\n" + stackTraceElement);
+                    logger.error("Assertion fail classloader " + getclassloadername + ", classname " + className + ", methodname " + methodName + "\n" + stackTraceElement);
+                    errorMessage = "\n\n" +
+                            "\n----------------------------" +
+                            "\nIn " + getclassloadername +
+                            "\n----------------------------" +
+                            "\n=== FIRST IS NOT GREATER THAN SECOND ===\n" +
+                            "\nFirst is:  " + first +
+                            "\nSecond is: " + second;
                 }
         boolean result = first > second;
         message(result,

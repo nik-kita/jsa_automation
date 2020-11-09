@@ -17,5 +17,5 @@ public class AfterLogout extends BasePageObject implements Footer, MainHeader {
         return driver.isElementPresent(successLogoutMessage);
     }
 
-    public OnixLocator successLogoutMessage = OnixLocator.makeOnixLocator(By.cssSelector(".jumbo-message"));
+    public OnixLocator successLogoutMessage = makeOnixLocator(By.cssSelector(".jumbo-message"));
 }

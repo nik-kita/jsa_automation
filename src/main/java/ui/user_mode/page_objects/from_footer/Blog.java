@@ -16,8 +16,8 @@ public class Blog extends BasePageObject implements Footer, MainHeader {
     }
 
 
-    public OnixLocator POST = OnixLocator.makeOnixLocator(By.cssSelector(".post"));
-    public OnixLocator LINK_IN_POST = OnixLocator.makeOnixLocator(By.cssSelector(".post div.post_descr a.title"));
+    public OnixLocator POST = makeOnixLocator(By.cssSelector(".post"));
+    public OnixLocator LINK_IN_POST = makeOnixLocator(By.cssSelector(".post div.post_descr a.title"));
     List<OnixLocator> elementsLocators = new ArrayList<>(List.of(
             POST, LINK_IN_POST
     ));

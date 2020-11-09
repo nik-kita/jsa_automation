@@ -12,7 +12,7 @@ import ui.user_mode.page_objects.home_header.home.Home;
 
 public class PricingPlans extends BasePageObject implements Footer, AccountHeader {
 
-    OnixLocator activeBlockButton = OnixLocator.makeOnixLocator(By.xpath("//*[contains(text(), 'Blocks')][@class='active']"));
+    OnixLocator activeBlockButton = makeOnixLocator(By.xpath("//*[contains(text(), 'Blocks')][@class='active']"));
 
     public PricingPlans(OnixWebDriver driver) {
         super(driver);

@@ -73,10 +73,10 @@ public class Login extends BasePageObject {
             fbLogger = LoggerFactory.getLogger(this.getClass());
             fbLogger.debug("Facebook login page is opened");
         }
-        OnixLocator emailOrNumberInput = OnixLocator.makeOnixLocator(By.xpath("//input[@id='email']"));
-        OnixLocator passwordInput = OnixLocator.makeOnixLocator(By.xpath("//input[@type='password']"));
-        OnixLocator enterButton = OnixLocator.makeOnixLocator(By.cssSelector("#loginbutton"));
-        OnixLocator confirmButton = OnixLocator.makeOnixLocator(By.xpath("//button[@name='__CONFIRM__']"));
+        OnixLocator emailOrNumberInput = makeOnixLocator(By.xpath("//input[@id='email']"));
+        OnixLocator passwordInput = makeOnixLocator(By.xpath("//input[@type='password']"));
+        OnixLocator enterButton = makeOnixLocator(By.cssSelector("#loginbutton"));
+        OnixLocator confirmButton = makeOnixLocator(By.xpath("//button[@name='__CONFIRM__']"));
 
         public Home login(String name, String password) {
             driver.findElement(emailOrNumberInput).sendKeys(name);
@@ -86,9 +86,9 @@ public class Login extends BasePageObject {
                 fbLogger.debug("additional facebook page for confirmation is present");
                 driver.waitToClick(confirmButton).click();
             }
-            OnixLocator firstCheckNameInput = OnixLocator.makeOnixLocator(By.xpath("//input[contains(@value, ' ')]"));
-            OnixLocator firstCheckTermsCheckbox = OnixLocator.makeOnixLocator(By.cssSelector(".checkbox #terms-styler"));
-            OnixLocator firstCheckCreateAccountButton = OnixLocator.makeOnixLocator(By.cssSelector("input[type='submit']"));
+            OnixLocator firstCheckNameInput = makeOnixLocator(By.xpath("//input[contains(@value, ' ')]"));
+            OnixLocator firstCheckTermsCheckbox = makeOnixLocator(By.cssSelector(".checkbox #terms-styler"));
+            OnixLocator firstCheckCreateAccountButton = makeOnixLocator(By.cssSelector("input[type='submit']"));
             if(driver.isElementPresent(firstCheckNameInput)) {
                 driver.waitToClick(firstCheckTermsCheckbox).click();
                 driver.waitToClick(firstCheckCreateAccountButton).click();
