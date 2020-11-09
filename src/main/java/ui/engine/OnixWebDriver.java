@@ -192,10 +192,21 @@ public class OnixWebDriver {
         return findElements(locator).size() > 0;
     }
 
+    public boolean isElementPresent(OnixWebElement element) {
+        log.trace("check is {} present", element);
+        return element.getSeleniumWebElement().isDisplayed();
+    }
+
     public boolean waitInvisibilityOf(OnixLocator locator) {
         log.trace("wait for invisibility of element located by " + locator.getPath());
         return new WebDriverWait(driver, Duration.ofSeconds(5))
                 .until(ExpectedConditions.invisibilityOfElementLocated(locator.getPath()));
+    }
+
+    public boolean waitInvisibilityOf(OnixWebElement element) {
+        log.trace("wait for invisibility of " + element);
+        return new WebDriverWait(driver, Duration.ofSeconds(5))
+                .until(ExpectedConditions.invisibilityOf(element.getSeleniumWebElement()));
     }
 
     public OnixWebElement waitToClick(OnixLocator locator) {

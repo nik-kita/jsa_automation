@@ -17,7 +17,7 @@ public class JsaCookies extends BaseSpecific implements BasePart {
     public OnixWebDriver acceptIfCookiesPresent() {
         if(!driver.checkSetting("jsacookies")) {
             try {
-                Thread.sleep(3000);
+                Thread.sleep(4000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -25,10 +25,12 @@ public class JsaCookies extends BaseSpecific implements BasePart {
                 driver.waitToClick(Locator.OK_BUTTON).click();
                 driver.setSetting("jsacookies", true);
                 logger.debug("close 'JsaCookies' popup");
+            } else {
+                logger.warn("try to close 'JsaCookies' popup but no such elements was found");
             }
-            logger.warn("try to close 'JsaCookies' popup but no such elements was found");
+        } else {
+            logger.trace("try close 'JsaCookies' popup but it is already done");
         }
-        logger.trace("try close 'JsaCookies' popup but it is already done");
         return driver;
     }
 

@@ -42,6 +42,7 @@ public class MyGoal extends BasePageObject implements HomeHeaderPart {
         OnixWebElement e = driver.findElement(By.xpath(String.format("//p[contains(text(), '%s')]/../../..", name)));
         e.findElementInsideThis(By.cssSelector("img.delete_goal")).click();
         driver.alertAccept();
+        if(driver.isElementPresent(e) && driver.waitInvisibilityOf(e));
         logger.debug("delete weeklyGoal that contains '" + name + "' word by accepting delete alert");
         return this;
     }
