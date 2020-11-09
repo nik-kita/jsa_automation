@@ -15,9 +15,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
-import org.testng.ITest;
-import org.testng.ITestContext;
-import org.testng.ITestNGMethod;
+import org.testng.*;
 import org.testng.annotations.*;
 import ui.engine.OnixWebDriver;
 import ui.guest_mode.page_objects.main.Main;
@@ -32,49 +30,36 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
-public class OnixTestRunner implements ITest {
+public class OnixTestRunner {
     public OnixAssert onixAssert;
     public OnixWebDriver driver;
     private Main mainPO;
     String baseUrl = "https://www.jamessmithacademy.com/";
     public Logger log;
+
     public OnixWebDriver getDriver() {
         return driver;
     }
 
-
-    private ThreadLocal<String> testName = new ThreadLocal<>();
-@Override
-public String getTestName() {
-    return testName.get();
-}
-    @BeforeMethod
-    public void BeforeMethod(Method method, Object[] testData){
-        Annotation[] declaredAnnotations = method.getDeclaredAnnotations();
-        boolean before = false;
-        String name = method.getName();
-        for (Annotation annotation : declaredAnnotations){
-            if (annotation instanceof BeforeMethod)before = true;
-        }
-        if(before) {
-            Test a = method.getAnnotation(Test.class);
-            name = a.testName();
-            testName.set(name);
-        }
-        MDC.put("test", method.getName());
-        log.info("============================================\nTest '" + name + "' is started");
+    @BeforeSuite
+    public void beforeSuite(ITestContext context) {
+        ISuite suite = context.getSuite();
+        String suiteName = suite.getName();
+        Logger suiteLogger = LoggerFactory.getLogger(this.getClass());
+        MDC.put("suite", suiteName);
+        suiteLogger.debug("Suite '{}' is started.", suiteName);
     }
-
-
 
     @BeforeClass
     public void settingDriver() {
+        String className = this.getClass().getName();
+        MDC.put("class", className);
         log = LoggerFactory.getLogger(this.getClass());
-        log.info("Start new Test class " + this.getClass().getName());
-        MDC.put("testClass", this.getClass().getName());
+        log.info("Class '{}' is started." + className);
         WebDriverManager.chromedriver().setup();
         Map<String, Object> prefs = new HashMap<>();
         // Set the notification setting it will override the default setting
@@ -93,24 +78,57 @@ public String getTestName() {
         options.setExperimentalOption("prefs", prefs);
         // pass the options object in Chrome driver
         WebDriver chrome = new ChromeDriver(options);
-        chrome.manage().window().maximize();
+//        chrome.manage().window().maximize();
         chrome.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         driver = new OnixWebDriver(chrome);
-
         onixAssert = new OnixAssert(driver);
     }
 
-
-    @AfterMethod
-    public void cleanLoggerFromTestInfo(Method method, Object[] testData) {
-        MDC.remove("test");
-        log.info("Test '" + method.getName() + "' is completed\n---------------------------------------------------------");
+    @BeforeMethod
+    public void BeforeMethod(Method method) {
+        String name = method.getName();
+        MDC.put("test", name);
+        log.info("Test '{}' is started", name);
     }
 
+    @AfterMethod
+    public void cleanLoggerFromTestInfo(ITestResult result) {
+        MDC.put("sms_role", "test");
+        String name = result.getMethod().getMethodName();
+        Long executionTime = result.getEndMillis() - result.getStartMillis();
+        if(result.isSuccess()) {
+            MDC.put("test_result", "success");
+            log.info("Test '{}' is successfully finished. Time: {} ms.", name, executionTime);
+        } else {
+            MDC.put("test_result", "fail");
+            log.warn("Test '{}' fails! ({} ms)", name, executionTime);
+        }
+        MDC.remove("sms_role");
+        MDC.remove("test");
+    }
 
     @AfterClass
     public void driverOff(ITestContext context) {
         driver.quit();
+        MDC.remove("class");
+    }
+
+    @AfterSuite
+    public void afterSuite(ITestContext context) {
+        MDC.put("sms_role", "suite");
+        ISuite suite = context.getSuite();
+        List<ITestNGMethod> allMethods = suite.getAllMethods();
+        List<IInvokedMethod> allInvokedMethods = suite.getAllInvokedMethods();
+        Integer ignoreTests = allMethods.size() - allInvokedMethods.size();
+        MDC.put("ignore_tests", ignoreTests.toString());
+        if(ignoreTests == 0) {
+            log.info("Suite '{}' is finished. All tests were run.", suite.getName());
+        } else {
+            log.warn("Suite '{}' is finished however {} tests were ignored!", suite.getName(), ignoreTests);
+        }
+        MDC.remove("suite");
+        MDC.remove("ignore_tests");
+        MDC.remove("sms_role");
     }
 
     protected Main openSite() {
@@ -118,7 +136,6 @@ public String getTestName() {
         mainPO = new Main(driver);
         return mainPO;
     }
-
 
 
     public Object[] mergeArrays(Object[]... arrays) {
@@ -147,6 +164,7 @@ public String getTestName() {
                         .parse(markdown));
         Allure.descriptionHtml(html);
     }
+
     public void allureAddMarkdownDescriptionFromFile(String fileName) {
         String html = null;
         try {
