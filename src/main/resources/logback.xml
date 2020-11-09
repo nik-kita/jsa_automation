@@ -1,13 +1,20 @@
 <configuration>
 
-    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-        <withJansi>true</withJansi>
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+
         <!-- encoders are assigned the type
              ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
-        <encoder class="net.logstash.logback.encoder.LogstashEncoder">
-
+        <encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
             <jsonGeneratorDecorator class="net.logstash.logback.decorate.PrettyPrintingJsonGeneratorDecorator"/>
+            <providers>
+                <timestamp/>
+                <logLevel/>
+                <message/>
+                <mdc/>
+                <callerData/>
+                <stackTrace/>
 
+            </providers>
         </encoder>
     </appender>
 
@@ -42,18 +49,18 @@
 
     </appender>
 <!--=================================================   L O G G E R S   ==================================================-->
-    <logger name="ui" level="INFO">
-        <appender-ref ref="STDOUT"/>
-    </logger>
-    <logger name="automation" level="INFO">
-        <appender-ref ref="STDOUT" />
-    </logger>
-    <logger name="test_engine" level="INFO">
-        <appender-ref ref="STDOUT" />
-    </logger>
-
-    <root level="INFO">
+<!--    <logger name="ui" level="INFO">-->
+<!--        <appender-ref ref="STDOUT"/>-->
+<!--    </logger>-->
+<!--    <logger name="automation" level="INFO">-->
 <!--        <appender-ref ref="STDOUT" />-->
-        <appender-ref ref="gmail"/>
+<!--    </logger>-->
+<!--    <logger name="test_engine" level="INFO">-->
+<!--        <appender-ref ref="STDOUT" />-->
+<!--    </logger>-->
+
+    <root level="TRACE">
+<!--        <appender-ref ref="STDOUT" />-->
+        <appender-ref ref="stdout"/>
     </root>
 </configuration>
