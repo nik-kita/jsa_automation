@@ -39,10 +39,11 @@ public class MyGoal extends BasePageObject implements HomeHeaderPart {
         return this;
     }
     public MyGoal clickDeleteWeeklyGoal(String name) {
-        OnixWebElement e = driver.findElement(By.xpath(String.format("//p[contains(text(), '%s')]/../../..", name)));
+        By pathToWeeklyGoal = By.xpath(String.format("//p[contains(text(), '%s')]/../../..", name));
+        OnixWebElement e = driver.findElement(pathToWeeklyGoal);
         e.findElementInsideThis(By.cssSelector("img.delete_goal")).click();
         driver.alertAccept();
-        if(driver.isElementPresent(e) && driver.waitInvisibilityOf(e));
+        if(driver.isElementPresent(pathToWeeklyGoal));
         logger.debug("delete weeklyGoal that contains '" + name + "' word by accepting delete alert");
         return this;
     }

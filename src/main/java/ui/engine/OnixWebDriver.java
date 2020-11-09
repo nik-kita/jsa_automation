@@ -192,9 +192,9 @@ public class OnixWebDriver {
         return findElements(locator).size() > 0;
     }
 
-    public boolean isElementPresent(OnixWebElement element) {
-        log.trace("check is {} present", element);
-        return element.getSeleniumWebElement().isDisplayed();
+    public boolean isElementPresent(By path) {
+        log.trace("check is element located by '{}' present", path);
+        return findElements(path).size() > 0;
     }
 
     public boolean waitInvisibilityOf(OnixLocator locator) {
@@ -210,9 +210,9 @@ public class OnixWebDriver {
     }
 
     public OnixWebElement waitToClick(OnixLocator locator) {
+        log.trace("wait to click the element located by " + locator.getPath());
         WebElement e = new WebDriverWait(driver, Duration.ofSeconds(5))
                 .until(ExpectedConditions.elementToBeClickable(locator.getPath()));
-        log.trace("wait to click the element located by " + locator.getPath());
         return new OnixWebElement(e);
     }
 

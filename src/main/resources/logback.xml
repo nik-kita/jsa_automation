@@ -83,7 +83,19 @@
             </layout>
         </encoder>
     </appender>
-<!--=====================================================>>>   L O G G E R S    <<<===========================================-->
+<!--    =====================================================>>>   MySQL   <<<===============================================-->
+    <appender name="mysql" class="ch.qos.logback.classic.db.DBAppender">
+        <connectionSource class="ch.qos.logback.core.db.DataSourceConnectionSource">
+            <dataSource class="com.mysql.cj.jdbc.MysqlDataSource">
+                <serverName>127.0.0.1</serverName>
+                <port>3306</port>
+                <databaseName>jsa</databaseName>
+                <user>nikita</user>
+                <password>password</password>
+            </dataSource>
+        </connectionSource>
+    </appender>
+    <!--=====================================================>>>   L O G G E R S    <<<===========================================-->
     <logger name="ui" level="INFO">
         <appender-ref ref="consoleTrace"/>
         <appender-ref ref="consoleDebug"/>
@@ -109,6 +121,6 @@
 
 
     <root level="TRACE">
-
+        <appender-ref ref="mysql"/>
     </root>
 </configuration>

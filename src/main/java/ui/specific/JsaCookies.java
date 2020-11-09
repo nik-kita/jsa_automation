@@ -21,8 +21,8 @@ public class JsaCookies extends BaseSpecific implements BasePart {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            if (driver.findElements(Locator.DIALOG_BODY).size() > 0) {
-                driver.waitToClick(Locator.OK_BUTTON).click();
+            if (driver.findElements(Locator.OK_BUTTON).size() > 0) {
+                driver.findElement(Locator.OK_BUTTON).click();
                 driver.setSetting("jsacookies", true);
                 logger.debug("close 'JsaCookies' popup");
             } else {
