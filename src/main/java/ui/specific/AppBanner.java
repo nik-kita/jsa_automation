@@ -1,6 +1,7 @@
 package ui.specific;
 
 import org.openqa.selenium.By;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ui.BasePageObject;
 import ui.BasePart;
@@ -8,19 +9,30 @@ import ui.BaseStatic;
 import ui.engine.OnixLocator;
 import ui.engine.OnixWebDriver;
 
-public class AppBanner extends BasePageObject implements BasePart {
+public class AppBanner extends BaseSpecific implements BasePart {
 
-    public AppBanner(OnixWebDriver driver) {
-        super(driver);
+    public AppBanner(OnixWebDriver driver, Logger logger) {
+        super(driver, logger);
     }
 
-    public static void closeIfPresent(OnixWebDriver driver) {
+    public OnixWebDriver closeIfPresent(OnixWebDriver driver) {
         if (driver.isElementPresent(Locator.BANNER_CONTAINER)) {
             driver.findElement(Locator.CLOSE_UP_CORNER_BUTTON).click();
             driver.setSetting("appBannerClosed", true);
-            BaseStatic.log.debug("close 'AppBanner'");
+            logger.debug("close 'AppBanner'");
         }
-        BaseStatic.log.warn("try close 'AppBanner' but it isn't present");
+        logger.warn("try close 'AppBanner' but it isn't present");
+        return driver;
+    }
+
+    @Override
+    public Logger getLogger() {
+        return logger;
+    }
+
+    @Override
+    public OnixWebDriver getDriver() {
+        return driver;
     }
 
     public enum Locator implements OnixLocator {

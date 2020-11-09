@@ -18,7 +18,6 @@ public class Main extends BasePageObject implements Footer, MainHeader {
 
     public Main(OnixWebDriver driver) {
         super(driver);
-        JsaCookies.acceptIfCookiesPresent(driver);
     }
 
     public CreateAccount clickGetStartedButton() {

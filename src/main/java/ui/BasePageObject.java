@@ -11,9 +11,8 @@ public class BasePageObject {
     public Logger logger;
 
     public BasePageObject(OnixWebDriver driver) {
-        JsaCookies.acceptIfCookiesPresent(driver);
-        this.driver = driver;
         logger = LoggerFactory.getLogger(this.getClass());
+        this.driver = new JsaCookies(driver, logger).acceptIfCookiesPresent();
     }
 
     public Logger getLogger() {

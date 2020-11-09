@@ -1,19 +1,20 @@
 package ui.specific;
 
 import org.openqa.selenium.By;
+import org.slf4j.Logger;
+import ui.BasePart;
 import ui.BaseStatic;
 import ui.engine.OnixLocator;
 import ui.engine.OnixWebDriver;
 
-public class BookSiteBanner {
-    OnixWebDriver driver;
+public class BookSiteBanner extends BaseSpecific implements BasePart {
 
-    public BookSiteBanner(OnixWebDriver driver) {
-        this.driver = driver;
+    public BookSiteBanner(OnixWebDriver driver, Logger logger) {
+        super(driver, logger);
     }
 
     //TODO
-    public static void closeIfPresent(OnixWebDriver driver) {
+    public OnixWebDriver closeIfPresent() {
         if (!driver.checkSetting("bookBannerClosed")) {
             try {
                 Thread.sleep(2000);
@@ -23,11 +24,22 @@ public class BookSiteBanner {
             if (driver.isElementPresent(AppBanner.Locator.BANNER_CONTAINER)) {
                 driver.findElement(AppBanner.Locator.CLOSE_UP_CORNER_BUTTON).click();
                 driver.setSetting("bookBannerClosed", true);
-                BaseStatic.log.debug("close 'BookSiteBanner");
+                logger.debug("close 'BookSiteBanner");
             }
-            BaseStatic.log.warn("try to close 'BookSiteBanner' but no such elements");
+            logger.warn("try to close 'BookSiteBanner' but no such elements");
         }
-        BaseStatic.log.trace("try close 'BookSiteBanner' but it was already done");
+        logger.trace("try close 'BookSiteBanner' but it was already done");
+        return driver;
+    }
+
+    @Override
+    public Logger getLogger() {
+        return logger;
+    }
+
+    @Override
+    public OnixWebDriver getDriver() {
+        return driver;
     }
 
     public enum Locator implements OnixLocator {

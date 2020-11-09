@@ -2,18 +2,19 @@ package ui.specific;
 
 
 import org.openqa.selenium.By;
+import org.slf4j.Logger;
+import ui.BasePart;
 import ui.BaseStatic;
 import ui.engine.OnixLocator;
 import ui.engine.OnixWebDriver;
 
-public class JsaCookies {
-    OnixWebDriver driver;
+public class JsaCookies extends BaseSpecific implements BasePart {
 
-    public JsaCookies(OnixWebDriver driver) {
-        this.driver = driver;
+    public JsaCookies(OnixWebDriver driver, Logger logger) {
+        super(driver, logger);
     }
 
-    public static void acceptIfCookiesPresent(OnixWebDriver driver) {
+    public OnixWebDriver acceptIfCookiesPresent() {
         if(!driver.checkSetting("jsacookies")) {
             try {
                 Thread.sleep(3000);
@@ -23,12 +24,24 @@ public class JsaCookies {
             if (driver.findElements(Locator.DIALOG_BODY).size() > 0) {
                 driver.waitToClick(Locator.OK_BUTTON).click();
                 driver.setSetting("jsacookies", true);
-                BaseStatic.log.debug("close 'JsaCookies' popup");
+                logger.debug("close 'JsaCookies' popup");
             }
-            BaseStatic.log.warn("try to close 'JsaCookies' popup but no such elements was found");
+            logger.warn("try to close 'JsaCookies' popup but no such elements was found");
         }
-        BaseStatic.log.trace("try close 'JsaCookies' popup but it is already done");
+        logger.trace("try close 'JsaCookies' popup but it is already done");
+        return driver;
     }
+
+    @Override
+    public Logger getLogger() {
+        return logger;
+    }
+
+    @Override
+    public OnixWebDriver getDriver() {
+        return driver;
+    }
+
     public enum Locator implements OnixLocator {
         DIALOG_BODY(By.cssSelector("#CybotCookiebotDialog")),
         OK_BUTTON(By.cssSelector("#CybotCookiebotDialogBodyLevelButtonAccept")),
