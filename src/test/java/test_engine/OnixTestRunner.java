@@ -56,10 +56,10 @@ public class OnixTestRunner {
 
     @BeforeClass
     public void settingDriver() {
-        String className = this.getClass().getName();
+        String className = this.getClass().toString();
         MDC.put("class", className);
         log = LoggerFactory.getLogger(this.getClass());
-        log.info("Class '{}' is started." + className);
+        log.debug("Class '{}' is started.", className);
         WebDriverManager.chromedriver().setup();
         Map<String, Object> prefs = new HashMap<>();
         // Set the notification setting it will override the default setting
@@ -110,25 +110,22 @@ public class OnixTestRunner {
     @AfterClass
     public void driverOff(ITestContext context) {
         driver.quit();
+        log.debug("Class '{}' is finished.", this.getClass().toString());
         MDC.remove("class");
     }
 
     @AfterSuite
     public void afterSuite(ITestContext context) {
-        MDC.put("sms_role", "suite");
         ISuite suite = context.getSuite();
         List<ITestNGMethod> allMethods = suite.getAllMethods();
         List<IInvokedMethod> allInvokedMethods = suite.getAllInvokedMethods();
         Integer ignoreTests = allMethods.size() - allInvokedMethods.size();
-        MDC.put("ignore_tests", ignoreTests.toString());
-        if(ignoreTests == 0) {
-            log.info("Suite '{}' is finished. All tests were run.", suite.getName());
+        if(!suite.getSuiteState().isFailed()) {
+            log.debug("Suite '{}' is finished successfully!", suite.getName());
         } else {
-            log.warn("Suite '{}' is finished however {} tests were ignored!", suite.getName(), ignoreTests);
+            log.warn("Suite '{}' is fail!", suite.getName());
         }
         MDC.remove("suite");
-        MDC.remove("ignore_tests");
-        MDC.remove("sms_role");
     }
 
     protected Main openSite() {

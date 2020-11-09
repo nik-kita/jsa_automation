@@ -1,26 +1,62 @@
 <configuration>
-
-    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+<!--================================================>>>   C O N S O L E   <<<===============================================-->
+    <appender name="consoleTrace" class="ch.qos.logback.core.ConsoleAppender">
         <withJansi>true</withJansi>
-        <!-- encoders are assigned the type
-             ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>TRACE</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
         <encoder>
-            <pattern>%d{HH:mm:ss.SSS} [%thread] %highlight(%-5level) %X{testClass} %X{test} %logger{36} - %msg%n</pattern>
+            <pattern>[%d{HH:mm:ss.SSS}] [%level] %msg [%X{suite}|%X{class}|%X{test}] %n</pattern>
+        </encoder>
+    </appender>
+    <appender name="consoleDebug" class="ch.qos.logback.core.ConsoleAppender">
+        <withJansi>true</withJansi>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>DEBUG</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <encoder>
+            <pattern>%gray([%d{HH:mm:ss.SSS}] [%level] %msg [%X{suite}|%X{class}|%X{test}] %n)</pattern>
+        </encoder>
+    </appender>
+    <appender name="consoleInfo" class="ch.qos.logback.core.ConsoleAppender">
+        <withJansi>true</withJansi>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>INFO</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <encoder>
+            <pattern>%boldGreen([%d{HH:mm:ss.SSS}] [%level] %msg [%X{suite}|%X{class}|%X{test}] %n)</pattern>
+        </encoder>
+    </appender>
+    <appender name="consoleWarn" class="ch.qos.logback.core.ConsoleAppender">
+        <withJansi>true</withJansi>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>WARN</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <encoder>
+            <pattern>%boldYellow([%d{HH:mm:ss.SSS}] [%level] %msg [%X{suite}|%X{class}|%X{test}] %n %caller)</pattern>
+        </encoder>
+    </appender>
+    <appender name="consoleError" class="ch.qos.logback.core.ConsoleAppender">
+        <withJansi>true</withJansi>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <encoder>
+            <pattern>%boldRed([%d{HH:mm:ss.SSS}] [%level] %msg [%X{suite}|%X{class}|%X{test}] %n %caller)</pattern>
         </encoder>
     </appender>
 
-
-    <logger name="ui" level="INFO">
-        <appender-ref ref="STDOUT"/>
-    </logger>
-    <logger name="automation" level="INFO">
-        <appender-ref ref="STDOUT" />
-    </logger>
-    <logger name="test_engine" level="INFO">
-        <appender-ref ref="STDOUT" />
-    </logger>
-
-
+<!--    ===============================================>>>   T e s t N G   <<<================================================-->
     <!-- This is the ReporterAppender -->
     <appender name="TestNG" class="com.github.sbabcoc.logback.testng.ReporterAppender">
         <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
@@ -34,7 +70,7 @@
             </layout>
         </encoder>
     </appender>
-
+<!--    =====================================================>>>   J S O N   <<<=================================================-->
     <appender name="Json" class="ch.qos.logback.core.ConsoleAppender">
         <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
             <layout class="ch.qos.logback.contrib.json.classic.JsonLayout">
@@ -47,10 +83,32 @@
             </layout>
         </encoder>
     </appender>
+<!--=====================================================>>>   L O G G E R S    <<<===========================================-->
+    <logger name="ui" level="INFO">
+        <appender-ref ref="consoleTrace"/>
+        <appender-ref ref="consoleDebug"/>
+        <appender-ref ref="consoleInfo"/>
+        <appender-ref ref="consoleWarn"/>
+        <appender-ref ref="consoleError"/>
+    </logger>
+    <logger name="test_engine" level="TRACE">
+        <appender-ref ref="consoleTrace"/>
+        <appender-ref ref="consoleDebug"/>
+        <appender-ref ref="consoleInfo"/>
+        <appender-ref ref="consoleWarn"/>
+        <appender-ref ref="consoleError"/>
+    </logger>
+    <logger name="automation" level="TRACE">
+        <appender-ref ref="consoleTrace"/>
+        <appender-ref ref="consoleDebug"/>
+        <appender-ref ref="consoleInfo"/>
+        <appender-ref ref="consoleWarn"/>
+        <appender-ref ref="consoleError"/>
+    </logger>
+
 
 
     <root level="TRACE">
-        <appender-ref ref="TestNG" />
-<!--        <appender-ref ref="Json" />-->
+
     </root>
 </configuration>

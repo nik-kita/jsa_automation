@@ -36,7 +36,7 @@ public class OnixAssert {
     public void checkFirstGreaterSecond(int first, int second) {
         String errorMessage = "\n\n" +
                 "\n----------------------------" +
-                "\nIn " + getClass()/*.getClassLoader()*/.getName() +
+                "\nIn " + getClass().toString() +
                 "\n----------------------------" +
                 "\n=== FIRST IS NOT GREATER THAN SECOND ===\n" +
                 "\nFirst is:  " + first +
@@ -61,7 +61,7 @@ public class OnixAssert {
         }
         String errorMessage = "\n\n" +
                 "\n----------------------------" +
-                "\nIn " + getClass().getClassLoader().getName() +
+                "\nIn " + getClass().toString() +
                 "\n----------------------------" +
                 "\n=== FIRST IS NOT GREATER THAN SECOND ===\n" +
                 "\nFirst is:  " + first +
@@ -77,7 +77,7 @@ public class OnixAssert {
     public void checkCount(int actual, int expected) {
         String errorMessage = "\n\n" +
                 "\n----------------------------" +
-                "\nIn " + getClass().getClassLoader().getName() +
+                "\nIn " + getClass().toString() +
                 "\n----------------------------" +
                 "\n=== AMOUNT ===\n" +
                 "\nActual:   " + actual +
@@ -95,7 +95,7 @@ public class OnixAssert {
         }
         String errorMessage = "\n\n" +
                 "\n----------------------------" +
-                "\nIn " + getClass().getClassLoader().getName() +
+                "\nIn " + getClass().toString() +
                 "\n----------------------------" +
                 "\n=== AMOUNT ===\n" +
                 "\nActual:   " + actual +
@@ -114,7 +114,7 @@ public class OnixAssert {
                 .size();
         String locatorName = locator.name();
         String locatorPath = locator.getPath().toString();
-        String locatorClass = locator.getClass().getName();
+        String locatorClass = locator.getClass().toString();
         String errorMessage = "\n" +
                 "\n----------------------------" +
                 "\nIn " + locatorClass +
@@ -134,7 +134,7 @@ public class OnixAssert {
                 .size();
         String locatorName = locator.name();
         String locatorPath = locator.getPath().toString();
-        String locatorClass = locator.getClass().getName();
+        String locatorClass = locator.getClass().toString();
 
         String errorMessage = "\n" +
                 "\n----------------------------" +
@@ -159,7 +159,7 @@ public class OnixAssert {
                 .size();
         String locatorName = locator.name();
         String locatorPath = locator.getPath().toString();
-        String locatorClass = locator.getClass().getName();
+        String locatorClass = locator.getClass().toString();
 
         String errorMessage = "\n" +
                 "\n----------------------------" +
@@ -191,25 +191,19 @@ public class OnixAssert {
         softAssert.assertTrue(result);
     }
     public void message(boolean success, String good, String bad) {
-        StackTraceElement stackTraceElement = Thread.currentThread().getStackTrace()[3];
-        String fromClass = stackTraceElement.getClassName();
-        String fromMethod = stackTraceElement.getMethodName();
         if(success) {
-            logger.info("Success! " + good + " From " + fromClass + "." + fromMethod + "() ");
+            logger.info("Success! " + good);
         } else {
-            logger.error("Fail!!! " + bad + " From " + fromClass + "." + fromMethod + "() ");
+            logger.error("Fail!!! " + bad);
         }
     }
     public void softMessage(boolean success, String good, String bad) {
-        StackTraceElement stackTraceElement = Thread.currentThread().getStackTrace()[3];
-        String fromClass = stackTraceElement.getClassName();
-        String fromMethod = stackTraceElement.getMethodName();
         if(success) {
-            logger.debug("Pass in softAssert: " + good + " From " + fromClass + "." + fromMethod + "() line ");
+            logger.trace("Pass in softAssert: " + good);
             softSuccessCounter++;
             softTotalCounter++;
         } else {
-            logger.warn("Fail in softAssert: " + bad + " From " + fromClass + "." + fromMethod + "() ");
+            logger.warn("Fail in softAssert: " + bad);
             softTotalCounter++;
         }
     }

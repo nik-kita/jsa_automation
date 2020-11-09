@@ -15,7 +15,7 @@ public interface OnixLocator {
 
             @Override
             public String name() {
-                return this.getClass().getClassLoader() + "\nLocator: " + path.toString();
+                return Thread.currentThread().getStackTrace()[3].getClassName() + "\nLocator: " + path.toString();
             }
         };
     }
