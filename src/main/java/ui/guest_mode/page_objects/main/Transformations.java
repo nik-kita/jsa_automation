@@ -14,7 +14,7 @@ public class Transformations extends BasePageObject implements Footer, MainHeade
     }
 
     public OnixLocator TRANSFORMATION_BLOCK = makeOnixLocator(By
-                    .xpath("//div[@class='masonry-grid']//div[contains(@class, 'masonry-block')][contains(@style, 'display: block')]"));
+                    .xpath("//div[@class='masonry-grid']//div[contains(@class, 'masonry-block')][contains(@style, 'display: block')]"), this.getClass());
 
     public Transformations clickSeeMoreButton() {
         driver.scrollPageDown();

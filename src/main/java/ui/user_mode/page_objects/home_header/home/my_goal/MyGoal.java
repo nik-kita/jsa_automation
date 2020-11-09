@@ -13,10 +13,10 @@ public class MyGoal extends BasePageObject implements HomeHeaderPart {
     public MyGoal(OnixWebDriver driver) {
         super(driver);
     }
-    public OnixLocator optionInGoalSelect = makeOnixLocator(By.cssSelector("select[name='goalCategory'] option"));
-    public OnixLocator weeklyGoal = makeOnixLocator(By.className("weekly_goal_list_item"));
-    public OnixLocator doneActive = makeOnixLocator(By.xpath("//img[contains(@src, 'bt_done.svg')]"));
-    public OnixLocator doneGray = makeOnixLocator(By.xpath("//img[contains(@src, 'bt_done_gray')]"));
+    public OnixLocator optionInGoalSelect = makeOnixLocator(By.cssSelector("select[name='goalCategory'] option"), this.getClass());
+    public OnixLocator weeklyGoal = makeOnixLocator(By.className("weekly_goal_list_item"), this.getClass());
+    public OnixLocator doneActive = makeOnixLocator(By.xpath("//img[contains(@src, 'bt_done.svg')]"), this.getClass());
+    public OnixLocator doneGray = makeOnixLocator(By.xpath("//img[contains(@src, 'bt_done_gray')]"), this.getClass());
 
     public boolean hasWeeklyGoal() {
         boolean result = driver.isElementPresent(weeklyGoal);

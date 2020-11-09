@@ -13,10 +13,10 @@ public class MyPodcast extends BasePageObject implements Footer, MainHeader {
         super(driver);
     }
 
-    OnixLocator oneEpisodeLocator = makeOnixLocator(By.cssSelector(".content .podcast_image"));
+    OnixLocator oneEpisodeLocator = makeOnixLocator(By.cssSelector(".content .podcast_image"), this.getClass());
 
     public PodcastEpisode clickEpisodeContains(String partOfTheEpisodeName) {
-        OnixLocator uniqueEpisode = makeOnixLocator(By.xpath("//div[@class='content']//a[contains(text(), '" + partOfTheEpisodeName + "')]"));
+        OnixLocator uniqueEpisode = makeOnixLocator(By.xpath("//div[@class='content']//a[contains(text(), '" + partOfTheEpisodeName + "')]"), this.getClass());
         driver.findElement(uniqueEpisode).click();
         logger.debug("'Podcast Episode' that contains " + partOfTheEpisodeName + " from 'MyPodcast'");
         return new PodcastEpisode(driver);

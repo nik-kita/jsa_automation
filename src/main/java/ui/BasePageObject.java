@@ -16,7 +16,7 @@ public class BasePageObject {
         logger = LoggerFactory.getLogger(this.getClass());
         this.driver = new JsaCookies(driver, logger).acceptIfCookiesPresent();
     }
-    public OnixLocator makeOnixLocator(By path) {
+    public OnixLocator makeOnixLocator(By path, Class<?> from) {
         return new OnixLocator() {
             @Override
             public By getPath() {
@@ -25,7 +25,7 @@ public class BasePageObject {
 
             @Override
             public String name() {
-                return "Class: " + this.getClass().getName() + "\nLocator: " + path.toString();
+                return "Class: " + from.getName() + "\nLocator: " + path.toString();
             }
         };
     }
