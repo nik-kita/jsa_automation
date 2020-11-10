@@ -41,7 +41,7 @@
             <dataSource class="com.mysql.cj.jdbc.MysqlDataSource">
                 <serverName>127.0.0.1</serverName>
                 <port>3306</port>
-                <databaseName>reporter</databaseName>
+                <databaseName>jsa</databaseName>
                 <user>nikita</user>
                 <password>strongpassword</password>
             </dataSource>
