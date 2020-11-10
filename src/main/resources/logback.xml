@@ -1,5 +1,5 @@
 <configuration>
-<!--================================================>>>   C O N S O L E   <<<===============================================-->
+    <!--================================================>>>   C O N S O L E   <<<===============================================-->
     <appender name="consoleTrace" class="ch.qos.logback.core.ConsoleAppender">
         <withJansi>true</withJansi>
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
@@ -56,7 +56,7 @@
         </encoder>
     </appender>
 
-<!--    ===============================================>>>   T e s t N G   <<<================================================-->
+    <!--    ===============================================>>>   T e s t N G   <<<================================================-->
     <!-- This is the ReporterAppender -->
     <appender name="TestNG" class="com.github.sbabcoc.logback.testng.ReporterAppender">
         <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
@@ -70,7 +70,7 @@
             </layout>
         </encoder>
     </appender>
-<!--    =====================================================>>>   J S O N   <<<=================================================-->
+    <!--    =====================================================>>>   J S O N   <<<=================================================-->
     <appender name="Json" class="ch.qos.logback.core.ConsoleAppender">
         <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
             <layout class="ch.qos.logback.contrib.json.classic.JsonLayout">
@@ -83,8 +83,11 @@
             </layout>
         </encoder>
     </appender>
-<!--    =====================================================>>>   MySQL   <<<===============================================-->
+    <!--    =====================================================>>>   MySQL   <<<===============================================-->
     <appender name="mysql" class="ch.qos.logback.classic.db.DBAppender">
+        <filter class="ch.qos.logback.core.filter.EvaluatorFilter">
+            <evaluator class="ui.engine.loggers.MyDBEvaluator"/>
+        </filter>
         <connectionSource class="ch.qos.logback.core.db.DataSourceConnectionSource">
             <dataSource class="com.mysql.cj.jdbc.MysqlDataSource">
                 <serverName>127.0.0.1</serverName>
@@ -95,32 +98,45 @@
             </dataSource>
         </connectionSource>
     </appender>
+
+
+    <appender name="DB" class="ch.qos.logback.classic.db.DBAppender">
+        <connectionSource class="ch.qos.logback.core.db.DriverManagerConnectionSource">
+            <driverClass>com.mysql.jdbc.Driver</driverClass>
+            <url>jdbc:mysql://127.0.0.1:3306/jsa</url>
+            <user>nikita</user>
+            <password>password</password>
+        </connectionSource>
+    </appender>
     <!--=====================================================>>>   L O G G E R S    <<<===========================================-->
-    <logger name="ui" level="INFO">
+    <logger name="ui" level="TRACE">
         <appender-ref ref="consoleTrace"/>
         <appender-ref ref="consoleDebug"/>
         <appender-ref ref="consoleInfo"/>
         <appender-ref ref="consoleWarn"/>
-        <appender-ref ref="consoleError"/>
+        <!--        <appender-ref ref="consoleError"/>-->
+        <appender-ref ref="mysql"/>
     </logger>
-    <logger name="test_engine" level="TRACE">
+    <logger name="automation.test_engine" level="TRACE">
         <appender-ref ref="consoleTrace"/>
         <appender-ref ref="consoleDebug"/>
         <appender-ref ref="consoleInfo"/>
         <appender-ref ref="consoleWarn"/>
-        <appender-ref ref="consoleError"/>
+        <!--        <appender-ref ref="consoleError"/>-->
+        <appender-ref ref="mysql"/>
+
     </logger>
     <logger name="automation" level="TRACE">
         <appender-ref ref="consoleTrace"/>
         <appender-ref ref="consoleDebug"/>
         <appender-ref ref="consoleInfo"/>
         <appender-ref ref="consoleWarn"/>
-        <appender-ref ref="consoleError"/>
+        <!--        <appender-ref ref="consoleError"/>-->
+        <appender-ref ref="mysql"/>
     </logger>
 
 
-
-    <root level="TRACE">
-        <appender-ref ref="mysql"/>
+    <root level="ERROR">
+        <appender-ref ref="consoleError"/>
     </root>
 </configuration>
