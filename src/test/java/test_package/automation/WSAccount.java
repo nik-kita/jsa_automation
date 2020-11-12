@@ -1,0 +1,97 @@
+package test_package.automation;
+
+import io.qameta.allure.Allure;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+import test_package.test_engine.OnixTestRunner;
+import main_package.ui.data.User;
+import main_package.ui.engine.OnixLocator;
+import main_package.ui.guest_mode.page_objects.main.Main;
+import main_package.ui.guest_mode.page_objects.main.login.Login;
+import main_package.ui.user_mode.page_objects.home_header.home.Challenges;
+import main_package.ui.user_mode.page_objects.home_header.home.Home;
+import main_package.ui.user_mode.page_objects.home_header.home.PersonalTrainer;
+import main_package.ui.user_mode.page_objects.home_header.home.Steps;
+import main_package.ui.user_mode.page_objects.home_header.home.my_goal.MyGoal;
+import main_package.ui.user_mode.page_objects.home_header.home.my_progress.MyProgress;
+import main_package.ui.user_mode.page_objects.main.pricing.pricingplans.PricingPlans;
+
+public class WSAccount extends OnixTestRunner {
+    Main main;
+
+    @BeforeClass
+    public void startFromMainPage() {
+        main = openSite();
+        log.info("open site");
+    }
+
+    @Test(testName = "Check base functionality of Home and relative pages")
+    public void home() {
+        Allure.link("Full test case information" , "https://docs.google.com/spreadsheets/d/1gudjZ7fh4aUsozP7aPIovLnI4qGdbUFpIHJ6AbTlbC4/edit?ts=5f7593b0#gid=1204697450&range=B2");
+        log.debug("Main page");
+        for(OnixLocator l : Main.Locator.values()) {
+            onixAssert.softCheckCountOfElementByLocator(l, 1);
+        }
+        Login login = main.goLoginPage();
+        log.debug("Login page");
+        for(OnixLocator l : Login.Locator.values()) {
+            onixAssert.softCheckCountOfElementByLocator(l, 1);
+        }
+        Home home = login.login(User.getValidUser());
+        log.debug("Home page");
+        for(OnixLocator l : Home.Locator.values()) {
+            onixAssert.softCheckCountOfElementByLocator(l, 1);
+        }
+        MyGoal myGoal = home.clickMyGoalLink();
+        for(OnixLocator l : MyGoal.Locator.values()) {
+            onixAssert.softCheckCountOfElementByLocator(l, 1);
+        }
+        log.debug("MyGoal page");
+        log.debug("Remove all weekly goals if present");
+        myGoal.removeAllWeeklyGoals();
+        String goal_1 = "Make this world little better by test_package.automation all tests in the world!";
+        String goal_2 = "If not in all world so on this site...";
+        log.debug("Create two new weekly goals");
+        myGoal = myGoal
+                .clickNewGoalButton()
+                .save(goal_1)
+                .clickNewGoalButton()
+                .save(goal_2);
+        onixAssert.softCheckCountOfElementByLocator(myGoal.weeklyGoal, 2);
+        myGoal.clickDeleteWeeklyGoal(goal_1);
+        onixAssert.softCheckCountOfElementByLocator(myGoal.weeklyGoal,1 );
+        log.debug("Remove one goal, check alert presence");
+        onixAssert.softCheckCountOfElementByLocator(myGoal.doneGray, 1);
+        myGoal.clickAcceptWeeklyGoal(goal_2);
+        onixAssert.softCheckCountOfElementByLocator(myGoal.doneActive, 1);
+        log.debug("Check activation checklist item");
+        Steps steps = myGoal.clickBackArrow().clickStepsLink();
+        log.debug("Steps page is open");
+        for(OnixLocator l : Steps.Locator.values()) {
+            onixAssert.softCheckCountOfElementByLocator(l, 1);
+        }
+        MyProgress myProgress = steps.clickHomeTab().clickMyProgressLink();
+        log.debug("MyProgress page is open");
+        for(OnixLocator l : MyProgress.Locator.values()) {
+            onixAssert.softCheckCountOfElementByLocator(l, 1);
+        }
+        Challenges challenges = myProgress.clickBackArrow().clickChallenges();
+        log.debug("Challenges page is open");
+        for(OnixLocator l : Challenges.Locator.values()) {
+            onixAssert.softCheckCountOfElementByLocator(l, 1);
+        }
+        PricingPlans pricingPlans = challenges.clickBackArrow().clickUpgradeToAccess();
+        log.debug("Click 'Upgrade to Access' -> PricingPlans page is open");
+        for(OnixLocator l : PricingPlans.Locator.values()) {
+            onixAssert.softCheckCountOfElementByLocator(l ,1);
+        }
+        log.debug("Open PersonalTrainer page");
+        PersonalTrainer personalTrainer = pricingPlans.goHome().clickSupportButton();
+        for(OnixLocator l : PersonalTrainer.Locator.values()) {
+            onixAssert.softCheckCountOfElementByLocator(l, 1);
+        }
+        main = personalTrainer.clickClose().openUserDropDown().logout().goMainPage();
+        log.debug("Logout");
+        onixAssert.assertAll();
+    }
+}

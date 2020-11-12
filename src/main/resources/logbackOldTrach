@@ -127,7 +127,7 @@
 
     <appender name="FILE" class="ch.qos.logback.core.FileAppender">
         <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
-            <layout class="ui.engine.loggers.MyHTMLLayout">
+            <layout class="main_package.ui.engine.loggers.MyHTMLLayout">
                 <pattern>%relative%thread%level%logger%msg</pattern>
             </layout>
         </encoder>
@@ -155,7 +155,7 @@
     <!--    </appender>-->
 
 
-    <logger name="automation" level="DEBUG">
+    <logger name="test_package.automation" level="DEBUG">
         <appender-ref ref="CONSOLE_error_only"/>
         <appender-ref ref="CONSOLE_warn_only"/>
         <appender-ref ref="CONSOLE_info_only"/>
@@ -169,7 +169,7 @@
         <appender-ref ref="ng_trace"/>
 
     </logger>
-    <logger name="ui" level="DEBUG">
+    <logger name="main_package.ui" level="DEBUG">
         <appender-ref ref="CONSOLE_error_only"/>
         <appender-ref ref="CONSOLE_warn_only"/>
         <appender-ref ref="CONSOLE_info_only"/>

@@ -3,12 +3,12 @@
 <suite name="All Test Suite">
     <listeners>
 <!--        <listener class-name="org.testng.reporters.EmailableReporter"></listener>-->
-        <listener class-name="ui.engine.loggers.CustomTestNGReporter"></listener>
+        <listener class-name="main_package.ui.engine.loggers.CustomTestNGReporter"></listener>
 <!--        <listener class-name="org.testng.reporters.FailedReporter"></listener>-->
     </listeners>
-    <test verbose="2" preserve-order="true" name="/home/nik/jsa_automation_tests/src/test/java/automation/WS.java">
+    <test verbose="2" preserve-order="true" name="/home/nik/jsa_automation_tests/src/test/java/test_package.automation/WS.java">
         <classes>
-            <class name="automation.WS">
+            <class name="test_package.automation.WS">
                 <methods>
 <!--                    <include name="pricing"/>-->
                     <include name="transformations"/>

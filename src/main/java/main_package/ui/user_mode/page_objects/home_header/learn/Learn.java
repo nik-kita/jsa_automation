@@ -1,0 +1,39 @@
+package main_package.ui.user_mode.page_objects.home_header.learn;
+
+import org.openqa.selenium.By;
+import main_package.ui.BasePageObject;
+import main_package.ui.engine.OnixLocator;
+import main_package.ui.engine.OnixWebDriver;
+import main_package.ui.user_mode.general_parts.home.HomePart;
+
+public class Learn extends BasePageObject implements HomePart {
+
+    public Learn(OnixWebDriver driver) {
+        super(driver);
+    }
+
+    public SearchVideos clickSearchIcon() {
+        driver.findElement(Locator.SEARCH_ICON).click();
+        logger.debug("'SearchVideos' from 'Learn'");
+        return new SearchVideos(driver);
+    }
+
+
+
+    public enum Locator implements OnixLocator {
+        SEARCH_ICON(By.cssSelector(".navbar-nav [href='#/learn/search']")),
+
+
+        ;
+        private By path;
+
+        Locator(By path) {
+            this.path = path;
+        }
+
+        @Override
+        public By getPath() {
+            return path;
+        }
+    }
+}
