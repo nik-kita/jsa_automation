@@ -1,25 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite">
-    <test verbose="2" preserve-order="true" name="/home/m/jsa_automation/src/test/java/test_package/automation">
+<suite name="JsaTesting Framework Unit tests" parallel="tests">
+    <test verbose="2" preserve-order="true"
+          name="/home/p/jsa_automation/src/test/java/main_package/ui/guest_mode/main/MainPageTest.java">
         <classes>
-            <class name="test_package.automation.LoginTest">
+            <class name="main_package.ui.guest_mode.main.MainPageTest">
                 <methods>
-                    <include name="loginWithFBTest"/>
+                    <include name="mainPageTest"/>
                 </methods>
             </class>
-            <class name="test_package.automation.WS">
+        </classes>
+    </test>
+    <test verbose="2" preserve-order="true"
+          name="/home/p/jsa_automation/src/test/java/main_package/ui/guest_mode/main/login">
+        <classes>
+            <class name="main_package.ui.guest_mode.main.login.CreateAccountTest">
                 <methods>
-                    <include name="pricing"/>
-                    <include name="transformations"/>
-                    <include name="blog"/>
-                    <include name="login"/>
-                    <include name="footer"/>
+                    <include name="joinNowPageTest"/>
                 </methods>
             </class>
-            <class name="test_package.automation.WSAccount">
+            <class name="main_package.ui.guest_mode.main.login.LoginPageTest">
                 <methods>
-                    <include name="home"/>
+                    <include name="loginPageTest"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.guest_mode.main.login.ResetPasswordTest">
+                <methods>
+                    <include name="resetPasswordPageTest"/>
                 </methods>
             </class>
         </classes>

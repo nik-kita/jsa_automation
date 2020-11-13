@@ -85,16 +85,13 @@
     </appender>
     <!--    =====================================================>>>   MySQL   <<<===============================================-->
     <appender name="mysql" class="ch.qos.logback.classic.db.DBAppender">
-        <filter class="ch.qos.logback.core.filter.EvaluatorFilter">
-            <evaluator class="main_package.ui.engine.loggers.MyDBEvaluator"/>
-        </filter>
         <connectionSource class="ch.qos.logback.core.db.DataSourceConnectionSource">
             <dataSource class="com.mysql.cj.jdbc.MysqlDataSource">
                 <serverName>127.0.0.1</serverName>
                 <port>3306</port>
                 <databaseName>jsa</databaseName>
-                <user>nikita</user>
-                <password>strongpassword</password>
+                <user>root</user>
+                <password>Password123#@!</password>
             </dataSource>
         </connectionSource>
     </appender>
@@ -107,6 +104,7 @@
         <appender-ref ref="consoleInfo"/>
         <appender-ref ref="consoleWarn"/>
         <appender-ref ref="consoleError"/>
+        <appender-ref ref="mysql"/>
     </logger>
     <logger name="test_package" level="TRACE">
         <appender-ref ref="consoleTrace"/>
@@ -114,11 +112,11 @@
         <appender-ref ref="consoleInfo"/>
         <appender-ref ref="consoleWarn"/>
         <appender-ref ref="consoleError"/>
-
+        <appender-ref ref="mysql"/>
     </logger>
 
 
     <root level="TRACE">
-        <appender-ref ref="mysql"/>
+
     </root>
 </configuration>
