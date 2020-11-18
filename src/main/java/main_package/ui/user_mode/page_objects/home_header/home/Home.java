@@ -39,11 +39,11 @@ public class Home extends BasePageObject implements HomePart {
         driver.findElement(Locator.CHALLENGE_DIV_LINK).click();
         return new Challenges(driver);
     }
-
-    public PricingPlans clickUpgradeToAccess() {
-        driver.findElement(Locator.UPGRADE_TO_ACCESS_BTN).click();
-        return new PricingPlans(driver);
-    }
+//TODO for SimpleUser mode
+//    public PricingPlans clickUpgradeToAccess() {
+//        driver.findElement(Locator.UPGRADE_TO_ACCESS_BTN).click();
+//        return new PricingPlans(driver);
+//    }
 
 
 
@@ -55,7 +55,7 @@ public class Home extends BasePageObject implements HomePart {
         EDIT_IMG_BTM_IN_STEPS_DIV(By.cssSelector(".todays_steps img")),
         MY_PROGRESS_DIV_LINK(By.cssSelector("[href='#/home/my-progress']")),
         CHALLENGE_DIV_LINK(By.cssSelector("[href='#/home/challenges']")),
-        UPGRADE_TO_ACCESS_BTN(By.cssSelector(".facebook_group [href='/users/pricing/']")),
+//        UPGRADE_TO_ACCESS_BTN(By.cssSelector(".facebook_group [href='/users/pricing/']")),
 
         ;
 
