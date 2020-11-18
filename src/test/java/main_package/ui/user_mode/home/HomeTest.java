@@ -1,6 +1,8 @@
 package main_package.ui.user_mode.home;
 
 
+import main_package.ui.user_mode.general_parts.home.HomeHeaderPart;
+import main_package.ui.user_mode.general_parts.home.HomePart;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import test_package.test_engine.OnixAssert;
@@ -20,7 +22,11 @@ public class HomeTest extends JsaLoginBaseTestRunner {
 
     @DataProvider
     public Object[] getHomeLoginModeLocators() {
-        return Home.Locator.values();
+        return mergeArrays(
+                Home.Locator.values(),
+                HomeHeaderPart.HomeHeaderLocator.values(),
+                HomePart.HomeFlyLocator.values()
+        );
     }
 
     @Test(dataProvider = "getUserCabinetDropdownLocators")

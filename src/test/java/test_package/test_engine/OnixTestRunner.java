@@ -72,13 +72,13 @@ public class OnixTestRunner {
         prefs.put("credentials_enable_service", false);
         prefs.put("profile.password_manager_enabled", false);
         //--------
-        //chrome notification about test_package.automation will not displayed
-        options.setExperimentalOption("excludeSwitches", new String[]{"enable-test_package.automation"});
+        //chrome notification about automation will not displayed
+        options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
         options.setExperimentalOption("prefs", prefs);
         // pass the options object in Chrome driver
         WebDriver chrome = new ChromeDriver(options);
 //        chrome.manage().window().maximize();
-        chrome.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        chrome.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
         driver = new OnixWebDriver(chrome);
         onixAssert = new OnixAssert(driver);
     }

@@ -203,7 +203,7 @@ public class OnixAssert {
             softSuccessCounter++;
             softTotalCounter++;
         } else {
-            logger.warn("Fail in softAssert: " + bad);
+            logger.error("Fail in softAssert: " + bad);
             softTotalCounter++;
         }
     }

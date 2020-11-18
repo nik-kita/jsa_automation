@@ -27,4 +27,12 @@ public class LearnTest extends JsaLoginBaseTestRunner {
                 HomePart.HomeFlyLocator.values()
         );
     }
+    @Test(dataProvider = "getSameLocators")
+    public void learnPageNotOriginItemsTest(OnixLocator locator) {
+        onixAssert.checkMinimumOfElementsByLocator(locator, 1);
+    }
+    @DataProvider
+    public Object[] getSameLocators() {
+        return Learn.Locators.values();
+    }
 }

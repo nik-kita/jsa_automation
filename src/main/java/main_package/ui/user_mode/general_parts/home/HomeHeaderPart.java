@@ -57,7 +57,7 @@ public interface HomeHeaderPart extends BasePart {
         LEARN(By.cssSelector("#navbar #coaching")),
         NUTRITION(By.cssSelector("#navbar #nutrition")),
         MY_CABINET_DROPDOWN(By.id("navbarDropdownMenuLink")),
-        SUPPORT_BUTTON(By.xpath("//button[contains(text(), 'Support')]")),
+
 
         ;
 

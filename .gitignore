@@ -1,4 +1,5 @@
 ####### My ignores ######
+file_appender_results/
 test-output/
 MyTest.java
 credentials.properties

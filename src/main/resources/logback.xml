@@ -58,31 +58,31 @@
 
     <!--    ===============================================>>>   T e s t N G   <<<================================================-->
     <!-- This is the ReporterAppender -->
-    <appender name="TestNG" class="com.github.sbabcoc.logback.testng.ReporterAppender">
-        <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
-            <layout class="ch.qos.logback.contrib.json.classic.JsonLayout">
-                <timestampFormat>yyyy-MM-dd'T'HH:mm:ss.SSSX</timestampFormat>
-                <timestampFormatTimezoneId>Etc/UTC</timestampFormatTimezoneId>
+<!--    <appender name="TestNG" class="com.github.sbabcoc.logback.testng.ReporterAppender">-->
+<!--        <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">-->
+<!--            <layout class="ch.qos.logback.contrib.json.classic.JsonLayout">-->
+<!--                <timestampFormat>yyyy-MM-dd'T'HH:mm:ss.SSSX</timestampFormat>-->
+<!--                <timestampFormatTimezoneId>Etc/UTC</timestampFormatTimezoneId>-->
 
-                <jsonFormatter class="ch.qos.logback.contrib.jackson.JacksonJsonFormatter">
-                    <prettyPrint>true</prettyPrint>
-                </jsonFormatter>
-            </layout>
-        </encoder>
-    </appender>
+<!--                <jsonFormatter class="ch.qos.logback.contrib.jackson.JacksonJsonFormatter">-->
+<!--                    <prettyPrint>true</prettyPrint>-->
+<!--                </jsonFormatter>-->
+<!--            </layout>-->
+<!--        </encoder>-->
+<!--    </appender>-->
     <!--    =====================================================>>>   J S O N   <<<=================================================-->
-    <appender name="Json" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
-            <layout class="ch.qos.logback.contrib.json.classic.JsonLayout">
-                <timestampFormat>yyyy-MM-dd'T'HH:mm:ss.SSSX</timestampFormat>
-                <timestampFormatTimezoneId>Etc/UTC</timestampFormatTimezoneId>
+<!--    <appender name="Json" class="ch.qos.logback.core.ConsoleAppender">-->
+<!--        <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">-->
+<!--            <layout class="ch.qos.logback.contrib.json.classic.JsonLayout">-->
+<!--                <timestampFormat>yyyy-MM-dd'T'HH:mm:ss.SSSX</timestampFormat>-->
+<!--                <timestampFormatTimezoneId>Etc/UTC</timestampFormatTimezoneId>-->
 
-                <jsonFormatter class="ch.qos.logback.contrib.jackson.JacksonJsonFormatter">
-                    <prettyPrint>true</prettyPrint>
-                </jsonFormatter>
-            </layout>
-        </encoder>
-    </appender>
+<!--                <jsonFormatter class="ch.qos.logback.contrib.jackson.JacksonJsonFormatter">-->
+<!--                    <prettyPrint>true</prettyPrint>-->
+<!--                </jsonFormatter>-->
+<!--            </layout>-->
+<!--        </encoder>-->
+<!--    </appender>-->
     <!--    =====================================================>>>   MySQL   <<<===============================================-->
     <appender name="mysql" class="ch.qos.logback.classic.db.DBAppender">
         <connectionSource class="ch.qos.logback.core.db.DataSourceConnectionSource">
@@ -96,6 +96,17 @@
         </connectionSource>
     </appender>
 
+<!--    =========================================================>>>  F I L E  <<<=======================================================-->
+<!--    <appender name="FILE" class="ch.qos.logback.core.FileAppender">-->
+<!--        <timestamp key="bySecond" datePattern="yyyyMMdd'T'HHmmss"/>-->
+<!--        <file>file_appender_results/log-${bySecond}.txt</file>-->
+<!--        <append>true</append>-->
+<!--        <immediateFlush>true</immediateFlush>-->
+<!--        <encoder>-->
+<!--            <pattern>[%d{HH:mm:ss.SSS}] [%level] %msg [%X{suite}|%X{class}|%X{test}] %n</pattern>-->
+<!--        </encoder>-->
+<!--    </appender>-->
+
     <!--=====================================================>>>   L O G G E R S    <<<===========================================-->
 
     <logger name="main_package" level="INFO">
@@ -104,7 +115,7 @@
         <appender-ref ref="consoleInfo"/>
         <appender-ref ref="consoleWarn"/>
         <appender-ref ref="consoleError"/>
-        <appender-ref ref="mysql"/>
+<!--        <appender-ref ref="mysql"/>-->
     </logger>
     <logger name="test_package" level="TRACE">
         <appender-ref ref="consoleTrace"/>
@@ -112,11 +123,11 @@
         <appender-ref ref="consoleInfo"/>
         <appender-ref ref="consoleWarn"/>
         <appender-ref ref="consoleError"/>
-        <appender-ref ref="mysql"/>
+<!--        <appender-ref ref="mysql"/>-->
     </logger>
 
 
     <root level="TRACE">
-
+        <appender-ref ref="mysql"/>
     </root>
 </configuration>

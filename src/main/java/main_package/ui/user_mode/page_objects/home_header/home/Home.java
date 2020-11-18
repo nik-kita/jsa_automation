@@ -45,10 +45,7 @@ public class Home extends BasePageObject implements HomePart {
         return new PricingPlans(driver);
     }
 
-    public PersonalTrainer clickSupportButton() {
-        driver.findElement(HomeFlyLocator.SUPPORT_BUTTON).click();
-        return new PersonalTrainer(driver);
-    }
+
 
     public enum Locator implements OnixLocator {
         MY_PLAN_ACCOUNT_ICON_LINK(By.cssSelector("[href='/users/account/my-plan']")),
