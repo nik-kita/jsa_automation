@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="/home/p/jsa_automation/src/test/java/main_package/ui">
+        <classes>
+            <class name="main_package.ui.guest_mode.AfterLogoutTest">
+                <methods>
+                    <include name="afterLogoutTest"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.guest_mode.main.ChallengeTest">
+                <methods>
+                    <include name="challengePageTest"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.guest_mode.main.FamousDailyEmailsTest">
+                <methods>
+                    <include name="famousDailyEmailsTest"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.guest_mode.main.MainPageTest">
+                <methods>
+                    <include name="mainPageTest"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.guest_mode.main.PricingTest">
+                <methods>
+                    <include name="pricingTest"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.guest_mode.main.TransformationsTest">
+                <methods>
+                    <include name="transformationsTest"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.guest_mode.main.from_footer.AccessAndDownloadTest">
+                <methods>
+                    <include name="accessAndDownloadTest"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.guest_mode.main.from_footer.BlogPageTest">
+                <methods>
+                    <include name="blogPageTest"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.guest_mode.main.from_footer.ContactUsTest">
+                <methods>
+                    <include name="contactUsTest"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.guest_mode.main.from_footer.CookiesPolicyTest">
+                <methods>
+                    <include name="cookiesPolicyTest"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.guest_mode.main.from_footer.PrivacyPolicyTest">
+                <methods>
+                    <include name="privacyPolicyTest"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.guest_mode.main.from_footer.ReportBugsTest">
+                <methods>
+                    <include name="reportBugsTest"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.guest_mode.main.from_footer.TermsOfServiceTest">
+                <methods>
+                    <include name="termsOfServiceTest"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.guest_mode.main.from_footer.faqs.FaqsTest">
+                <methods>
+                    <include name="faqsTest"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.guest_mode.main.login.CreateMyPlanTest">
+                <methods>
+                    <include name="joinNowPageTest"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.guest_mode.main.login.LoginPageTest">
+                <methods>
+                    <include name="loginPageTest"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.guest_mode.main.login.ResetPasswordTest">
+                <methods>
+                    <include name="resetPasswordPageTest"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.guest_mode.main.my_podcast.MyPodcastTest">
+                <methods>
+                    <include name="myPodcastTest"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.guest_mode.main.my_podcast.PodcastEpisodeTest">
+                <methods>
+                    <include name="podcastEpisodeTest"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.related_sites.AppStoreTest">
+                <methods>
+                    <include name="appStoreTest"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.related_sites.FacebookGroupTest">
+                <methods>
+                    <include name="testFacebookGroup"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.related_sites.FacebookPageTest">
+                <methods>
+                    <include name="facebookPageTest"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.related_sites.GooglePlayTest">
+                <methods>
+                    <include name="googlePlayPageTest"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.related_sites.InstagramPageTest">
+                <methods>
+                    <include name="instagramPageTest"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.user_mode.HeaderPartTest">
+                <methods>
+                    <include name="testMainHeader"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.user_mode.HomeHeaderPartTest">
+                <methods>
+                    <include name="homeHeaderPartTest"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.user_mode.from_footer.AccessAndDownloadTest">
+                <methods>
+                    <include name="accessAndDownloadTest"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.user_mode.from_footer.BlogPageTest">
+                <methods>
+                    <include name="blogPageTest"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.user_mode.from_footer.ContactUsTest">
+                <methods>
+                    <include name="contactUsTest"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.user_mode.from_footer.CookiesPolicyTest">
+                <methods>
+                    <include name="cookiesPolicyTest"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.user_mode.from_footer.PrivacyPolicyTest">
+                <methods>
+                    <include name="privacyPolicyTest"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.user_mode.from_footer.ReportBugsTest">
+                <methods>
+                    <include name="reportBugsTest"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.user_mode.from_footer.TermsOfServiceTest">
+                <methods>
+                    <include name="termsOfServiceTest"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.user_mode.from_footer.faqs.FaqsTest">
+                <methods>
+                    <include name="faqsTest"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.user_mode.home.ChallengesTest">
+                <methods>
+                    <include name="challengesTest"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.user_mode.home.HomeTest">
+                <methods>
+                    <include name="homeLoginModeTest"/>
+                    <include name="userCabinetDropdownTest"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.user_mode.home.PersonalTrainerTest">
+                <methods>
+                    <include name="personalTrainerTest"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.user_mode.home.StepsTest">
+                <methods>
+                    <include name="stepsTest"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.user_mode.home.UserCabinetDropdownTest">
+                <methods>
+                    <include name="userCabinetDropdownTest"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.user_mode.home.account.MyProfileTest">
+                <methods>
+                    <include name="testMyProfilePage"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.user_mode.home.account.PairedDevicesTest">
+                <methods>
+                    <include name="pairedDevicesTest"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.user_mode.home.account.UnitsTest">
+                <methods>
+                    <include name="testUnitsPage"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.user_mode.home.account.my_plan.ConfirmPopupTest">
+                <methods>
+                    <include name="testCancelPopup"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.user_mode.home.account.my_plan.MyPlanTest">
+                <methods>
+                    <include name="accountPageTest"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.user_mode.home.learn.CategoriesMultiPageTest">
+                <methods>
+                    <include name="testOriginal"/>
+                    <include name="checkDuplicateLocators"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.user_mode.home.learn.FavouritesTest">
+                <methods>
+                    <include name="testFavouritesPage"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.user_mode.home.learn.LearnTest">
+                <methods>
+                    <include name="learnPageTest"/>
+                    <include name="learnPageNotOriginItemsTest"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.user_mode.home.learn.SearchVideosTest">
+                <methods>
+                    <include name="searchVideosTest"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.user_mode.home.learn.SingleLearnVideoTest">
+                <methods>
+                    <include name="testOriginalLocators"/>
+                    <include name="testDuplicatedLocators"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.user_mode.home.learn.ToCompleteTest">
+                <methods>
+                    <include name="checkOriginalLocators"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.user_mode.home.my_goal.MyGoalTest">
+                <methods>
+                    <include name="myGoalTest"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.user_mode.home.my_goal.MyGoalWithGoalsTest">
+                <methods>
+                    <include name="myGoalTestMultiLocators"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.user_mode.home.my_goal.NewWeeklyGoalTest">
+                <methods>
+                    <include name="newWeeklyGoalTest"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.user_mode.home.my_progress.ImagesTabTest">
+                <methods>
+                    <include name="imagesTabTest"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.user_mode.home.my_progress.MyProgressTest">
+                <methods>
+                    <include name="myProgressTest"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.user_mode.home.my_progress.measurements.MeasurementsTabTest">
+                <methods>
+                    <include name="measurementsTabTest"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.user_mode.home.nutrition.MealsTest">
+                <methods>
+                    <include name="mealsTest"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.user_mode.home.nutrition.RecipesTest">
+                <methods>
+                    <include name="recipesTest"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.user_mode.home.nutrition.ShoppingListsTest">
+                <methods>
+                    <include name="shoppingListsTest"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.user_mode.home.workouts.BrowseTest">
+                <methods>
+                    <include name="browseTest"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.user_mode.home.workouts.MyWorkoutsTest">
+                <methods>
+                    <include name="myWorkoutsTest"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.user_mode.home.workouts.PersonalisedTest">
+                <methods>
+                    <include name="personalisedTest"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.user_mode.main.ChallengeTest">
+                <methods>
+                    <include name="challengePageTest"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.user_mode.main.FamousDailyEmailsTest">
+                <methods>
+                    <include name="famousDailyEmailsTest"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.user_mode.main.MainLoginModeTest">
+                <methods>
+                    <include name="checkMainPageSameAsLogout"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.user_mode.main.TransformationsTest">
+                <methods>
+                    <include name="transformationsTest"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.user_mode.main.my_podcast.MyPodcastTest">
+                <methods>
+                    <include name="myPodcastTest"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.user_mode.main.my_podcast.PodcastEpisodeTest">
+                <methods>
+                    <include name="podcastEpisodeTest"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.user_mode.main.pricing.PricingLoginModeTest">
+                <methods>
+                    <include name="pricingLoginModeTest"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.user_mode.main.pricing.pricingplans.PaymentMethodPopupTest">
+                <methods>
+                    <include name="paymentMethodCardTest"/>
+                    <include name="paymentMethodPayPalTest"/>
+                </methods>
+            </class>
+            <class name="main_package.ui.user_mode.main.pricing.pricingplans.PricingPlansLoginModeTest">
+                <methods>
+                    <include name="pricingPlansLoginModeTest"/>
+                    <include name="blockTab"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

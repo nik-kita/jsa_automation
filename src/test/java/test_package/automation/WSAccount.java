@@ -3,7 +3,12 @@ package test_package.automation;
 import io.qameta.allure.Allure;
 import main_package.ui.related_sites.FacebookGroupPage;
 import main_package.ui.user_mode.page_objects.home_header.home.*;
-import main_package.ui.user_mode.page_objects.home_header.home.account.MyPlan;
+import main_package.ui.user_mode.page_objects.home_header.home.account.my_plan.ConfirmCancelPopup;
+import main_package.ui.user_mode.page_objects.home_header.home.account.my_plan.MyPlan;
+import main_package.ui.user_mode.page_objects.home_header.home.account.MyProfile;
+import main_package.ui.user_mode.page_objects.home_header.home.account.PairedDevices;
+import main_package.ui.user_mode.page_objects.home_header.home.account.Units;
+import main_package.ui.user_mode.page_objects.home_header.home.account.my_plan.UpdateCardPopup;
 import main_package.ui.user_mode.page_objects.home_header.learn.*;
 import main_package.ui.user_mode.page_objects.home_header.nutrition.Meals;
 import main_package.ui.user_mode.page_objects.home_header.nutrition.Recipes;
@@ -11,6 +16,7 @@ import main_package.ui.user_mode.page_objects.home_header.nutrition.ShoppingList
 import main_package.ui.user_mode.page_objects.home_header.workouts.Browse;
 import main_package.ui.user_mode.page_objects.home_header.workouts.MyWorkouts;
 import main_package.ui.user_mode.page_objects.home_header.workouts.Personalised;
+import main_package.ui.user_mode.page_objects.main.pricing.pricingplans.PricingPlans;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import test_package.test_engine.OnixTestRunner;
@@ -140,9 +146,9 @@ public class WSAccount extends OnixTestRunner {
             onixAssert.softCheckCountOfElementByLocator(l, 1);
         }
         log.info("Personal trainer is open");
-        personalTrainer.clickClose().openUserDropDown().logout();
-        onixAssert.assertAll();
+        personalTrainer.clickClose().openUserDropDown().logout().goMainPage();
         log.debug("Logout");
+        onixAssert.assertAll();
     }
 
     @Test
@@ -210,9 +216,9 @@ public class WSAccount extends OnixTestRunner {
             onixAssert.softCheckCountOfElementByLocator(l, 1);
         }
         log.info("Personal trainer is open");
-        personalTrainer.clickClose().openUserDropDown().logout();
-        onixAssert.assertAll();
+        personalTrainer.clickClose().openUserDropDown().logout().goMainPage();
         log.debug("Logout");
+        onixAssert.assertAll();
 
     }
 
@@ -256,8 +262,9 @@ public class WSAccount extends OnixTestRunner {
 //        }
 //        personalTrainer.clickClose().openUserDropDown().logout();
         //TODO is there 'Support button' or no?
-        shoppingLists.openUserDropDown().logout();
+        shoppingLists.openUserDropDown().logout().goMainPage();
         log.info("Logout");
+        onixAssert.assertAll();
     }
 
     @Test
@@ -268,7 +275,68 @@ public class WSAccount extends OnixTestRunner {
             onixAssert.softCheckCountOfElementByLocator(l, 1);
         }
         log.info("Account page is open and 'My Plan' tab is open by default");
+        log.debug("5. Click on \"My Profile\"");
+        MyProfile myProfile = myPlan.clickMyProfile();
+        for(OnixLocator l : MyProfile.Locator.values()) {
+            onixAssert.softCheckCountOfElementByLocator(l, 1);
+        }
+        log.info("My profile page is open");
+        log.debug("6. Click on \"Units\"");
+        Units units = myProfile.clickUnits();
+        for(OnixLocator l : Units.Locator.values()) {
+            onixAssert.softCheckCountOfElementByLocator(l, 1);
+        }
+        log.info("Units page is open");
+        log.debug("7. Click on \"Paired Devices\" ");
+        PairedDevices pairedDevices = units.clickPairedDevices();
+        for(OnixLocator l : PairedDevices.Locator.values()) {
+            onixAssert.softCheckCountOfElementByLocator(l, 1);
+        }
+        log.info("Paired Devices page is open");
+        pairedDevices.clickLogoutHeaderButton().goMainPage();
+        log.info("Logout");
+        onixAssert.assertAll();
 
+    }
+
+    @Test
+    public void myPlan() {
+        Allure.link("Full test's info", "https://docs.google.com/spreadsheets/d/1gudjZ7fh4aUsozP7aPIovLnI4qGdbUFpIHJ6AbTlbC4/edit?ts=5f7593b0#gid=1204697450&range=B72");
+        log.debug("1. Open https://www.jamessmithacademy.com/\n" +
+                "2. Click on \"Login\" and pass an authorization\n" +
+                "3. Go to https://www.jamessmithacademy.com/users/account/my-plan or click on \"Account\" \n" +
+                "4. \"My Plan\" is open by default\n" +
+                "5. Click on \"Change plan\"");
+        MyPlan myPlan = openSite().goLoginPage().login(User.getValidUser()).clickAccountIcon();
+        for(OnixLocator l : MyPlan.Locator.values()) {
+            onixAssert.softCheckCountOfElementByLocator(l, 1);
+        }
+        PricingPlans pricingPlans = myPlan.clickChangePlan();
+        for(OnixLocator l : PricingPlans.Locator.values()) {
+            onixAssert.softCheckCountOfElementByLocator(l, 1);
+        }
+        log.info("Pricing plans page is open");
+        log.debug("Click 'Cancel subscription plan'");
+        ConfirmCancelPopup confirmCancelPopup = pricingPlans.clickAccountHeaderButton().clickCancelSubscriptionPlan();
+        for(OnixLocator l : ConfirmCancelPopup.Locator.values()) {
+            onixAssert.softCheckCountOfElementByLocator(l, 1);
+        }
+        log.info("'ConfirmCancelPopup' is open");
+        log.debug("Close popup amd click 'Update card'");
+        UpdateCardPopup updateCardPopup = confirmCancelPopup.close().clickUpdateCard();
+        for(OnixLocator l : UpdateCardPopup.Locator.values()) {
+            onixAssert.softCheckCountOfElementByLocator(l, 1);
+        }
+        log.info("'UpdateCardPopup' is open");
+        log.debug("Input coupon code and click 'Redeem' button");
+        //TODO real coupon code is needed for this test
+        updateCardPopup.close().clickRedeem("12345");
+        for(OnixLocator l : MyPlan.Locator.values()) {
+            onixAssert.softCheckCountOfElementByLocator(l, 1);
+        }
+        myPlan.clickLogoutHeaderButton();
+        log.info("Logout");
+        onixAssert.assertAll();
     }
 
 //    @Test

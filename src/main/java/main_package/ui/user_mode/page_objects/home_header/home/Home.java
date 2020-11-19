@@ -1,7 +1,7 @@
 package main_package.ui.user_mode.page_objects.home_header.home;
 
 import main_package.ui.related_sites.FacebookGroupPage;
-import main_package.ui.user_mode.page_objects.home_header.home.account.MyPlan;
+import main_package.ui.user_mode.page_objects.home_header.home.account.my_plan.MyPlan;
 import org.openqa.selenium.By;
 import main_package.ui.BasePageObject;
 import main_package.ui.engine.OnixLocator;
