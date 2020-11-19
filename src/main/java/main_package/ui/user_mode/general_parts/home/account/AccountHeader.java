@@ -5,7 +5,7 @@ import main_package.ui.BasePart;
 import main_package.ui.engine.OnixLocator;
 import main_package.ui.engine.OnixWebDriver;
 import main_package.ui.guest_mode.page_objects.AfterLogout;
-import main_package.ui.user_mode.page_objects.home_header.home.Account;
+import main_package.ui.user_mode.page_objects.home_header.home.account.MyPlan;
 import main_package.ui.user_mode.page_objects.home_header.home.Home;
 import main_package.ui.user_mode.page_objects.main.Main;
 import main_package.ui.user_mode.page_objects.main.pricing.pricingplans.PricingPlans;
@@ -24,11 +24,11 @@ public interface AccountHeader extends BasePart {
         getLogger().debug("'Main' from header");
         return new Main(driver);
     }
-    default Account clickAccountHeaderButton() {
+    default MyPlan clickAccountHeaderButton() {
         OnixWebDriver driver = getDriver();
         driver.findElement(AccountHeaderLocator.ACCOUNT_HEADER_BUTTON).click();
         getLogger().debug("'Account' from header");
-        return new Account(driver);
+        return new MyPlan(driver);
     }
     default PricingPlans clickPricingPlansHeaderButton() {
         OnixWebDriver driver = getDriver();

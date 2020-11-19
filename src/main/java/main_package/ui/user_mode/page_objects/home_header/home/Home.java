@@ -1,6 +1,7 @@
 package main_package.ui.user_mode.page_objects.home_header.home;
 
 import main_package.ui.related_sites.FacebookGroupPage;
+import main_package.ui.user_mode.page_objects.home_header.home.account.MyPlan;
 import org.openqa.selenium.By;
 import main_package.ui.BasePageObject;
 import main_package.ui.engine.OnixLocator;
@@ -8,17 +9,16 @@ import main_package.ui.engine.OnixWebDriver;
 import main_package.ui.user_mode.general_parts.home.HomePart;
 import main_package.ui.user_mode.page_objects.home_header.home.my_goal.MyGoal;
 import main_package.ui.user_mode.page_objects.home_header.home.my_progress.MyProgress;
-import main_package.ui.user_mode.page_objects.main.pricing.pricingplans.PricingPlans;
 
 public class Home extends BasePageObject implements HomePart {
     public Home(OnixWebDriver driver) {
         super(driver);
     }
 
-    public Account clickAccountIcon() {
+    public MyPlan clickAccountIcon() {
         driver.findElement(Locator.MY_PLAN_ACCOUNT_ICON_LINK).click();
         logger.debug("'Account' from 'Home'");
-        return new Account(driver);
+        return new MyPlan(driver);
     }
     public MyGoal clickMyGoalLink() {
         driver.findElement(Locator.MY_GOAL_DIV_LINK).click();

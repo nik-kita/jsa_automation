@@ -7,7 +7,7 @@ import test_package.test_engine.OnixTestRunner;
 import main_package.ui.engine.OnixLocator;
 import main_package.ui.guest_mode.page_objects.main.login.CreateAccount;
 
-public class CreateAccountTest extends OnixTestRunner {
+public class CreateMyPlanTest extends OnixTestRunner {
     @BeforeClass
     public void goCreateAccount() {
         openSite().goCreateAccountPage();

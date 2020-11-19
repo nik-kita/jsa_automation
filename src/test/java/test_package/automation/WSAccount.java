@@ -2,8 +2,12 @@ package test_package.automation;
 
 import io.qameta.allure.Allure;
 import main_package.ui.related_sites.FacebookGroupPage;
-import main_package.ui.user_mode.general_parts.home.HomeHeaderPart;
+import main_package.ui.user_mode.page_objects.home_header.home.*;
+import main_package.ui.user_mode.page_objects.home_header.home.account.MyPlan;
 import main_package.ui.user_mode.page_objects.home_header.learn.*;
+import main_package.ui.user_mode.page_objects.home_header.nutrition.Meals;
+import main_package.ui.user_mode.page_objects.home_header.nutrition.Recipes;
+import main_package.ui.user_mode.page_objects.home_header.nutrition.ShoppingLists;
 import main_package.ui.user_mode.page_objects.home_header.workouts.Browse;
 import main_package.ui.user_mode.page_objects.home_header.workouts.MyWorkouts;
 import main_package.ui.user_mode.page_objects.home_header.workouts.Personalised;
@@ -14,13 +18,8 @@ import main_package.ui.data.User;
 import main_package.ui.engine.OnixLocator;
 import main_package.ui.guest_mode.page_objects.main.Main;
 import main_package.ui.guest_mode.page_objects.main.login.Login;
-import main_package.ui.user_mode.page_objects.home_header.home.Challenges;
-import main_package.ui.user_mode.page_objects.home_header.home.Home;
-import main_package.ui.user_mode.page_objects.home_header.home.PersonalTrainer;
-import main_package.ui.user_mode.page_objects.home_header.home.Steps;
 import main_package.ui.user_mode.page_objects.home_header.home.my_goal.MyGoal;
 import main_package.ui.user_mode.page_objects.home_header.home.my_progress.MyProgress;
-import main_package.ui.user_mode.page_objects.main.pricing.pricingplans.PricingPlans;
 
 public class WSAccount extends OnixTestRunner {
     Main main;
@@ -214,6 +213,61 @@ public class WSAccount extends OnixTestRunner {
         personalTrainer.clickClose().openUserDropDown().logout();
         onixAssert.assertAll();
         log.debug("Logout");
+
+    }
+
+    @Test
+    public void nutrition() {
+        Allure.link("full test's steps link", "https://docs.google.com/spreadsheets/d/1gudjZ7fh4aUsozP7aPIovLnI4qGdbUFpIHJ6AbTlbC4/edit?ts=5f7593b0#gid=1204697450&range=B46");
+        log.debug("1. Open https://www.jamessmithacademy.com/");
+        Main main = openSite();
+        for(OnixLocator l : Main.Locator.values()) {
+            onixAssert.softCheckCountOfElementByLocator(l, 1);
+        }
+        log.info("JSA main page is open");
+        log.debug("2. Click on \"Login\" and pass an authorization");
+        Home home = main.goLoginPage().login(User.getValidUser());
+        for(OnixLocator l : Home.Locator.values()) {
+            onixAssert.softCheckCountOfElementByLocator(l, 1);
+        }
+        log.info("'Home' page is open");
+        log.debug("3. Click on \"Nutrition\" page");
+        Meals meals = home.clickNutritionTab();
+        for(OnixLocator l : Meals.Locator.values()) {
+            onixAssert.softCheckCountOfElementByLocator(l, 1);
+        }
+        log.info("4. \"Meals\" page is open by default");
+        log.debug("5. Click on \"Recipes\" ");
+        Recipes recipes = meals.clickRecipesTab();
+        for(OnixLocator l : Recipes.Locator.values()) {
+            onixAssert.softCheckCountOfElementByLocator(l, 1);
+        }
+        log.info("Recipes page is open");
+        log.debug("6. Click on \"Shopping List\"");
+        ShoppingLists shoppingLists = recipes.clickShoppingListsTab();
+        for(OnixLocator l : ShoppingLists.Locator.values()) {
+            onixAssert.softCheckCountOfElementByLocator(l, 1);
+        }
+        log.info("Shopping List is open");
+//        log.debug("7. Click on \"Support\"");
+//        PersonalTrainer personalTrainer = shoppingLists.clickSupportButton();
+//        for(OnixLocator l : PersonalTrainer.Locator.values()) {
+//            onixAssert.softCheckCountOfElementByLocator(l, 1);
+//        }
+//        personalTrainer.clickClose().openUserDropDown().logout();
+        //TODO is there 'Support button' or no?
+        shoppingLists.openUserDropDown().logout();
+        log.info("Logout");
+    }
+
+    @Test
+    public void account() {
+        log.debug("1. Open https://www.jamessmithacademy.com/\n2. Click on \"Login\" and pass an authorization\n3. Click on \"Account\" ");
+        MyPlan myPlan = openSite().goLoginPage().login(User.getValidUser()).clickAccountIcon();
+        for(OnixLocator l : MyPlan.Locator.values()) {
+            onixAssert.softCheckCountOfElementByLocator(l, 1);
+        }
+        log.info("Account page is open and 'My Plan' tab is open by default");
 
     }
 
