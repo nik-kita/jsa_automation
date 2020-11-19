@@ -1,6 +1,7 @@
 package test_package.automation;
 
 import io.qameta.allure.Allure;
+import main_package.ui.related_sites.FacebookGroupPage;
 import main_package.ui.user_mode.general_parts.home.HomeHeaderPart;
 import main_package.ui.user_mode.page_objects.home_header.learn.*;
 import main_package.ui.user_mode.page_objects.home_header.workouts.Browse;
@@ -85,13 +86,14 @@ public class WSAccount extends OnixTestRunner {
         for(OnixLocator l : Challenges.Locator.values()) {
             onixAssert.softCheckCountOfElementByLocator(l, 1);
         }
-        PricingPlans pricingPlans = challenges.clickBackArrow().clickUpgradeToAccess();
-        log.debug("Click 'Upgrade to Access' -> PricingPlans page is open");
-        for(OnixLocator l : PricingPlans.Locator.values()) {
+        log.debug("Click 'Join Now' button");
+        FacebookGroupPage facebookGroupPage = challenges.clickBackArrow().clickJoinNow();
+        for(OnixLocator l : FacebookGroupPage.Locator.values()) {
             onixAssert.softCheckCountOfElementByLocator(l ,1);
         }
-        log.debug("Open PersonalTrainer page");
-        PersonalTrainer personalTrainer = pricingPlans.goHome().clickSupportButton();
+        log.debug("'FacebookGroup' page is open in another tab");
+        log.debug("close 'FacebookGroup' tab and leave jsa tab");
+        PersonalTrainer personalTrainer = new Home(facebookGroupPage.closeAndBackToJsaTab()).clickSupportButton();
         for(OnixLocator l : PersonalTrainer.Locator.values()) {
             onixAssert.softCheckCountOfElementByLocator(l, 1);
         }

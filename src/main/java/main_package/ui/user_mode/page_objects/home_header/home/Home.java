@@ -1,5 +1,6 @@
 package main_package.ui.user_mode.page_objects.home_header.home;
 
+import main_package.ui.related_sites.FacebookGroupPage;
 import org.openqa.selenium.By;
 import main_package.ui.BasePageObject;
 import main_package.ui.engine.OnixLocator;
@@ -46,6 +47,12 @@ public class Home extends BasePageObject implements HomePart {
 //    }
 
 
+    public FacebookGroupPage clickJoinNow() {
+        driver.findElement(Locator.JOIN_NOW_BUTTON_LINK).click();
+        driver.switchAnotherTab("jsa");
+        logger.debug("'FacebookGroup' from 'Home'");
+        return new FacebookGroupPage(driver);
+    }
 
     public enum Locator implements OnixLocator {
         MY_PLAN_ACCOUNT_ICON_LINK(By.cssSelector("[href='/users/account/my-plan']")),
@@ -55,6 +62,7 @@ public class Home extends BasePageObject implements HomePart {
         EDIT_IMG_BTM_IN_STEPS_DIV(By.cssSelector(".todays_steps img")),
         MY_PROGRESS_DIV_LINK(By.cssSelector("[href='#/home/my-progress']")),
         CHALLENGE_DIV_LINK(By.cssSelector("[href='#/home/challenges']")),
+        JOIN_NOW_BUTTON_LINK(By.cssSelector("[href=\"https://www.facebook.com/groups/193449874723532/\"]")),
 //        UPGRADE_TO_ACCESS_BTN(By.cssSelector(".facebook_group [href='/users/pricing/']")),
 
         ;
