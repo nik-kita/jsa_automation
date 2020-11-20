@@ -17,10 +17,14 @@ public class MyProfile extends BasePageObject implements AccountHeader, AccountS
         driver.findElement(Locator.RESET_YOUR_PASSWORD_HERE_LINK).click();
         return new ResetPasswordFromMyProfile(driver);
     }
+    public EmailPreferences clickUpdateEmailPreferences() {
+        driver.findElement(Locator.UPDATE_YOUR_EMAIL_PREFERENCES).click();
+        return new EmailPreferences(driver);
+    }
 
     public enum Locator implements OnixLocator {
         RESET_YOUR_PASSWORD_HERE_LINK(By.cssSelector("[href=\"/users/account/reset-password\"]")),
-        UPDATE_YOUR_PREFERENCES_HERE(By.cssSelector("[href=\"/emails/preferences/\"]")),
+        UPDATE_YOUR_EMAIL_PREFERENCES(By.cssSelector("[href=\"/emails/preferences/\"]")),
         UPLOAD_IMAGE_LITTLE_ICON_BUTTON(By.cssSelector(".uploadcare--widget__button_type_open")),
         USERNAME_INPUT(By.cssSelector("[name='username']")),
         FIRSTNAME_INPUT(By.cssSelector("[name='first_name']")),

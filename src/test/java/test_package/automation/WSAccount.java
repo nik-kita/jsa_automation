@@ -9,6 +9,7 @@ import main_package.ui.user_mode.page_objects.home_header.home.account.my_profil
 import main_package.ui.user_mode.page_objects.home_header.home.account.PairedDevices;
 import main_package.ui.user_mode.page_objects.home_header.home.account.Units;
 import main_package.ui.user_mode.page_objects.home_header.home.account.my_plan.UpdateCardPopup;
+import main_package.ui.user_mode.page_objects.home_header.home.account.my_profile.ResetPasswordFromMyProfile;
 import main_package.ui.user_mode.page_objects.home_header.learn.*;
 import main_package.ui.user_mode.page_objects.home_header.nutrition.Meals;
 import main_package.ui.user_mode.page_objects.home_header.nutrition.Recipes;
@@ -352,6 +353,15 @@ public class WSAccount extends OnixTestRunner {
             onixAssert.softCheckCountOfElementByLocator(l, 1);
         }
         log.info("My plan page is open");
+        log.debug("5. Click on \"reset your password here\"");
+        ResetPasswordFromMyProfile resetPasswordFromMyProfile = myProfile.clickResetPassword();
+        for(OnixLocator l : ResetPasswordFromMyProfile.Locator.values()) {
+            onixAssert.softCheckCountOfElementByLocator(l, 1);
+        }
+        log.info("Change password page is open");
+        log.debug("6. Return to 'My Profile' and click on \"update your email preferences\"");
+        resetPasswordFromMyProfile.clickAccountHeaderButton().clickMyProfile();
+
 
     }
 
