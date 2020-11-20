@@ -5,11 +5,14 @@ import main_package.ui.related_sites.FacebookGroupPage;
 import main_package.ui.user_mode.page_objects.home_header.home.*;
 import main_package.ui.user_mode.page_objects.home_header.home.account.my_plan.ConfirmCancelPopup;
 import main_package.ui.user_mode.page_objects.home_header.home.account.my_plan.MyPlan;
+import main_package.ui.user_mode.page_objects.home_header.home.account.my_profile.EmailPreferences;
 import main_package.ui.user_mode.page_objects.home_header.home.account.my_profile.MyProfile;
 import main_package.ui.user_mode.page_objects.home_header.home.account.PairedDevices;
 import main_package.ui.user_mode.page_objects.home_header.home.account.Units;
 import main_package.ui.user_mode.page_objects.home_header.home.account.my_plan.UpdateCardPopup;
 import main_package.ui.user_mode.page_objects.home_header.home.account.my_profile.ResetPasswordFromMyProfile;
+import main_package.ui.user_mode.page_objects.home_header.home.account.my_profile.upload_image.LocalFiles;
+import main_package.ui.user_mode.page_objects.home_header.home.account.my_profile.upload_image.UploadImagePopup;
 import main_package.ui.user_mode.page_objects.home_header.learn.*;
 import main_package.ui.user_mode.page_objects.home_header.nutrition.Meals;
 import main_package.ui.user_mode.page_objects.home_header.nutrition.Recipes;
@@ -360,9 +363,23 @@ public class WSAccount extends OnixTestRunner {
         }
         log.info("Change password page is open");
         log.debug("6. Return to 'My Profile' and click on \"update your email preferences\"");
-        resetPasswordFromMyProfile.clickAccountHeaderButton().clickMyProfile();
-
-
+        EmailPreferences emailPreferences = resetPasswordFromMyProfile
+                .clickAccountHeaderButton()
+                .clickMyProfile()
+                .clickUpdateEmailPreferences();
+        for(OnixLocator l : EmailPreferences.Locator.values()) {
+            onixAssert.softCheckCountOfElementByLocator(l, 1);
+        }
+        log.info("Email preferences page is open");
+        log.debug("7. Return and click on \"Edit\" icon for uploading new photo");
+        LocalFiles localFiles = emailPreferences.clickAccountHeaderButton().clickMyProfile().clickUploadImageIconButton();
+        for(OnixLocator l : UploadImagePopup.UploadImagePopupLocator.values()) {
+            onixAssert.softCheckCountOfElementByLocator(l, 1);
+        }
+        log.info("Choose local file pop-up is showed up");
+        localFiles.close().clickLogoutHeaderButton();
+        log.info("Logout");
+        onixAssert.assertAll();
     }
 
 

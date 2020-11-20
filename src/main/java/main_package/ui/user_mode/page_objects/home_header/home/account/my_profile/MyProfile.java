@@ -6,6 +6,7 @@ import main_package.ui.engine.OnixWebDriver;
 import main_package.ui.user_mode.general_parts.Footer;
 import main_package.ui.user_mode.general_parts.home.account.AccountHeader;
 import main_package.ui.user_mode.general_parts.home.account.AccountSidebar;
+import main_package.ui.user_mode.page_objects.home_header.home.account.my_profile.upload_image.LocalFiles;
 import org.openqa.selenium.By;
 
 public class MyProfile extends BasePageObject implements AccountHeader, AccountSidebar, Footer {
@@ -20,6 +21,11 @@ public class MyProfile extends BasePageObject implements AccountHeader, AccountS
     public EmailPreferences clickUpdateEmailPreferences() {
         driver.findElement(Locator.UPDATE_YOUR_EMAIL_PREFERENCES).click();
         return new EmailPreferences(driver);
+    }
+
+    public LocalFiles clickUploadImageIconButton() {
+        driver.findElement(Locator.UPLOAD_IMAGE_LITTLE_ICON_BUTTON).click();
+        return new LocalFiles(driver);
     }
 
     public enum Locator implements OnixLocator {
