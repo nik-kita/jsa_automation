@@ -5,7 +5,7 @@ import main_package.ui.related_sites.FacebookGroupPage;
 import main_package.ui.user_mode.page_objects.home_header.home.*;
 import main_package.ui.user_mode.page_objects.home_header.home.account.my_plan.ConfirmCancelPopup;
 import main_package.ui.user_mode.page_objects.home_header.home.account.my_plan.MyPlan;
-import main_package.ui.user_mode.page_objects.home_header.home.account.MyProfile;
+import main_package.ui.user_mode.page_objects.home_header.home.account.my_profile.MyProfile;
 import main_package.ui.user_mode.page_objects.home_header.home.account.PairedDevices;
 import main_package.ui.user_mode.page_objects.home_header.home.account.Units;
 import main_package.ui.user_mode.page_objects.home_header.home.account.my_plan.UpdateCardPopup;
@@ -36,7 +36,7 @@ public class WSAccount extends OnixTestRunner {
         log.info("open site");
     }
 
-    @Test(testName = "Check base functionality of Home and relative pages")
+    @Test
     public void home() {
         Allure.link("Full test case information" , "https://docs.google.com/spreadsheets/d/1gudjZ7fh4aUsozP7aPIovLnI4qGdbUFpIHJ6AbTlbC4/edit?ts=5f7593b0#gid=1204697450&range=B2");
         log.debug("Main page");
@@ -339,13 +339,21 @@ public class WSAccount extends OnixTestRunner {
         onixAssert.assertAll();
     }
 
-//    @Test
-//    public void wtf() {
-//        while(true) {
-//            openSite().goLoginPage().login(User.getValidUser());
-//            driver.findElement(HomeHeaderPart.HomeHeaderLocator.JSA_LOGO).click();
-//            new main_package.ui.user_mode.page_objects.main.Main(driver).goHome()
-//                    .openUserDropDown().logout();
-//        }
-//    }
+    @Test
+    public void myProfile() {
+        Allure.link("Full test's info", "https://docs.google.com/spreadsheets/d/1gudjZ7fh4aUsozP7aPIovLnI4qGdbUFpIHJ6AbTlbC4/edit?ts=5f7593b0#gid=1204697450&range=B87");
+        log.debug("1. Open https://www.jamessmithacademy.com/\tJSA home page is open\n" +
+                "2. Click on \"Login\" and pass an authorization\tLogin page is open\n" +
+                "3. Go to https://www.jamessmithacademy.com/users/account/my-plan or click on \"Account\" \tAccount page is open");
+        log.debug("4. Go to \"My Profile\" page");
+        MyProfile myProfile = openSite().goLoginPage().login(User.getValidUser())
+                .clickAccountIcon().clickMyProfile();
+        for(OnixLocator l : MyProfile.Locator.values()) {
+            onixAssert.softCheckCountOfElementByLocator(l, 1);
+        }
+        log.info("My plan page is open");
+
+    }
+
+
 }

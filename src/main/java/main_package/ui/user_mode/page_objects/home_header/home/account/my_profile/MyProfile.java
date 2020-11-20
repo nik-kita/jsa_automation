@@ -1,4 +1,4 @@
-package main_package.ui.user_mode.page_objects.home_header.home.account;
+package main_package.ui.user_mode.page_objects.home_header.home.account.my_profile;
 
 import main_package.ui.BasePageObject;
 import main_package.ui.engine.OnixLocator;
@@ -11,6 +11,11 @@ import org.openqa.selenium.By;
 public class MyProfile extends BasePageObject implements AccountHeader, AccountSidebar, Footer {
     public MyProfile(OnixWebDriver driver) {
         super(driver);
+    }
+
+    public ResetPasswordFromMyProfile clickResetPassword() {
+        driver.findElement(Locator.RESET_YOUR_PASSWORD_HERE_LINK).click();
+        return new ResetPasswordFromMyProfile(driver);
     }
 
     public enum Locator implements OnixLocator {

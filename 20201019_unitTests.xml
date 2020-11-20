@@ -199,7 +199,7 @@
                     <include name="userCabinetDropdownTest"/>
                 </methods>
             </class>
-            <class name="main_package.ui.user_mode.home.account.MyProfileTest">
+            <class name="main_package.ui.user_mode.home.account.my_profile.MyProfileTest">
                 <methods>
                     <include name="testMyProfilePage"/>
                 </methods>

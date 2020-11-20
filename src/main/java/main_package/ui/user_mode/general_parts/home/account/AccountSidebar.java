@@ -4,7 +4,7 @@ import main_package.ui.BasePart;
 import main_package.ui.engine.OnixLocator;
 import main_package.ui.engine.OnixWebDriver;
 import main_package.ui.user_mode.page_objects.home_header.home.account.my_plan.MyPlan;
-import main_package.ui.user_mode.page_objects.home_header.home.account.MyProfile;
+import main_package.ui.user_mode.page_objects.home_header.home.account.my_profile.MyProfile;
 import main_package.ui.user_mode.page_objects.home_header.home.account.PairedDevices;
 import main_package.ui.user_mode.page_objects.home_header.home.account.Units;
 import org.openqa.selenium.By;
