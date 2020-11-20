@@ -84,17 +84,17 @@
 <!--        </encoder>-->
 <!--    </appender>-->
     <!--    =====================================================>>>   MySQL   <<<===============================================-->
-    <appender name="mysql" class="ch.qos.logback.classic.db.DBAppender">
-        <connectionSource class="ch.qos.logback.core.db.DataSourceConnectionSource">
-            <dataSource class="com.mysql.cj.jdbc.MysqlDataSource">
-                <serverName>127.0.0.1</serverName>
-                <port>3306</port>
-                <databaseName>jsa</databaseName>
-                <user>root</user>
-                <password>Password123#@!</password>
-            </dataSource>
-        </connectionSource>
-    </appender>
+<!--    <appender name="mysql" class="ch.qos.logback.classic.db.DBAppender">-->
+<!--        <connectionSource class="ch.qos.logback.core.db.DataSourceConnectionSource">-->
+<!--            <dataSource class="com.mysql.cj.jdbc.MysqlDataSource">-->
+<!--                <serverName>127.0.0.1</serverName>-->
+<!--                <port>3306</port>-->
+<!--                <databaseName>jsa</databaseName>-->
+<!--                <user>root</user>-->
+<!--                <password>Password123#@!</password>-->
+<!--            </dataSource>-->
+<!--        </connectionSource>-->
+<!--    </appender>-->
 
 <!--    =========================================================>>>  F I L E  <<<=======================================================-->
 <!--    <appender name="FILE" class="ch.qos.logback.core.FileAppender">-->
@@ -128,6 +128,6 @@
 
 
     <root level="TRACE">
-        <appender-ref ref="mysql"/>
+<!--        <appender-ref ref="mysql"/>-->
     </root>
 </configuration>

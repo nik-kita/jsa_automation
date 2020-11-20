@@ -25,7 +25,7 @@ public class MyPlan extends BasePageObject implements Footer, AccountHeader, Acc
     }
 
     public UpdateCardPopup clickUpdateCard() {
-        driver.findElement(Locator.UPDATE_CARD_LINK).click();
+        driver.waitToClick(Locator.UPDATE_CARD_LINK).click();
         return new UpdateCardPopup(driver);
     }
 

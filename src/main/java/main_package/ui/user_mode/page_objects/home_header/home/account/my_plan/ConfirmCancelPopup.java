@@ -11,7 +11,8 @@ public class ConfirmCancelPopup extends BasePageObject {
     }
 
     public MyPlan close() {
-        driver.findElement(Locator.CLOSE_BUTTON).click();
+        driver.waitToClick(Locator.CLOSE_BUTTON).click();
+        logger.warn("click!");
         return new MyPlan(driver);
     }
 

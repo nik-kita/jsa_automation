@@ -13,7 +13,7 @@ public class UpdateCardPopup extends BasePageObject {
     }
 
     public MyPlan close() {
-        driver.findElement(Locator.CLOSE_BUTTON).click();
+        driver.waitToClick(Locator.CLOSE_BUTTON).click();
         return new MyPlan(driver);
     }
     public enum Locator implements OnixLocator {
