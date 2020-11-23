@@ -104,6 +104,7 @@ public class MyGoal extends BasePageObject implements HomeHeaderPart {
     public MyGoal fillMoreDetailTextarea(String text) {
         OnixWebElement textarea = driver.findElement(Locator.MORE_DETAIL_TEXTAREA);
         textarea.click();
+        textarea.getSeleniumWebElement().clear();
         textarea.sendKeys(text);
         logger.debug("fill 'more details' textarea with text:\n" + text);
         return this;

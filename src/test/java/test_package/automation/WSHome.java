@@ -26,18 +26,22 @@ public class WSHome extends OnixTestRunner {
         log.debug("4. Select any of 'Overall Goal'");
         String goalName = "Improve CV";
         myGoal = myGoal.selectGoalByString(goalName);
-        String text = driver.findElement(MyGoal.Locator.GOAL_SELECT).text();
-        onixAssert.getSoftAssert().assertEquals(text, goalName);
-        log.info("Selected overall goal is shown");
+        //TODO
+//        String text = driver.findElement(MyGoal.Locator.GOAL_SELECT).text();
+//        onixAssert.getSoftAssert().assertEquals(text, goalName);
+//        log.info("Selected overall goal is shown");
         log.debug("5. Click on 'Save' button");
         myGoal = myGoal.clickSaveButton();
         home = myGoal.clickHomeTab();
         onixAssert.getSoftAssert().assertEquals(firstGoalText, home.getCurrentGoalText());
         onixAssert.getSoftAssert().assertEquals(firstGoalTitle, home.getCurrentGoalTitle());
         log.info("You should fill in the \"In more detail\" field");
-        home = home.clickMyGoalLink().fillMoreDetailTextarea("Blablabla").clickSaveButton().clickHomeTab();
+        String text = "Blablabla";
+        home = home.clickMyGoalLink().fillMoreDetailTextarea(text).clickSaveButton().clickHomeTab();
+        onixAssert.getSoftAssert().assertEquals(goalName, home.getCurrentGoalTitle());
+        onixAssert.getSoftAssert().assertEquals(text, home.getCurrentGoalText());
+        home.openUserDropDown().logout().goMainPage();
+        log.info("Logout");
         onixAssert.assertAll();
-
-
     }
 }
