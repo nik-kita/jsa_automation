@@ -11,6 +11,7 @@ import main_package.ui.engine.OnixWebDriver;
 import main_package.ui.engine.OnixWebElement;
 import main_package.ui.guest_mode.page_objects.main.Main;
 import main_package.ui.user_mode.page_objects.home_header.home.Home;
+import org.testng.asserts.SoftAssert;
 
 public class Login extends BasePageObject {
 
@@ -49,7 +50,17 @@ public class Login extends BasePageObject {
         fillUserInput(validUser.getName());
         fillPasswordInput(validUser.getPassword());
         getSubmitButton().click();
-        logger.debug("fo 'Home' from 'Login'");
+        logger.debug("go 'Home' from 'Login'");
+        return new Home(driver);
+    }
+    public Home login(User validUser, SoftAssert softAssert) {
+        fillUserInput(validUser.getName());
+        fillPasswordInput(validUser.getPassword());
+        getSubmitButton().click();
+        logger.debug("go 'Home' from 'Login'");
+        for(OnixLocator l : Home.Locator.values()) {
+            softAssert.assertEquals(driver.findElements(l).size(), 1);
+        }
         return new Home(driver);
     }
 

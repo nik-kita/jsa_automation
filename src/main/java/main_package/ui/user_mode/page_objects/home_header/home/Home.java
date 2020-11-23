@@ -9,10 +9,23 @@ import main_package.ui.engine.OnixWebDriver;
 import main_package.ui.user_mode.general_parts.home.HomePart;
 import main_package.ui.user_mode.page_objects.home_header.home.my_goal.MyGoal;
 import main_package.ui.user_mode.page_objects.home_header.home.my_progress.MyProgress;
+import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 public class Home extends BasePageObject implements HomePart {
     public Home(OnixWebDriver driver) {
         super(driver);
+    }
+
+    public String getCurrentGoalTitle() {
+        String result = driver.findElement(By.cssSelector(".my_goal_overview_body_heading")).text();
+        logger.info("The current goal title is: '{}'", result);
+        return result;
+    }
+    public String getCurrentGoalText() {
+        String result = driver.findElement(By.cssSelector(".my_goal_overview_body_goal")).text();
+        logger.info("The current goal text is: '{}'", result);
+        return result;
     }
 
     public MyPlan clickAccountIcon() {
@@ -23,6 +36,15 @@ public class Home extends BasePageObject implements HomePart {
     public MyGoal clickMyGoalLink() {
         driver.findElement(Locator.MY_GOAL_DIV_LINK).click();
         logger.debug("'MyGoal' from 'Home'");
+        return new MyGoal(driver);
+    }
+
+    public MyGoal clickMyGoalLink(SoftAssert softAssert) {
+        driver.findElement(Locator.MY_GOAL_DIV_LINK).click();
+        logger.debug("'MyGoal' from 'Home'");
+        for(OnixLocator l : MyGoal.Locator.values()) {
+            softAssert.assertEquals(driver.findElements(l).size(), 1);
+        }
         return new MyGoal(driver);
     }
 

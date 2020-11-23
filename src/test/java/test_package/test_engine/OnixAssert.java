@@ -15,6 +15,13 @@ public class OnixAssert {
     int softSuccessCounter;
     Logger logger;
 
+    public SoftAssert getSoftAssert() {
+        if(softAssert == null) {
+            softAssert = new SoftAssert();
+        }
+        return softAssert;
+    }
+
     public void assertAll() {
         if(softTotalCounter == softSuccessCounter) {
             message(true, "All softAssertions passed!", "this message will never displayed");
