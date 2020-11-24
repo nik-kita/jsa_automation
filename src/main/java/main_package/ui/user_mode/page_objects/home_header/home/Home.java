@@ -49,15 +49,6 @@ public class Home extends BasePageObject implements HomePart {
         return new MyGoal(driver);
     }
 
-    public MyGoal clickMyGoalLink(SoftAssert softAssert) {
-        driver.findElement(Locator.MY_GOAL_DIV_LINK).click();
-        logger.debug("'MyGoal' from 'Home'");
-        for(OnixLocator l : MyGoal.Locator.values()) {
-            softAssert.assertEquals(driver.findElements(l).size(), 1);
-        }
-        return new MyGoal(driver);
-    }
-
     public Steps clickStepsLink() {
         driver.findElement(Locator.STEPS_DIV_LINK).click();
         logger.info("Click on 'Steps' link.");

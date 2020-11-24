@@ -27,6 +27,10 @@ public class Steps extends BasePageObject implements HomeHeaderPart {
         }
         return new EditStepsPopup(driver);
     }
+    public int getTodaySteps() {
+        logger.debug("Get current today step's value.");
+        return Integer.parseInt(driver.findElement(By.cssSelector(".todays_steps_value")).text());
+    }
 
 
 
