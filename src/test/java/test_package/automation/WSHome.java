@@ -13,6 +13,9 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import test_package.test_engine.OnixTestRunner;
 
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+
 public class WSHome extends OnixTestRunner {
     @Test
     public void myGoal() {
@@ -50,15 +53,16 @@ public class WSHome extends OnixTestRunner {
     @Test
     public void weeklyGoal() {
         Allure.link("Full test's info", "https://docs.google.com/spreadsheets/d/1gudjZ7fh4aUsozP7aPIovLnI4qGdbUFpIHJ6AbTlbC4/edit#gid=1648986495&range=C24:D24");
+        String testText = "Hello world! "  + new Date(System.currentTimeMillis()).toString();
         openSite(onixAssert)
                 .goLoginPage(onixAssert)
                 .login(User.getValidUser(), onixAssert)
                 .clickMyGoalLink(onixAssert)
                 .clickNewGoalButton(onixAssert)
-                .save("Hello world", () -> {
+                .save(testText, () -> {
                     boolean isSave = false;
                     for(OnixWebElement p : driver.findElements(MyGoal.Locators.WEEKLY_GOAL_LIST_ITEM_P)) {
-                        if(p.text().equals("Hello world")) {
+                        if(p.text().equals(testText)) {
                             isSave = true;
                             break;
                         }
@@ -66,5 +70,16 @@ public class WSHome extends OnixTestRunner {
                     onixAssert.getSoftAssert().assertTrue(isSave);
                 }).openUserDropDown().logout().goMainPage();
         onixAssert.assertAll();
+    }
+
+    @Test
+    public void steps() {
+        Allure.link("Full test's info", "https://docs.google.com/spreadsheets/d/1gudjZ7fh4aUsozP7aPIovLnI4qGdbUFpIHJ6AbTlbC4/edit?ts=5f7593b0#gid=1648986495&range=C34:D34");
+        int stepsForTest = (int)(Math.random() * 10);
+        openSite(onixAssert)
+                .goLoginPage(onixAssert)
+                .login(User.getValidUser(), onixAssert)
+                .clickStepsLink(onixAssert)
+                ;
     }
 }

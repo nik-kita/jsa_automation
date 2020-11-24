@@ -1,11 +1,11 @@
-package main_package.ui.user_mode.home;
+package main_package.ui.user_mode.home.steps;
 
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import main_package.ui.engine.OnixLocator;
 import main_package.ui.user_mode.JsaLoginBaseTestRunner;
-import main_package.ui.user_mode.page_objects.home_header.home.Steps;
+import main_package.ui.user_mode.page_objects.home_header.home.steps.Steps;
 
 public class StepsTest extends JsaLoginBaseTestRunner {
     @BeforeClass

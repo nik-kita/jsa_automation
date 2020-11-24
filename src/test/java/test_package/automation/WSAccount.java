@@ -13,6 +13,7 @@ import main_package.ui.user_mode.page_objects.home_header.home.account.my_plan.U
 import main_package.ui.user_mode.page_objects.home_header.home.account.my_profile.ResetPasswordFromMyProfile;
 import main_package.ui.user_mode.page_objects.home_header.home.account.my_profile.upload_image.LocalFiles;
 import main_package.ui.user_mode.page_objects.home_header.home.account.my_profile.upload_image.UploadImagePopup;
+import main_package.ui.user_mode.page_objects.home_header.home.steps.Steps;
 import main_package.ui.user_mode.page_objects.home_header.learn.*;
 import main_package.ui.user_mode.page_objects.home_header.nutrition.Meals;
 import main_package.ui.user_mode.page_objects.home_header.nutrition.Recipes;

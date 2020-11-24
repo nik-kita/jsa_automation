@@ -189,7 +189,7 @@
                     <include name="personalTrainerTest"/>
                 </methods>
             </class>
-            <class name="main_package.ui.user_mode.home.StepsTest">
+            <class name="main_package.ui.user_mode.home.steps.StepsTest">
                 <methods>
                     <include name="stepsTest"/>
                 </methods>

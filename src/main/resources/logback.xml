@@ -109,13 +109,10 @@
 
     <!--=====================================================>>>   L O G G E R S    <<<===========================================-->
 
-<<<<<<< HEAD
+
     <logger name="main_package" level="TRACE">
-=======
-    <logger name="main_package" level="INFO">
->>>>>>> 62e66355e6d1753534ba7210c78c8d02c157ef1e
-<!--        <appender-ref ref="consoleTrace"/>-->
-<!--        <appender-ref ref="consoleDebug"/>-->
+        <appender-ref ref="consoleTrace"/>
+        <appender-ref ref="consoleDebug"/>
         <appender-ref ref="consoleInfo"/>
         <appender-ref ref="consoleWarn"/>
         <appender-ref ref="consoleError"/>
