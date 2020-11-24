@@ -1,5 +1,7 @@
 package main_package.ui.user_mode.page_objects.home_header.home.my_goal;
 
+import main_package.ui.engine.FlyTester;
+import main_package.ui.engine.OnixAssert;
 import org.openqa.selenium.By;
 import main_package.ui.BasePageObject;
 import main_package.ui.engine.OnixLocator;
@@ -9,6 +11,7 @@ public class NewWeeklyGoal extends BasePageObject {
 
     public NewWeeklyGoal(OnixWebDriver driver) {
         super(driver);
+        logger.debug("'NewWeeklyGoal' modal window is open.");
     }
 
     public MyGoal clickCloseButton() {
@@ -27,8 +30,39 @@ public class NewWeeklyGoal extends BasePageObject {
             }
             logger.warn("Waiting for invisibility of 'Save Button'");
         }
-        //        driver.waitInvisibilityOf(Locator.SAVE_BUTTON);
-        logger.debug("'MyGoal' from 'NewWeeklyGoal'");
+        logger.debug("Click 'Save' button after adding some text('{}')", text);
+        return new MyGoal(driver);
+    }
+    public MyGoal save(String text, OnixAssert onixAssert) {
+        driver.findElement(Locator.GAOL_TEXTAREA).sendKeys(text);
+        driver.findElement(Locator.SAVE_BUTTON).click();
+        if(driver.isElementPresent(Locator.SAVE_BUTTON)) {
+            try {
+                Thread.sleep(500);
+            } catch(InterruptedException e) {
+                logger.error(e.getMessage());
+            }
+            logger.warn("Waiting for invisibility of 'Save Button'");
+        }
+        logger.debug("Click 'Save' button after adding some text('{}')", text);
+        for(OnixLocator l : MyGoal.Locator.values()) {
+            onixAssert.softCheckCountOfElementByLocator(l, 1);
+        }
+        return new MyGoal(driver);
+    }
+    public MyGoal save(String text, FlyTester flyTester) {
+        driver.findElement(Locator.GAOL_TEXTAREA).sendKeys(text);
+        driver.findElement(Locator.SAVE_BUTTON).click();
+        if(driver.isElementPresent(Locator.SAVE_BUTTON)) {
+            try {
+                Thread.sleep(500);
+            } catch(InterruptedException e) {
+                logger.error(e.getMessage());
+            }
+            logger.warn("Waiting for invisibility of 'Save Button'");
+        }
+        logger.debug("Click 'Save' button after adding some text('{}')", text);
+        flyTester.test();
         return new MyGoal(driver);
     }
 

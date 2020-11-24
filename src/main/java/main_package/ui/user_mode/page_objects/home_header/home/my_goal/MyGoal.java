@@ -1,5 +1,6 @@
 package main_package.ui.user_mode.page_objects.home_header.home.my_goal;
 
+import main_package.ui.engine.OnixAssert;
 import org.openqa.selenium.By;
 import main_package.ui.BasePageObject;
 import main_package.ui.engine.OnixLocator;
@@ -11,6 +12,7 @@ import main_package.ui.user_mode.page_objects.home_header.home.Home;
 public class MyGoal extends BasePageObject implements HomeHeaderPart {
     public MyGoal(OnixWebDriver driver) {
         super(driver);
+        logger.debug("'MyGoal' page is open.");
     }
     public OnixLocator optionInGoalSelect = makeOnixLocator(By.cssSelector("select[name='goalCategory'] option"), this.getClass());
     public OnixLocator weeklyGoal = makeOnixLocator(By.className("weekly_goal_list_item"), this.getClass());
@@ -115,7 +117,16 @@ public class MyGoal extends BasePageObject implements HomeHeaderPart {
     }
     public NewWeeklyGoal clickNewGoalButton() {
         driver.findElement(Locator.NEW_GOAL_BUTTON).click();
-        logger.debug("'NewWeeklyGoal' from 'MyGoal'");
+        logger.info("Click on 'New Goal' button.");
+        return new NewWeeklyGoal(driver);
+    }
+
+    public NewWeeklyGoal clickNewGoalButton(OnixAssert onixAssert) {
+        driver.findElement(Locator.NEW_GOAL_BUTTON).click();
+        logger.info("Click on 'New Goal' button.");
+        for(OnixLocator l : NewWeeklyGoal.Locator.values()) {
+            onixAssert.softCheckCountOfElementByLocator(l, 1);
+        }
         return new NewWeeklyGoal(driver);
     }
 
@@ -132,6 +143,22 @@ public class MyGoal extends BasePageObject implements HomeHeaderPart {
         private By path;
 
         Locator(By path) {
+            this.path = path;
+        }
+
+        @Override
+        public By getPath() {
+            return path;
+        }
+    }
+
+    public enum Locators implements OnixLocator {
+        WEEKLY_GOAL_LIST_ITEM_P(By.cssSelector(".weekly_goal_list_item p")),
+
+        ;
+        private By path;
+
+        Locators(By path) {
             this.path = path;
         }
 

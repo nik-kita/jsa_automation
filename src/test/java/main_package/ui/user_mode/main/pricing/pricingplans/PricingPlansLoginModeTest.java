@@ -4,7 +4,7 @@ package main_package.ui.user_mode.main.pricing.pricingplans;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import test_package.test_engine.OnixAssert;
+import main_package.ui.engine.OnixAssert;
 import main_package.ui.engine.OnixLocator;
 import main_package.ui.user_mode.JsaLoginBaseTestRunner;
 import main_package.ui.user_mode.page_objects.main.pricing.pricingplans.PricingPlans;

@@ -1,5 +1,6 @@
 package main_package.ui.user_mode.page_objects.home_header.home;
 
+import main_package.ui.engine.OnixAssert;
 import main_package.ui.related_sites.FacebookGroupPage;
 import main_package.ui.user_mode.page_objects.home_header.home.account.my_plan.MyPlan;
 import org.openqa.selenium.By;
@@ -15,6 +16,7 @@ import org.testng.asserts.SoftAssert;
 public class Home extends BasePageObject implements HomePart {
     public Home(OnixWebDriver driver) {
         super(driver);
+        logger.debug("'Home' page is open.");
     }
 
     public String getCurrentGoalTitle() {
@@ -36,6 +38,14 @@ public class Home extends BasePageObject implements HomePart {
     public MyGoal clickMyGoalLink() {
         driver.findElement(Locator.MY_GOAL_DIV_LINK).click();
         logger.debug("'MyGoal' from 'Home'");
+        return new MyGoal(driver);
+    }
+    public MyGoal clickMyGoalLink(OnixAssert onixAssert) {
+        driver.findElement(Locator.MY_GOAL_DIV_LINK).click();
+        logger.info("Click on 'My Goal' link.");
+        for(OnixLocator l : MyGoal.Locator.values()) {
+            onixAssert.softCheckCountOfElementByLocator(l, 1);
+        }
         return new MyGoal(driver);
     }
 

@@ -1,6 +1,7 @@
 package main_package.ui.guest_mode.page_objects.main.login;
 
 
+import main_package.ui.engine.OnixAssert;
 import org.openqa.selenium.By;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -50,16 +51,16 @@ public class Login extends BasePageObject {
         fillUserInput(validUser.getName());
         fillPasswordInput(validUser.getPassword());
         getSubmitButton().click();
-        logger.debug("go 'Home' from 'Login'");
+        logger.debug("Login to the site by valid user's credentials.");
         return new Home(driver);
     }
-    public Home login(User validUser, SoftAssert softAssert) {
+    public Home login(User validUser, OnixAssert onixAssert) {
         fillUserInput(validUser.getName());
         fillPasswordInput(validUser.getPassword());
         getSubmitButton().click();
-        logger.debug("go 'Home' from 'Login'");
+        logger.info("Fill email and password inputs by valid user's credentials.");
         for(OnixLocator l : Home.Locator.values()) {
-            softAssert.assertEquals(driver.findElements(l).size(), 1);
+            onixAssert.softCheckCountOfElementByLocator(l, 1);
         }
         return new Home(driver);
     }
