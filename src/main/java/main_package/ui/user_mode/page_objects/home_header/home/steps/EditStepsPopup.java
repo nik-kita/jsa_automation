@@ -7,6 +7,7 @@ import main_package.ui.engine.OnixAssert;
 import main_package.ui.engine.OnixLocator;
 import main_package.ui.engine.OnixWebDriver;
 import main_package.ui.user_mode.general_parts.home.HomePart;
+import main_package.ui.user_mode.page_objects.home_header.home.account.my_profile.upload_image.LocalFiles;
 import org.openqa.selenium.By;
 
 public class EditStepsPopup extends BasePageObject implements HomePart {
@@ -22,25 +23,34 @@ public class EditStepsPopup extends BasePageObject implements HomePart {
     public Steps close() {
         driver.findElement(Locator.CLOSE_BUTTON).click();
         logger.info("Close 'Add Today's Steps' popup");
+        if(driver.isElementPresent(Locator.CLOSE_BUTTON)) {
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                logger.warn("Waiting for invisibility of modal window (popup).");
+            }
+        }
         return new Steps(driver);
     }
     public Steps close(OnixAssert onixAssert) {
-        driver.findElement(Locator.CLOSE_BUTTON).click();
+        close();
         for(OnixLocator l : Steps.Locator.values()) {
             onixAssert.softCheckCountOfElementByLocator(l, 1);
         }
-        logger.info("Close 'Add Today's Steps' popup");
         return new Steps(driver);
     }
     public Steps update(int steps) {
+        driver.findElement(Locator.TODAY_STEPS_INPUT).getSeleniumWebElement().clear();
         driver.findElement(Locator.TODAY_STEPS_INPUT).sendKeys(String.valueOf(steps));
         logger.info("Write '{}' into today step's input.", steps);
-        return new Steps(driver);
-    }
-    public Steps update(int steps, FlyTester flyTester) {
-        driver.findElement(Locator.TODAY_STEPS_INPUT).sendKeys(String.valueOf(steps));
-        logger.info("Write '{}' into today step's input.", steps);
-        flyTester.test();
+        driver.findElement(Locator.UPDATE_BUTTON).click();
+        if(driver.isElementPresent(Locator.UPDATE_BUTTON)) {
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                logger.warn("Waiting for invisibility of modal window (popup).");
+            }
+        }
         return new Steps(driver);
     }
 

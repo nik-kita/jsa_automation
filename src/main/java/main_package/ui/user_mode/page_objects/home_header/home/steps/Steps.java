@@ -35,7 +35,7 @@ public class Steps extends BasePageObject implements HomeHeaderPart {
     }
     public int getTodaySteps() {
         logger.debug("Get current today step's value.");
-        return Integer.parseInt(driver.findElement(By.cssSelector(".todays_steps_value")).text());
+        return Integer.parseInt(driver.findElement(Locator.TODAY_STEPS_VALUE).text());
     }
 
 
@@ -48,6 +48,7 @@ public class Steps extends BasePageObject implements HomeHeaderPart {
         ONE_WEEK_BUTTON(By.xpath("//div[text() = '1 W']")),
         ONE_MONTH_BUTTON(By.xpath("//div[text() = '1 M']")),
         THREE_MONTH_BUTTON(By.xpath("//div[text()= '3 M']")),
+        TODAY_STEPS_VALUE(By.cssSelector(".todays_steps_value")),
 
         ;
         Locator(By path) {
