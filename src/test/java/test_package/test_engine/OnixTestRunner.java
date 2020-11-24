@@ -3,6 +3,7 @@ package test_package.test_engine;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Allure;
+import main_package.ui.engine.OnixAssert;
 import main_package.ui.engine.OnixLocator;
 import org.commonmark.parser.Parser;
 import org.commonmark.renderer.html.HtmlRenderer;
@@ -16,7 +17,6 @@ import org.testng.*;
 import org.testng.annotations.*;
 import main_package.ui.engine.OnixWebDriver;
 import main_package.ui.guest_mode.page_objects.main.Main;
-import org.testng.asserts.SoftAssert;
 
 
 import java.io.FileInputStream;
@@ -135,15 +135,16 @@ public class OnixTestRunner {
     protected Main openSite() {
         driver.get(baseUrl);
         mainPO = new Main(driver);
+        log.debug("Open https://www.jamessmithacademy.com/");
         return mainPO;
     }
-    protected Main openSite(SoftAssert softAssert) {
+    protected Main openSite(OnixAssert onixAssert) {
         driver.get(baseUrl);
+        log.debug("Open https://www.jamessmithacademy.com/");
         mainPO = new Main(driver);
         for(OnixLocator l : Main.Locator.values()) {
-            softAssert.assertEquals(driver.findElements(l).size(), 1);
+            onixAssert.softCheckCountOfElementByLocator(l, 1);
         }
-        log.info("JSA home page is open");
         return mainPO;
     }
 
