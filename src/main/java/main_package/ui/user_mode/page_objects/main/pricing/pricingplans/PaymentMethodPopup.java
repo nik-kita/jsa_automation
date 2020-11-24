@@ -1,6 +1,7 @@
 package main_package.ui.user_mode.page_objects.main.pricing.pricingplans;
 
 
+import main_package.ui.engine.FlyTester;
 import org.openqa.selenium.By;
 import main_package.ui.BasePageObject;
 import main_package.ui.engine.OnixLocator;
@@ -12,6 +13,11 @@ public class PaymentMethodPopup extends BasePageObject {
 
     public PaymentMethodPopup(OnixWebDriver driver) {
         super(driver);
+    }
+    @Override
+    public PaymentMethodPopup test(FlyTester flyTester) {
+        flyTester.test();
+        return this;
     }
 
     public PricingPlans exit() {

@@ -1,5 +1,6 @@
 package main_package.ui.user_mode.page_objects.home_header.home.steps;
 
+import main_package.ui.engine.FlyTester;
 import main_package.ui.engine.OnixAssert;
 import main_package.ui.user_mode.page_objects.home_header.home.account.my_profile.upload_image.LocalFiles;
 import org.openqa.selenium.By;
@@ -12,6 +13,11 @@ public class Steps extends BasePageObject implements HomeHeaderPart {
     public Steps(OnixWebDriver driver) {
         super(driver);
         logger.debug("'Steps' page is open.");
+    }
+    @Override
+    public Steps test(FlyTester flyTester) {
+        flyTester.test();
+        return this;
     }
 
     public EditStepsPopup clickEditTodayStepsIconButton() {

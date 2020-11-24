@@ -13,6 +13,11 @@ public class EditStepsPopup extends BasePageObject implements HomePart {
     public EditStepsPopup(OnixWebDriver driver) {
         super(driver);
     }
+    @Override
+    public EditStepsPopup test(FlyTester flyTester) {
+        flyTester.test();
+        return this;
+    }
 
     public Steps close() {
         driver.findElement(Locator.CLOSE_BUTTON).click();

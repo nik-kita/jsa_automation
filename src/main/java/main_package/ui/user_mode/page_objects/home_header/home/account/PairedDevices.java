@@ -1,6 +1,7 @@
 package main_package.ui.user_mode.page_objects.home_header.home.account;
 
 import main_package.ui.BasePageObject;
+import main_package.ui.engine.FlyTester;
 import main_package.ui.engine.OnixLocator;
 import main_package.ui.engine.OnixWebDriver;
 import main_package.ui.user_mode.general_parts.Footer;
@@ -12,6 +13,11 @@ public class PairedDevices extends BasePageObject implements AccountHeader, Acco
 
     public PairedDevices(OnixWebDriver driver) {
         super(driver);
+    }
+    @Override
+    public PairedDevices test(FlyTester flyTester) {
+        flyTester.test();
+        return this;
     }
     public enum Locator implements OnixLocator {
         CONNECT_TO_FITBIT_BUTTON(By.xpath("//a[contains(text(), 'Connect to Fitbit')]")),

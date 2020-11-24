@@ -1,5 +1,6 @@
 package main_package.ui.user_mode.page_objects.home_header.home;
 
+import main_package.ui.engine.FlyTester;
 import main_package.ui.engine.OnixAssert;
 import main_package.ui.related_sites.FacebookGroupPage;
 import main_package.ui.user_mode.page_objects.home_header.home.account.my_plan.MyPlan;
@@ -17,6 +18,11 @@ public class Home extends BasePageObject implements HomePart {
     public Home(OnixWebDriver driver) {
         super(driver);
         logger.debug("'Home' page is open.");
+    }
+    @Override
+    public Home test(FlyTester flyTester) {
+        flyTester.test();
+        return this;
     }
 
     public String getCurrentGoalTitle() {

@@ -1,5 +1,6 @@
 package main_package.ui.user_mode.page_objects.from_footer;
 
+import main_package.ui.engine.FlyTester;
 import org.openqa.selenium.By;
 import main_package.ui.BasePageObject;
 import main_package.ui.engine.OnixLocator;
@@ -15,7 +16,11 @@ public class Blog extends BasePageObject implements Footer, MainHeader {
         super(driver);
     }
 
-
+    @Override
+    public Blog test(FlyTester flyTester) {
+        flyTester.test();
+        return this;
+    }
     public OnixLocator POST = makeOnixLocator(By.cssSelector(".post"), this.getClass());
     public OnixLocator LINK_IN_POST = makeOnixLocator(By.cssSelector(".post div.post_descr a.title"), this.getClass());
     List<OnixLocator> elementsLocators = new ArrayList<>(List.of(

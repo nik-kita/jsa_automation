@@ -1,6 +1,7 @@
 package main_package.ui.user_mode.page_objects.home_header.home.account.my_plan;
 
 import main_package.ui.BasePageObject;
+import main_package.ui.engine.FlyTester;
 import main_package.ui.engine.OnixLocator;
 import main_package.ui.engine.OnixWebDriver;
 import org.openqa.selenium.By;
@@ -10,6 +11,11 @@ public class UpdateCardPopup extends BasePageObject {
     public UpdateCardPopup(OnixWebDriver driver) {
         super(driver);
         iFrameCardInputName = driver.findElement(Locator.CARD_NUMBER_INPUT_IFRAME).getSeleniumWebElement().getAttribute("name");
+    }
+    @Override
+    public UpdateCardPopup test(FlyTester flyTester) {
+        flyTester.test();
+        return this;
     }
 
     public MyPlan close() {
@@ -41,6 +47,10 @@ public class UpdateCardPopup extends BasePageObject {
         public CardInputIframe(OnixWebDriver driver) {
             super(driver);
         }
-
+        @Override
+        public BasePageObject test(FlyTester flyTester) {
+            flyTester.test();
+            return this;
+        }
     }
 }

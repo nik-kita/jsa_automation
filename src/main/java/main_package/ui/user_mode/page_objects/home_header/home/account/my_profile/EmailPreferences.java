@@ -1,6 +1,7 @@
 package main_package.ui.user_mode.page_objects.home_header.home.account.my_profile;
 
 import main_package.ui.BasePageObject;
+import main_package.ui.engine.FlyTester;
 import main_package.ui.engine.OnixLocator;
 import main_package.ui.engine.OnixWebDriver;
 import main_package.ui.user_mode.general_parts.home.account.AccountHeader;
@@ -9,6 +10,11 @@ import org.openqa.selenium.By;
 public class EmailPreferences extends BasePageObject implements AccountHeader {
     public EmailPreferences(OnixWebDriver driver) {
         super(driver);
+    }
+    @Override
+    public EmailPreferences test(FlyTester flyTester) {
+        flyTester.test();
+        return this;
     }
     public enum Locator implements OnixLocator {
         OPT_OUT_OF_ALL_EMAILS_SELECT(By.cssSelector("[name=\"globalUnsubscribe\"]")),

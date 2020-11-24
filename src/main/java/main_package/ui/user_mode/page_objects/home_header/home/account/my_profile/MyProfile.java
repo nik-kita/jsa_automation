@@ -1,6 +1,7 @@
 package main_package.ui.user_mode.page_objects.home_header.home.account.my_profile;
 
 import main_package.ui.BasePageObject;
+import main_package.ui.engine.FlyTester;
 import main_package.ui.engine.OnixLocator;
 import main_package.ui.engine.OnixWebDriver;
 import main_package.ui.user_mode.general_parts.Footer;
@@ -12,6 +13,11 @@ import org.openqa.selenium.By;
 public class MyProfile extends BasePageObject implements AccountHeader, AccountSidebar, Footer {
     public MyProfile(OnixWebDriver driver) {
         super(driver);
+    }
+    @Override
+    public MyProfile test(FlyTester flyTester) {
+        flyTester.test();
+        return this;
     }
 
     public ResetPasswordFromMyProfile clickResetPassword() {

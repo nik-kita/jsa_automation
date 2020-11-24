@@ -1,6 +1,7 @@
 package main_package.ui.guest_mode.page_objects.main;
 
 
+import main_package.ui.engine.FlyTester;
 import org.openqa.selenium.By;
 import main_package.ui.BasePageObject;
 import main_package.ui.engine.OnixLocator;
@@ -12,6 +13,11 @@ public class Pricing extends BasePageObject implements MainHeader, Footer {
 
     public Pricing(OnixWebDriver driver) {
         super(driver);
+    }
+    @Override
+    public Pricing test(FlyTester flyTester) {
+        flyTester.test();
+        return this;
     }
 
     public enum Locator implements OnixLocator {

@@ -1,6 +1,7 @@
 package main_package.ui.specific;
 
 
+import main_package.ui.engine.FlyTester;
 import org.openqa.selenium.By;
 import org.slf4j.Logger;
 import main_package.ui.BasePart;
@@ -11,6 +12,12 @@ public class JsaCookies extends BaseSpecific implements BasePart {
 
     public JsaCookies(OnixWebDriver driver, Logger logger) {
         super(driver, logger);
+    }
+
+    @Override
+    public JsaCookies test(FlyTester flyTester) {
+        flyTester.test();
+        return this;
     }
 
     public OnixWebDriver acceptIfCookiesPresent() {

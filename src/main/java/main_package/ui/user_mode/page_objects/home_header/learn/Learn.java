@@ -1,5 +1,6 @@
 package main_package.ui.user_mode.page_objects.home_header.learn;
 
+import main_package.ui.engine.FlyTester;
 import org.openqa.selenium.By;
 import main_package.ui.BasePageObject;
 import main_package.ui.engine.OnixLocator;
@@ -10,6 +11,11 @@ public class Learn extends BasePageObject implements HomePart {
 
     public Learn(OnixWebDriver driver) {
         super(driver);
+    }
+    @Override
+    public Learn test(FlyTester flyTester) {
+        flyTester.test();
+        return this;
     }
 
     public SearchVideos clickSearchIcon() {

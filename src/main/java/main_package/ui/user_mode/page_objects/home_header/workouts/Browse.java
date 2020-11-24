@@ -1,5 +1,6 @@
 package main_package.ui.user_mode.page_objects.home_header.workouts;
 
+import main_package.ui.engine.FlyTester;
 import org.openqa.selenium.By;
 import main_package.ui.BasePageObject;
 import main_package.ui.engine.OnixLocator;
@@ -10,7 +11,11 @@ public class Browse extends BasePageObject implements HomePart {
     public Browse(OnixWebDriver driver) {
         super(driver);
     }
-
+    @Override
+    public Browse test(FlyTester flyTester) {
+        flyTester.test();
+        return this;
+    }
     public Personalised clickPersonalisedTab() {
         driver.findElement(Locator.PERSONALISED_TAB).click();
         logger.debug("'Personalised' from 'Browse'");

@@ -1,5 +1,6 @@
 package main_package.ui.related_sites;
 
+import main_package.ui.engine.FlyTester;
 import org.openqa.selenium.By;
 import main_package.ui.BasePageObject;
 import main_package.ui.engine.OnixLocator;
@@ -8,6 +9,11 @@ import main_package.ui.engine.OnixWebDriver;
 public class GooglePlayPage extends BasePageObject implements InCurrentTab {
     public GooglePlayPage(OnixWebDriver driver) {
         super(driver);
+    }
+    @Override
+    public GooglePlayPage test(FlyTester flyTester) {
+        flyTester.test();
+        return this;
     }
     public enum Locator implements OnixLocator {
         GOOGLE_PLAY_LOGO(By.xpath("//a[@title='Google Play Logo']")),

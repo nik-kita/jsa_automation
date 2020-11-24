@@ -1,5 +1,6 @@
 package main_package.ui.guest_mode.page_objects.from_footer;
 
+import main_package.ui.engine.FlyTester;
 import org.openqa.selenium.By;
 import main_package.ui.BasePageObject;
 import main_package.ui.engine.OnixLocator;
@@ -11,6 +12,11 @@ public class AccessAndDownload extends BasePageObject implements MainHeader, Foo
 
     public AccessAndDownload(OnixWebDriver driver) {
         super(driver);
+    }
+    @Override
+    public AccessAndDownload test(FlyTester flyTester) {
+        flyTester.test();
+        return this;
     }
 
     public boolean isThisPage() {

@@ -1,6 +1,7 @@
 package main_package.ui.user_mode.page_objects.home_header.learn;
 
 import main_package.ui.BasePageObject;
+import main_package.ui.engine.FlyTester;
 import main_package.ui.engine.OnixLocator;
 import main_package.ui.engine.OnixWebDriver;
 import main_package.ui.user_mode.general_parts.home.HomeHeaderPart;
@@ -10,7 +11,11 @@ public class SingleLearnVideo extends BasePageObject implements HomeHeaderPart {
     public SingleLearnVideo(OnixWebDriver driver) {
         super(driver);
     }
-
+    @Override
+    public SingleLearnVideo test(FlyTester flyTester) {
+        flyTester.test();
+        return this;
+    }
     public Learn clickBackArrow() {
         driver.findElement(Locator.BACK_ARROW).click();
         return new Learn(driver);
@@ -54,6 +59,11 @@ public class SingleLearnVideo extends BasePageObject implements HomeHeaderPart {
 
         public VideoIFrame(OnixWebDriver driver) {
             super(driver);
+        }
+        @Override
+        public VideoIFrame test(FlyTester flyTester) {
+            flyTester.test();
+            return this;
         }
     }
 }

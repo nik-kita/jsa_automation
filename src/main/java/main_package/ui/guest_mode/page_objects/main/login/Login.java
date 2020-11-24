@@ -1,15 +1,12 @@
 package main_package.ui.guest_mode.page_objects.main.login;
 
 
-import main_package.ui.engine.OnixAssert;
+import main_package.ui.engine.*;
 import org.openqa.selenium.By;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import main_package.ui.BasePageObject;
 import main_package.ui.data.User;
-import main_package.ui.engine.OnixLocator;
-import main_package.ui.engine.OnixWebDriver;
-import main_package.ui.engine.OnixWebElement;
 import main_package.ui.guest_mode.page_objects.main.Main;
 import main_package.ui.user_mode.page_objects.home_header.home.Home;
 import org.testng.asserts.SoftAssert;
@@ -19,6 +16,12 @@ public class Login extends BasePageObject {
 
     public Login(OnixWebDriver driver) {
         super(driver);
+    }
+
+    @Override
+    public Login test(FlyTester flyTester) {
+        flyTester.test();
+        return this;
     }
 
     public Main goHomePage() {

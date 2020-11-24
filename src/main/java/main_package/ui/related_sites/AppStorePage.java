@@ -1,5 +1,6 @@
 package main_package.ui.related_sites;
 
+import main_package.ui.engine.FlyTester;
 import org.openqa.selenium.By;
 import main_package.ui.BasePageObject;
 import main_package.ui.engine.OnixLocator;
@@ -8,6 +9,11 @@ import main_package.ui.engine.OnixWebDriver;
 public class AppStorePage extends BasePageObject implements InCurrentTab {
     public AppStorePage(OnixWebDriver driver) {
         super(driver);
+    }
+    @Override
+    public AppStorePage test(FlyTester flyTester) {
+        flyTester.test();
+        return this;
     }
 
     public enum Locator implements OnixLocator {

@@ -1,5 +1,6 @@
 package main_package.ui.specific;
 
+import main_package.ui.engine.FlyTester;
 import org.openqa.selenium.By;
 import org.slf4j.Logger;
 import main_package.ui.BasePart;
@@ -10,6 +11,12 @@ public class AppBanner extends BaseSpecific implements BasePart {
 
     public AppBanner(OnixWebDriver driver, Logger logger) {
         super(driver, logger);
+    }
+
+    @Override
+    public AppBanner test(FlyTester flyTester) {
+        flyTester.test();
+        return this;
     }
 
     public OnixWebDriver closeIfPresent(OnixWebDriver driver) {

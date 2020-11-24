@@ -1,5 +1,6 @@
 package main_package.ui.user_mode.page_objects.home_header.nutrition;
 
+import main_package.ui.engine.FlyTester;
 import org.openqa.selenium.By;
 import main_package.ui.BasePageObject;
 import main_package.ui.engine.OnixLocator;
@@ -9,6 +10,11 @@ import main_package.ui.user_mode.general_parts.home.HomePart;
 public class Recipes extends BasePageObject implements HomePart {
     public Recipes(OnixWebDriver driver) {
         super(driver);
+    }
+    @Override
+    public Recipes test(FlyTester flyTester) {
+        flyTester.test();
+        return this;
     }
     public Meals clickMealsTab() {
         driver.findElement(Locator.MEALS_TAB).click();

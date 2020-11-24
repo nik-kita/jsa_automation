@@ -1,11 +1,8 @@
 package main_package.ui.user_mode.page_objects.home_header.home.my_goal;
 
-import main_package.ui.engine.OnixAssert;
+import main_package.ui.engine.*;
 import org.openqa.selenium.By;
 import main_package.ui.BasePageObject;
-import main_package.ui.engine.OnixLocator;
-import main_package.ui.engine.OnixWebDriver;
-import main_package.ui.engine.OnixWebElement;
 import main_package.ui.user_mode.general_parts.home.HomeHeaderPart;
 import main_package.ui.user_mode.page_objects.home_header.home.Home;
 
@@ -13,6 +10,11 @@ public class MyGoal extends BasePageObject implements HomeHeaderPart {
     public MyGoal(OnixWebDriver driver) {
         super(driver);
         logger.debug("'MyGoal' page is open.");
+    }
+    @Override
+    public MyGoal test(FlyTester flyTester) {
+        flyTester.test();
+        return this;
     }
     public OnixLocator optionInGoalSelect = makeOnixLocator(By.cssSelector("select[name='goalCategory'] option"), this.getClass());
     public OnixLocator weeklyGoal = makeOnixLocator(By.className("weekly_goal_list_item"), this.getClass());

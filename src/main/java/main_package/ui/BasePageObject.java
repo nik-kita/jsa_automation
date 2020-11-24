@@ -1,5 +1,6 @@
 package main_package.ui;
 
+import main_package.ui.engine.FlyTester;
 import org.openqa.selenium.By;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -7,7 +8,7 @@ import main_package.ui.engine.OnixLocator;
 import main_package.ui.engine.OnixWebDriver;
 import main_package.ui.specific.JsaCookies;
 
-public class BasePageObject {
+public abstract class BasePageObject {
     protected OnixWebDriver driver;
     public Logger logger;
 
@@ -36,4 +37,6 @@ public class BasePageObject {
     public OnixWebDriver getDriver() {
         return driver;
     }
+
+    public abstract BasePageObject test(FlyTester flyTester);
 }

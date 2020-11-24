@@ -1,6 +1,7 @@
 package main_package.ui.user_mode.page_objects.home_header;
 
 
+import main_package.ui.engine.FlyTester;
 import org.openqa.selenium.By;
 import main_package.ui.BasePageObject;
 import main_package.ui.engine.OnixLocator;
@@ -12,6 +13,11 @@ public class UserCabinetDropdown extends BasePageObject {
 
     public UserCabinetDropdown(OnixWebDriver driver) {
         super(driver);
+    }
+    @Override
+    public UserCabinetDropdown test(FlyTester flyTester) {
+        flyTester.test();
+        return this;
     }
 
     public AfterLogout logout() {

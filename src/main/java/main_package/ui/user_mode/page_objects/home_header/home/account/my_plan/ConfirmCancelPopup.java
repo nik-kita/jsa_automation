@@ -1,6 +1,7 @@
 package main_package.ui.user_mode.page_objects.home_header.home.account.my_plan;
 
 import main_package.ui.BasePageObject;
+import main_package.ui.engine.FlyTester;
 import main_package.ui.engine.OnixLocator;
 import main_package.ui.engine.OnixWebDriver;
 import org.openqa.selenium.By;
@@ -14,6 +15,11 @@ public class ConfirmCancelPopup extends BasePageObject {
         driver.waitToClick(Locator.CLOSE_BUTTON).click();
         logger.warn("click!");
         return new MyPlan(driver);
+    }
+    @Override
+    public ConfirmCancelPopup test(FlyTester flyTester) {
+        flyTester.test();
+        return this;
     }
 
     public enum Locator implements OnixLocator {

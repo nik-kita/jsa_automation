@@ -1,6 +1,7 @@
 package main_package.ui.user_mode.page_objects.home_header.home.account.my_profile;
 
 import main_package.ui.BasePageObject;
+import main_package.ui.engine.FlyTester;
 import main_package.ui.engine.OnixLocator;
 import main_package.ui.engine.OnixWebDriver;
 import main_package.ui.user_mode.general_parts.Footer;
@@ -11,6 +12,11 @@ public class ResetPasswordFromMyProfile extends BasePageObject implements Footer
 
     public ResetPasswordFromMyProfile(OnixWebDriver driver) {
         super(driver);
+    }
+    @Override
+    public ResetPasswordFromMyProfile test(FlyTester flyTester) {
+        flyTester.test();
+        return this;
     }
     public enum Locator implements OnixLocator {
         OLD_PASSWORD_INPUT(By.cssSelector("[name='old_password']")),

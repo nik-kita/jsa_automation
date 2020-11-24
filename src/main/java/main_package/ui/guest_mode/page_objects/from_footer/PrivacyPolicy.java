@@ -1,5 +1,6 @@
 package main_package.ui.guest_mode.page_objects.from_footer;
 
+import main_package.ui.engine.FlyTester;
 import org.openqa.selenium.By;
 import main_package.ui.BasePageObject;
 import main_package.ui.engine.OnixLocator;
@@ -11,7 +12,11 @@ public class PrivacyPolicy extends BasePageObject implements MainHeader, Footer 
     public PrivacyPolicy(OnixWebDriver driver) {
         super(driver);
     }
-
+    @Override
+    public PrivacyPolicy test(FlyTester flyTester) {
+        flyTester.test();
+        return this;
+    }
     public boolean isThisPage() {
         logger.debug("check is this is a 'PrivacyPolicy' page");
         return driver.isElementPresent(Locator.H4_TITLE);

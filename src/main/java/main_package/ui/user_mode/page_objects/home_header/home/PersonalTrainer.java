@@ -1,5 +1,6 @@
 package main_package.ui.user_mode.page_objects.home_header.home;
 
+import main_package.ui.engine.FlyTester;
 import org.openqa.selenium.By;
 import main_package.ui.BasePageObject;
 import main_package.ui.engine.OnixLocator;
@@ -10,6 +11,11 @@ public class PersonalTrainer extends BasePageObject implements HomeHeaderPart {
 
     public PersonalTrainer(OnixWebDriver driver) {
         super(driver);
+    }
+    @Override
+    public PersonalTrainer test(FlyTester flyTester) {
+        flyTester.test();
+        return this;
     }
 
     public Home clickClose() {

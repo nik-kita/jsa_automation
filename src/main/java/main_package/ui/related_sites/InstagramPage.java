@@ -1,5 +1,6 @@
 package main_package.ui.related_sites;
 
+import main_package.ui.engine.FlyTester;
 import org.openqa.selenium.By;
 import main_package.ui.BasePageObject;
 import main_package.ui.engine.OnixLocator;
@@ -10,7 +11,11 @@ public class InstagramPage extends BasePageObject implements InAnotherTab {
         super(driver);
         driver.registerCurrentTab("instagram");
     }
-
+    @Override
+    public InstagramPage test(FlyTester flyTester) {
+        flyTester.test();
+        return this;
+    }
 
 
 

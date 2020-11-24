@@ -1,5 +1,6 @@
 package main_package.ui.guest_mode.page_objects;
 
+import main_package.ui.engine.FlyTester;
 import org.openqa.selenium.By;
 import main_package.ui.BasePageObject;
 import main_package.ui.engine.OnixLocator;
@@ -10,6 +11,11 @@ import main_package.ui.guest_mode.general_parts.MainHeader;
 public class AfterLogout extends BasePageObject implements Footer, MainHeader {
     public AfterLogout(OnixWebDriver driver) {
         super(driver);
+    }
+    @Override
+    public AfterLogout test(FlyTester flyTester) {
+        flyTester.test();
+        return this;
     }
 
     public boolean isThisPage() {

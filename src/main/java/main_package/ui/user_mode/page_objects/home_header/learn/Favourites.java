@@ -1,6 +1,7 @@
 package main_package.ui.user_mode.page_objects.home_header.learn;
 
 import main_package.ui.BasePageObject;
+import main_package.ui.engine.FlyTester;
 import main_package.ui.engine.OnixLocator;
 import main_package.ui.engine.OnixWebDriver;
 import main_package.ui.user_mode.general_parts.home.HomeHeaderPart;
@@ -9,6 +10,11 @@ import org.openqa.selenium.By;
 public class Favourites extends BasePageObject implements HomeHeaderPart {
     public Favourites(OnixWebDriver driver) {
         super(driver);
+    }
+    @Override
+    public Favourites test(FlyTester flyTester) {
+        flyTester.test();
+        return this;
     }
 
     public Learn clickBackArrow() {

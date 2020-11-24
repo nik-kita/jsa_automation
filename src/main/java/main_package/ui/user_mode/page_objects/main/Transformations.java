@@ -1,6 +1,7 @@
 package main_package.ui.user_mode.page_objects.main;
 
 
+import main_package.ui.engine.FlyTester;
 import org.openqa.selenium.By;
 import main_package.ui.BasePageObject;
 import main_package.ui.engine.OnixLocator;
@@ -13,7 +14,11 @@ public class Transformations extends BasePageObject implements Footer, MainHeade
     public Transformations(OnixWebDriver driver) {
         super(driver);
     }
-
+    @Override
+    public Transformations test(FlyTester flyTester) {
+        flyTester.test();
+        return this;
+    }
     public OnixLocator TRANSFORMATION_BLOCK = makeOnixLocator(By
                     .xpath("//div[@class='masonry-grid']//div[contains(@class, 'masonry-block')][contains(@style, 'display: block')]"), this.getClass());
     public OnixLocator HIDDEN_SEE_MORE_BUTTON = makeOnixLocator(By.xpath("//*[@class='transformation_wr']//a[@style='display: none;']"), this.getClass());

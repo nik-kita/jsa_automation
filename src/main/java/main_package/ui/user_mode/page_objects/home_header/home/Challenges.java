@@ -1,5 +1,6 @@
 package main_package.ui.user_mode.page_objects.home_header.home;
 
+import main_package.ui.engine.FlyTester;
 import org.openqa.selenium.By;
 import main_package.ui.BasePageObject;
 import main_package.ui.engine.OnixLocator;
@@ -9,6 +10,11 @@ import main_package.ui.user_mode.general_parts.home.HomeHeaderPart;
 public class Challenges extends BasePageObject implements HomeHeaderPart {
     public Challenges(OnixWebDriver driver) {
         super(driver);
+    }
+    @Override
+    public Challenges test(FlyTester flyTester) {
+        flyTester.test();
+        return this;
     }
 
     public Home clickBackArrow() {

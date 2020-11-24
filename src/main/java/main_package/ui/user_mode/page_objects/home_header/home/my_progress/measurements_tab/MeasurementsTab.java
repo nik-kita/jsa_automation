@@ -1,5 +1,6 @@
 package main_package.ui.user_mode.page_objects.home_header.home.my_progress.measurements_tab;
 
+import main_package.ui.engine.FlyTester;
 import org.openqa.selenium.By;
 import main_package.ui.BasePageObject;
 import main_package.ui.engine.OnixLocator;
@@ -9,6 +10,11 @@ import main_package.ui.user_mode.general_parts.home.HomeHeaderPart;
 public class MeasurementsTab extends BasePageObject implements HomeHeaderPart {
     public MeasurementsTab(OnixWebDriver driver) {
         super(driver);
+    }
+    @Override
+    public MeasurementsTab test(FlyTester flyTester) {
+        flyTester.test();
+        return this;
     }
 
     public enum Locator implements OnixLocator {

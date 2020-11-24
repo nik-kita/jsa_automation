@@ -1,6 +1,7 @@
 package main_package.ui.related_sites;
 
 import main_package.ui.BasePageObject;
+import main_package.ui.engine.FlyTester;
 import main_package.ui.engine.OnixLocator;
 import main_package.ui.engine.OnixWebDriver;
 import org.openqa.selenium.By;
@@ -12,6 +13,11 @@ public class FacebookGroupPage extends BasePageObject implements InAnotherTab {
         super(driver);
         driver.registerCurrentTab("facebookGroup");
         logger.debug("Open facebook group page in another tab");
+    }
+    @Override
+    public FacebookGroupPage test(FlyTester flyTester) {
+        flyTester.test();
+        return this;
     }
 
     @Override

@@ -1,6 +1,7 @@
 package main_package.ui.user_mode.page_objects.main;
 
 
+import main_package.ui.engine.FlyTester;
 import org.openqa.selenium.By;
 import main_package.ui.BasePageObject;
 import main_package.ui.engine.OnixLocator;
@@ -12,7 +13,11 @@ public class Challenge extends BasePageObject implements Footer, MainHeader {
     public Challenge(OnixWebDriver driver) {
         super(driver);
     }
-
+    @Override
+    public Challenge test(FlyTester flyTester) {
+        flyTester.test();
+        return this;
+    }
 
     public enum Locator implements OnixLocator {
         CREATE_ACCOUNT_BUTTON_INNER_PAGE(By.cssSelector(".inner_page a[href='/users/register/']")),

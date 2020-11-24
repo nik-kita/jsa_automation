@@ -1,5 +1,6 @@
 package main_package.ui.guest_mode.page_objects.from_footer;
 
+import main_package.ui.engine.FlyTester;
 import org.openqa.selenium.By;
 import main_package.ui.BasePageObject;
 import main_package.ui.engine.OnixLocator;
@@ -13,6 +14,11 @@ import java.util.List;
 public class Blog extends BasePageObject implements Footer, MainHeader {
     public Blog(OnixWebDriver driver) {
         super(driver);
+    }
+    @Override
+    public Blog test(FlyTester flyTester) {
+        flyTester.test();
+        return this;
     }
 
 

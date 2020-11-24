@@ -1,6 +1,7 @@
 package main_package.ui.user_mode.page_objects.main;
 
 
+import main_package.ui.engine.FlyTester;
 import org.openqa.selenium.By;
 import main_package.ui.BasePageObject;
 import main_package.ui.engine.OnixLocator;
@@ -17,7 +18,11 @@ public class Main extends BasePageObject implements Footer, MainHeader {
     public Main(OnixWebDriver driver) {
         super(driver);
     }
-
+    @Override
+    public Main test(FlyTester flyTester) {
+        flyTester.test();
+        return this;
+    }
     public GooglePlayPage clickPlayStoreBannerButton() {
         driver.findElement(Locator.PLAY_STORE_BUTTON_BANNER).click();
         logger.debug("'GooglePlayPage' from 'Main'");

@@ -13,6 +13,11 @@ public class NewWeeklyGoal extends BasePageObject {
         super(driver);
         logger.debug("'NewWeeklyGoal' modal window is open.");
     }
+    @Override
+    public NewWeeklyGoal test(FlyTester flyTester) {
+        flyTester.test();
+        return this;
+    }
 
     public MyGoal clickCloseButton() {
         driver.findElement(Locator.CLOSE_X_BUTTON).click();

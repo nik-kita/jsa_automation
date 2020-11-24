@@ -1,5 +1,6 @@
 package main_package.ui.user_mode.page_objects.home_header.learn;
 
+import main_package.ui.engine.FlyTester;
 import org.openqa.selenium.By;
 import main_package.ui.BasePageObject;
 import main_package.ui.engine.OnixLocator;
@@ -10,6 +11,11 @@ public class SearchVideos extends BasePageObject implements HomeHeaderPart {
 
     public SearchVideos(OnixWebDriver driver) {
         super(driver);
+    }
+    @Override
+    public SearchVideos test(FlyTester flyTester) {
+        flyTester.test();
+        return this;
     }
 
     public Learn clickBackArrow() {

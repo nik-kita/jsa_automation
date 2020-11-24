@@ -1,5 +1,6 @@
 package main_package.ui.guest_mode.page_objects.main.my_podcast;
 
+import main_package.ui.engine.FlyTester;
 import org.openqa.selenium.By;
 import main_package.ui.BasePageObject;
 import main_package.ui.engine.OnixLocator;
@@ -11,6 +12,11 @@ public class MyPodcast extends BasePageObject implements Footer, MainHeader {
 
     public MyPodcast(OnixWebDriver driver) {
         super(driver);
+    }
+    @Override
+    public MyPodcast test(FlyTester flyTester) {
+        flyTester.test();
+        return this;
     }
 
     OnixLocator oneEpisodeLocator = makeOnixLocator(By.cssSelector(".content .podcast_image"), this.getClass());

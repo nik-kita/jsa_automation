@@ -1,6 +1,7 @@
 package main_package.ui.user_mode.page_objects.main.pricing.pricingplans;
 
 
+import main_package.ui.engine.FlyTester;
 import org.openqa.selenium.By;
 import main_package.ui.BasePageObject;
 import main_package.ui.engine.OnixLocator;
@@ -18,6 +19,11 @@ public class PricingPlans extends BasePageObject implements Footer, AccountHeade
 //        if(driver.isElementPresent(activeBlockButton)) {
 //            clickSubscriptionsButton();
 //        }
+    }
+    @Override
+    public PricingPlans test(FlyTester flyTester) {
+        flyTester.test();
+        return this;
     }
 
     public Home goHome() {

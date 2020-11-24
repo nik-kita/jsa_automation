@@ -3,6 +3,7 @@ package main_package.ui.shortcuts;
 
 import main_package.ui.BasePageObject;
 import main_package.ui.data.User;
+import main_package.ui.engine.FlyTester;
 import main_package.ui.engine.OnixWebDriver;
 import main_package.ui.guest_mode.page_objects.main.login.Login;
 import main_package.ui.user_mode.page_objects.home_header.home.Home;
@@ -16,6 +17,12 @@ public class RouteHacks extends BasePageObject {
         this.driver = driver;
     }
 
+    @Override
+    public RouteHacks test(FlyTester flyTester) {
+        flyTester.test();
+        return this;
+    }
+
     public Home login(String nameOrEmail, String password) {
         String urlForLogin = driver.getSeleniumDriver().getCurrentUrl() + loginEndPoint;
         driver.get(urlForLogin);
@@ -24,6 +31,7 @@ public class RouteHacks extends BasePageObject {
         logger.debug("go 'Login' by simply use '" + loginEndPoint + "' endpoint in url");
         return loginPO.login(user);
     }
+
     public Home login(User user) {
         String urlForLogin = driver.getSeleniumDriver().getCurrentUrl() + loginEndPoint;
         driver.get(urlForLogin);
@@ -31,6 +39,7 @@ public class RouteHacks extends BasePageObject {
         logger.debug("go 'Login' by simply use '" + loginEndPoint + "' endpoint in url");
         return loginPO.login(user);
     }
+
     public Home login() {
         String urlForLogin = driver.getSeleniumDriver().getCurrentUrl() + loginEndPoint;
         driver.get(urlForLogin);

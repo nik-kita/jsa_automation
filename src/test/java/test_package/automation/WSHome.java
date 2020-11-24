@@ -72,6 +72,19 @@ public class WSHome extends OnixTestRunner {
     }
 
     @Test
+    public void myGoal_2() {
+        Allure.link("Full test's info", "https://docs.google.com/spreadsheets/d/1gudjZ7fh4aUsozP7aPIovLnI4qGdbUFpIHJ6AbTlbC4/edit#gid=1648986495&range=C11:D11");
+        openSite(onixAssert)
+                .goLoginPage(onixAssert)
+                .login(User.getValidUser(), onixAssert)
+                .test(() -> {
+                    Home testHome = new Home(driver);
+                    FlyTester.testMap.put("firstGoalTitle", testHome.getCurrentGoalTitle());
+                    FlyTester.testMap.put("firstGoalText", testHome.getCurrentGoalText());
+                });
+    }
+
+    @Test
     public void weeklyGoal() {
         Allure.link("Full test's info", "https://docs.google.com/spreadsheets/d/1gudjZ7fh4aUsozP7aPIovLnI4qGdbUFpIHJ6AbTlbC4/edit#gid=1648986495&range=C24:D24");
         String testText = "Hello world! "  + new Date(System.currentTimeMillis()).toString();

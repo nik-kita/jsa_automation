@@ -1,6 +1,7 @@
 package main_package.ui.guest_mode.page_objects.main.login;
 
 
+import main_package.ui.engine.FlyTester;
 import org.openqa.selenium.By;
 import main_package.ui.BasePageObject;
 import main_package.ui.engine.OnixLocator;
@@ -11,6 +12,11 @@ import main_package.ui.guest_mode.general_parts.MainHeader;
 public class ResetPassword extends BasePageObject implements Footer, MainHeader {
     public ResetPassword(OnixWebDriver driver) {
         super(driver);
+    }
+    @Override
+    public ResetPassword test(FlyTester flyTester) {
+        flyTester.test();
+        return this;
     }
 
     public enum Locator implements OnixLocator {

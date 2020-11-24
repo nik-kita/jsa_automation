@@ -1,5 +1,6 @@
 package main_package.ui.user_mode.page_objects.home_header.home.my_progress;
 
+import main_package.ui.engine.FlyTester;
 import org.openqa.selenium.By;
 import main_package.ui.BasePageObject;
 import main_package.ui.engine.OnixLocator;
@@ -16,6 +17,11 @@ public class MyProgress extends BasePageObject implements HomeHeaderPart {
     public Home clickBackArrow() {
         driver.findElement(Locator.BACK_HOME_ARROW).click();
         return new Home(driver);
+    }
+    @Override
+    public MyProgress test(FlyTester flyTester) {
+        flyTester.test();
+        return this;
     }
 
     public MeasurementsTab clickMeasurementsTab() {

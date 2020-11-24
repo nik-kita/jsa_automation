@@ -1,5 +1,6 @@
 package main_package.ui.specific;
 
+import main_package.ui.engine.FlyTester;
 import org.openqa.selenium.By;
 import org.slf4j.Logger;
 import main_package.ui.BasePart;
@@ -10,6 +11,12 @@ public class BookSiteBanner extends BaseSpecific implements BasePart {
 
     public BookSiteBanner(OnixWebDriver driver, Logger logger) {
         super(driver, logger);
+    }
+
+    @Override
+    public BookSiteBanner test(FlyTester flyTester) {
+        flyTester.test();
+        return this;
     }
 
     //TODO

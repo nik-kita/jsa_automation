@@ -1,5 +1,6 @@
 package main_package.ui.guest_mode.page_objects.main;
 
+import main_package.ui.engine.FlyTester;
 import org.openqa.selenium.By;
 import main_package.ui.BasePageObject;
 import main_package.ui.engine.OnixLocator;
@@ -11,7 +12,11 @@ public class FamousDailyEmails extends BasePageObject implements MainHeader, Foo
     public FamousDailyEmails(OnixWebDriver driver) {
         super(driver);
     }
-
+    @Override
+    public FamousDailyEmails test(FlyTester flyTester) {
+        flyTester.test();
+        return this;
+    }
     public enum Locator implements OnixLocator {
         EMAIL_INPUT(By.cssSelector("form input[name='email']")),
         SIGN_UP_BUTTON(By.cssSelector("form button#submit")),
