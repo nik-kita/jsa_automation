@@ -7,15 +7,14 @@ import main_package.ui.engine.OnixAssert;
 import main_package.ui.engine.OnixLocator;
 import main_package.ui.engine.OnixWebDriver;
 import main_package.ui.user_mode.general_parts.home.HomePart;
-import main_package.ui.user_mode.page_objects.home_header.home.account.my_profile.upload_image.LocalFiles;
 import org.openqa.selenium.By;
 
-public class EditStepsPopup extends BasePageObject implements HomePart {
-    public EditStepsPopup(OnixWebDriver driver) {
+public class EditTodayStepsPopup extends BasePageObject {
+    public EditTodayStepsPopup(OnixWebDriver driver) {
         super(driver);
     }
     @Override
-    public EditStepsPopup test(FlyTester flyTester) {
+    public EditTodayStepsPopup test(FlyTester flyTester) {
         flyTester.test();
         return this;
     }

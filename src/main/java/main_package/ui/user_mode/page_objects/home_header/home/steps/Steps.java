@@ -2,7 +2,6 @@ package main_package.ui.user_mode.page_objects.home_header.home.steps;
 
 import main_package.ui.engine.FlyTester;
 import main_package.ui.engine.OnixAssert;
-import main_package.ui.user_mode.page_objects.home_header.home.account.my_profile.upload_image.LocalFiles;
 import org.openqa.selenium.By;
 import main_package.ui.BasePageObject;
 import main_package.ui.engine.OnixLocator;
@@ -20,18 +19,31 @@ public class Steps extends BasePageObject implements HomeHeaderPart {
         return this;
     }
 
-    public EditStepsPopup clickEditTodayStepsIconButton() {
-        driver.findElement(Locator.EDIT_TODAY_STEPS_BUTTON).click();
-        logger.info("Click on 'Edit Today Steps' icon pen-button");
-        return new EditStepsPopup(driver);
+    public EditYourGoalStepsPopup clickEditYourStepsGoalIconPenButton() {
+        driver.findElement(Locator.EDIT_YOUR_GOAL_BUTTON).click();
+        logger.info("Click on 'Edit Your Goal' icon pen-button.");
+        return new EditYourGoalStepsPopup(driver);
     }
-    public EditStepsPopup clickEditTodayStepsIconButton(OnixAssert onixAssert) {
-        driver.findElement(Locator.EDIT_TODAY_STEPS_BUTTON).click();
-        logger.info("Click on 'Edit Today Steps' icon pen-button");
-        for(OnixLocator l : EditStepsPopup.Locator.values()) {
+    public EditYourGoalStepsPopup clickEditYourStepsGoalIconPenButton(OnixAssert onixAssert) {
+        EditYourGoalStepsPopup editYourGoalStepsPopup = clickEditYourStepsGoalIconPenButton();
+        for(OnixLocator l : EditYourGoalStepsPopup.Locator.values()) {
             onixAssert.softCheckCountOfElementByLocator(l, 1);
         }
-        return new EditStepsPopup(driver);
+        return editYourGoalStepsPopup;
+    }
+
+    public EditTodayStepsPopup clickEditTodayStepsIconButton() {
+        driver.findElement(Locator.EDIT_TODAY_STEPS_BUTTON).click();
+        logger.info("Click on 'Edit Today Steps' icon pen-button.");
+        return new EditTodayStepsPopup(driver);
+    }
+    public EditTodayStepsPopup clickEditTodayStepsIconButton(OnixAssert onixAssert) {
+        driver.findElement(Locator.EDIT_TODAY_STEPS_BUTTON).click();
+        logger.info("Click on 'Edit Today Steps' icon pen-button.");
+        for(OnixLocator l : EditTodayStepsPopup.Locator.values()) {
+            onixAssert.softCheckCountOfElementByLocator(l, 1);
+        }
+        return new EditTodayStepsPopup(driver);
     }
     public int getTodaySteps() {
         logger.debug("Get current today step's value.");

@@ -167,6 +167,14 @@ public class WSHome extends OnixTestRunner {
         onixAssert.assertAll();
     }
 
+    @Test
+    public void stepsInside() {
+        Allure.link("Full test's info", "https://docs.google.com/spreadsheets/d/1gudjZ7fh4aUsozP7aPIovLnI4qGdbUFpIHJ6AbTlbC4/edit?ts=5f7593b0#gid=1648986495&range=C44:D44");
+        openSite().goLoginPage().login(User.getValidUser())
+                .clickStepsLink(onixAssert);
+
+    }
+
 
 
 }
