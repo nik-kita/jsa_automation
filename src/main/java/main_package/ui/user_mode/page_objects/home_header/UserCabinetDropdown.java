@@ -22,7 +22,7 @@ public class UserCabinetDropdown extends BasePageObject {
 
     public AfterLogout logout() {
         driver.findElement(Locator.LOG_OUT).click();
-        logger.debug("'AfterLogout' from 'UserCabinetDropdown'");
+        logger.info("Logout.");
         return new AfterLogout(driver);
     }
 

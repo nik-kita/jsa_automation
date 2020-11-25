@@ -44,8 +44,8 @@ public class EditYourGoalStepsPopup extends BasePageObject {
         driver.findElement(EditYourGoalStepsPopup.Locator.DAILY_STEP_GOAL_INPUT).getSeleniumWebElement().clear();
         driver.findElement(EditYourGoalStepsPopup.Locator.DAILY_STEP_GOAL_INPUT).sendKeys(String.valueOf(steps));
         logger.info("Write '{}' into today step's input.", steps);
-        driver.findElement(EditTodayStepsPopup.Locator.UPDATE_BUTTON).click();
-        if(driver.isElementPresent(EditTodayStepsPopup.Locator.UPDATE_BUTTON)) {
+        driver.findElement(Locator.SAVE_BUTTON).click();
+        if(driver.isElementPresent(Locator.SAVE_BUTTON)) {
             try {
                 Thread.sleep(500);
             } catch (InterruptedException e) {

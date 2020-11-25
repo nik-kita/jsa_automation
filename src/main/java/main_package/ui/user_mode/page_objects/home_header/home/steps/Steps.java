@@ -2,6 +2,7 @@ package main_package.ui.user_mode.page_objects.home_header.home.steps;
 
 import main_package.ui.engine.FlyTester;
 import main_package.ui.engine.OnixAssert;
+import main_package.ui.related_sites.InAnotherTab;
 import org.openqa.selenium.By;
 import main_package.ui.BasePageObject;
 import main_package.ui.engine.OnixLocator;
@@ -50,6 +51,38 @@ public class Steps extends BasePageObject implements HomeHeaderPart {
         return Integer.parseInt(driver.findElement(Locator.TODAY_STEPS_VALUE).text());
     }
 
+    public int getGoalSteps() {
+        logger.debug("Get current goal for steps.");
+        return Integer.parseInt(driver.findElement(Locator.STEPS_GOAL_VALUE).text());
+    }
+
+    public int getDailyAverageValue() {
+        logger.debug("Get daily average of steps.");
+        if(driver.findElement(Locator.DAILY_AVERAGE_STEPS_VALUE).text().length() == 0) {
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                logger.warn("Waiting while daily average number is displaying.");
+            }
+        }
+        return Integer.parseInt(driver.findElement(Locator.DAILY_AVERAGE_STEPS_VALUE).text());
+    }
+
+    public Steps clickOneWeekButton() {
+        logger.debug("Click to '1 W' button.");
+        driver.findElement(Locator.ONE_WEEK_BUTTON).click();
+        return this;
+    }
+    public Steps clickOneMonthButton() {
+        logger.debug("Click to '1 M' button.");
+        driver.findElement(Locator.ONE_MONTH_BUTTON).click();
+        return this;
+    }
+    public Steps clickThreeMonthsButton() {
+        logger.debug("Click to '3 M' button.");
+        driver.findElement(Locator.THREE_MONTH_BUTTON).click();
+        return this;
+    }
 
 
 
@@ -61,6 +94,8 @@ public class Steps extends BasePageObject implements HomeHeaderPart {
         ONE_MONTH_BUTTON(By.xpath("//div[text() = '1 M']")),
         THREE_MONTH_BUTTON(By.xpath("//div[text()= '3 M']")),
         TODAY_STEPS_VALUE(By.cssSelector(".todays_steps_value")),
+        STEPS_GOAL_VALUE(By.cssSelector(".steps_goal_value")),
+        DAILY_AVERAGE_STEPS_VALUE(By.cssSelector(".average_steps_value")),
 
         ;
         Locator(By path) {

@@ -85,7 +85,7 @@ public class WSHome extends OnixTestRunner {
                     FlyTester.testMap.put("testGoalText", "Don't worry be happy!");
                 })
                 .clickMyGoalLink(onixAssert)
-                .selectGoalByString(FlyTester.testMap.get("testGoalTitle"))
+                .selectGoalByString((String)FlyTester.testMap.get("testGoalTitle"))
                 .test(() -> {
                     onixAssert.getSoftAssert().assertEquals(new Select(driver.findElement(MyGoal.Locator.GOAL_SELECT)
                             .getSeleniumWebElement())
@@ -103,8 +103,8 @@ public class WSHome extends OnixTestRunner {
                     log.info("Check that goal don't saved without adding text to 'in more details' textarea.");
                 })
                 .clickMyGoalLink()
-                .selectGoalByString(FlyTester.testMap.get("testGoalTitle"))
-                .fillMoreDetailTextarea(FlyTester.testMap.get("testGoalText"))
+                .selectGoalByString((String)FlyTester.testMap.get("testGoalTitle"))
+                .fillMoreDetailTextarea((String)FlyTester.testMap.get("testGoalText"))
                 .clickSaveButton()
                 .clickHomeTab()
                 .test(() -> {
@@ -170,8 +170,42 @@ public class WSHome extends OnixTestRunner {
     @Test
     public void stepsInside() {
         Allure.link("Full test's info", "https://docs.google.com/spreadsheets/d/1gudjZ7fh4aUsozP7aPIovLnI4qGdbUFpIHJ6AbTlbC4/edit?ts=5f7593b0#gid=1648986495&range=C44:D44");
-        openSite().goLoginPage().login(User.getValidUser())
-                .clickStepsLink(onixAssert);
+
+        int todayStepsForTest = (int) (Math.random() * 100);
+        int stepsGoalForTest = (int) (Math.random() * 1000);
+
+        openSite().goLoginPage()
+                .login(User.getValidUser())
+                .clickStepsLink(onixAssert)
+                .clickEditYourStepsGoalIconPenButton()
+                .update(stepsGoalForTest)
+                .test(() -> FlyTester.testMap.put("dailyAverage", new Steps(driver).getDailyAverageValue()))
+                .clickEditTodayStepsIconButton()
+                .update(todayStepsForTest)
+                .test(() -> {
+                    Steps steps = new Steps(driver);
+                    int todaySteps = steps.getTodaySteps();
+                    int stepsGoal = steps.getGoalSteps();
+                    onixAssert.softCheckCount(todayStepsForTest, todaySteps);
+                    onixAssert.softCheckCount(stepsGoalForTest, stepsGoal);
+                    int dailyAverage = (int) FlyTester.testMap.get("dailyAverage");
+                    onixAssert.getSoftAssert().assertNotEquals(dailyAverage, steps.getDailyAverageValue());
+                    dailyAverage = steps.getDailyAverageValue();
+                    steps.clickOneMonthButton();
+                    onixAssert.getSoftAssert().assertNotEquals(dailyAverage, steps.getDailyAverageValue());
+                    steps.clickThreeMonthsButton();
+                    onixAssert.getSoftAssert().assertNotEquals(dailyAverage, steps.getDailyAverageValue());
+                    dailyAverage = steps.getDailyAverageValue();
+                    steps.clickOneWeekButton();
+                    onixAssert.getSoftAssert().assertNotEquals(dailyAverage, steps.getDailyAverageValue());
+                })
+                .openUserDropDown().logout().goMainPage();
+    }
+
+    @Test
+    public void myProgress() {
+        Allure.link("Full test's info", "https://docs.google.com/spreadsheets/d/1gudjZ7fh4aUsozP7aPIovLnI4qGdbUFpIHJ6AbTlbC4/edit?ts=5f7593b0#gid=1648986495&range=C55:D55");
+
 
     }
 

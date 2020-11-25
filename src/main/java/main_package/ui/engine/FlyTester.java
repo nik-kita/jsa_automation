@@ -4,6 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public interface FlyTester {
-    Map<String, String> testMap = new HashMap<>();
+    Map<String, Object> testMap = new HashMap<>();
     void test();
 }
