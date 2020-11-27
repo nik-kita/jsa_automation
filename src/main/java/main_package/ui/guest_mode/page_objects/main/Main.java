@@ -2,6 +2,7 @@ package main_package.ui.guest_mode.page_objects.main;
 
 
 import main_package.ui.engine.FlyTester;
+import main_package.ui.engine.OnixAssert;
 import org.openqa.selenium.By;
 import main_package.ui.BasePageObject;
 import main_package.ui.engine.OnixLocator;
@@ -27,14 +28,36 @@ public class Main extends BasePageObject implements Footer, MainHeader {
 
     public CreateAccount clickGetStartedButton() {
         driver.findElement(Locator.GET_STARTED_BUTTON).click();
-        logger.debug("'Create Account' from 'Main'");
+        logger.info("Click 'Get started - it's free' button from main page");
         return new CreateAccount(driver);
+    }
+
+    private Main check(OnixAssert onixAssert) {
+        for(OnixLocator l : OnixAssert.mergeArrays(
+                Main.Locator.values(),
+                MainHeader.HeaderLocator.values(),
+                Footer.FooterLocator.values()
+        )) {
+            onixAssert.softCheckCountOfElementByLocator(l, 1);
+        }
+        return this;
+    }
+    public CreateAccount clickGetStartedButton(OnixAssert onixAssert) {
+        driver.findElement(Locator.GET_STARTED_BUTTON).click();
+        logger.info("Click 'Get started - it's free' button from main page");
+        return new CreateAccount(driver).check(onixAssert);
     }
 
     public GooglePlayPage clickPlayStoreBannerButton() {
         driver.findElement(Locator.PLAY_STORE_BUTTON_BANNER).click();
-        logger.debug("'Google Play' from 'Main'");
+        logger.info("Click 'Play Store' button.");
         return new GooglePlayPage(driver);
+    }
+
+    public GooglePlayPage clickPlayStoreBannerButton(OnixAssert onixAssert) {
+        driver.findElement(Locator.PLAY_STORE_BUTTON_BANNER).click();
+        logger.info("Click 'Play Store' button.");
+        return new GooglePlayPage(driver).check(onixAssert);
     }
     public GooglePlayPage clickPlayStoreButtonInDownloadSection() {
         driver.findElement(Locator.PLAY_STORE_BUTTON_DOWNLOAD).click();
@@ -45,6 +68,11 @@ public class Main extends BasePageObject implements Footer, MainHeader {
         driver.findElement(Locator.APPSTORE_BUTTON_BANNER).click();
         logger.debug("'AppStorePage' from 'Main'");
         return new AppStorePage(driver);
+    }
+    public AppStorePage clickAppStoreBannerButton(OnixAssert onixAssert) {
+        driver.findElement(Locator.APPSTORE_BUTTON_BANNER).click();
+        logger.debug("'AppStorePage' from 'Main'");
+        return new AppStorePage(driver).check(onixAssert);
     }
     public AppStorePage clickAppStoreButtonInDownloadSection() {
         driver.findElement(Locator.APPSTORE_BUTTON_DOWNLOAD).click();

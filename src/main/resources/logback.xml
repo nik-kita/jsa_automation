@@ -110,7 +110,7 @@
     <!--=====================================================>>>   L O G G E R S    <<<===========================================-->
 
 
-    <logger name="main_package" level="INFO">
+    <logger name="main_package" level="TRACE">
         <appender-ref ref="consoleTrace"/>
         <appender-ref ref="consoleDebug"/>
         <appender-ref ref="consoleInfo"/>

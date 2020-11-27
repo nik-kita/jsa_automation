@@ -1,6 +1,7 @@
 package main_package.ui.related_sites;
 
 import main_package.ui.engine.FlyTester;
+import main_package.ui.engine.OnixAssert;
 import org.openqa.selenium.By;
 import main_package.ui.BasePageObject;
 import main_package.ui.engine.OnixLocator;
@@ -13,6 +14,13 @@ public class GooglePlayPage extends BasePageObject implements InCurrentTab {
     @Override
     public GooglePlayPage test(FlyTester flyTester) {
         flyTester.test();
+        return this;
+    }
+
+    public GooglePlayPage check(OnixAssert onixAssert) {
+        for(OnixLocator l : GooglePlayPage.Locator.values()) {
+            onixAssert.softCheckCountOfElementByLocator(l, 1);
+        }
         return this;
     }
     public enum Locator implements OnixLocator {

@@ -10,7 +10,7 @@ import main_package.ui.guest_mode.page_objects.main.login.CreateAccount;
 public class CreateMyPlanTest extends OnixTestRunner {
     @BeforeClass
     public void goCreateAccount() {
-        openSite().goCreateAccountPage();
+        openSite().clickJoinNowHeaderButton();
     }
 
     @Test(dataProvider = "getCreateAccountLocators")

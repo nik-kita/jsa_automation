@@ -56,12 +56,13 @@ public interface MainHeader extends BasePart {
         return new Login(driver);
     }
 
-    default CreateAccount goCreateAccountPage() {
+    default CreateAccount clickJoinNowHeaderButton() {
         OnixWebDriver driver = getDriver();
         driver.findElement(HeaderLocator.JOIN_NOW_HEADER_BUTTON).click();
-        getLogger().debug("go 'Create Account' page from header");
+        getLogger().info("Click 'Join now' button from main header.");
         return new CreateAccount(driver);
     }
+
     default MyPodcast goMyPodcastPageFromHeader() {
         OnixWebDriver driver = getDriver();
         driver.findElement(HeaderLocator.MY_PODCAST_HEADER_BUTTON).click();

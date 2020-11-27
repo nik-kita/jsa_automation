@@ -15,6 +15,22 @@ public class OnixAssert {
     int softSuccessCounter;
     Logger logger;
 
+    public static OnixLocator[] mergeArrays(OnixLocator[]... arrays) {
+        int length = 0;
+        for (OnixLocator[] array : arrays) {
+            length += array.length;
+        }
+        OnixLocator[] result = new OnixLocator[length];
+        int pos = 0;
+        for (OnixLocator[] array : arrays) {
+            for (OnixLocator l : array) {
+                result[pos] = l;
+                pos++;
+            }
+        }
+        return result;
+    }
+
     public SoftAssert getSoftAssert() {
         if(softAssert == null) {
             softAssert = new SoftAssert();
