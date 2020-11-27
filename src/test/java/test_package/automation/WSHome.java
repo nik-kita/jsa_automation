@@ -174,7 +174,8 @@ public class WSHome extends OnixTestRunner {
         int todayStepsForTest = (int) (Math.random() * 100);
         int stepsGoalForTest = (int) (Math.random() * 1000);
 
-        openSite().goLoginPage()
+        openSite()
+                .goLoginPage()
                 .login(User.getValidUser())
                 .clickStepsLink(onixAssert)
                 .clickEditYourStepsGoalIconPenButton()

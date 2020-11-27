@@ -110,7 +110,7 @@
     <!--=====================================================>>>   L O G G E R S    <<<===========================================-->
 
 
-    <logger name="main_package" level="TRACE">
+    <logger name="main_package" level="INFO">
         <appender-ref ref="consoleTrace"/>
         <appender-ref ref="consoleDebug"/>
         <appender-ref ref="consoleInfo"/>
@@ -118,7 +118,7 @@
         <appender-ref ref="consoleError"/>
         <appender-ref ref="mysql"/>
     </logger>
-    <logger name="test_package" level="TRACE">
+    <logger name="test_package" level="INFO">
         <appender-ref ref="consoleTrace"/>
         <appender-ref ref="consoleDebug"/>
         <appender-ref ref="consoleInfo"/>
