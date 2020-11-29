@@ -59,8 +59,8 @@ public class UserClient extends BaseClient {
         return given(baseRequestSpecification(user)).get(get_coach_idle);
     }
 
-    public Response patchCoachIdle_id() {
-        return given(baseRequestSpecification(user)).pathParam("id", 1).patch(patch_coach_idle__id);
+    public Response patchCoachIdle_id(int id) {
+        return given(baseRequestSpecification(user)).pathParam("id", id).patch(patch_coach_idle__id);
     }
 
     public Response getCoachProfile() {
@@ -79,16 +79,17 @@ public class UserClient extends BaseClient {
         return given(baseRequestSpecification(user)).post(post_coaches_notes);
     }
 
-    public Response getCoachesNotes_id() {
-        return given(baseRequestSpecification(user)).pathParam("id", 1).get(get_coaches_notes__id);
+    public Response getCoachesNotes_id(int id) {
+        return given(baseRequestSpecification(user)).pathParam("id", id).get(get_coaches_notes__id);
     }
 
-    public Response patchCoachesNotes_id() {
-        return given(baseRequestSpecification(user)).pathParam("id", 1).patch(patch_coaches_notes__id);
+    public Response patchCoachesNotes_id(int id) {
+        return given(baseRequestSpecification(user)).pathParam("id", id).patch(patch_coaches_notes__id);
     }
 
-    public Response postCrateUser() {
-        return given(baseRequestSpecification(user)).post(post_create_user);
+    public Response postCreateUser(String username, String password) {
+        return given(baseRequestSpecification(user))
+                .param("username", username).param("password", password).post(post_create_user);
     }
 
     public Response postFitnessTracker() {
@@ -182,7 +183,8 @@ public class UserClient extends BaseClient {
             String client_id,
             String client_secret,
             String token,
-            String backend) {
+            String backend
+    ) {
 
         Map<String, Object> params = new HashMap<>();
         params.put("user_id", user_id);

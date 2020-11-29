@@ -1,6 +1,8 @@
 package main_package.api.clients;
 
 import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.config.LogConfig;
+import io.restassured.config.RestAssuredConfig;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
@@ -38,6 +40,8 @@ public class BaseClient {
 
     public RequestSpecification baseRequestSpecification() {
         RequestSpecBuilder builder = new RequestSpecBuilder()
+                .setConfig(RestAssuredConfig.config().logConfig(LogConfig.logConfig().enableLoggingOfRequestAndResponseIfValidationFails()))
+                .setConfig(RestAssuredConfig.config().logConfig(LogConfig.logConfig().enablePrettyPrinting(true)))
                 .setBaseUri(baseUrl)
                 .setAccept(ContentType.JSON)
                 .setContentType(ContentType.JSON);
