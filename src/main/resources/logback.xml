@@ -90,8 +90,8 @@
                 <serverName>127.0.0.1</serverName>
                 <port>3306</port>
                 <databaseName>jsa</databaseName>
-                <user>root</user>
-                <password>Password123#@!</password>
+                <user>nikita</user>
+                <password>strongpassword</password>
             </dataSource>
         </connectionSource>
     </appender>
@@ -107,10 +107,11 @@
 <!--        </encoder>-->
 <!--    </appender>-->
 
+
     <!--=====================================================>>>   L O G G E R S    <<<===========================================-->
 
 
-    <logger name="main_package" level="TRACE">
+    <logger name="main_package" level="INFO">
         <appender-ref ref="consoleTrace"/>
         <appender-ref ref="consoleDebug"/>
         <appender-ref ref="consoleInfo"/>

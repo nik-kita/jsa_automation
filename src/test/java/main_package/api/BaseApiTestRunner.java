@@ -1,6 +1,7 @@
 package main_package.api;
 
 import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
 import main_package.api.clients.UserClient;
 import main_package.api.models.User;
 import org.slf4j.Logger;
@@ -12,19 +13,13 @@ public class BaseApiTestRunner {
     UserClient userClient;
     User user;
     Logger logger;
-    String token;
 
     @BeforeClass
     public void beforeClass() {
-        userClient = new UserClient();
         user = User.getValidUser();
+        userClient = new UserClient(user);
         logger = LoggerFactory.getLogger(this.getClass());
-        token = userClient.generateToken(user);
     }
 
-    @Test
-    public void test() {
-        System.out.println(token);
-    }
 
 }

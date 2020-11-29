@@ -3,6 +3,8 @@ package test_package.test_engine;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Allure;
+import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.http.ContentType;
 import main_package.ui.engine.OnixAssert;
 import main_package.ui.engine.OnixLocator;
 import org.commonmark.parser.Parser;
@@ -32,6 +34,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
+
+import static io.restassured.RestAssured.given;
 
 
 public class OnixTestRunner {
