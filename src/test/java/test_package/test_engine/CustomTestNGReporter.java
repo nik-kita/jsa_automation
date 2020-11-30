@@ -1,4 +1,4 @@
-package main_package.ui.engine.loggers;
+package test_package.test_engine;
 
 import org.testng.*;
 import org.testng.xml.XmlSuite;

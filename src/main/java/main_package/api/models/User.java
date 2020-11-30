@@ -25,7 +25,7 @@ public class User {
                 '}';
     }
 
-    public static User getValidUser() {
+    public static User getValidApiUser() {
         Properties properties = new Properties();
         try {
             properties.load(new FileReader("src/main/resources/credentials.properties"));

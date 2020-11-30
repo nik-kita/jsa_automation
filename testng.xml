@@ -1,41 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
-    <test verbose="2" preserve-order="true" name="/home/p/jsa_automation/src/test/java/test_package/automation">
+    
+    <listeners>
+        <listener class-name="test_package.test_engine.OnixScreenFailListener"></listener>
+        <listener class-name="test_package.test_engine.CustomTestNGReporter"></listener>
+    </listeners>
+    <test verbose="2" preserve-order="true" name="/home/p/jsa_automation/src/test/java/test_package/automation/smoke">
         <classes>
-            <class name="test_package.automation.LoginTest">
+            <class name="test_package.automation.smoke.LogoutModeMainTest">
                 <methods>
-                    <include name="loginWithFBTest"/>
-                </methods>
-            </class>
-            <class name="test_package.automation.WS">
-                <methods>
-                    <include name="pricing"/>
-                    <include name="transformations"/>
-                    <include name="blog"/>
-                    <include name="login"/>
-                    <include name="footer"/>
-                </methods>
-            </class>
-            <class name="test_package.automation.WSAccount">
-                <methods>
-                    <include name="home"/>
-                    <include name="workouts"/>
-                    <include name="learn"/>
-                    <include name="nutrition"/>
-                    <include name="account"/>
-                    <include name="myPlan"/>
-                    <include name="myProfile"/>
-                </methods>
-            </class>
-            <class name="test_package.automation.WSHome">
-                <methods>
-                    <include name="myGoal"/>
-                    <include name="myGoal_2"/>
-                    <include name="weeklyGoal"/>
-                    <include name="steps"/>
-                    <include name="stepsInside"/>
-                    <include name="myProgress"/>
+                    <include name="mainPageTest"/>
+                    <include name="clickGetStarted"/>
+                    <include name="clickPlayStore"/>
+                    <include name="clickAppStore"/>
                 </methods>
             </class>
         </classes>
