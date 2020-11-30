@@ -47,6 +47,17 @@ public class ModuleSearch {
         return experience_level;
     }
 
+    @Override
+    public String toString() {
+        return "ModuleSearch{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", equipment='" + equipment + '\'' +
+                ", tags='" + tags + '\'' +
+                ", experience_level='" + experience_level + '\'' +
+                '}';
+    }
+
     public ModuleSearch setExperience_level(String experience_level) {
         this.experience_level = experience_level;
         return this;
