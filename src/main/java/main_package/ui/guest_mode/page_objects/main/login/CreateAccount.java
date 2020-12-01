@@ -1,12 +1,12 @@
 package main_package.ui.guest_mode.page_objects.main.login;
 
 
-import main_package.ui.engine.FlyTester;
-import main_package.ui.engine.OnixAssert;
+import main_package.engine.test_engine.FlyTester;
+import main_package.engine.test_engine.OnixUiAssert;
 import org.openqa.selenium.By;
 import main_package.ui.BasePageObject;
-import main_package.ui.engine.OnixLocator;
-import main_package.ui.engine.OnixWebDriver;
+import main_package.engine.OnixLocator;
+import main_package.engine.OnixWebDriver;
 import main_package.ui.guest_mode.page_objects.from_footer.TermsOfService;
 import main_package.ui.guest_mode.page_objects.main.Main;
 
@@ -17,11 +17,11 @@ public class CreateAccount extends BasePageObject {
         logger.info("'Create Account' page is open.");
     }
 
-    public CreateAccount check(OnixAssert onixAssert) {
-        for(OnixLocator l : OnixAssert.mergeArrays(
+    public CreateAccount check(OnixUiAssert onixUiAssert) {
+        for(OnixLocator l : OnixUiAssert.mergeArrays(
                 CreateAccount.Locator.values()
         )) {
-            onixAssert.softCheckCountOfElementByLocator(l, 1);
+            onixUiAssert.softCheckCountOfElementByLocator(l, 1);
         }
         return this;
     }

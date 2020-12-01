@@ -1,7 +1,7 @@
 package main_package.ui.user_mode.home.steps;
 
-import main_package.ui.engine.OnixAssert;
-import main_package.ui.engine.OnixLocator;
+import main_package.engine.test_engine.OnixUiAssert;
+import main_package.engine.OnixLocator;
 import main_package.ui.user_mode.JsaLoginBaseTestRunner;
 import main_package.ui.user_mode.page_objects.home_header.home.steps.EditTodayStepsPopup;
 import org.testng.annotations.BeforeClass;
@@ -16,7 +16,7 @@ public class EditTodayStepsPopupTest extends JsaLoginBaseTestRunner {
 
     @Test(dataProvider = "origin")
     public void testOriginLocatorsOfEditStepsPopup(OnixLocator locator) {
-        new OnixAssert(driver).checkCountOfElementByLocator(locator, 1);
+        new OnixUiAssert(driver).checkCountOfElementByLocator(locator, 1);
     }
 
     @DataProvider

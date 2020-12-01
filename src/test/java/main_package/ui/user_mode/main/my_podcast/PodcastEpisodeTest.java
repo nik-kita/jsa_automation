@@ -3,8 +3,8 @@ package main_package.ui.user_mode.main.my_podcast;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import main_package.ui.engine.OnixAssert;
-import main_package.ui.engine.OnixLocator;
+import main_package.engine.test_engine.OnixUiAssert;
+import main_package.engine.OnixLocator;
 import main_package.ui.user_mode.JsaLoginBaseTestRunner;
 import main_package.ui.user_mode.page_objects.main.my_podcast.PodcastEpisode;
 
@@ -16,7 +16,7 @@ public class PodcastEpisodeTest extends JsaLoginBaseTestRunner {
     }
     @Test(dataProvider = "getPodcastEpisodeLocators")
     public void podcastEpisodeTest(OnixLocator locator) {
-        new OnixAssert(driver).checkCountOfElementByLocator(locator, 1);
+        new OnixUiAssert(driver).checkCountOfElementByLocator(locator, 1);
     }
     @DataProvider
     public Object[] getPodcastEpisodeLocators() {

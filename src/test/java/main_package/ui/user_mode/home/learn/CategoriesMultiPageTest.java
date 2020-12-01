@@ -1,6 +1,6 @@
 package main_package.ui.user_mode.home.learn;
 
-import main_package.ui.engine.OnixLocator;
+import main_package.engine.OnixLocator;
 import main_package.ui.user_mode.JsaLoginBaseTestRunner;
 import main_package.ui.user_mode.general_parts.home.HomeHeaderPart;
 import main_package.ui.user_mode.page_objects.home_header.learn.CategoriesMultiPage;
@@ -16,7 +16,7 @@ public class CategoriesMultiPageTest extends JsaLoginBaseTestRunner {
     }
     @Test(dataProvider = "originalLocators")
     public void testOriginal(OnixLocator locator) {
-        onixAssert.checkCountOfElementByLocator(locator, 1);
+        onixUiAssert.checkCountOfElementByLocator(locator, 1);
     }
     @DataProvider
     public Object[] originalLocators() {
@@ -27,7 +27,7 @@ public class CategoriesMultiPageTest extends JsaLoginBaseTestRunner {
     }
     @Test(dataProvider = "locators")
     public void checkDuplicateLocators(OnixLocator locator) {
-        onixAssert.checkMinimumOfElementsByLocator(locator, 1);
+        onixUiAssert.checkMinimumOfElementsByLocator(locator, 1);
     }
     @DataProvider
     public Object[] locators() {

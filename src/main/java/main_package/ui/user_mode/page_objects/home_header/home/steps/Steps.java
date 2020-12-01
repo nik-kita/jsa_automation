@@ -1,12 +1,11 @@
 package main_package.ui.user_mode.page_objects.home_header.home.steps;
 
-import main_package.ui.engine.FlyTester;
-import main_package.ui.engine.OnixAssert;
-import main_package.ui.related_sites.InAnotherTab;
+import main_package.engine.test_engine.FlyTester;
+import main_package.engine.test_engine.OnixUiAssert;
 import org.openqa.selenium.By;
 import main_package.ui.BasePageObject;
-import main_package.ui.engine.OnixLocator;
-import main_package.ui.engine.OnixWebDriver;
+import main_package.engine.OnixLocator;
+import main_package.engine.OnixWebDriver;
 import main_package.ui.user_mode.general_parts.home.HomeHeaderPart;
 
 public class Steps extends BasePageObject implements HomeHeaderPart {
@@ -25,10 +24,10 @@ public class Steps extends BasePageObject implements HomeHeaderPart {
         logger.info("Click on 'Edit Your Goal' icon pen-button.");
         return new EditYourGoalStepsPopup(driver);
     }
-    public EditYourGoalStepsPopup clickEditYourStepsGoalIconPenButton(OnixAssert onixAssert) {
+    public EditYourGoalStepsPopup clickEditYourStepsGoalIconPenButton(OnixUiAssert onixUiAssert) {
         EditYourGoalStepsPopup editYourGoalStepsPopup = clickEditYourStepsGoalIconPenButton();
         for(OnixLocator l : EditYourGoalStepsPopup.Locator.values()) {
-            onixAssert.softCheckCountOfElementByLocator(l, 1);
+            onixUiAssert.softCheckCountOfElementByLocator(l, 1);
         }
         return editYourGoalStepsPopup;
     }
@@ -38,11 +37,11 @@ public class Steps extends BasePageObject implements HomeHeaderPart {
         logger.info("Click on 'Edit Today Steps' icon pen-button.");
         return new EditTodayStepsPopup(driver);
     }
-    public EditTodayStepsPopup clickEditTodayStepsIconButton(OnixAssert onixAssert) {
+    public EditTodayStepsPopup clickEditTodayStepsIconButton(OnixUiAssert onixUiAssert) {
         driver.findElement(Locator.EDIT_TODAY_STEPS_BUTTON).click();
         logger.info("Click on 'Edit Today Steps' icon pen-button.");
         for(OnixLocator l : EditTodayStepsPopup.Locator.values()) {
-            onixAssert.softCheckCountOfElementByLocator(l, 1);
+            onixUiAssert.softCheckCountOfElementByLocator(l, 1);
         }
         return new EditTodayStepsPopup(driver);
     }

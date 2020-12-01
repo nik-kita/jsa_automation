@@ -3,7 +3,7 @@ package main_package.ui.user_mode.home.nutrition;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import main_package.ui.engine.OnixLocator;
+import main_package.engine.OnixLocator;
 import main_package.ui.user_mode.JsaLoginBaseTestRunner;
 import main_package.ui.user_mode.general_parts.home.HomeHeaderPart;
 import main_package.ui.user_mode.general_parts.home.HomePart;
@@ -16,7 +16,7 @@ public class RecipesTest extends JsaLoginBaseTestRunner {
     }
     @Test(dataProvider = "getRecipesLocators")
     public void recipesTest(OnixLocator locator) {
-        onixAssert.checkCountOfElementByLocator(locator, 1);
+        onixUiAssert.checkCountOfElementByLocator(locator, 1);
     }
     @DataProvider
     public Object[] getRecipesLocators() {

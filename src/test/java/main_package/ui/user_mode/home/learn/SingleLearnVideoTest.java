@@ -1,6 +1,6 @@
 package main_package.ui.user_mode.home.learn;
 
-import main_package.ui.engine.OnixLocator;
+import main_package.engine.OnixLocator;
 import main_package.ui.user_mode.JsaLoginBaseTestRunner;
 import main_package.ui.user_mode.general_parts.home.HomeHeaderPart;
 import main_package.ui.user_mode.page_objects.home_header.learn.SingleLearnVideo;
@@ -16,7 +16,7 @@ public class SingleLearnVideoTest extends JsaLoginBaseTestRunner {
     }
     @Test(dataProvider = "getOriginalLocators")
     public void testOriginalLocators(OnixLocator locator) {
-        onixAssert.checkCountOfElementByLocator(locator, 1);
+        onixUiAssert.checkCountOfElementByLocator(locator, 1);
     }
     @DataProvider
     public Object[] getOriginalLocators() {
@@ -27,7 +27,7 @@ public class SingleLearnVideoTest extends JsaLoginBaseTestRunner {
     }
     @Test(dataProvider = "getDuplicateLocators")
     public void testDuplicatedLocators(OnixLocator locator) {
-        onixAssert.checkMinimumOfElementsByLocator(locator, 1);
+        onixUiAssert.checkMinimumOfElementsByLocator(locator, 1);
     }
     @DataProvider
     public Object[] getDuplicateLocators() {

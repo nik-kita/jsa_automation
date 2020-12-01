@@ -1,7 +1,7 @@
 package main_package.ui.related_sites;
 
 import main_package.ui.BasePart;
-import main_package.ui.engine.OnixWebDriver;
+import main_package.engine.OnixWebDriver;
 
 public interface InAnotherTab extends BasePart {
     default OnixWebDriver closeAndBackToJsaTab() {

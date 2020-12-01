@@ -1,7 +1,9 @@
 package main_package.ui.guest_mode.page_objects.main.login;
 
 
-import main_package.ui.engine.*;
+import main_package.engine.*;
+import main_package.engine.test_engine.FlyTester;
+import main_package.engine.test_engine.OnixUiAssert;
 import org.openqa.selenium.By;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,7 +11,6 @@ import main_package.ui.BasePageObject;
 import main_package.ui.data.User;
 import main_package.ui.guest_mode.page_objects.main.Main;
 import main_package.ui.user_mode.page_objects.home_header.home.Home;
-import org.testng.asserts.SoftAssert;
 
 public class Login extends BasePageObject {
 
@@ -57,13 +58,13 @@ public class Login extends BasePageObject {
         logger.debug("Login to the site by valid user's credentials.");
         return new Home(driver);
     }
-    public Home login(User validUser, OnixAssert onixAssert) {
+    public Home login(User validUser, OnixUiAssert onixUiAssert) {
         fillUserInput(validUser.getName());
         fillPasswordInput(validUser.getPassword());
         getSubmitButton().click();
         logger.info("Fill email and password inputs by valid user's credentials.");
         for(OnixLocator l : Home.Locator.values()) {
-            onixAssert.softCheckCountOfElementByLocator(l, 1);
+            onixUiAssert.softCheckCountOfElementByLocator(l, 1);
         }
         return new Home(driver);
     }

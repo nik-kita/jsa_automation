@@ -127,7 +127,7 @@
 
     <appender name="FILE" class="ch.qos.logback.core.FileAppender">
         <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
-            <layout class="main_package.ui.engine.loggers.MyHTMLLayout">
+            <layout class="main_package.engine.loggers.MyHTMLLayout">
                 <pattern>%relative%thread%level%logger%msg</pattern>
             </layout>
         </encoder>

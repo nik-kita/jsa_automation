@@ -1,12 +1,12 @@
 package main_package.ui.guest_mode.page_objects.main;
 
 
-import main_package.ui.engine.FlyTester;
-import main_package.ui.engine.OnixAssert;
+import main_package.engine.test_engine.FlyTester;
+import main_package.engine.test_engine.OnixUiAssert;
 import org.openqa.selenium.By;
 import main_package.ui.BasePageObject;
-import main_package.ui.engine.OnixLocator;
-import main_package.ui.engine.OnixWebDriver;
+import main_package.engine.OnixLocator;
+import main_package.engine.OnixWebDriver;
 import main_package.ui.guest_mode.general_parts.Footer;
 import main_package.ui.guest_mode.general_parts.MainHeader;
 import main_package.ui.guest_mode.page_objects.main.login.CreateAccount;
@@ -32,20 +32,20 @@ public class Main extends BasePageObject implements Footer, MainHeader {
         return new CreateAccount(driver);
     }
 
-    private Main check(OnixAssert onixAssert) {
-        for(OnixLocator l : OnixAssert.mergeArrays(
+    private Main check(OnixUiAssert onixUiAssert) {
+        for(OnixLocator l : OnixUiAssert.mergeArrays(
                 Main.Locator.values(),
                 MainHeader.HeaderLocator.values(),
                 Footer.FooterLocator.values()
         )) {
-            onixAssert.softCheckCountOfElementByLocator(l, 1);
+            onixUiAssert.softCheckCountOfElementByLocator(l, 1);
         }
         return this;
     }
-    public CreateAccount clickGetStartedButton(OnixAssert onixAssert) {
+    public CreateAccount clickGetStartedButton(OnixUiAssert onixUiAssert) {
         driver.findElement(Locator.GET_STARTED_BUTTON).click();
         logger.info("Click 'Get started - it's free' button from main page");
-        return new CreateAccount(driver).check(onixAssert);
+        return new CreateAccount(driver).check(onixUiAssert);
     }
 
     public GooglePlayPage clickPlayStoreBannerButton() {
@@ -54,10 +54,10 @@ public class Main extends BasePageObject implements Footer, MainHeader {
         return new GooglePlayPage(driver);
     }
 
-    public GooglePlayPage clickPlayStoreBannerButton(OnixAssert onixAssert) {
+    public GooglePlayPage clickPlayStoreBannerButton(OnixUiAssert onixUiAssert) {
         driver.findElement(Locator.PLAY_STORE_BUTTON_BANNER).click();
         logger.info("Click 'Play Store' button.");
-        return new GooglePlayPage(driver).check(onixAssert);
+        return new GooglePlayPage(driver).check(onixUiAssert);
     }
     public GooglePlayPage clickPlayStoreButtonInDownloadSection() {
         driver.findElement(Locator.PLAY_STORE_BUTTON_DOWNLOAD).click();
@@ -69,10 +69,10 @@ public class Main extends BasePageObject implements Footer, MainHeader {
         logger.debug("'AppStorePage' from 'Main'");
         return new AppStorePage(driver);
     }
-    public AppStorePage clickAppStoreBannerButton(OnixAssert onixAssert) {
+    public AppStorePage clickAppStoreBannerButton(OnixUiAssert onixUiAssert) {
         driver.findElement(Locator.APPSTORE_BUTTON_BANNER).click();
         logger.debug("'AppStorePage' from 'Main'");
-        return new AppStorePage(driver).check(onixAssert);
+        return new AppStorePage(driver).check(onixUiAssert);
     }
     public AppStorePage clickAppStoreButtonInDownloadSection() {
         driver.findElement(Locator.APPSTORE_BUTTON_DOWNLOAD).click();

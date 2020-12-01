@@ -4,8 +4,8 @@ package main_package.ui.guest_mode.main.login;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import test_package.test_engine.OnixTestRunner;
-import main_package.ui.engine.OnixLocator;
+import main_package.engine.test_engine.OnixTestRunner;
+import main_package.engine.OnixLocator;
 import main_package.ui.guest_mode.page_objects.main.login.ResetPassword;
 
 public class ResetPasswordTest extends OnixTestRunner {
@@ -17,7 +17,7 @@ public class ResetPasswordTest extends OnixTestRunner {
 
     @Test(dataProvider = "getResetPasswordLocators")
     public void resetPasswordPageTest(OnixLocator locator) {
-        onixAssert.checkCountOfElementByLocator(locator, 1);
+        onixUiAssert.checkCountOfElementByLocator(locator, 1);
     }
     @DataProvider
     public Object[] getResetPasswordLocators() {

@@ -1,8 +1,8 @@
 package main_package.ui.specific;
 
-import main_package.ui.engine.FlyTester;
+import main_package.engine.test_engine.FlyTester;
 import org.slf4j.Logger;
-import main_package.ui.engine.OnixWebDriver;
+import main_package.engine.OnixWebDriver;
 
 public abstract class BaseSpecific {
     OnixWebDriver driver;

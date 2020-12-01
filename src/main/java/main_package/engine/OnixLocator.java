@@ -1,4 +1,4 @@
-package main_package.ui.engine;
+package main_package.engine;
 
 import org.openqa.selenium.By;
 

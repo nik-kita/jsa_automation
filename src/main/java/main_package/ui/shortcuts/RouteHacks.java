@@ -3,8 +3,8 @@ package main_package.ui.shortcuts;
 
 import main_package.ui.BasePageObject;
 import main_package.ui.data.User;
-import main_package.ui.engine.FlyTester;
-import main_package.ui.engine.OnixWebDriver;
+import main_package.engine.test_engine.FlyTester;
+import main_package.engine.OnixWebDriver;
 import main_package.ui.guest_mode.page_objects.main.login.Login;
 import main_package.ui.user_mode.page_objects.home_header.home.Home;
 

@@ -1,9 +1,8 @@
 package main_package.ui.user_mode.page_objects.home_header.home.account.my_profile.upload_image;
 
-import main_package.ui.BasePageObject;
 import main_package.ui.BasePart;
-import main_package.ui.engine.OnixLocator;
-import main_package.ui.engine.OnixWebDriver;
+import main_package.engine.OnixLocator;
+import main_package.engine.OnixWebDriver;
 import main_package.ui.user_mode.page_objects.home_header.home.account.my_profile.MyProfile;
 import org.openqa.selenium.By;
 

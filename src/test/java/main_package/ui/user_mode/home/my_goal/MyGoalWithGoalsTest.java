@@ -3,7 +3,7 @@ package main_package.ui.user_mode.home.my_goal;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import main_package.ui.engine.OnixLocator;
+import main_package.engine.OnixLocator;
 import main_package.ui.user_mode.JsaLoginBaseTestRunner;
 import main_package.ui.user_mode.page_objects.home_header.home.my_goal.MyGoal;
 
@@ -26,7 +26,7 @@ public class MyGoalWithGoalsTest extends JsaLoginBaseTestRunner {
 
     @Test(dataProvider = "multiLocators")
     public void myGoalTestMultiLocators(OnixLocator locator) {
-        onixAssert.checkMinimumOfElementsByLocator(locator, 0);
+        onixUiAssert.checkMinimumOfElementsByLocator(locator, 0);
     }
     @DataProvider
     public Object[] multiLocators() {

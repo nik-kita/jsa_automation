@@ -1,18 +1,17 @@
 package main_package.ui.user_mode.page_objects.home_header.home;
 
-import main_package.ui.engine.FlyTester;
-import main_package.ui.engine.OnixAssert;
+import main_package.engine.test_engine.FlyTester;
+import main_package.engine.test_engine.OnixUiAssert;
 import main_package.ui.related_sites.FacebookGroupPage;
 import main_package.ui.user_mode.page_objects.home_header.home.account.my_plan.MyPlan;
 import main_package.ui.user_mode.page_objects.home_header.home.steps.Steps;
 import org.openqa.selenium.By;
 import main_package.ui.BasePageObject;
-import main_package.ui.engine.OnixLocator;
-import main_package.ui.engine.OnixWebDriver;
+import main_package.engine.OnixLocator;
+import main_package.engine.OnixWebDriver;
 import main_package.ui.user_mode.general_parts.home.HomePart;
 import main_package.ui.user_mode.page_objects.home_header.home.my_goal.MyGoal;
 import main_package.ui.user_mode.page_objects.home_header.home.my_progress.MyProgress;
-import org.testng.asserts.SoftAssert;
 
 public class Home extends BasePageObject implements HomePart {
     public Home(OnixWebDriver driver) {
@@ -46,11 +45,11 @@ public class Home extends BasePageObject implements HomePart {
         logger.debug("'MyGoal' from 'Home'");
         return new MyGoal(driver);
     }
-    public MyGoal clickMyGoalLink(OnixAssert onixAssert) {
+    public MyGoal clickMyGoalLink(OnixUiAssert onixUiAssert) {
         driver.findElement(Locator.MY_GOAL_DIV_LINK).click();
         logger.info("Click on 'My Goal' link.");
         for(OnixLocator l : MyGoal.Locator.values()) {
-            onixAssert.softCheckCountOfElementByLocator(l, 1);
+            onixUiAssert.softCheckCountOfElementByLocator(l, 1);
         }
         return new MyGoal(driver);
     }
@@ -60,10 +59,10 @@ public class Home extends BasePageObject implements HomePart {
         logger.info("Click on 'Steps' link.");
         return new Steps(driver);
     }
-    public Steps clickStepsLink(OnixAssert onixAssert) {
+    public Steps clickStepsLink(OnixUiAssert onixUiAssert) {
         driver.findElement(Locator.STEPS_DIV_LINK).click();
         for(OnixLocator l : Steps.Locator.values()) {
-            onixAssert.softCheckCountOfElementByLocator(l, 1);
+            onixUiAssert.softCheckCountOfElementByLocator(l, 1);
         }
         logger.info("Click on 'Steps' link.");
         return new Steps(driver);

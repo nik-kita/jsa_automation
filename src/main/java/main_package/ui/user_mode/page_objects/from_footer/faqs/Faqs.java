@@ -1,10 +1,10 @@
 package main_package.ui.user_mode.page_objects.from_footer.faqs;
 
-import main_package.ui.engine.FlyTester;
+import main_package.engine.test_engine.FlyTester;
 import org.openqa.selenium.By;
 import main_package.ui.BasePageObject;
-import main_package.ui.engine.OnixLocator;
-import main_package.ui.engine.OnixWebDriver;
+import main_package.engine.OnixLocator;
+import main_package.engine.OnixWebDriver;
 import main_package.ui.user_mode.general_parts.Footer;
 import main_package.ui.user_mode.general_parts.MainHeader;
 

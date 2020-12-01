@@ -1,6 +1,6 @@
 package main_package.ui.user_mode.home.account.my_plan;
 
-import main_package.ui.engine.OnixLocator;
+import main_package.engine.OnixLocator;
 import main_package.ui.user_mode.JsaLoginBaseTestRunner;
 import main_package.ui.user_mode.page_objects.home_header.home.account.my_plan.ConfirmCancelPopup;
 import org.testng.annotations.BeforeClass;
@@ -14,7 +14,7 @@ public class ConfirmPopupTest extends JsaLoginBaseTestRunner {
     }
     @Test(dataProvider = "origin")
     public void testCancelPopup(OnixLocator locator) {
-        onixAssert.checkCountOfElementByLocator(locator, 1);
+        onixUiAssert.checkCountOfElementByLocator(locator, 1);
     }
     @DataProvider
     public Object[] origin() {

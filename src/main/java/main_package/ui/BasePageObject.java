@@ -1,11 +1,11 @@
 package main_package.ui;
 
-import main_package.ui.engine.FlyTester;
+import main_package.engine.test_engine.FlyTester;
 import org.openqa.selenium.By;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import main_package.ui.engine.OnixLocator;
-import main_package.ui.engine.OnixWebDriver;
+import main_package.engine.OnixLocator;
+import main_package.engine.OnixWebDriver;
 import main_package.ui.specific.JsaCookies;
 
 public abstract class BasePageObject {

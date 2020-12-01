@@ -4,8 +4,8 @@ package main_package.ui.user_mode.main.pricing.pricingplans;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import main_package.ui.engine.OnixAssert;
-import main_package.ui.engine.OnixLocator;
+import main_package.engine.test_engine.OnixUiAssert;
+import main_package.engine.OnixLocator;
 import main_package.ui.user_mode.JsaLoginBaseTestRunner;
 import main_package.ui.user_mode.page_objects.main.pricing.pricingplans.PaymentMethodPopup;
 
@@ -26,7 +26,7 @@ public class PaymentMethodPopupTest extends JsaLoginBaseTestRunner {
 
         paymentMethodPopup.clickCardTab();
 
-        new OnixAssert(driver).checkCountOfElementByLocator(locator, 1);
+        new OnixUiAssert(driver).checkCountOfElementByLocator(locator, 1);
     }
 
     @DataProvider
@@ -37,9 +37,9 @@ public class PaymentMethodPopupTest extends JsaLoginBaseTestRunner {
     @Test(dataProvider = "getPaymentMethodPayPalLocators")
     public void paymentMethodPayPalTest(OnixLocator locator) {
         PaymentMethodPopup.PayPalIframe frame = paymentMethodPopup.switchToPayPalIframe();
-        onixAssert.softCheckCountOfElementByLocator(locator, 1);
+        onixUiAssert.softCheckCountOfElementByLocator(locator, 1);
         paymentMethodPopup = frame.clickCardTab();
-        onixAssert.assertAll();
+        onixUiAssert.assertAll();
     }
 
     @DataProvider

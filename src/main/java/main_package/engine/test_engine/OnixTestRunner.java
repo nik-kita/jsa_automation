@@ -1,12 +1,9 @@
-package test_package.test_engine;
+package main_package.engine.test_engine;
 
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Allure;
-import io.restassured.builder.RequestSpecBuilder;
-import io.restassured.http.ContentType;
-import main_package.ui.engine.OnixAssert;
-import main_package.ui.engine.OnixLocator;
+import main_package.engine.OnixLocator;
 import org.commonmark.parser.Parser;
 import org.commonmark.renderer.html.HtmlRenderer;
 import org.openqa.selenium.WebDriver;
@@ -17,7 +14,7 @@ import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
 import org.testng.*;
 import org.testng.annotations.*;
-import main_package.ui.engine.OnixWebDriver;
+import main_package.engine.OnixWebDriver;
 import main_package.ui.guest_mode.page_objects.main.Main;
 
 
@@ -39,7 +36,7 @@ import static io.restassured.RestAssured.given;
 
 
 public class OnixTestRunner {
-    public OnixAssert onixAssert;
+    public OnixUiAssert onixUiAssert;
     public OnixWebDriver driver;
     private Main mainPO;
     String baseUrl = "https://www.jamessmithacademy.com/";
@@ -86,7 +83,7 @@ public class OnixTestRunner {
 //        chrome.manage().window().maximize();
         chrome.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
         driver = new OnixWebDriver(chrome);
-        onixAssert = new OnixAssert(driver);
+        onixUiAssert = new OnixUiAssert(driver);
     }
 
     @BeforeMethod
@@ -142,12 +139,12 @@ public class OnixTestRunner {
         log.debug("Open https://www.jamessmithacademy.com/");
         return mainPO;
     }
-    protected Main openSite(OnixAssert onixAssert) {
+    protected Main openSite(OnixUiAssert onixUiAssert) {
         driver.get(baseUrl);
         log.debug("Open https://www.jamessmithacademy.com/");
         mainPO = new Main(driver);
         for(OnixLocator l : Main.Locator.values()) {
-            onixAssert.softCheckCountOfElementByLocator(l, 1);
+            onixUiAssert.softCheckCountOfElementByLocator(l, 1);
         }
         return mainPO;
     }

@@ -1,10 +1,10 @@
 package main_package.ui.related_sites;
 
-import main_package.ui.engine.FlyTester;
+import main_package.engine.test_engine.FlyTester;
 import org.openqa.selenium.By;
 import main_package.ui.BasePageObject;
-import main_package.ui.engine.OnixLocator;
-import main_package.ui.engine.OnixWebDriver;
+import main_package.engine.OnixLocator;
+import main_package.engine.OnixWebDriver;
 
 public class InstagramPage extends BasePageObject implements InAnotherTab {
     public InstagramPage(OnixWebDriver driver) {

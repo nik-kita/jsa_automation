@@ -1,11 +1,11 @@
 package main_package.ui.user_mode.page_objects.home_header.home.my_goal;
 
-import main_package.ui.engine.FlyTester;
-import main_package.ui.engine.OnixAssert;
+import main_package.engine.test_engine.FlyTester;
+import main_package.engine.test_engine.OnixUiAssert;
 import org.openqa.selenium.By;
 import main_package.ui.BasePageObject;
-import main_package.ui.engine.OnixLocator;
-import main_package.ui.engine.OnixWebDriver;
+import main_package.engine.OnixLocator;
+import main_package.engine.OnixWebDriver;
 
 public class NewWeeklyGoal extends BasePageObject {
 
@@ -38,7 +38,7 @@ public class NewWeeklyGoal extends BasePageObject {
         logger.debug("Click 'Save' button after adding some text('{}')", text);
         return new MyGoal(driver);
     }
-    public MyGoal save(String text, OnixAssert onixAssert) {
+    public MyGoal save(String text, OnixUiAssert onixUiAssert) {
         driver.findElement(Locator.GAOL_TEXTAREA).sendKeys(text);
         driver.findElement(Locator.SAVE_BUTTON).click();
         if(driver.isElementPresent(Locator.SAVE_BUTTON)) {
@@ -51,7 +51,7 @@ public class NewWeeklyGoal extends BasePageObject {
         }
         logger.debug("Click 'Save' button after adding some text('{}')", text);
         for(OnixLocator l : MyGoal.Locator.values()) {
-            onixAssert.softCheckCountOfElementByLocator(l, 1);
+            onixUiAssert.softCheckCountOfElementByLocator(l, 1);
         }
         return new MyGoal(driver);
     }

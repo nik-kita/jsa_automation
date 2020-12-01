@@ -1,11 +1,11 @@
 package main_package.ui.guest_mode.general_parts;
 
 
-import main_package.ui.engine.OnixAssert;
+import main_package.engine.test_engine.OnixUiAssert;
 import org.openqa.selenium.By;
 import main_package.ui.BasePart;
-import main_package.ui.engine.OnixLocator;
-import main_package.ui.engine.OnixWebDriver;
+import main_package.engine.OnixLocator;
+import main_package.engine.OnixWebDriver;
 import main_package.ui.guest_mode.page_objects.main.*;
 import main_package.ui.guest_mode.page_objects.main.login.CreateAccount;
 import main_package.ui.guest_mode.page_objects.main.login.Login;
@@ -46,12 +46,12 @@ public interface MainHeader extends BasePart {
         getLogger().debug("go 'Login' page from header");
         return new Login(driver);
     }
-    default Login goLoginPage(OnixAssert onixAssert) {
+    default Login goLoginPage(OnixUiAssert onixUiAssert) {
         OnixWebDriver driver = getDriver();
         driver.findElement(HeaderLocator.LOGIN_HEADER_BUTTON).click();
         getLogger().debug("go 'Login' page from header");
         for(OnixLocator l : Login.Locator.values()) {
-            onixAssert.softCheckCountOfElementByLocator(l, 1);
+            onixUiAssert.softCheckCountOfElementByLocator(l, 1);
         }
         return new Login(driver);
     }

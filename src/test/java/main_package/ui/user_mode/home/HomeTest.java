@@ -5,8 +5,8 @@ import main_package.ui.user_mode.general_parts.home.HomeHeaderPart;
 import main_package.ui.user_mode.general_parts.home.HomePart;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import main_package.ui.engine.OnixAssert;
-import main_package.ui.engine.OnixLocator;
+import main_package.engine.test_engine.OnixUiAssert;
+import main_package.engine.OnixLocator;
 import main_package.ui.user_mode.JsaLoginBaseTestRunner;
 import main_package.ui.user_mode.page_objects.home_header.home.Home;
 import main_package.ui.user_mode.page_objects.home_header.UserCabinetDropdown;
@@ -17,7 +17,7 @@ public class HomeTest extends JsaLoginBaseTestRunner {
 
     @Test(dataProvider = "getHomeLoginModeLocators")
     public void homeLoginModeTest(OnixLocator locator) {
-        onixAssert.checkCountOfElementByLocator(locator, 1);
+        onixUiAssert.checkCountOfElementByLocator(locator, 1);
     }
 
     @DataProvider
@@ -32,7 +32,7 @@ public class HomeTest extends JsaLoginBaseTestRunner {
     @Test(dataProvider = "getUserCabinetDropdownLocators")
     public void userCabinetDropdownTest(OnixLocator locator) {
         homeLoginModePO.openUserDropDown();
-        new OnixAssert(driver).checkCountOfElementByLocator(locator, 1);
+        new OnixUiAssert(driver).checkCountOfElementByLocator(locator, 1);
     }
 
     @DataProvider

@@ -1,6 +1,6 @@
 package main_package.ui.user_mode.home.learn;
 
-import main_package.ui.engine.OnixLocator;
+import main_package.engine.OnixLocator;
 import main_package.ui.user_mode.JsaLoginBaseTestRunner;
 import main_package.ui.user_mode.page_objects.home_header.learn.Favourites;
 import org.testng.annotations.BeforeClass;
@@ -14,7 +14,7 @@ public class FavouritesTest extends JsaLoginBaseTestRunner {
     }
     @Test(dataProvider = "originalLocators")
     public void testFavouritesPage(OnixLocator locator) {
-        onixAssert.checkCountOfElementByLocator(locator, 1);
+        onixUiAssert.checkCountOfElementByLocator(locator, 1);
     }
     @DataProvider
     public Object[] originalLocators() {

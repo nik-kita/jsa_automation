@@ -1,9 +1,9 @@
 package main_package.ui.related_sites;
 
 import main_package.ui.BasePageObject;
-import main_package.ui.engine.FlyTester;
-import main_package.ui.engine.OnixLocator;
-import main_package.ui.engine.OnixWebDriver;
+import main_package.engine.test_engine.FlyTester;
+import main_package.engine.OnixLocator;
+import main_package.engine.OnixWebDriver;
 import org.openqa.selenium.By;
 import org.slf4j.Logger;
 

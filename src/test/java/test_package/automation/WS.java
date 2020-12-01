@@ -3,9 +3,9 @@ package test_package.automation;
 import io.qameta.allure.Allure;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import test_package.test_engine.OnixTestRunner;
+import main_package.engine.test_engine.OnixTestRunner;
 import main_package.ui.data.User;
-import main_package.ui.engine.OnixLocator;
+import main_package.engine.OnixLocator;
 import main_package.ui.guest_mode.page_objects.from_footer.*;
 import main_package.ui.guest_mode.page_objects.from_footer.faqs.Faqs;
 import main_package.ui.guest_mode.page_objects.main.Main;
@@ -40,25 +40,25 @@ public class WS extends OnixTestRunner {
                 .goPricingPlans()
                 .subscribeStandard();
         for (OnixLocator l : PaymentMethodPopup.Locator.values()) {
-            onixAssert.softCheckCountOfElementByLocator(l, 1);
+            onixUiAssert.softCheckCountOfElementByLocator(l, 1);
         }
         paymentMethodPopup = paymentMethodPopup
                 .exit()
                 .subscribePremium();
         for (OnixLocator l : PaymentMethodPopup.Locator.values()) {
-            onixAssert.softCheckCountOfElementByLocator(l, 1);
+            onixUiAssert.softCheckCountOfElementByLocator(l, 1);
         }
         paymentMethodPopup = paymentMethodPopup
                 .exit()
                 .buyNow();
         for (OnixLocator l : PaymentMethodPopup.Locator.values()) {
-            onixAssert.softCheckCountOfElementByLocator(l, 1);
+            onixUiAssert.softCheckCountOfElementByLocator(l, 1);
         }
         main = paymentMethodPopup
                 .exit()
                 .clickLogoutHeaderButton()
                 .goMainPage();
-        onixAssert.assertAll();
+        onixUiAssert.assertAll();
     }
 
     @Test
@@ -70,11 +70,11 @@ public class WS extends OnixTestRunner {
         int before = Integer.MIN_VALUE;
         while (transformations.seeMore()) {
             int current = transformations.countTransformations();
-            onixAssert.softCheckFirstGreaterSecond(current, before);
+            onixUiAssert.softCheckFirstGreaterSecond(current, before);
             before = current;
         }
         main = transformations.goMainPage();
-        onixAssert.assertAll();
+        onixUiAssert.assertAll();
     }
 
     @Test
@@ -90,7 +90,7 @@ public class WS extends OnixTestRunner {
         }
         fromEveryTab -= total;
         main = blog.goMainPage();
-        onixAssert.checkCount(total, fromEveryTab);
+        onixUiAssert.checkCount(total, fromEveryTab);
     }
 
     @Test
@@ -98,18 +98,18 @@ public class WS extends OnixTestRunner {
         Allure.link("Original test case", "https://docs.google.com/spreadsheets/d/1gudjZ7fh4aUsozP7aPIovLnI4qGdbUFpIHJ6AbTlbC4/edit?ts=5f7593b0#gid=633091546&range=B53");
 
         Home home = main.goLoginPage().login(User.getValidUser());
-        onixAssert.softCheckCountOfElementByLocator(Home.Locator.CHALLENGE_DIV_LINK, 1);
+        onixUiAssert.softCheckCountOfElementByLocator(Home.Locator.CHALLENGE_DIV_LINK, 1);
         main = home.openUserDropDown().logout().goMainPage();
         ResetPassword resetPassword = main.goLoginPage().clickForgotPassword();
-        onixAssert.softCheckCountOfElementByLocator(ResetPassword.Locator.EMAIL_INPUT, 1);
+        onixUiAssert.softCheckCountOfElementByLocator(ResetPassword.Locator.EMAIL_INPUT, 1);
         main = resetPassword.goMainPage();
         home = main.goLoginPage().loginByFB(User.getValidUser());
-        onixAssert.softCheckCountOfElementByLocator(Home.Locator.CHALLENGE_DIV_LINK, 1);
+        onixUiAssert.softCheckCountOfElementByLocator(Home.Locator.CHALLENGE_DIV_LINK, 1);
         main = home.openUserDropDown().logout().goMainPage();
         CreateAccount createAccount = main.clickGetStartedButton();
-        onixAssert.softCheckCountOfElementByLocator(CreateAccount.Locator.CREATE_ACCOUNT_BUTTON, 1);
+        onixUiAssert.softCheckCountOfElementByLocator(CreateAccount.Locator.CREATE_ACCOUNT_BUTTON, 1);
         main = createAccount.goMainPage();
-        onixAssert.assertAll();
+        onixUiAssert.assertAll();
     }
 
     @Test
@@ -117,34 +117,34 @@ public class WS extends OnixTestRunner {
         Allure.link("Original test case", "https://docs.google.com/spreadsheets/d/1gudjZ7fh4aUsozP7aPIovLnI4qGdbUFpIHJ6AbTlbC4/edit#gid=633091546&range=B84");
 
         TermsOfService termsOfService = main.goTermsOfServiceFromFooter();
-        onixAssert.softCheckCountOfElementByLocator(TermsOfService.Locator.H4_TITLE, 1);
+        onixUiAssert.softCheckCountOfElementByLocator(TermsOfService.Locator.H4_TITLE, 1);
         CookiesPolicy cookiesPolicy = termsOfService.goCookiesPolicyFromFooter();
-        onixAssert.softCheckCountOfElementByLocator(CookiesPolicy.Locator.H4_TITLE, 1);
+        onixUiAssert.softCheckCountOfElementByLocator(CookiesPolicy.Locator.H4_TITLE, 1);
         PrivacyPolicy privacyPolicy = cookiesPolicy.goPrivacyPolicyFromFooter();
-        onixAssert.softCheckCountOfElementByLocator(PrivacyPolicy.Locator.H4_TITLE, 1);
+        onixUiAssert.softCheckCountOfElementByLocator(PrivacyPolicy.Locator.H4_TITLE, 1);
         ReportBugs reportBugs = privacyPolicy.goReportBugsFromFooter();
-        onixAssert.softCheckCountOfElementByLocator(ReportBugs.Locator.H1_TITLE, 1);
+        onixUiAssert.softCheckCountOfElementByLocator(ReportBugs.Locator.H1_TITLE, 1);
         ContactUs contactUs = reportBugs.goContactUsFromFooter();
-        onixAssert.softCheckCountOfElementByLocator(ContactUs.Locator.H1_TITLE, 1);
+        onixUiAssert.softCheckCountOfElementByLocator(ContactUs.Locator.H1_TITLE, 1);
         AccessAndDownload accessAndDownload = contactUs.goAccessAndDownloadFromFooter();
-        onixAssert.softCheckCountOfElementByLocator(AccessAndDownload.Locator.H4_TITLE, 1);
+        onixUiAssert.softCheckCountOfElementByLocator(AccessAndDownload.Locator.H4_TITLE, 1);
         Faqs faqs = accessAndDownload.goFaqsFromFooter();
-        onixAssert.softCheckCountOfElementByLocator(Faqs.Locator.H1_TITLE, 1);
+        onixUiAssert.softCheckCountOfElementByLocator(Faqs.Locator.H1_TITLE, 1);
         GooglePlayPage googlePlayPage = faqs.downloadAppPlayStoreFromFooter();
-        onixAssert.softCheckCountOfElementByLocator(GooglePlayPage.Locator.GOOGLE_PLAY_LOGO, 1);
+        onixUiAssert.softCheckCountOfElementByLocator(GooglePlayPage.Locator.GOOGLE_PLAY_LOGO, 1);
         faqs = new Faqs(googlePlayPage.backToJsa());
         AppStorePage appStorePage = faqs.downloadAppAppStoreFromFooter();
-        onixAssert.softCheckCountOfElementByLocator(AppStorePage.Locator.APPLE_LOGO, 1);
+        onixUiAssert.softCheckCountOfElementByLocator(AppStorePage.Locator.APPLE_LOGO, 1);
         faqs = new Faqs(appStorePage.backToJsa());
         InstagramPage instagramPage = faqs.clickInstagramFromFooter();
-        onixAssert.softCheckCountOfElementByLocator(InstagramPage.Locator.INSTAGRAM_LOGO, 1);
+        onixUiAssert.softCheckCountOfElementByLocator(InstagramPage.Locator.INSTAGRAM_LOGO, 1);
         faqs = new Faqs(instagramPage.closeAndBackToJsaTab());
         FacebookPage facebookPage = faqs.clickFacebookFromFooter();
-        onixAssert.softCheckCountOfElementByLocator(FacebookPage.Locator.FACEBOOK_LOGO, 1);
+        onixUiAssert.softCheckCountOfElementByLocator(FacebookPage.Locator.FACEBOOK_LOGO, 1);
         faqs = new Faqs(facebookPage.closeAndBackToJsaTab());
         SpotifyPage spotifyPage = faqs.clickSpotifyFromFooter();
-        onixAssert.softCheckUrlContains("spotify");
+        onixUiAssert.softCheckUrlContains("spotify");
         main = new Faqs(spotifyPage.closeAndBackToJsaTab()).goMainPage();
-        onixAssert.assertAll();
+        onixUiAssert.assertAll();
     }
 }

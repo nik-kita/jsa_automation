@@ -1,6 +1,8 @@
 package main_package.ui.user_mode.page_objects.home_header.home.my_goal;
 
-import main_package.ui.engine.*;
+import main_package.engine.*;
+import main_package.engine.test_engine.FlyTester;
+import main_package.engine.test_engine.OnixUiAssert;
 import org.openqa.selenium.By;
 import main_package.ui.BasePageObject;
 import main_package.ui.user_mode.general_parts.home.HomeHeaderPart;
@@ -123,11 +125,11 @@ public class MyGoal extends BasePageObject implements HomeHeaderPart {
         return new NewWeeklyGoal(driver);
     }
 
-    public NewWeeklyGoal clickNewGoalButton(OnixAssert onixAssert) {
+    public NewWeeklyGoal clickNewGoalButton(OnixUiAssert onixUiAssert) {
         driver.findElement(Locator.NEW_GOAL_BUTTON).click();
         logger.info("Click on 'New Goal' button.");
         for(OnixLocator l : NewWeeklyGoal.Locator.values()) {
-            onixAssert.softCheckCountOfElementByLocator(l, 1);
+            onixUiAssert.softCheckCountOfElementByLocator(l, 1);
         }
         return new NewWeeklyGoal(driver);
     }

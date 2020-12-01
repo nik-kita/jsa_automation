@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Automation package">
     <listeners>
-        <listener class-name="test_package.test_engine.OnixScreenFailListener"></listener>
+        <listener class-name="main_package.engine.test_engine.OnixScreenFailListener"></listener>
     </listeners>
     <test verbose="2" preserve-order="true" name="/home/p/jsa_automation/src/test/java/test_package/automation">
         <classes>

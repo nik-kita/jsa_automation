@@ -1,6 +1,6 @@
 package main_package.ui.user_mode;
 
-import main_package.ui.engine.OnixLocator;
+import main_package.engine.OnixLocator;
 import main_package.ui.user_mode.general_parts.MainHeader;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
@@ -13,7 +13,7 @@ public class HeaderPartTest extends JsaLoginBaseTestRunner {
     }
     @Test(dataProvider = "mainHeaderPart")
     public void testMainHeader(OnixLocator locator) {
-        onixAssert.checkCountOfElementByLocator(locator, 1);
+        onixUiAssert.checkCountOfElementByLocator(locator, 1);
     }
     @DataProvider
     public Object[] mainHeaderPart() {

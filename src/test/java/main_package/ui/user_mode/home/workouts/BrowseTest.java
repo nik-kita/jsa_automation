@@ -3,7 +3,7 @@ package main_package.ui.user_mode.home.workouts;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import main_package.ui.engine.OnixLocator;
+import main_package.engine.OnixLocator;
 import main_package.ui.user_mode.JsaLoginBaseTestRunner;
 import main_package.ui.user_mode.general_parts.home.HomeHeaderPart;
 import main_package.ui.user_mode.general_parts.home.HomePart;
@@ -16,7 +16,7 @@ public class BrowseTest extends JsaLoginBaseTestRunner {
     }
     @Test(dataProvider = "getBrowseLocators")
     public void browseTest(OnixLocator locator) {
-        onixAssert.checkCountOfElementByLocator(locator, 1);
+        onixUiAssert.checkCountOfElementByLocator(locator, 1);
     }
     @DataProvider
     public Object[] getBrowseLocators() {

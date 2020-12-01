@@ -2,8 +2,8 @@ package main_package.ui.user_mode.general_parts.home;
 
 import org.openqa.selenium.By;
 import main_package.ui.BasePart;
-import main_package.ui.engine.OnixLocator;
-import main_package.ui.engine.OnixWebDriver;
+import main_package.engine.OnixLocator;
+import main_package.engine.OnixWebDriver;
 import main_package.ui.user_mode.page_objects.home_header.home.Home;
 import main_package.ui.user_mode.page_objects.main.Main;
 import main_package.ui.user_mode.page_objects.home_header.UserCabinetDropdown;

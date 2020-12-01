@@ -2,8 +2,8 @@ package main_package.ui.guest_mode.general_parts;
 
 import org.openqa.selenium.By;
 import main_package.ui.BasePart;
-import main_package.ui.engine.OnixLocator;
-import main_package.ui.engine.OnixWebDriver;
+import main_package.engine.OnixLocator;
+import main_package.engine.OnixWebDriver;
 import main_package.ui.guest_mode.page_objects.from_footer.Blog;
 import main_package.ui.guest_mode.page_objects.from_footer.*;
 import main_package.ui.guest_mode.page_objects.from_footer.faqs.Faqs;

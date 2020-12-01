@@ -1,6 +1,6 @@
 package main_package.ui.related_sites;
 
-import main_package.ui.engine.OnixLocator;
+import main_package.engine.OnixLocator;
 import main_package.ui.user_mode.JsaLoginBaseTestRunner;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
@@ -13,7 +13,7 @@ public class FacebookGroupTest extends JsaLoginBaseTestRunner {
     }
     @Test(dataProvider = "original")
     public void testFacebookGroup(OnixLocator locator) {
-        onixAssert.checkCountOfElementByLocator(locator, 1);
+        onixUiAssert.checkCountOfElementByLocator(locator, 1);
     }
     @DataProvider
     public Object[] original() {

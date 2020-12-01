@@ -2,11 +2,10 @@ package main_package.ui.user_mode.page_objects.home_header.home.steps;
 
 
 import main_package.ui.BasePageObject;
-import main_package.ui.engine.FlyTester;
-import main_package.ui.engine.OnixAssert;
-import main_package.ui.engine.OnixLocator;
-import main_package.ui.engine.OnixWebDriver;
-import main_package.ui.user_mode.general_parts.home.HomePart;
+import main_package.engine.test_engine.FlyTester;
+import main_package.engine.test_engine.OnixUiAssert;
+import main_package.engine.OnixLocator;
+import main_package.engine.OnixWebDriver;
 import org.openqa.selenium.By;
 
 public class EditYourGoalStepsPopup extends BasePageObject {
@@ -33,10 +32,10 @@ public class EditYourGoalStepsPopup extends BasePageObject {
         }
         return new Steps(driver);
     }
-    public Steps close(OnixAssert onixAssert) {
+    public Steps close(OnixUiAssert onixUiAssert) {
         close();
         for(OnixLocator l : Steps.Locator.values()) {
-            onixAssert.softCheckCountOfElementByLocator(l, 1);
+            onixUiAssert.softCheckCountOfElementByLocator(l, 1);
         }
         return new Steps(driver);
     }

@@ -3,8 +3,8 @@ package main_package.ui.guest_mode.main;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import test_package.test_engine.OnixTestRunner;
-import main_package.ui.engine.OnixLocator;
+import main_package.engine.test_engine.OnixTestRunner;
+import main_package.engine.OnixLocator;
 import main_package.ui.guest_mode.page_objects.main.Transformations;
 
 public class TransformationsTest extends OnixTestRunner {
@@ -15,7 +15,7 @@ public class TransformationsTest extends OnixTestRunner {
 
     @Test(dataProvider = "getTransformationsLocators")
     public void transformationsTest(OnixLocator locator) {
-        onixAssert
+        onixUiAssert
                 .checkCountOfElementByLocator(locator, 1);
     }
 

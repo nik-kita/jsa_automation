@@ -1,5 +1,7 @@
 package main_package.api.models;
 
+import java.util.Map;
+
 public class Challenge {
     private int id;
     private String name;

@@ -1,19 +1,15 @@
-package main_package.ui.engine;
+package main_package.engine.test_engine;
 
 
+import main_package.engine.OnixLocator;
+import main_package.engine.OnixWebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
-import main_package.ui.engine.OnixLocator;
-import main_package.ui.engine.OnixWebDriver;
 
-public class OnixAssert {
+public class OnixUiAssert extends OnixAssert{
     OnixWebDriver driver;
-    SoftAssert softAssert;
-    int softTotalCounter;
-    int softSuccessCounter;
-    Logger logger;
 
     public static OnixLocator[] mergeArrays(OnixLocator[]... arrays) {
         int length = 0;
@@ -31,28 +27,8 @@ public class OnixAssert {
         return result;
     }
 
-    public SoftAssert getSoftAssert() {
-        if(softAssert == null) {
-            softAssert = new SoftAssert();
-        }
-        return softAssert;
-    }
-
-    public void assertAll() {
-        if(softTotalCounter == softSuccessCounter) {
-            message(true, "All softAssertions passed!", "this message will never displayed");
-        } else {
-            message(false, "", "Not all tests passed!!!");
-        }
-        softAssert.assertAll();
-        softAssert = null;
-        softTotalCounter = softSuccessCounter = 0;
-    }
-
-    public OnixAssert(OnixWebDriver driver) {
-        logger = LoggerFactory.getLogger(this.getClass());
+    public OnixUiAssert(OnixWebDriver driver) {
         this.driver = driver;
-        softTotalCounter = softSuccessCounter = 0;
     }
 
     public void checkFirstGreaterSecond(int first, int second) {
@@ -213,21 +189,5 @@ public class OnixAssert {
         softMessage(result, "Current url '" + url + "' contains '" + wordInUrl + "'", "Current url is '" + url + "' however you try to find '" + wordInUrl + "' in it.");
         softAssert.assertTrue(result);
     }
-    public void message(boolean success, String good, String bad) {
-        if(success) {
-            logger.info("Success! " + good);
-        } else {
-            logger.error("Fail!!! " + bad);
-        }
-    }
-    public void softMessage(boolean success, String good, String bad) {
-        if(success) {
-            logger.trace("Pass in softAssert: " + good);
-            softSuccessCounter++;
-            softTotalCounter++;
-        } else {
-            logger.error("Fail in softAssert: " + bad);
-            softTotalCounter++;
-        }
-    }
+
 }

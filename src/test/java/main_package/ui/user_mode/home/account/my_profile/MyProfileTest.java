@@ -1,6 +1,6 @@
 package main_package.ui.user_mode.home.account.my_profile;
 
-import main_package.ui.engine.OnixLocator;
+import main_package.engine.OnixLocator;
 import main_package.ui.user_mode.JsaLoginBaseTestRunner;
 import main_package.ui.user_mode.general_parts.Footer;
 import main_package.ui.user_mode.general_parts.home.account.AccountHeader;
@@ -17,7 +17,7 @@ public class MyProfileTest extends JsaLoginBaseTestRunner {
     }
     @Test(dataProvider = "origin")
     public void testMyProfilePage(OnixLocator locator) {
-        onixAssert.checkCountOfElementByLocator(locator, 1);
+        onixUiAssert.checkCountOfElementByLocator(locator, 1);
     }
     @DataProvider
     public Object[] origin() {

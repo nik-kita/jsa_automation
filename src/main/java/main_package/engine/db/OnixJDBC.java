@@ -1,14 +1,11 @@
-package main_package.ui.engine.db;
+package main_package.engine.db;
 
-import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.FileReader;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.Properties;
 
 public class OnixJDBC {
@@ -16,7 +13,8 @@ public class OnixJDBC {
     private String dbUser;
     private String dbPassword;
     private String dbName;
-    private Logger logger;
+    Logger logger;
+    static Connection connection;
 
     public OnixJDBC() {
         logger = LoggerFactory.getLogger(this.getClass());
@@ -30,12 +28,39 @@ public class OnixJDBC {
         dbUser = properties.getProperty("jsaTestingDbUser");
         dbName = properties.getProperty("jsaTestingDbName");
         dbPassword = properties.getProperty("jsaTestingDbPassword");
+        try {
+            if(connection == null || connection.isClosed()) {
+                connection = connect();
+            }
+        } catch (SQLException throwables) {
+            logger.error(throwables.getMessage());
+        }
     }
 
-    public Connection connect() {
-        Connection connection = null;
+    private void close() {
+        try {
+            connection.close();
+        } catch (SQLException throwables) {
+            logger.error(throwables.getMessage());
+        }
+    }
+
+    ResultSet executeQuery(String query) {
+        ResultSet resultSet = null;
+        try {
+            Statement statement = connection.createStatement();
+            resultSet = statement.executeQuery(query);
+        } catch (SQLException throwables) {
+            logger.error(throwables.getMessage());
+        }
+        close();
+        return resultSet;
+    }
+
+    private Connection connect() {
         try {
             connection = DriverManager.getConnection(dbHost, dbUser, dbPassword);
+            connection.setAutoCommit(false);
             logger.debug("Connected to the PostgreSQL server successfully.");
         } catch (SQLException e) {
             logger.error(e.getMessage());

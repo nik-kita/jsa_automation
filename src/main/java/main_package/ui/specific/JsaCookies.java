@@ -1,12 +1,12 @@
 package main_package.ui.specific;
 
 
-import main_package.ui.engine.FlyTester;
+import main_package.engine.test_engine.FlyTester;
 import org.openqa.selenium.By;
 import org.slf4j.Logger;
 import main_package.ui.BasePart;
-import main_package.ui.engine.OnixLocator;
-import main_package.ui.engine.OnixWebDriver;
+import main_package.engine.OnixLocator;
+import main_package.engine.OnixWebDriver;
 
 public class JsaCookies extends BaseSpecific implements BasePart {
 
