@@ -1,18 +1,16 @@
-package main_package.api;
+package test_package.api;
 
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import main_package.api.assertions.ChallengeAssert;
 import main_package.api.clients.ChallengeClient;
 import main_package.api.models.Challenge;
+import main_package.engine.test_engine.OnixApiTestRunner;
 import main_package.engine.db.ChallengeDb;
-import org.checkerframework.checker.units.qual.A;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 public class ChallengeApiTest extends OnixApiTestRunner {

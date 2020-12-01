@@ -6,12 +6,12 @@
     </listeners>
     <test verbose="2" preserve-order="true" name="/home/p/jsa_automation/src/test/java/test_package/automation">
         <classes>
-            <class name="test_package.automation.LoginUiTest">
+            <class name="test_package.ui.LoginUiTest">
                 <methods>
                     <include name="loginWithFBTest"/>
                 </methods>
             </class>
-            <class name="test_package.automation.WS">
+            <class name="test_package.ui.WS">
                 <methods>
                     <include name="pricing"/>
                     <include name="transformations"/>
@@ -20,7 +20,7 @@
                     <include name="footer"/>
                 </methods>
             </class>
-            <class name="test_package.automation.WSAccount">
+            <class name="test_package.ui.WSAccount">
                 <methods>
                     <include name="home"/>
                     <include name="workouts"/>

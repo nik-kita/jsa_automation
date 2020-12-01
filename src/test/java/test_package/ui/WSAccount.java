@@ -1,4 +1,4 @@
-package test_package.automation;
+package test_package.ui;
 
 import io.qameta.allure.Allure;
 import main_package.ui.related_sites.FacebookGroupPage;

@@ -1,4 +1,4 @@
-package test_package.automation;
+package test_package.ui;
 
 import main_package.engine.test_engine.OnixUiTestRunner;
 import org.testng.annotations.Test;

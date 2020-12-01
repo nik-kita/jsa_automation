@@ -1,5 +1,6 @@
-package main_package.api;
+package test_package.api;
 
+import main_package.engine.test_engine.OnixApiTestRunner;
 import org.testng.annotations.Test;
 
 public class UserApiTest extends OnixApiTestRunner {

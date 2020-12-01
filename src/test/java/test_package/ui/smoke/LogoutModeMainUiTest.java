@@ -1,4 +1,4 @@
-package test_package.automation.smoke;
+package test_package.ui.smoke;
 
 import main_package.engine.test_engine.OnixUiTestRunner;
 import org.testng.annotations.Test;

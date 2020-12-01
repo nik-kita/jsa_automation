@@ -155,7 +155,7 @@
     <!--    </appender>-->
 
 
-    <logger name="test_package.automation" level="DEBUG">
+    <logger name="test_package.ui" level="DEBUG">
         <appender-ref ref="CONSOLE_error_only"/>
         <appender-ref ref="CONSOLE_warn_only"/>
         <appender-ref ref="CONSOLE_info_only"/>
