@@ -16,7 +16,7 @@ public class OnixScreenFailListener implements ITestListener {
 
         Object i = result.getInstance();
 
-        saveScreenshotPNG(((OnixTestRunner) i).driver.getSeleniumDriver());
+        saveScreenshotPNG(((OnixUiTestRunner) i).driver.getSeleniumDriver());
     }
     @Override
     public void onTestSkipped(ITestResult result) {

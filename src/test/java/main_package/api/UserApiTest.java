@@ -2,7 +2,7 @@ package main_package.api;
 
 import org.testng.annotations.Test;
 
-public class UserApiTest extends BaseApiTestRunner {
+public class UserApiTest extends OnixApiTestRunner {
 
     @Test
     public void getCoachIdleTest() {

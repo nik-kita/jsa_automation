@@ -32,6 +32,17 @@ public class OnixAssert {
         softAssert = null;
         softTotalCounter = softSuccessCounter = 0;
     }
+    public void assertAll(String good, String bad) {
+        if(softTotalCounter == softSuccessCounter) {
+            message(true, good, "this message will never displayed");
+        } else {
+            message(false, "", bad);
+        }
+        softAssert.assertAll();
+        softAssert = null;
+        softTotalCounter = softSuccessCounter = 0;
+
+    }
 
     public void message(boolean success, String good, String bad) {
         if(success) {

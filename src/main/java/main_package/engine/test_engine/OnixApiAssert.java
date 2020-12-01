@@ -1,5 +1,6 @@
 package main_package.engine.test_engine;
 
+import io.restassured.response.Response;
 import org.testng.Assert;
 
 public class OnixApiAssert extends OnixAssert {
@@ -19,5 +20,12 @@ public class OnixApiAssert extends OnixAssert {
                 "Status code is " + actual + " but expected " + expected
         );
         Assert.assertEquals(actual, expected);
+    }
+
+    public void assertAll(Response response) {
+        assertAll(
+                "This is good response!\n" + response.asPrettyString(),
+                "This response has problems!\n" + response.asPrettyString()
+        );
     }
 }

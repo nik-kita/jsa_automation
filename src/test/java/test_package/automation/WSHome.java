@@ -1,6 +1,7 @@
 package test_package.automation;
 
 import io.qameta.allure.Allure;
+import main_package.engine.test_engine.OnixUiTestRunner;
 import main_package.ui.data.User;
 import main_package.engine.test_engine.FlyTester;
 import main_package.engine.OnixLocator;
@@ -11,11 +12,10 @@ import main_package.ui.user_mode.page_objects.home_header.home.my_goal.MyGoal;
 import main_package.ui.user_mode.page_objects.home_header.home.steps.Steps;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
-import main_package.engine.test_engine.OnixTestRunner;
 
 import java.util.Date;
 
-public class WSHome extends OnixTestRunner {
+public class WSHome extends OnixUiTestRunner {
     @Test
     public void myGoal() {
         Allure.link("Full test's info", "https://docs.google.com/spreadsheets/d/1gudjZ7fh4aUsozP7aPIovLnI4qGdbUFpIHJ6AbTlbC4/edit#gid=1648986495&range=C11:D11");

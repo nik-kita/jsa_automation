@@ -24,7 +24,7 @@ import main_package.ui.user_mode.page_objects.home_header.workouts.Personalised;
 import main_package.ui.user_mode.page_objects.main.pricing.pricingplans.PricingPlans;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import main_package.engine.test_engine.OnixTestRunner;
+import main_package.engine.test_engine.OnixUiTestRunner;
 import main_package.ui.data.User;
 import main_package.engine.OnixLocator;
 import main_package.ui.guest_mode.page_objects.main.Main;
@@ -32,7 +32,7 @@ import main_package.ui.guest_mode.page_objects.main.login.Login;
 import main_package.ui.user_mode.page_objects.home_header.home.my_goal.MyGoal;
 import main_package.ui.user_mode.page_objects.home_header.home.my_progress.MyProgress;
 
-public class WSAccount extends OnixTestRunner {
+public class WSAccount extends OnixUiTestRunner {
     Main main;
 
     @BeforeClass

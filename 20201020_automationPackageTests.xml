@@ -6,7 +6,7 @@
     </listeners>
     <test verbose="2" preserve-order="true" name="/home/p/jsa_automation/src/test/java/test_package/automation">
         <classes>
-            <class name="test_package.automation.LoginTest">
+            <class name="test_package.automation.LoginUiTest">
                 <methods>
                     <include name="loginWithFBTest"/>
                 </methods>

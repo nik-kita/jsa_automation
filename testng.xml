@@ -7,7 +7,7 @@
     </listeners>
     <test verbose="2" preserve-order="true" name="/home/p/jsa_automation/src/test/java/test_package/automation/smoke">
         <classes>
-            <class name="test_package.automation.smoke.LogoutModeMainTest">
+            <class name="test_package.automation.smoke.LogoutModeMainUiTest">
                 <methods>
                     <include name="mainPageTest"/>
                     <include name="clickGetStarted"/>

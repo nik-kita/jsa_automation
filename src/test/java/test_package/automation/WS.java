@@ -1,9 +1,9 @@
 package test_package.automation;
 
 import io.qameta.allure.Allure;
+import main_package.engine.test_engine.OnixUiTestRunner;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import main_package.engine.test_engine.OnixTestRunner;
 import main_package.ui.data.User;
 import main_package.engine.OnixLocator;
 import main_package.ui.guest_mode.page_objects.from_footer.*;
@@ -18,7 +18,7 @@ import main_package.ui.user_mode.page_objects.main.pricing.pricingplans.PaymentM
 
 import java.io.FileNotFoundException;
 @Test(testName = "WS")
-public class WS extends OnixTestRunner {
+public class WS extends OnixUiTestRunner {
     Main main;
 
     @BeforeClass
