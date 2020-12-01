@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.testng.asserts.SoftAssert;
 
 public class OnixAssert {
-    SoftAssert softAssert;
+    private SoftAssert softAssert;
     int softTotalCounter;
     int softSuccessCounter;
     Logger logger;

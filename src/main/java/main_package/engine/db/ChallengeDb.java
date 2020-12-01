@@ -20,30 +20,35 @@ public class ChallengeDb extends OnixJDBC {
     String close_enrollment = "close_enrollment";
     String finished = "finished";
 
-    public Map<Integer, Challenge> selectAll() throws SQLException {
+    public Map<Integer, Challenge> selectAll() {
         Map<Integer, Challenge> challenges = new HashMap<>();
         logger.debug("Execute: {}", select_all);
         ResultSet resultSet = executeQuery(select_all);
-        while(resultSet.next()) {
-            Challenge challenge = new Challenge();
-            challenge.setId(resultSet.getInt(id))
-                    .setName(resultSet.getString(name))
-                    .setStart(resultSet.getString(start))
-                    .setEnd(resultSet.getString(end))
-                    .setClose_enrollment(resultSet.getBoolean(close_enrollment))
-                    .setFinished(resultSet.getBoolean(finished));
-            challenges.put(challenge.getId(), challenge);
+        try {
+            while (resultSet.next()) {
+                Challenge challenge = new Challenge();
+                challenge.setId(resultSet.getInt(id))
+                        .setName(resultSet.getString(name))
+                        .setStart(resultSet.getString(start))
+                        .setEnd(resultSet.getString(end))
+                        .setClose_enrollment(resultSet.getBoolean(close_enrollment))
+                        .setFinished(resultSet.getBoolean(finished));
+                challenges.put(challenge.getId(), challenge);
+            }
+        } catch (SQLException e) {
+            logger.error(e.getMessage());
         }
         return challenges;
     }
 
+
     @Test
     public void test() throws SQLException {
-        for(Challenge c : selectAll().values()) {
+        for (Challenge c : selectAll().values()) {
             logger.info(c.toString());
         }
         OnixApiAssert onixApiAssert = new OnixApiAssert();
-        onixApiAssert.getSoftAssert().assertEquals(1,1);
+        onixApiAssert.getSoftAssert().assertEquals(1, 1);
         onixApiAssert.assertAll();
 
     }

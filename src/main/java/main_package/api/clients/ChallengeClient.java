@@ -7,13 +7,11 @@ import main_package.api.models.User;
 
 import static io.restassured.RestAssured.given;
 
-public class ChallengeClient extends BaseClient {
-    private Challenge challenge;
+public class ChallengeClient extends BaseClient{
     private User user;
     private static String challenge_url = "/challenge";
     private static String get_challenge = challenge_url + "/challenge/";
     public ChallengeClient(Challenge challenge, User user) {
-        this.challenge = challenge;
         this.user = user;
     }
 

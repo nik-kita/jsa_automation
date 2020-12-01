@@ -1,5 +1,7 @@
 package main_package.api.models;
 
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Challenge {
@@ -9,6 +11,14 @@ public class Challenge {
     private String end;
     private boolean close_enrollment;
     private boolean finished;
+
+    public static Map<Integer, Challenge> getMap(List<Challenge> challenges) {
+        Map<Integer, Challenge> result = new HashMap<>();
+        for(Challenge c : challenges) {
+            result.put(c.getId(), c);
+        }
+        return result;
+    }
 
     public int getId() {
         return id;
