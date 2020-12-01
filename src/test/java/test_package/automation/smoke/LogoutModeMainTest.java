@@ -1,5 +1,6 @@
 package test_package.automation.smoke;
 
+import org.testng.Reporter;
 import org.testng.annotations.Test;
 import test_package.test_engine.OnixTestRunner;
 

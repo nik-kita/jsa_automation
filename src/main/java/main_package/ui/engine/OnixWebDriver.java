@@ -80,7 +80,7 @@ public class OnixWebDriver {
 
     public OnixWebElement waitVisibility(OnixLocator locator, int seconds) {
         log.trace("wait " + seconds + " seconds for visibility of element located by " + locator.getPath());
-        return new OnixWebElement(new WebDriverWait(driver, Duration.ofSeconds(seconds))
+        return new OnixWebElement(new WebDriverWait(driver, seconds)
                 .until(ExpectedConditions.visibilityOfElementLocated(locator.getPath())));
     }
 
@@ -90,7 +90,7 @@ public class OnixWebDriver {
 
     public OnixWebElement waitVisibility(By seleniumPath, int seconds) {
         log.trace("wait " + seconds + " seconds for visibility of element located " + seleniumPath);
-        return new OnixWebElement(new WebDriverWait(driver, Duration.ofSeconds(seconds))
+        return new OnixWebElement(new WebDriverWait(driver, seconds)
                 .until(ExpectedConditions.visibilityOfElementLocated(seleniumPath)));
     }
 
@@ -198,19 +198,19 @@ public class OnixWebDriver {
 
     public boolean waitInvisibilityOf(OnixLocator locator) {
         log.trace("wait for invisibility of element located by " + locator.getPath());
-        return new WebDriverWait(driver, Duration.ofSeconds(5))
+        return new WebDriverWait(driver, 5)
                 .until(ExpectedConditions.invisibilityOfElementLocated(locator.getPath()));
     }
 
     public boolean waitInvisibilityOf(OnixWebElement element) {
         log.trace("wait for invisibility of " + element);
-        return new WebDriverWait(driver, Duration.ofSeconds(5))
+        return new WebDriverWait(driver, 5)
                 .until(ExpectedConditions.invisibilityOf(element.getSeleniumWebElement()));
     }
 
     public OnixWebElement waitToClick(OnixLocator locator) {
         log.trace("wait to click the element located by " + locator.getPath());
-        WebElement e = new WebDriverWait(driver, Duration.ofSeconds(5))
+        WebElement e = new WebDriverWait(driver, 5)
                 .until(ExpectedConditions.elementToBeClickable(locator.getPath()));
         return new OnixWebElement(e);
     }
@@ -298,7 +298,7 @@ public class OnixWebDriver {
     }
 
     public void alertAccept() {
-        Alert alert = new WebDriverWait(driver, Duration.ofSeconds(5))
+        Alert alert = new WebDriverWait(driver, 5)
                 .until(ExpectedConditions.alertIsPresent());
         alert.accept();
         log.debug("accept alert");
