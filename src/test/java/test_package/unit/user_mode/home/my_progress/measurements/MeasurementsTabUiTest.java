@@ -1,11 +1,11 @@
 package test_package.unit.user_mode.home.my_progress.measurements;
 
-import main_package.ui.user_mode.JsaLoginBaseUiTestRunner;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import main_package.engine.OnixLocator;
 import main_package.ui.user_mode.page_objects.home_header.home.my_progress.measurements_tab.MeasurementsTab;
+import main_package.engine.test_engine.JsaLoginBaseUiTestRunner;
 
 public class MeasurementsTabUiTest extends JsaLoginBaseUiTestRunner {
     @BeforeClass

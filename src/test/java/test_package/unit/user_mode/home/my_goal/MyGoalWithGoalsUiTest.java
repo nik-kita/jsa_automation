@@ -4,8 +4,8 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import main_package.engine.OnixLocator;
-import main_package.ui.user_mode.JsaLoginBaseUiTestRunner;
 import main_package.ui.user_mode.page_objects.home_header.home.my_goal.MyGoal;
+import main_package.engine.test_engine.JsaLoginBaseUiTestRunner;
 
 public class MyGoalWithGoalsUiTest extends JsaLoginBaseUiTestRunner {
     MyGoal myGoal;

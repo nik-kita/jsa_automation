@@ -1,4 +1,4 @@
-package test_package.unit.user_mode;
+package main_package.engine.test_engine;
 
 
 import org.testng.annotations.BeforeClass;

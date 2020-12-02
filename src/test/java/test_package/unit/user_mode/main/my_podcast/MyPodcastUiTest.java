@@ -5,7 +5,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import main_package.engine.OnixLocator;
 import main_package.ui.user_mode.page_objects.main.my_podcast.MyPodcast;
-import main_package.ui.user_mode.JsaLoginBaseUiTestRunner;
+import main_package.engine.test_engine.JsaLoginBaseUiTestRunner;
 
 
 public class MyPodcastUiTest extends JsaLoginBaseUiTestRunner {

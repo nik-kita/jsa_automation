@@ -6,5 +6,6 @@
     </listeners>
     <suite-files>
         <suite-file path="challenge_api_test.xml"/>
+        <suite-file path="ui_unit_test.xml"/>
     </suite-files>
 </suite>

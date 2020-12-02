@@ -4,9 +4,9 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import main_package.engine.OnixLocator;
-import main_package.ui.user_mode.JsaLoginBaseUiTestRunner;
 import main_package.ui.user_mode.general_parts.home.HomeHeaderPart;
 import main_package.ui.user_mode.page_objects.home_header.learn.SearchVideos;
+import main_package.engine.test_engine.JsaLoginBaseUiTestRunner;
 
 public class SearchVideosUiTest extends JsaLoginBaseUiTestRunner {
     @BeforeClass
