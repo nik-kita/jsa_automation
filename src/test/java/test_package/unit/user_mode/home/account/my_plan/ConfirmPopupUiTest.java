@@ -1,4 +1,4 @@
-package main_package.ui.user_mode.home.account.my_plan;
+package test_package.unit.user_mode.home.account.my_plan;
 
 import main_package.engine.OnixLocator;
 import main_package.ui.user_mode.JsaLoginBaseUiTestRunner;

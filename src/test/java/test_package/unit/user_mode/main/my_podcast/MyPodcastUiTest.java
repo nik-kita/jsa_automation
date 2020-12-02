@@ -1,4 +1,4 @@
-package main_package.ui.user_mode.main.my_podcast;
+package test_package.unit.user_mode.main.my_podcast;
 
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;

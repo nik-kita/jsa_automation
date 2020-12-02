@@ -1,4 +1,4 @@
-package main_package.ui.user_mode.main.pricing.pricingplans;
+package test_package.unit.user_mode.main.pricing.pricingplans;
 
 
 import main_package.ui.user_mode.JsaLoginBaseUiTestRunner;

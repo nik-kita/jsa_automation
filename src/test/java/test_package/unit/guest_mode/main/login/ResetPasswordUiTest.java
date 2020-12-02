@@ -1,4 +1,4 @@
-package main_package.ui.guest_mode.main.login;
+package test_package.unit.guest_mode.main.login;
 
 
 import main_package.engine.test_engine.OnixUiTestRunner;

@@ -1,4 +1,4 @@
-package main_package.ui.user_mode.home.my_progress;
+package test_package.unit.user_mode.home.my_progress;
 
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;

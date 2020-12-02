@@ -1,4 +1,4 @@
-package main_package.ui.guest_mode.main;
+package test_package.unit.guest_mode.main;
 
 
 import org.testng.annotations.BeforeClass;

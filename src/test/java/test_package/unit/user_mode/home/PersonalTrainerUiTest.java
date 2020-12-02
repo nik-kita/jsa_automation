@@ -1,4 +1,4 @@
-package main_package.ui.user_mode.home;
+package test_package.unit.user_mode.home;
 
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;

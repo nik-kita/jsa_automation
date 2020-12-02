@@ -1,4 +1,4 @@
-package main_package.ui.user_mode.home.steps;
+package test_package.unit.user_mode.home.steps;
 
 import main_package.engine.test_engine.OnixUiAssert;
 import main_package.engine.OnixLocator;

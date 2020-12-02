@@ -1,4 +1,4 @@
-package main_package.ui.guest_mode;
+package test_package.unit.guest_mode;
 
 import main_package.engine.test_engine.OnixUiTestRunner;
 import org.testng.annotations.BeforeClass;

@@ -1,6 +1,7 @@
-package main_package.ui.related_sites;
+package test_package.unit.related_sites;
 
 import main_package.engine.test_engine.OnixUiTestRunner;
+import main_package.ui.related_sites.InstagramPage;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;

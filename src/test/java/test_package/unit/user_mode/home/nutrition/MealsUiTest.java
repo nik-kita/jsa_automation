@@ -1,4 +1,4 @@
-package main_package.ui.user_mode.home.nutrition;
+package test_package.unit.user_mode.home.nutrition;
 
 import main_package.ui.user_mode.JsaLoginBaseUiTestRunner;
 import org.testng.annotations.BeforeClass;
