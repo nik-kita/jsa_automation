@@ -1,5 +1,6 @@
 package main_package.engine.test_engine;
 
+import main_package.engine.logger_engine.LogHtmlWrap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.asserts.SoftAssert;
@@ -11,7 +12,7 @@ public class OnixAssert {
     Logger logger;
 
     public OnixAssert() {
-        logger = LoggerFactory.getLogger(this.getClass());
+        logger = new LogHtmlWrap(LoggerFactory.getLogger(this.getClass()));
         softTotalCounter = softSuccessCounter = 0;
     }
 

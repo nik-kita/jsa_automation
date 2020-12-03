@@ -11,6 +11,27 @@ public class Challenge {
     private String end;
     private boolean close_enrollment;
     private boolean finished;
+    private boolean first_month_notification;
+
+    public boolean isFirst_month_notification() {
+        return first_month_notification;
+    }
+
+    public Challenge setFirst_month_notification(boolean first_month_notification) {
+        this.first_month_notification = first_month_notification;
+        return this;
+    }
+
+    public boolean isSecond_month_notification() {
+        return second_month_notification;
+    }
+
+    public Challenge setSecond_month_notification(boolean second_month_notification) {
+        this.second_month_notification = second_month_notification;
+        return this;
+    }
+
+    private boolean second_month_notification;
 
     public static Map<Integer, Challenge> getMap(List<Challenge> challenges) {
         Map<Integer, Challenge> result = new HashMap<>();

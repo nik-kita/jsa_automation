@@ -1,8 +1,8 @@
 package main_package.api.db;
 
 import main_package.api.models.Challenge;
-import main_package.engine.test_engine.OnixApiAssert;
-import org.junit.Test;
+
+
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -17,6 +17,27 @@ public class ChallengeDb extends OnixJDBC {
     String end = "end";
     String close_enrollment = "close_enrollment";
     String finished = "finished";
+    String first_month_notification = "first_month_notification";
+
+    public String getFirst_month_notification() {
+        return first_month_notification;
+    }
+
+    public ChallengeDb setFirst_month_notification(String first_month_notification) {
+        this.first_month_notification = first_month_notification;
+        return this;
+    }
+
+    public String getSecond_month_notification() {
+        return second_month_notification;
+    }
+
+    public ChallengeDb setSecond_month_notification(String second_month_notification) {
+        this.second_month_notification = second_month_notification;
+        return this;
+    }
+
+    String second_month_notification = "second_month_notification";
 
     public Map<Integer, Challenge> selectAll() {
         Map<Integer, Challenge> challenges = new HashMap<>();
@@ -30,7 +51,9 @@ public class ChallengeDb extends OnixJDBC {
                         .setStart(resultSet.getString(start))
                         .setEnd(resultSet.getString(end))
                         .setClose_enrollment(resultSet.getBoolean(close_enrollment))
-                        .setFinished(resultSet.getBoolean(finished));
+                        .setFinished(resultSet.getBoolean(finished))
+                        .setFirst_month_notification(resultSet.getBoolean(first_month_notification))
+                        .setSecond_month_notification(resultSet.getBoolean(second_month_notification));
                 challenges.put(challenge.getId(), challenge);
             }
         } catch (SQLException e) {

@@ -167,7 +167,7 @@
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>7.3.0</version>
+            <version>${testng-ver}</version>
             <scope>compile</scope>
         </dependency>
         <dependency>

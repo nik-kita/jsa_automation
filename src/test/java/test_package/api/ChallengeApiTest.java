@@ -25,7 +25,7 @@ public class ChallengeApiTest extends OnixApiTestRunner {
         challengeDb = new ChallengeDb();
         expectedMap = challengeDb.selectAll();
     }
-    @Test
+    @Test(description = "Simply get all challenges from database and comparing results with challenges from response")
     public void getChallengeTest() {
         Response response = challengeClient.getChallenge();
         JsonPath jsonPath = response.jsonPath();
