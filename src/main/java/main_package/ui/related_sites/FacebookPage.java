@@ -1,6 +1,7 @@
 package main_package.ui.related_sites;
 
 import main_package.engine.test_engine.FlyTester;
+import main_package.engine.test_engine.OnixUiAssert;
 import org.openqa.selenium.By;
 import main_package.ui.BasePageObject;
 import main_package.engine.OnixLocator;
@@ -9,7 +10,14 @@ import main_package.engine.OnixWebDriver;
 public class FacebookPage extends BasePageObject implements InAnotherTab {
     public FacebookPage(OnixWebDriver driver) {
         super(driver);
+        logger.debug("'Facebook' page is open.");
         driver.registerCurrentTab("facebook");
+    }
+    public FacebookPage check(OnixUiAssert onixUiAssert) {
+        for(OnixLocator l : FacebookPage.Locator.values()) {
+            onixUiAssert.softCheckCountOfElementByLocator(l, 1);
+        }
+        return this;
     }
     @Override
     public FacebookPage test(FlyTester flyTester) {

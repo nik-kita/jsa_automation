@@ -2,6 +2,7 @@ package main_package.ui.guest_mode.page_objects.main;
 
 
 import main_package.engine.test_engine.FlyTester;
+import main_package.engine.test_engine.OnixUiAssert;
 import org.openqa.selenium.By;
 import main_package.ui.BasePageObject;
 import main_package.engine.OnixLocator;
@@ -13,12 +14,26 @@ import main_package.ui.guest_mode.page_objects.main.login.CreateAccount;
 public class Challenge extends BasePageObject implements Footer, MainHeader {
     public Challenge(OnixWebDriver driver) {
         super(driver);
+        logger.debug("'Challenge' page is open.");
     }
+
+    public Challenge check(OnixUiAssert onixUiAssert) {
+        for(OnixLocator l : OnixUiAssert.mergeArrays(
+                Challenge.Locator.values(),
+                Footer.FooterLocator.values(),
+                MainHeader.HeaderLocator.values()
+        )) {
+            onixUiAssert.softCheckCountOfElementByLocator(l, 1);
+        }
+        return this;
+    }
+
     @Override
     public Challenge test(FlyTester flyTester) {
         flyTester.test();
         return this;
     }
+
     public CreateAccount clickCreateAccountButton() {
         driver.findElement(Locator.CREATE_ACCOUNT_BUTTON_INNER_PAGE).click();
         logger.debug("'Create Account' from 'Challenge'");
@@ -31,7 +46,6 @@ public class Challenge extends BasePageObject implements Footer, MainHeader {
         EMAIL_INPUT_INNER_PAGE(By.cssSelector("input[name='email']")),
         SIGN_UP_BUTTON_INNER_PAGE(By.cssSelector("button[onclick='submitRegisterInterest()']")),
         PREMIUM_PLAN_LINK(By.cssSelector("[href='/users/pricing/']")),
-
 
 
         ;

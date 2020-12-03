@@ -29,6 +29,53 @@ public class LogoutModeMainUiTest extends OnixUiTestRunner {
         onixUiAssert.assertAll();
     }
 
+    @Test
+    public void clickMyInstagram() {
+        openSite().clickMyInstagramBannerButton(onixUiAssert);
+        onixUiAssert.assertAll();
+    }
+
+    @Test
+    public void clickMyFacebook() {
+        openSite().clickMyFacebookBannerButton(onixUiAssert);
+        onixUiAssert.assertAll();
+    }
+
+    @Test
+    public void clickPlayStoreInDownloadSection() {
+        openSite().clickPlayStoreButtonInDownloadSection(onixUiAssert);
+        onixUiAssert.assertAll();
+    }
+
+    @Test
+    public void clickAppStoreButtonInDownloadSection() {
+        openSite().clickAppStoreButtonInDownloadSection(onixUiAssert);
+        onixUiAssert.assertAll();
+    }
+
+    @Test
+    public void clickAboutChallenges() {
+        openSite().clickAboutChallengesButton(onixUiAssert);
+        onixUiAssert.assertAll();
+    }
+
+    @Test
+    public void clickSeeMoreTransformations() {
+        openSite().clickSeeMoreTransformationsButton(onixUiAssert);
+        onixUiAssert.assertAll();
+    }
+
+    @Test
+    public void signUpForFamousDailyEmails() {
+        openSite().cheaterClickFamousDailyEmail(onixUiAssert);
+        onixUiAssert.assertAll();
+    }
+
+    @Test
+    public void clickJsaFooterLogo() {
+
+    }
+
 
 
 }

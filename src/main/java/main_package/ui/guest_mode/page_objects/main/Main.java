@@ -20,6 +20,10 @@ public class Main extends BasePageObject implements Footer, MainHeader {
     public Main(OnixWebDriver driver) {
         super(driver);
     }
+    public Main(OnixWebDriver driver, OnixUiAssert onixUiAssert) {
+        super(driver);
+        check(onixUiAssert);
+    }
     @Override
     public Main test(FlyTester flyTester) {
         flyTester.test();
@@ -61,45 +65,64 @@ public class Main extends BasePageObject implements Footer, MainHeader {
     }
     public GooglePlayPage clickPlayStoreButtonInDownloadSection() {
         driver.findElement(Locator.PLAY_STORE_BUTTON_DOWNLOAD).click();
-        logger.debug("'Google Play' from 'Main'");
+        logger.info("Click 'Play Store' button in download section.");
         return new GooglePlayPage(driver);
     }
+    public GooglePlayPage clickPlayStoreButtonInDownloadSection(OnixUiAssert onixUiAssert) {
+        return clickPlayStoreButtonInDownloadSection().check(onixUiAssert);
+    }
+
     public AppStorePage clickAppStoreBannerButton() {
         driver.findElement(Locator.APPSTORE_BUTTON_BANNER).click();
-        logger.debug("'AppStorePage' from 'Main'");
+        logger.info("Click 'App Store' button.");
         return new AppStorePage(driver);
     }
     public AppStorePage clickAppStoreBannerButton(OnixUiAssert onixUiAssert) {
         driver.findElement(Locator.APPSTORE_BUTTON_BANNER).click();
-        logger.debug("'AppStorePage' from 'Main'");
+        logger.info("Click 'App Store' button.");
         return new AppStorePage(driver).check(onixUiAssert);
     }
     public AppStorePage clickAppStoreButtonInDownloadSection() {
         driver.findElement(Locator.APPSTORE_BUTTON_DOWNLOAD).click();
-        logger.debug("'AppStorePage' from 'Main'");
+        logger.info("Click 'App Store' button in download section.");
         return new AppStorePage(driver);
+    }
+    public AppStorePage clickAppStoreButtonInDownloadSection(OnixUiAssert onixUiAssert) {
+        return clickAppStoreButtonInDownloadSection().check(onixUiAssert);
     }
     public InstagramPage clickMyInstagramBannerButton() {
         driver.findElement(Locator.INSTAGRAM_BUTTON_INTRODUCTION).click();
         driver.switchAnotherTab("jsa");
-        logger.debug("'InstagramPage' from 'Main'");
+        logger.debug("Click 'My Instagram' button.");
         return new InstagramPage(driver);
     }
-    public FacebookPage clickFacebookBannerButton() {
+    public InstagramPage clickMyInstagramBannerButton(OnixUiAssert onixUiAssert) {
+        return clickMyInstagramBannerButton().check(onixUiAssert);
+    }
+    public FacebookPage clickMyFacebookBannerButton() {
         driver.findElement(Locator.FACEBOOK_BUTTON_INTRODUCTION).click();
         driver.switchAnotherTab("jsa");
-        logger.debug("'FacebookPage' from 'Main'");
+        logger.info("Click 'My Facebook' button.");
         return new FacebookPage(driver);
+    }
+    public FacebookPage clickMyFacebookBannerButton(OnixUiAssert onixUiAssert) {
+        return clickMyFacebookBannerButton().check(onixUiAssert);
     }
     public Challenge clickAboutChallengesButton() {
         driver.findElement(Locator.ABOUT_CHALLENGES_MOTIVATION).click();
-        logger.debug("'Challenge' from 'Main'");
+        logger.info("Click 'About Challenges' button.");
         return new Challenge(driver);
+    }
+    public Challenge clickAboutChallengesButton(OnixUiAssert onixUiAssert) {
+        return clickAboutChallengesButton().check(onixUiAssert);
     }
     public Transformations clickSeeMoreTransformationsButton() {
         driver.findElement(Locator.TRANSFORMATIONS_BUTTON_MEMBER_TRANSFORMATIONS).click();
-        logger.debug("'Transformations' from 'Main'");
+        logger.info("Click 'See More Transformations' button.");
         return new Transformations(driver);
+    }
+    public Transformations clickSeeMoreTransformationsButton(OnixUiAssert onixUiAssert) {
+        return clickSeeMoreTransformationsButton().check(onixUiAssert);
     }
 
     public FamousDailyEmails cheaterClickFamousDailyEmail() {
@@ -108,9 +131,13 @@ public class Main extends BasePageObject implements Footer, MainHeader {
         driver.findElement(Locator.EMAIL_INPUT_DAILY_EMAILS).sendKeys(fakeEmail);
         driver.executeJsScript(script);
         driver.findElement(Locator.SIGN_UP_DAILY_EMAILS).click();
-        logger.debug("'FamousDailyEmails' from 'Main'");
-        logger.warn("use cheater way to click 'input' button under the 'daily famous emails'");
+        logger.info("Click 'Sign up' button in 'Famous Daily Emails' section.");
+        logger.warn("Use cheater way to click 'input' button under the 'daily famous emails' because of captcha.");
         return new FamousDailyEmails(driver);
+    }
+
+    public FamousDailyEmails cheaterClickFamousDailyEmail(OnixUiAssert onixUiAssert) {
+        return cheaterClickFamousDailyEmail().check(onixUiAssert);
     }
 
 

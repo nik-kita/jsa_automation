@@ -10,6 +10,7 @@ import main_package.engine.OnixWebDriver;
 public class GooglePlayPage extends BasePageObject implements InCurrentTab {
     public GooglePlayPage(OnixWebDriver driver) {
         super(driver);
+        logger.debug("'GooglePlayPage' is open.");
     }
     @Override
     public GooglePlayPage test(FlyTester flyTester) {

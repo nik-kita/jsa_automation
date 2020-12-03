@@ -11,7 +11,7 @@ public class FacebookPageUiTest extends OnixUiTestRunner {
     FacebookPage facebookPage;
     @BeforeClass
     public void goFacebookPage() {
-        facebookPage = openSite().clickFacebookBannerButton();
+        facebookPage = openSite().clickMyFacebookBannerButton();
     }
     @Test(dataProvider = "getFacebookPageLocators")
     public void facebookPageTest(OnixLocator locator) {

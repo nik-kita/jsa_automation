@@ -4,6 +4,7 @@ package main_package.engine.test_engine;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Allure;
 import main_package.engine.OnixLocator;
+import main_package.engine.logger_engine.LogHtmlWrap;
 import org.commonmark.parser.Parser;
 import org.commonmark.renderer.html.HtmlRenderer;
 import org.openqa.selenium.WebDriver;
@@ -60,7 +61,7 @@ public class OnixUiTestRunner extends OnixTestRunner {
     public void settingDriver() {
         String className = this.getClass().toString();
         MDC.put("class", className);
-        log = LoggerFactory.getLogger(this.getClass());
+        log = new LogHtmlWrap(LoggerFactory.getLogger(this.getClass()));
         log.debug("Class '{}' is started.", className);
         WebDriverManager.chromedriver().setup();
         Map<String, Object> prefs = new HashMap<>();
@@ -142,10 +143,7 @@ public class OnixUiTestRunner extends OnixTestRunner {
     protected Main openSite(OnixUiAssert onixUiAssert) {
         driver.get(baseUrl);
         log.debug("Open https://www.jamessmithacademy.com/");
-        mainPO = new Main(driver);
-        for(OnixLocator l : Main.Locator.values()) {
-            onixUiAssert.softCheckCountOfElementByLocator(l, 1);
-        }
+        mainPO = new Main(driver, onixUiAssert);
         return mainPO;
     }
 

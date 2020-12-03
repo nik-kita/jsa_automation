@@ -14,7 +14,7 @@ public class CreateAccount extends BasePageObject {
 
     public CreateAccount(OnixWebDriver driver) {
         super(driver);
-        logger.info("'Create Account' page is open.");
+        logger.debug("'Create Account' page is open.");
     }
 
     public CreateAccount check(OnixUiAssert onixUiAssert) {

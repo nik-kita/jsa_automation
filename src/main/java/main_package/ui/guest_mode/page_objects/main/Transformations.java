@@ -2,6 +2,7 @@ package main_package.ui.guest_mode.page_objects.main;
 
 
 import main_package.engine.test_engine.FlyTester;
+import main_package.engine.test_engine.OnixUiAssert;
 import org.openqa.selenium.By;
 import main_package.ui.BasePageObject;
 import main_package.engine.OnixLocator;
@@ -12,6 +13,17 @@ import main_package.ui.guest_mode.general_parts.MainHeader;
 public class Transformations extends BasePageObject implements Footer, MainHeader {
     public Transformations(OnixWebDriver driver) {
         super(driver);
+        logger.debug("'Transformations' page is open.");
+    }
+    public Transformations check(OnixUiAssert onixUiAssert) {
+        for(OnixLocator l : OnixUiAssert.mergeArrays(
+                Transformations.Locator.values(),
+                MainHeader.HeaderLocator.values(),
+                Footer.FooterLocator.values()
+        )) {
+            onixUiAssert.softCheckCountOfElementByLocator(l, 1);
+        }
+        return this;
     }
     @Override
     public Transformations test(FlyTester flyTester) {
