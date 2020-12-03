@@ -11,7 +11,7 @@ public class ReportBugsUiTest extends OnixUiTestRunner {
     ReportBugs reportBugs;
     @BeforeClass
     public void goReportBugs() {
-        reportBugs = openSite().goReportBugsFromFooter();
+        reportBugs = openSite().clickFooterBugReports();
     }
     @Test(dataProvider = "getReportBugsLocators")
     public void reportBugsTest(OnixLocator locator) {

@@ -11,7 +11,7 @@ public class PrivacyPolicyUiTest extends OnixUiTestRunner {
     PrivacyPolicy privacyPolicy;
     @BeforeClass
     public void goPrivacyPolicy() {
-        privacyPolicy = openSite().goPrivacyPolicyFromFooter();
+        privacyPolicy = openSite().clickFooterPrivatePolicy();
     }
     @Test(dataProvider = "getPrivacyPolicyLocators")
     public void privacyPolicyTest(OnixLocator locator) {

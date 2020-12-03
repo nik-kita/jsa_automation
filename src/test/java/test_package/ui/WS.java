@@ -81,7 +81,7 @@ public class WS extends OnixUiTestRunner {
     public void blog() {
         Allure.link("Original test case","https://docs.google.com/spreadsheets/d/1gudjZ7fh4aUsozP7aPIovLnI4qGdbUFpIHJ6AbTlbC4/edit#gid=633091546&range=B40");
 
-        Blog blog = main.goBlogPageFromFooter();
+        Blog blog = main.clickFooterBlog();
         int total = blog.countPosts();
         int fromEveryTab = 0;
         for (OnixLocator l : Blog.Locator.values()) {
@@ -116,33 +116,33 @@ public class WS extends OnixUiTestRunner {
     public void footer() {
         Allure.link("Original test case", "https://docs.google.com/spreadsheets/d/1gudjZ7fh4aUsozP7aPIovLnI4qGdbUFpIHJ6AbTlbC4/edit#gid=633091546&range=B84");
 
-        TermsOfService termsOfService = main.goTermsOfServiceFromFooter();
+        TermsOfService termsOfService = main.clickFooterTermsOfService();
         onixUiAssert.softCheckCountOfElementByLocator(TermsOfService.Locator.H4_TITLE, 1);
-        CookiesPolicy cookiesPolicy = termsOfService.goCookiesPolicyFromFooter();
+        CookiesPolicy cookiesPolicy = termsOfService.clickFooterCookiesPolicy();
         onixUiAssert.softCheckCountOfElementByLocator(CookiesPolicy.Locator.H4_TITLE, 1);
-        PrivacyPolicy privacyPolicy = cookiesPolicy.goPrivacyPolicyFromFooter();
+        PrivacyPolicy privacyPolicy = cookiesPolicy.clickFooterPrivatePolicy();
         onixUiAssert.softCheckCountOfElementByLocator(PrivacyPolicy.Locator.H4_TITLE, 1);
-        ReportBugs reportBugs = privacyPolicy.goReportBugsFromFooter();
+        ReportBugs reportBugs = privacyPolicy.clickFooterBugReports();
         onixUiAssert.softCheckCountOfElementByLocator(ReportBugs.Locator.H1_TITLE, 1);
-        ContactUs contactUs = reportBugs.goContactUsFromFooter();
+        ContactUs contactUs = reportBugs.clickFooterContactUs();
         onixUiAssert.softCheckCountOfElementByLocator(ContactUs.Locator.H1_TITLE, 1);
-        AccessAndDownload accessAndDownload = contactUs.goAccessAndDownloadFromFooter();
+        AccessAndDownload accessAndDownload = contactUs.clickFooterAccess();
         onixUiAssert.softCheckCountOfElementByLocator(AccessAndDownload.Locator.H4_TITLE, 1);
-        Faqs faqs = accessAndDownload.goFaqsFromFooter();
+        Faqs faqs = accessAndDownload.clickFooterFAQs();
         onixUiAssert.softCheckCountOfElementByLocator(Faqs.Locator.H1_TITLE, 1);
-        GooglePlayPage googlePlayPage = faqs.downloadAppPlayStoreFromFooter();
+        GooglePlayPage googlePlayPage = faqs.clickFooterPlayStore();
         onixUiAssert.softCheckCountOfElementByLocator(GooglePlayPage.Locator.GOOGLE_PLAY_LOGO, 1);
         faqs = new Faqs(googlePlayPage.backToJsa());
-        AppStorePage appStorePage = faqs.downloadAppAppStoreFromFooter();
+        AppStorePage appStorePage = faqs.clickFooterAppStore();
         onixUiAssert.softCheckCountOfElementByLocator(AppStorePage.Locator.APPLE_LOGO, 1);
         faqs = new Faqs(appStorePage.backToJsa());
-        InstagramPage instagramPage = faqs.clickInstagramFromFooter();
+        InstagramPage instagramPage = faqs.clickFooterInstagram();
         onixUiAssert.softCheckCountOfElementByLocator(InstagramPage.Locator.INSTAGRAM_LOGO, 1);
         faqs = new Faqs(instagramPage.closeAndBackToJsaTab());
-        FacebookPage facebookPage = faqs.clickFacebookFromFooter();
+        FacebookPage facebookPage = faqs.clickFooterFacebook();
         onixUiAssert.softCheckCountOfElementByLocator(FacebookPage.Locator.FACEBOOK_LOGO, 1);
         faqs = new Faqs(facebookPage.closeAndBackToJsaTab());
-        SpotifyPage spotifyPage = faqs.clickSpotifyFromFooter();
+        SpotifyPage spotifyPage = faqs.clickFooterSpotify();
         onixUiAssert.softCheckUrlContains("spotify");
         main = new Faqs(spotifyPage.closeAndBackToJsaTab()).goMainPage();
         onixUiAssert.assertAll();

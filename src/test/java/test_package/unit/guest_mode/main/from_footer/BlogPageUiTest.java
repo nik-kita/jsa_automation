@@ -12,7 +12,7 @@ public class BlogPageUiTest extends OnixUiTestRunner {
     Blog blogPO;
     @BeforeClass
     public void goBlockPage() {
-        blogPO = openSite().goBlogPageFromFooter();
+        blogPO = openSite().clickFooterBlog();
     }
 
     @Test(dataProvider = "getBlogPageLocators")

@@ -11,7 +11,7 @@ public class ContactUsUiTest extends OnixUiTestRunner {
     ContactUs contactUs;
     @BeforeClass
     public void goContactUs() {
-        contactUs = openSite().goContactUsFromFooter();
+        contactUs = openSite().clickFooterContactUs();
     }
     @Test(dataProvider = "getContactUsLocators")
     public void contactUsTest(OnixLocator locator) {

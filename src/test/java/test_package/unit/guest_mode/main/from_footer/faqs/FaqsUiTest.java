@@ -11,7 +11,7 @@ public class FaqsUiTest extends OnixUiTestRunner {
     Faqs faqs;
     @BeforeClass
     public void goFaqs() {
-        faqs = openSite().goFaqsFromFooter();
+        faqs = openSite().clickFooterFAQs();
     }
     @Test(dataProvider = "getFaqsLocators")
     public void faqsTest(OnixLocator locator) {

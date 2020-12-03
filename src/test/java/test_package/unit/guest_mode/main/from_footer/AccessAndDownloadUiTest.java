@@ -12,7 +12,7 @@ public class AccessAndDownloadUiTest extends OnixUiTestRunner {
     AccessAndDownload accessAndDownload;
     @BeforeClass
     public void goAccessAndDownload() {
-        accessAndDownload = openSite().goAccessAndDownloadFromFooter();
+        accessAndDownload = openSite().clickFooterAccess();
     }
     @Test(dataProvider = "getAccessAndDownloadLocators")
     public void accessAndDownloadTest(OnixLocator locator) {

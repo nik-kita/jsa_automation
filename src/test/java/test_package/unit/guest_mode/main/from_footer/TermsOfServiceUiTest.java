@@ -11,7 +11,7 @@ public class TermsOfServiceUiTest extends OnixUiTestRunner {
     TermsOfService termsOfService;
     @BeforeClass
     public void goTermsOfService() {
-        termsOfService = openSite().goTermsOfServiceFromFooter();
+        termsOfService = openSite().clickFooterTermsOfService();
     }
     @Test(dataProvider = "getTermsOfServiceLocators")
     public void termsOfServiceTest(OnixLocator locator) {

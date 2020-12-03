@@ -1,5 +1,6 @@
 package main_package.ui.guest_mode.general_parts;
 
+import main_package.engine.test_engine.OnixUiAssert;
 import org.openqa.selenium.By;
 import main_package.ui.BasePart;
 import main_package.engine.OnixLocator;
@@ -12,91 +13,131 @@ import main_package.ui.related_sites.*;
 
 public interface Footer extends BasePart {
 
-    default Blog goBlogPageFromFooter() {
+    default Blog clickFooterBlog() {
         OnixWebDriver driver = getDriver();
         driver.findElement(FooterLocator.BLOG_SUPPORT_LINK).click();
-        getLogger().debug("go to Blog page from footer");
+        getLogger().info("Click 'Blog' button in footer 'Support' section.");
         return new Blog(driver);
     }
-    default CookiesPolicy goCookiesPolicyFromFooter() {
+    default Blog clickFooterBlog(OnixUiAssert onixUiAssert) {
+        return clickFooterBlog().check(onixUiAssert);
+    }
+    default CookiesPolicy clickFooterCookiesPolicy() {
         OnixWebDriver driver = getDriver();
         driver.findElement(FooterLocator.COOKIES_POLICY_LINK).click();
-        getLogger().debug("go to Cookies Policy page from footer");
+        getLogger().info("Click 'Cookies Policy' button in footer 'Company' section.");
         return new CookiesPolicy(driver);
     }
-    default PrivacyPolicy goPrivacyPolicyFromFooter() {
+    default CookiesPolicy clickFooterCookiesPolicy(OnixUiAssert onixUiAssert) {
+        return clickFooterCookiesPolicy().check(onixUiAssert);
+    }
+    default PrivacyPolicy clickFooterPrivatePolicy() {
         OnixWebDriver driver = getDriver();
         driver.findElement(FooterLocator.PRIVACY_POLICY_LINK).click();
-        getLogger().debug("go to Privacy Policy from footer");
+        getLogger().info("Click 'Privacy Policy' button in footer 'Company' section.");
         return new PrivacyPolicy(driver);
     }
-    default TermsOfService goTermsOfServiceFromFooter() {
+    default PrivacyPolicy clickFooterPrivatePolicy(OnixUiAssert onixUiAssert) {
+        return clickFooterPrivatePolicy().check(onixUiAssert);
+    }
+    default TermsOfService clickFooterTermsOfService() {
         OnixWebDriver driver = getDriver();
         driver.findElement(FooterLocator.TERMS_OF_SERVICE_LINK).click();
-        getLogger().debug("go to 'Terms of Service' page from footer");
+        getLogger().info("Click 'Terms Of Service' button in footer 'Company' section.");
         return new TermsOfService(driver);
     }
-    default ReportBugs goReportBugsFromFooter() {
+    default TermsOfService clickFooterTermsOfService(OnixUiAssert onixUiAssert) {
+        return clickFooterTermsOfService().check(onixUiAssert);
+    }
+    default ReportBugs clickFooterBugReports() {
         OnixWebDriver driver = getDriver();
         driver.findElement(FooterLocator.BUG_SUPPORT_LINK).click();
-        getLogger().debug("go to 'Report Bugs' from footer");
+        getLogger().info("Click 'Bug Reports' button in footer 'Support' section.");
         return new ReportBugs(driver);
     }
-    default ContactUs goContactUsFromFooter() {
+    default ReportBugs clickFooterBugReports(OnixUiAssert onixUiAssert) {
+        return clickFooterBugReports().check(onixUiAssert);
+    }
+    default ContactUs clickFooterContactUs() {
         OnixWebDriver driver = getDriver();
         driver.findElement(FooterLocator.CONTACT_US_LINK).click();
-        getLogger().debug("go 'Contact Us' from footer");
+        getLogger().debug("Click 'Contact Us' button in footer 'Support' section.");
         return new ContactUs(driver);
     }
-    default AccessAndDownload goAccessAndDownloadFromFooter() {
+    default ContactUs clickFooterContactUs(OnixUiAssert onixUiAssert) {
+        return clickFooterContactUs().check(onixUiAssert);
+    }
+    default AccessAndDownload clickFooterAccess() {
         OnixWebDriver driver = getDriver();
         driver.findElement(FooterLocator.ACCESS_LINK).click();
-        getLogger().debug("go 'Access and Downloads' from footer");
+        getLogger().info("Click 'Access' button in footer 'Support' section.");
         return new AccessAndDownload(driver);
     }
-    default Faqs goFaqsFromFooter() {
+    default AccessAndDownload clickFooterAccess(OnixUiAssert onixUiAssert) {
+        return clickFooterAccess().check(onixUiAssert);
+    }
+    default Faqs clickFooterFAQs() {
         OnixWebDriver driver = getDriver();
         driver.findElement(FooterLocator.FAQS_LINK).click();
-        getLogger().debug("go 'FAQS' from footer");
+        getLogger().info("Click 'FAQS' button in footer 'Support' section.");
         return new Faqs(driver);
     }
+    default Faqs clickFooterFAQs(OnixUiAssert onixUiAssert) {
+        return clickFooterFAQs().check(onixUiAssert);
+    }
 
-    default GooglePlayPage downloadAppPlayStoreFromFooter() {
+
+    default GooglePlayPage clickFooterPlayStore() {
         OnixWebDriver driver = getDriver();
         driver.findElement(FooterLocator.PLAY_STORE_BUTTON).click();
-        getLogger().debug("go to 'Google Play' page from footer");
+        getLogger().info("Click 'Play Store' button in footer 'Download our app' section.");
         return new GooglePlayPage(driver);
     }
-
-    default AppStorePage downloadAppAppStoreFromFooter() {
-        OnixWebDriver driver = getDriver();
-        driver.findElement(FooterLocator.APPSTORE_BUTTON).click();
-        getLogger().debug("go to 'AppStore' from footer");
-        return new AppStorePage(driver);
+    default GooglePlayPage clickFooterPlayStore(OnixUiAssert onixUiAssert) {
+        return clickFooterPlayStore().check(onixUiAssert);
     }
 
-    default FacebookPage clickFacebookFromFooter() {
+    default AppStorePage clickFooterAppStore() {
+        OnixWebDriver driver = getDriver();
+        driver.findElement(FooterLocator.APPSTORE_BUTTON).click();
+        getLogger().info("Click 'App Store' button in footer 'Download our app' section.");
+        return new AppStorePage(driver);
+    }
+    default AppStorePage clickFooterAppStore(OnixUiAssert onixUiAssert) {
+        return clickFooterAppStore().check(onixUiAssert);
+    }
+
+    default FacebookPage clickFooterFacebook() {
         OnixWebDriver driver = getDriver();
         driver.findElement(FooterLocator.FACEBOOK_LINK).click();
         driver.switchAnotherTab("jsa");
-        getLogger().debug("go to 'Facebook' form footer");
+        getLogger().info("Click 'Facebook' button in footer 'Social media' section.");
         return new FacebookPage(driver);
     }
+    default FacebookPage clickFooterFacebook(OnixUiAssert onixUiAssert) {
+        return clickFooterFacebook().check(onixUiAssert);
+    }
 
-    default InstagramPage clickInstagramFromFooter() {
+    default InstagramPage clickFooterInstagram() {
         OnixWebDriver driver = getDriver();
         driver.findElement(FooterLocator.INSTAGRAM_LINK).click();
         driver.switchAnotherTab("jsa");
-        getLogger().debug("go to 'Instagram' from footer");
+        getLogger().info("Click 'Instagram' button in footer 'Social media' section.");
         return new InstagramPage(driver);
     }
+    default InstagramPage clickFooterInstagram(OnixUiAssert onixUiAssert) {
+        return clickFooterInstagram().check(onixUiAssert);
+    }
 
-    default SpotifyPage clickSpotifyFromFooter() {
+    default SpotifyPage clickFooterSpotify() {
         OnixWebDriver driver = getDriver();
         driver.findElement(FooterLocator.SPOTIFY_PLAYLIST_LINK).click();
         driver.switchAnotherTab("jsa");
-        getLogger().debug("go to 'Spotify' from footer");
+        getLogger().info("Click 'Spotify' button in footer 'Social media' section.");
         return new SpotifyPage(driver);
+    }
+    default SpotifyPage clickFooterSpotify(OnixUiAssert onixUiAssert) {
+        return clickFooterSpotify().check(onixUiAssert);
     }
 
 
