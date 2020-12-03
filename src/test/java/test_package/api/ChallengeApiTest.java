@@ -6,7 +6,7 @@ import main_package.api.assertions.ChallengeAssert;
 import main_package.api.clients.ChallengeClient;
 import main_package.api.models.Challenge;
 import main_package.engine.test_engine.OnixApiTestRunner;
-import main_package.engine.db.ChallengeDb;
+import main_package.api.db.ChallengeDb;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;

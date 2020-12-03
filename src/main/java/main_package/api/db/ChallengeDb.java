@@ -1,4 +1,4 @@
-package main_package.engine.db;
+package main_package.api.db;
 
 import main_package.api.models.Challenge;
 import main_package.engine.test_engine.OnixApiAssert;
@@ -6,9 +6,7 @@ import org.junit.Test;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class ChallengeDb extends OnixJDBC {
@@ -42,14 +40,5 @@ public class ChallengeDb extends OnixJDBC {
     }
 
 
-    @Test
-    public void test() throws SQLException {
-        for (Challenge c : selectAll().values()) {
-            logger.info(c.toString());
-        }
-        OnixApiAssert onixApiAssert = new OnixApiAssert();
-        onixApiAssert.getSoftAssert().assertEquals(1, 1);
-        onixApiAssert.assertAll();
 
-    }
 }
