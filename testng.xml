@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+
+    <test verbose="2" preserve-order="true"
+          name="/home/m/jsa_automation/src/test/java/test_package/api/ChallengeApiTest.java">
+        <classes>
+            <class name="test_package.api.ChallengeApiTest">
+                <methods>
+                    <include name="getChallengeTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

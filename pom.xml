@@ -194,16 +194,17 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${surefire-ver}</version>
                 <configuration>
-<!--                    <properties>-->
-<!--                        <property>-->
-<!--                            <name>usedefaultlisteners</name>-->
-<!--                            <value>false</value>-->
-<!--                        </property>-->
-<!--                        <property>-->
-<!--                            <name>listener</name>-->
-<!--                            <value>org.uncommons.reportng.HTMLReporter</value>-->
-<!--                        </property>-->
-<!--                    </properties>-->
+                    <properties>
+                        <property>
+                            <name>usedefaultlisteners</name>
+                            <value>false</value>
+                        </property>
+                        <property>
+                            <name>listener</name>
+                            <value>org.uncommons.reportng.HTMLReporter</value>
+                            <value>org.uncommons.reportng.JUnitXMLReporter</value>
+                        </property>
+                    </properties>
                     <suiteXmlFiles>
                         <suiteXmlFile>TestNG.xml</suiteXmlFile>
                     </suiteXmlFiles>
