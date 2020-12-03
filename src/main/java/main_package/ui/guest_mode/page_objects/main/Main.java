@@ -19,6 +19,7 @@ public class Main extends BasePageObject implements Footer, MainHeader {
 
     public Main(OnixWebDriver driver) {
         super(driver);
+        logger.debug("'Main' page is open.");
     }
     public Main(OnixWebDriver driver, OnixUiAssert onixUiAssert) {
         super(driver);
@@ -36,7 +37,7 @@ public class Main extends BasePageObject implements Footer, MainHeader {
         return new CreateAccount(driver);
     }
 
-    private Main check(OnixUiAssert onixUiAssert) {
+    public Main check(OnixUiAssert onixUiAssert) {
         for(OnixLocator l : OnixUiAssert.mergeArrays(
                 Main.Locator.values(),
                 MainHeader.HeaderLocator.values(),

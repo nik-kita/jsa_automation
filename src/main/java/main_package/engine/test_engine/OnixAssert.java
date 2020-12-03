@@ -41,7 +41,8 @@ public class OnixAssert {
         }
         softAssert.assertAll();
         softAssert = null;
-        softTotalCounter = softSuccessCounter = 0;
+        softTotalCounter = 0;
+        softSuccessCounter = 0;
 
     }
 

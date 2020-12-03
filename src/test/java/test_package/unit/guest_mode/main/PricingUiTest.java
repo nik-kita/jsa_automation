@@ -11,7 +11,7 @@ public class PricingUiTest extends OnixUiTestRunner {
 
     @BeforeClass
     public void goPricingPage() {
-        openSite().goPricingPage();
+        openSite().clickHeaderPricing();
     }
 
     @Test(dataProvider = "getPricingLocators")

@@ -26,7 +26,7 @@ public class WSHome extends OnixUiTestRunner {
         }
         log.debug("Check that 'Main' page is open.");
         log.info("2. Login to the site");
-        Home home = main.goLoginPage().login(User.getValidUser());
+        Home home = main.clickHeaderLogin().login(User.getValidUser());
         for (OnixLocator l : Home.Locator.values()) {
             onixUiAssert.softCheckCountOfElementByLocator(l, 1);
         }
@@ -64,7 +64,7 @@ public class WSHome extends OnixUiTestRunner {
                 .selectGoalByString("Other")
                 .fillMoreDetailTextarea("Test is successfully ended in " + new Date(System.currentTimeMillis()))
                 .clickSaveButton()
-                .openUserDropDown().logout().goMainPage();
+                .openUserDropDown().logout().clickHeaderJsaLogo();
         log.info("Logout");
         onixUiAssert.assertAll();
     }
@@ -73,7 +73,7 @@ public class WSHome extends OnixUiTestRunner {
     public void myGoal_2() {
         Allure.link("Full test's info", "https://docs.google.com/spreadsheets/d/1gudjZ7fh4aUsozP7aPIovLnI4qGdbUFpIHJ6AbTlbC4/edit#gid=1648986495&range=C11:D11");
         openSite(onixUiAssert)
-                .goLoginPage(onixUiAssert)
+                .clickHeaderLogin(onixUiAssert)
                 .login(User.getValidUser(), onixUiAssert)
                 .test(() -> {
                     FlyTester.testMap.put("oldGoalTitle", new Home(driver).getCurrentGoalTitle());
@@ -118,7 +118,7 @@ public class WSHome extends OnixUiTestRunner {
                 .selectGoalByString("Other")
                 .fillMoreDetailTextarea("Test is successfully ended in " + new Date(System.currentTimeMillis()))
                 .clickSaveButton()
-                .openUserDropDown().logout().goMainPage();
+                .openUserDropDown().logout().clickHeaderJsaLogo();
         log.info("Logout");
     }
 
@@ -128,7 +128,7 @@ public class WSHome extends OnixUiTestRunner {
         String testText = "Hello world! " + new Date(System.currentTimeMillis()).toString();
 
         openSite(onixUiAssert)
-                .goLoginPage(onixUiAssert)
+                .clickHeaderLogin(onixUiAssert)
                 .login(User.getValidUser(), onixUiAssert)
                 .clickMyGoalLink(onixUiAssert)
                 .clickNewGoalButton(onixUiAssert)
@@ -141,7 +141,7 @@ public class WSHome extends OnixUiTestRunner {
                         }
                     }
                     onixUiAssert.getSoftAssert().assertTrue(isSave);
-                }).openUserDropDown().logout().goMainPage();
+                }).openUserDropDown().logout().clickHeaderJsaLogo();
 
         onixUiAssert.assertAll();
     }
@@ -151,7 +151,7 @@ public class WSHome extends OnixUiTestRunner {
         Allure.link("Full test's info", "https://docs.google.com/spreadsheets/d/1gudjZ7fh4aUsozP7aPIovLnI4qGdbUFpIHJ6AbTlbC4/edit?ts=5f7593b0#gid=1648986495&range=C34:D34");
         int stepsForTest = (int) (Math.random() * 100);
         openSite(onixUiAssert)
-                .goLoginPage(onixUiAssert)
+                .clickHeaderLogin(onixUiAssert)
                 .login(User.getValidUser(), onixUiAssert)
                 .clickStepsLink(onixUiAssert)
                 .clickEditTodayStepsIconButton(onixUiAssert)
@@ -159,7 +159,7 @@ public class WSHome extends OnixUiTestRunner {
                 .test(() -> {
                     onixUiAssert.getSoftAssert().assertEquals(new Steps(driver).getTodaySteps(), stepsForTest);
                     log.info("Check that new step's value '{}' is saving.");
-                }).openUserDropDown().logout().goMainPage();
+                }).openUserDropDown().logout().clickHeaderJsaLogo();
         log.info("Logout");
         onixUiAssert.assertAll();
     }
@@ -172,7 +172,7 @@ public class WSHome extends OnixUiTestRunner {
         int stepsGoalForTest = (int) (Math.random() * 1000);
 
         openSite()
-                .goLoginPage()
+                .clickHeaderLogin()
                 .login(User.getValidUser())
                 .clickStepsLink(onixUiAssert)
                 .clickEditYourStepsGoalIconPenButton()
@@ -197,7 +197,7 @@ public class WSHome extends OnixUiTestRunner {
                     steps.clickOneWeekButton();
                     onixUiAssert.getSoftAssert().assertNotEquals(dailyAverage, steps.getDailyAverageValue());
                 })
-                .openUserDropDown().logout().goMainPage();
+                .openUserDropDown().logout().clickHeaderJsaLogo();
     }
 
     @Test

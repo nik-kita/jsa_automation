@@ -13,7 +13,7 @@ public class AfterLogoutUiTest extends OnixUiTestRunner {
     AfterLogout afterLogout;
     @BeforeClass
     public void goAfterLogoutPage() {
-        afterLogout = openSite().goLoginPage().login(User.getValidUser()).openUserDropDown().logout();
+        afterLogout = openSite().clickHeaderLogin().login(User.getValidUser()).openUserDropDown().logout();
     }
     @Test(dataProvider = "getAfterLogoutPageLocators")
     public void afterLogoutTest(OnixLocator locator) {

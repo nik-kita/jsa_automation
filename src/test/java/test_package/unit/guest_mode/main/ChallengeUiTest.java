@@ -11,7 +11,7 @@ public class ChallengeUiTest extends OnixUiTestRunner {
 
     @BeforeClass
     public void goChallengePage() {
-        openSite().goChallengePage();
+        openSite().clickHeaderChallenge();
     }
 
     @Test(dataProvider = "getChallengePageLocators")

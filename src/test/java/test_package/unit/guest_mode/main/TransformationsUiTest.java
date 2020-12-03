@@ -10,7 +10,7 @@ import main_package.ui.guest_mode.page_objects.main.Transformations;
 public class TransformationsUiTest extends OnixUiTestRunner {
     @BeforeClass
     public void goTransformationsPage() {
-        openSite().goTransformationsPage();
+        openSite().clickHeaderTransformations();
     }
 
     @Test(dataProvider = "getTransformationsLocators")

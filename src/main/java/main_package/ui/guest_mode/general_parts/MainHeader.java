@@ -13,61 +13,74 @@ import main_package.ui.guest_mode.page_objects.main.my_podcast.MyPodcast;
 
 public interface MainHeader extends BasePart {
 
-    default Main goMainPage() {
+    default Main clickHeaderJsaLogo() {
         OnixWebDriver driver = getDriver();
         driver.findElement(HeaderLocator.JSA_LOGO).click();
-        getLogger().debug("go 'Main' page by clicking 'JSA' logo on header");
+        getLogger().info("Click 'Jsa logo' button in header.");
         return new Main(driver);
     }
-    default Challenge goChallengePage() {
+    default Main clickHeaderJsaLogo(OnixUiAssert onixUiAssert) {
+        return clickHeaderJsaLogo().check(onixUiAssert);
+    }
+
+    default Challenge clickHeaderChallenge() {
         OnixWebDriver driver = getDriver();
         driver.findElement(HeaderLocator.CHALLENGE_HEADER_BUTTON).
                 click();
-        getLogger().debug("go to 'Challenge' page from header");
+        getLogger().info("Click 'Challenge' button in header.");
         return new Challenge(driver);
     }
-    default Pricing goPricingPage() {
+    default Challenge clickHeaderChallenge(OnixUiAssert onixUiAssert) {
+        return clickHeaderChallenge().check(onixUiAssert);
+    }
+    default Pricing clickHeaderPricing() {
         OnixWebDriver driver = getDriver();
         driver.findElement(HeaderLocator.PRICING_HEADER_BUTTON).
                 click();
-        getLogger().debug("go to 'Pricing' page from header");
+        getLogger().info("Click 'Pricing' button in header.");
         return new Pricing(driver);
     }
-    default Transformations goTransformationsPage() {
+    default Pricing clickHeaderPricing(OnixUiAssert onixUiAssert) {
+        return clickHeaderPricing().check(onixUiAssert);
+    }
+    default Transformations clickHeaderTransformations() {
         OnixWebDriver driver = getDriver();
         driver.findElement(HeaderLocator.TRANSFORMATIONS_HEADER_BUTTON).
                 click();
-        getLogger().debug("go to 'Transformations' page from header");
+        getLogger().info("Click 'Transformations' button in header.");
         return new Transformations(driver);
     }
-    default Login goLoginPage() {
+    default Transformations clickHeaderTransformations(OnixUiAssert onixUiAssert) {
+        return clickHeaderTransformations().check(onixUiAssert);
+    }
+    default Login clickHeaderLogin() {
         OnixWebDriver driver = getDriver();
         driver.findElement(HeaderLocator.LOGIN_HEADER_BUTTON).click();
-        getLogger().debug("go 'Login' page from header");
+        getLogger().info("Click 'Login' button in header.");
         return new Login(driver);
     }
-    default Login goLoginPage(OnixUiAssert onixUiAssert) {
-        OnixWebDriver driver = getDriver();
-        driver.findElement(HeaderLocator.LOGIN_HEADER_BUTTON).click();
-        getLogger().debug("go 'Login' page from header");
-        for(OnixLocator l : Login.Locator.values()) {
-            onixUiAssert.softCheckCountOfElementByLocator(l, 1);
-        }
-        return new Login(driver);
+    default Login clickHeaderLogin(OnixUiAssert onixUiAssert) {
+       return clickHeaderLogin().check(onixUiAssert);
     }
 
-    default CreateAccount clickJoinNowHeaderButton() {
+    default CreateAccount clickHeaderJoinNow() {
         OnixWebDriver driver = getDriver();
         driver.findElement(HeaderLocator.JOIN_NOW_HEADER_BUTTON).click();
-        getLogger().info("Click 'Join now' button from main header.");
+        getLogger().info("Click 'Join now' button in header.");
         return new CreateAccount(driver);
     }
+    default CreateAccount clickHeaderJoinNow(OnixUiAssert onixUiAssert) {
+        return clickHeaderJoinNow().check(onixUiAssert);
+    }
 
-    default MyPodcast goMyPodcastPageFromHeader() {
+    default MyPodcast clickHeaderMyPodcast() {
         OnixWebDriver driver = getDriver();
         driver.findElement(HeaderLocator.MY_PODCAST_HEADER_BUTTON).click();
-        getLogger().debug("go 'My Podcast' page from header");
+        getLogger().info("Click 'My Podcast' button in header.");
         return new MyPodcast(driver);
+    }
+    default MyPodcast clickHeaderMyPodcast(OnixUiAssert onixUiAssert) {
+        return clickHeaderMyPodcast().check(onixUiAssert);
     }
 
     enum HeaderLocator implements OnixLocator {

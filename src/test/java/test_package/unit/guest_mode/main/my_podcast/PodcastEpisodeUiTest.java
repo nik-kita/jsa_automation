@@ -11,7 +11,7 @@ public class PodcastEpisodeUiTest extends OnixUiTestRunner {
     PodcastEpisode podcastEpisode;
     @BeforeClass
     public void goPodcastEpisode() {
-        podcastEpisode = openSite().goMyPodcastPageFromHeader().clickSomeoneEpisode();
+        podcastEpisode = openSite().clickHeaderMyPodcast().clickSomeoneEpisode();
     }
     @Test(dataProvider = "getPodcastEpisodeLocators")
     public void podcastEpisodeTest(OnixLocator locator) {

@@ -9,7 +9,7 @@ public class LoginUiTest extends OnixUiTestRunner {
 
     @Test
     public void loginWithFBTest() {
-        openSite().goLoginPage().loginByFB(User.getValidUser());
+        openSite().clickHeaderLogin().loginByFB(User.getValidUser());
         onixUiAssert.checkCountOfElementByLocator(HomeHeaderPart.HomeHeaderLocator.HOME, 1);
     }
 }

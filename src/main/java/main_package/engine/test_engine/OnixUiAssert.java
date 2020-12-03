@@ -162,9 +162,11 @@ public class OnixUiAssert extends OnixAssert{
                 "\n----------------------------" +
                 "\n=== NUMBER OF ELEMENTS ===\n";
         boolean result = actualElCount == expectedElCount;
-        softMessage(result,
+        softMessage(
+                result,
                 locatorClass + "." + locatorName + "(" + locatorPath + ") find " + actualElCount + " elements.",
-                locatorClass + "." + locatorName + "(" + locatorPath + ") find " + actualElCount + " elements instead of " + expectedElCount);
+                errorMessage
+        );
         softAssert.assertEquals(actualElCount, expectedElCount, errorMessage);
         return softAssert;
     }

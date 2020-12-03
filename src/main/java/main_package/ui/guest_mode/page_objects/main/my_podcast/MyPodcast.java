@@ -1,6 +1,7 @@
 package main_package.ui.guest_mode.page_objects.main.my_podcast;
 
 import main_package.engine.test_engine.FlyTester;
+import main_package.engine.test_engine.OnixUiAssert;
 import org.openqa.selenium.By;
 import main_package.ui.BasePageObject;
 import main_package.engine.OnixLocator;
@@ -12,6 +13,17 @@ public class MyPodcast extends BasePageObject implements Footer, MainHeader {
 
     public MyPodcast(OnixWebDriver driver) {
         super(driver);
+        logger.debug("'MyPodcast' page is open.");
+    }
+    public MyPodcast check(OnixUiAssert onixUiAssert) {
+        for(OnixLocator l : OnixUiAssert.mergeArrays(
+                MyPodcast.Locator.values(),
+                MainHeader.HeaderLocator.values(),
+                Footer.FooterLocator.values()
+        )) {
+            onixUiAssert.softCheckCountOfElementByLocator(l, 1);
+        }
+        return this;
     }
     @Override
     public MyPodcast test(FlyTester flyTester) {

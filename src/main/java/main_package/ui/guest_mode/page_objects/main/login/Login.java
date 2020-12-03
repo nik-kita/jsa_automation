@@ -17,6 +17,15 @@ public class Login extends BasePageObject {
 
     public Login(OnixWebDriver driver) {
         super(driver);
+        logger.debug("'Login' page is open.");
+    }
+    public Login check(OnixUiAssert onixUiAssert) {
+        for(OnixLocator l : OnixUiAssert.mergeArrays(
+                Login.Locator.values()
+        )) {
+            onixUiAssert.softCheckCountOfElementByLocator(l, 1);
+        }
+        return this;
     }
 
     @Override

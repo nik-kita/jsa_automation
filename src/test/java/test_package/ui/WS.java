@@ -33,7 +33,7 @@ public class WS extends OnixUiTestRunner {
 
 
         PaymentMethodPopup paymentMethodPopup = main
-                .goLoginPage()
+                .clickHeaderLogin()
                 .login(User.getValidUser())
                 .goMainPage()
                 .goPricingPage()
@@ -57,7 +57,7 @@ public class WS extends OnixUiTestRunner {
         main = paymentMethodPopup
                 .exit()
                 .clickLogoutHeaderButton()
-                .goMainPage();
+                .clickHeaderJsaLogo();
         onixUiAssert.assertAll();
     }
 
@@ -73,7 +73,7 @@ public class WS extends OnixUiTestRunner {
             onixUiAssert.softCheckFirstGreaterSecond(current, before);
             before = current;
         }
-        main = transformations.goMainPage();
+        main = transformations.clickHeaderJsaLogo();
         onixUiAssert.assertAll();
     }
 
@@ -89,7 +89,7 @@ public class WS extends OnixUiTestRunner {
             fromEveryTab += blog.countPosts();
         }
         fromEveryTab -= total;
-        main = blog.goMainPage();
+        main = blog.clickHeaderJsaLogo();
         onixUiAssert.checkCount(total, fromEveryTab);
     }
 
@@ -97,15 +97,15 @@ public class WS extends OnixUiTestRunner {
     public void login() {
         Allure.link("Original test case", "https://docs.google.com/spreadsheets/d/1gudjZ7fh4aUsozP7aPIovLnI4qGdbUFpIHJ6AbTlbC4/edit?ts=5f7593b0#gid=633091546&range=B53");
 
-        Home home = main.goLoginPage().login(User.getValidUser());
+        Home home = main.clickHeaderLogin().login(User.getValidUser());
         onixUiAssert.softCheckCountOfElementByLocator(Home.Locator.CHALLENGE_DIV_LINK, 1);
-        main = home.openUserDropDown().logout().goMainPage();
-        ResetPassword resetPassword = main.goLoginPage().clickForgotPassword();
+        main = home.openUserDropDown().logout().clickHeaderJsaLogo();
+        ResetPassword resetPassword = main.clickHeaderLogin().clickForgotPassword();
         onixUiAssert.softCheckCountOfElementByLocator(ResetPassword.Locator.EMAIL_INPUT, 1);
-        main = resetPassword.goMainPage();
-        home = main.goLoginPage().loginByFB(User.getValidUser());
+        main = resetPassword.clickHeaderJsaLogo();
+        home = main.clickHeaderLogin().loginByFB(User.getValidUser());
         onixUiAssert.softCheckCountOfElementByLocator(Home.Locator.CHALLENGE_DIV_LINK, 1);
-        main = home.openUserDropDown().logout().goMainPage();
+        main = home.openUserDropDown().logout().clickHeaderJsaLogo();
         CreateAccount createAccount = main.clickGetStartedButton();
         onixUiAssert.softCheckCountOfElementByLocator(CreateAccount.Locator.CREATE_ACCOUNT_BUTTON, 1);
         main = createAccount.goMainPage();
@@ -144,7 +144,7 @@ public class WS extends OnixUiTestRunner {
         faqs = new Faqs(facebookPage.closeAndBackToJsaTab());
         SpotifyPage spotifyPage = faqs.clickFooterSpotify();
         onixUiAssert.softCheckUrlContains("spotify");
-        main = new Faqs(spotifyPage.closeAndBackToJsaTab()).goMainPage();
+        main = new Faqs(spotifyPage.closeAndBackToJsaTab()).clickHeaderJsaLogo();
         onixUiAssert.assertAll();
     }
 }

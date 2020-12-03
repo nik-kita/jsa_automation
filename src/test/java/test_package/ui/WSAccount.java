@@ -48,7 +48,7 @@ public class WSAccount extends OnixUiTestRunner {
         for(OnixLocator l : Main.Locator.values()) {
             onixUiAssert.softCheckCountOfElementByLocator(l, 1);
         }
-        Login login = main.goLoginPage();
+        Login login = main.clickHeaderLogin();
         log.debug("Login page");
         for(OnixLocator l : Login.Locator.values()) {
             onixUiAssert.softCheckCountOfElementByLocator(l, 1);
@@ -107,7 +107,7 @@ public class WSAccount extends OnixUiTestRunner {
         for(OnixLocator l : PersonalTrainer.Locator.values()) {
             onixUiAssert.softCheckCountOfElementByLocator(l, 1);
         }
-        main = personalTrainer.clickClose().openUserDropDown().logout().goMainPage();
+        main = personalTrainer.clickClose().openUserDropDown().logout().clickHeaderJsaLogo();
         log.debug("Logout");
         onixUiAssert.assertAll();
     }
@@ -122,7 +122,7 @@ public class WSAccount extends OnixUiTestRunner {
         }
         log.info("JSA home page is open");
         log.debug("2. Click on \"Login\" and pass an authorization");
-        Home home = main.goLoginPage().login(User.getValidUser());
+        Home home = main.clickHeaderLogin().login(User.getValidUser());
         for(OnixLocator l : Home.Locator.values()) {
             onixUiAssert.softCheckCountOfElementByLocator(l, 1);
         }
@@ -151,7 +151,7 @@ public class WSAccount extends OnixUiTestRunner {
             onixUiAssert.softCheckCountOfElementByLocator(l, 1);
         }
         log.info("Personal trainer is open");
-        personalTrainer.clickClose().openUserDropDown().logout().goMainPage();
+        personalTrainer.clickClose().openUserDropDown().logout().clickHeaderJsaLogo();
         log.debug("Logout");
         onixUiAssert.assertAll();
     }
@@ -163,7 +163,7 @@ public class WSAccount extends OnixUiTestRunner {
         Main main = openSite();
         log.info("JSA home page is open");
         log.debug("2. Click on \"Login\" and pass an authorization");
-        Login login = main.goLoginPage();
+        Login login = main.clickHeaderLogin();
         for(OnixLocator l : Login.Locator.values()) {
             onixUiAssert.softCheckCountOfElementByLocator(l, 1);
         }
@@ -221,7 +221,7 @@ public class WSAccount extends OnixUiTestRunner {
             onixUiAssert.softCheckCountOfElementByLocator(l, 1);
         }
         log.info("Personal trainer is open");
-        personalTrainer.clickClose().openUserDropDown().logout().goMainPage();
+        personalTrainer.clickClose().openUserDropDown().logout().clickHeaderJsaLogo();
         log.debug("Logout");
         onixUiAssert.assertAll();
 
@@ -237,7 +237,7 @@ public class WSAccount extends OnixUiTestRunner {
         }
         log.info("JSA main page is open");
         log.debug("2. Click on \"Login\" and pass an authorization");
-        Home home = main.goLoginPage().login(User.getValidUser());
+        Home home = main.clickHeaderLogin().login(User.getValidUser());
         for(OnixLocator l : Home.Locator.values()) {
             onixUiAssert.softCheckCountOfElementByLocator(l, 1);
         }
@@ -267,7 +267,7 @@ public class WSAccount extends OnixUiTestRunner {
 //        }
 //        personalTrainer.clickClose().openUserDropDown().logout();
         //TODO is there 'Support button' or no?
-        shoppingLists.openUserDropDown().logout().goMainPage();
+        shoppingLists.openUserDropDown().logout().clickHeaderJsaLogo();
         log.info("Logout");
         onixUiAssert.assertAll();
     }
@@ -275,7 +275,7 @@ public class WSAccount extends OnixUiTestRunner {
     @Test
     public void account() {
         log.debug("1. Open https://www.jamessmithacademy.com/\n2. Click on \"Login\" and pass an authorization\n3. Click on \"Account\" ");
-        MyPlan myPlan = openSite().goLoginPage().login(User.getValidUser()).clickAccountIcon();
+        MyPlan myPlan = openSite().clickHeaderLogin().login(User.getValidUser()).clickAccountIcon();
         for(OnixLocator l : MyPlan.Locator.values()) {
             onixUiAssert.softCheckCountOfElementByLocator(l, 1);
         }
@@ -298,7 +298,7 @@ public class WSAccount extends OnixUiTestRunner {
             onixUiAssert.softCheckCountOfElementByLocator(l, 1);
         }
         log.info("Paired Devices page is open");
-        pairedDevices.clickLogoutHeaderButton().goMainPage();
+        pairedDevices.clickLogoutHeaderButton().clickHeaderJsaLogo();
         log.info("Logout");
         onixUiAssert.assertAll();
 
@@ -312,7 +312,7 @@ public class WSAccount extends OnixUiTestRunner {
                 "3. Go to https://www.jamessmithacademy.com/users/account/my-plan or click on \"Account\" \n" +
                 "4. \"My Plan\" is open by default\n" +
                 "5. Click on \"Change plan\"");
-        MyPlan myPlan = openSite().goLoginPage().login(User.getValidUser()).clickAccountIcon();
+        MyPlan myPlan = openSite().clickHeaderLogin().login(User.getValidUser()).clickAccountIcon();
         for(OnixLocator l : MyPlan.Locator.values()) {
             onixUiAssert.softCheckCountOfElementByLocator(l, 1);
         }
@@ -351,7 +351,7 @@ public class WSAccount extends OnixUiTestRunner {
                 "2. Click on \"Login\" and pass an authorization\tLogin page is open\n" +
                 "3. Go to https://www.jamessmithacademy.com/users/account/my-plan or click on \"Account\" \tAccount page is open");
         log.debug("4. Go to \"My Profile\" page");
-        MyProfile myProfile = openSite().goLoginPage().login(User.getValidUser())
+        MyProfile myProfile = openSite().clickHeaderLogin().login(User.getValidUser())
                 .clickAccountIcon().clickMyProfile();
         for(OnixLocator l : MyProfile.Locator.values()) {
             onixUiAssert.softCheckCountOfElementByLocator(l, 1);

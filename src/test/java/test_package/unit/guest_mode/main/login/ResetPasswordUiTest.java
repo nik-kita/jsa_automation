@@ -12,7 +12,7 @@ public class ResetPasswordUiTest extends OnixUiTestRunner {
     ResetPassword resetPasswordPO;
     @BeforeClass
     public void goResetPasswordPage() {
-        resetPasswordPO = openSite().goLoginPage().clickForgotPassword();
+        resetPasswordPO = openSite().clickHeaderLogin().clickForgotPassword();
     }
 
     @Test(dataProvider = "getResetPasswordLocators")

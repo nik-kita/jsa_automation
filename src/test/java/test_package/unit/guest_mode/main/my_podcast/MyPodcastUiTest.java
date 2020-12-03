@@ -12,7 +12,7 @@ public class MyPodcastUiTest extends OnixUiTestRunner {
     MyPodcast myPodcast;
     @BeforeClass
     public void goMyPodcast() {
-        myPodcast = openSite().goMyPodcastPageFromHeader();
+        myPodcast = openSite().clickHeaderMyPodcast();
     }
     @Test(dataProvider = "getMyPodcastLocators")
     public void myPodcastTest(OnixLocator locator) {

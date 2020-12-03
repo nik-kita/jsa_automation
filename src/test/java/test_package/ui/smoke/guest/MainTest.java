@@ -1,9 +1,9 @@
-package test_package.ui.smoke;
+package test_package.ui.smoke.guest;
 
 import main_package.engine.test_engine.OnixUiTestRunner;
 import org.testng.annotations.Test;
 
-public class LogoutModeMainUiTest extends OnixUiTestRunner {
+public class MainTest extends OnixUiTestRunner {
 
 
     @Test
@@ -154,5 +154,54 @@ public class LogoutModeMainUiTest extends OnixUiTestRunner {
         openSite().clickFooterAppStore(onixUiAssert);
         onixUiAssert.assertAll();
     }
+
+    @Test
+    public void clickHeaderPricing() {
+        openSite().clickHeaderPricing(onixUiAssert);
+        onixUiAssert.assertAll();
+    }
+
+    @Test
+    public void clickHeaderJsaLogo() {
+        openSite().clickHeaderJsaLogo(onixUiAssert);
+        onixUiAssert.assertAll();
+    }
+
+    @Test
+    public void clickHeaderTransformations() {
+        openSite().clickHeaderTransformations(onixUiAssert);
+        onixUiAssert.assertAll();
+    }
+
+    @Test
+    public void clickHeaderChallenge() {
+        openSite().clickHeaderChallenge(onixUiAssert);
+        onixUiAssert.assertAll();
+    }
+
+    @Test
+    public void clickHeaderMyPodcast() {
+        openSite().clickHeaderMyPodcast(onixUiAssert);
+        onixUiAssert.assertAll();
+    }
+
+    @Test
+    public void clickHeaderMyBook() {
+        //TODO
+        log.error("This test is not written!");
+    }
+
+    @Test
+    public void clickHeaderLogin() {
+        openSite().clickHeaderLogin(onixUiAssert);
+        onixUiAssert.assertAll();
+    }
+
+    @Test
+    public void clickHeaderJoinNow() {
+        openSite().clickHeaderJoinNow(onixUiAssert);
+        onixUiAssert.assertAll();
+    }
+
 
 }

@@ -11,7 +11,7 @@ import main_package.ui.guest_mode.page_objects.main.login.Login;
 public class LoginPageUiTest extends OnixUiTestRunner {
     @BeforeClass
     public void goLoginPage() {
-        openSite().goLoginPage();
+        openSite().clickHeaderLogin();
     }
 
     @Test(dataProvider = "getLoginPageLocators")

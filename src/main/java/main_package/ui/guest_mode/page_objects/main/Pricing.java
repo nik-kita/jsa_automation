@@ -2,6 +2,7 @@ package main_package.ui.guest_mode.page_objects.main;
 
 
 import main_package.engine.test_engine.FlyTester;
+import main_package.engine.test_engine.OnixUiAssert;
 import org.openqa.selenium.By;
 import main_package.ui.BasePageObject;
 import main_package.engine.OnixLocator;
@@ -13,6 +14,17 @@ public class Pricing extends BasePageObject implements MainHeader, Footer {
 
     public Pricing(OnixWebDriver driver) {
         super(driver);
+        logger.debug("'Pricing' page is open.");
+    }
+    public Pricing check(OnixUiAssert onixUiAssert) {
+        for(OnixLocator l : OnixUiAssert.mergeArrays(
+                Pricing.Locator.values(),
+                MainHeader.HeaderLocator.values(),
+                Footer.FooterLocator.values()
+        )) {
+            onixUiAssert.softCheckCountOfElementByLocator(l, 1);
+        }
+        return this;
     }
     @Override
     public Pricing test(FlyTester flyTester) {
