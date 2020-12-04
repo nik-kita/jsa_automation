@@ -5,8 +5,6 @@ import main_package.engine.*;
 import main_package.engine.test_engine.FlyTester;
 import main_package.engine.test_engine.OnixUiAssert;
 import org.openqa.selenium.By;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import main_package.ui.BasePageObject;
 import main_package.ui.data.User;
 import main_package.ui.guest_mode.page_objects.main.Main;
@@ -80,7 +78,7 @@ public class Login extends BasePageObject {
 
     public Home loginByFB(User user) {
         driver.findElement(Locator.FACEBOOK_BUTTON).click();
-        return new FB(driver)
+        return new FbWindowForLogin(driver)
                 .login(user.getFacebookEmail(), user.getFacebookPassword());
     }
 
@@ -90,39 +88,7 @@ public class Login extends BasePageObject {
         return new CreateAccount(driver);
     }
 
-    private class FB {
-        OnixWebDriver driver;
-        Logger fbLogger;
-        public FB(OnixWebDriver driver) {
-            this.driver = driver;
-            fbLogger = LoggerFactory.getLogger(this.getClass());
-            fbLogger.debug("Facebook login page is opened");
-        }
-        OnixLocator emailOrNumberInput = makeOnixLocator(By.xpath("//input[@id='email']"), this.getClass());
-        OnixLocator passwordInput = makeOnixLocator(By.xpath("//input[@type='password']"), this.getClass());
-        OnixLocator enterButton = makeOnixLocator(By.cssSelector("#loginbutton"), this.getClass());
-        OnixLocator confirmButton = makeOnixLocator(By.xpath("//button[@name='__CONFIRM__']"), this.getClass());
 
-        public Home login(String name, String password) {
-            driver.findElement(emailOrNumberInput).sendKeys(name);
-            driver.findElement(passwordInput).sendKeys(password);
-            driver.findElement(enterButton).click();
-            if(driver.isElementPresent(confirmButton)) {
-                fbLogger.debug("additional facebook page for confirmation is present");
-                driver.waitToClick(confirmButton).click();
-            }
-            OnixLocator firstCheckNameInput = makeOnixLocator(By.xpath("//input[contains(@value, ' ')]"), Home.class);
-            OnixLocator firstCheckTermsCheckbox = makeOnixLocator(By.cssSelector(".checkbox #terms-styler"), Home.class);
-            OnixLocator firstCheckCreateAccountButton = makeOnixLocator(By.cssSelector("input[type='submit']"), Home.class);
-            if(driver.isElementPresent(firstCheckNameInput)) {
-                driver.waitToClick(firstCheckTermsCheckbox).click();
-                driver.waitToClick(firstCheckCreateAccountButton).click();
-                fbLogger.debug("additional first name checking page is present");
-            }
-            fbLogger.debug("'Home' from 'FB'");
-            return new Home(driver);
-        }
-    }
 
     public ResetPassword clickForgotPassword() {
         driver.findElement(Locator.FORGOT_PASSWORD_LINK).click();

@@ -64,7 +64,7 @@ public class OnixUiAssert extends OnixAssert{
                 "\nFirst is:  " + first +
                 "\nSecond is: " + second + "\n\n";
         softAssert.assertTrue(first > second, errorMessage);
-        boolean result = first > second;
+        boolean result = (first > second);
         softMessage(result,
                 first + " > " + second,
                 "(" + first + " > " + second + ") != true");
@@ -161,7 +161,7 @@ public class OnixUiAssert extends OnixAssert{
                 "\n" + locatorPath +
                 "\n----------------------------" +
                 "\n=== NUMBER OF ELEMENTS ===\n";
-        boolean result = actualElCount == expectedElCount;
+        boolean result = (actualElCount == expectedElCount);
         softMessage(
                 result,
                 locatorClass + "." + locatorName + "(" + locatorPath + ") find " + actualElCount + " elements.",
@@ -176,12 +176,13 @@ public class OnixUiAssert extends OnixAssert{
         message(result, "Current url '" + url + "' contains '" + wordInUrl + "'", "Current url is '" + url + "' however you try to find '" + wordInUrl + "' in it.");
         Assert.assertTrue(url.toLowerCase().contains(wordInUrl.toLowerCase()));
     }
-    public void softCheckUrlContains(String wordInUrl) {
+    public SoftAssert softCheckUrlContains(String wordInUrl) {
         SoftAssert softAssert = getSoftAssert();
         String url = driver.getUrl();
         boolean result = url.toLowerCase().contains(wordInUrl.toLowerCase());
         softMessage(result, "Current url '" + url + "' contains '" + wordInUrl + "'", "Current url is '" + url + "' however you try to find '" + wordInUrl + "' in it.");
         softAssert.assertTrue(result);
+        return softAssert;
     }
 
 }

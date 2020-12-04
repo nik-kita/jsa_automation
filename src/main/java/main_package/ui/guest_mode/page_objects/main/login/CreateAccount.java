@@ -3,12 +3,15 @@ package main_package.ui.guest_mode.page_objects.main.login;
 
 import main_package.engine.test_engine.FlyTester;
 import main_package.engine.test_engine.OnixUiAssert;
+import main_package.ui.related_sites.FacebookPage;
+import main_package.ui.related_sites.InCurrentTab;
 import org.openqa.selenium.By;
 import main_package.ui.BasePageObject;
 import main_package.engine.OnixLocator;
 import main_package.engine.OnixWebDriver;
 import main_package.ui.guest_mode.page_objects.from_footer.TermsOfService;
 import main_package.ui.guest_mode.page_objects.main.Main;
+import org.slf4j.Logger;
 
 public class CreateAccount extends BasePageObject {
 
@@ -32,23 +35,86 @@ public class CreateAccount extends BasePageObject {
         return this;
     }
 
-    public Main goMainPage() {
+    public Main clickJsaLogo() {
         driver.findElement(Locator.JSA_LOGO).click();
-        logger.debug("go 'Main' from 'Create Account'");
+        logger.info("Click 'JSA' logo.");
         return new Main(driver);
+    }
+    public Main clickJsaLogo(OnixUiAssert onixUiAssert){
+        return clickJsaLogo().check(onixUiAssert);
     }
 
     public Login clickSignInButton() {
         driver.findElement(Locator.SIGN_IN_BUTTON).click();
-        logger.debug("go 'Login' from 'Create Account'");
+        logger.info("Click 'Sign In' button.");
         return new Login(driver);
+    }
+    public Login clickSignInButton(OnixUiAssert onixUiAssert) {
+        return clickSignInButton().check(onixUiAssert);
     }
 
     public TermsOfService clickTermsOfServiceLink() {
         driver.findElement(Locator.TERMS_OF_SERVICE_LINK).click();
-        logger.debug("go 'Terms of Service' from 'Create Account'");
+        logger.info("Click 'Terms of service' checkbox.");
         return new TermsOfService(driver);
     }
+    public TermsOfService clickTermsOfServiceLink(OnixUiAssert onixUiAssert) {
+        return clickTermsOfServiceLink().check(onixUiAssert);
+    }
+
+    public FbWindowForLogin clickSignInWithFacebook() {
+        driver.findElement(Locator.FACEBOOK_BUTTON).click();
+        logger.info("Click 'Sign in with Facebook' button.");
+        return new FbWindowForLogin(driver);
+    }
+    public FbWindowForLogin clickSignInWithFacebook(OnixUiAssert onixUiAssert) {
+        return clickSignInWithFacebook().check(onixUiAssert);
+    }
+
+    public InCurrentTab clickSignInWithApple() {
+        driver.findElement(Locator.APPLE_BUTTON).click();
+        logger.warn("Click 'Sign in with Apple' button. But this page in //TODO for testFramework!");
+        return new InCurrentTab() {
+            //TODO Make normal class for AppleWindowForLogin
+            @Override
+            public Logger getLogger() {
+                return logger;
+            }
+
+            @Override
+            public OnixWebDriver getDriver() {
+                return driver;
+            }
+
+            public InCurrentTab check(OnixUiAssert onixUiAssert) {
+                onixUiAssert.softCheckUrlContains("apple");
+                return this;
+            }
+        };
+    }
+    public InCurrentTab clickSignInWithApple(OnixUiAssert onixUiAssert) {
+        driver.findElement(Locator.APPLE_BUTTON).click();
+        logger.warn("Click 'Sign in with Apple' button. But this page in //TODO for testFramework!");
+        return new InCurrentTab() {
+            //TODO Make normal class for AppleWindowForLogin
+            @Override
+            public Logger getLogger() {
+                return logger;
+            }
+
+            @Override
+            public OnixWebDriver getDriver() {
+                return driver;
+            }
+
+            {
+                onixUiAssert.softCheckUrlContains("apple");
+            }
+
+        };
+    }
+
+
 
     public enum Locator implements OnixLocator {
         JSA_LOGO(By.xpath("//a[@href='/']")),

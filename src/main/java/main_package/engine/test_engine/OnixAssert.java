@@ -25,14 +25,17 @@ public class OnixAssert {
 
     public void assertAll() {
         if(softTotalCounter == softSuccessCounter) {
-            message(true, "All softAssertions passed!", "this message will never displayed");
+            message(true, "All softAssertions passed!" , "this message will never displayed");
         } else {
             message(false, "", "Not all tests passed!!!");
         }
-        softAssert.assertAll();
-        softAssert = null;
-        softTotalCounter = 0;
-        softSuccessCounter = 0;
+        try {
+            softAssert.assertAll();
+        } finally {
+            softAssert = null;
+            softTotalCounter = 0;
+            softSuccessCounter = 0;
+        }
     }
     public void assertAll(String good, String bad) {
         if(softTotalCounter == softSuccessCounter) {
@@ -40,10 +43,13 @@ public class OnixAssert {
         } else {
             message(false, "", bad);
         }
-        softAssert.assertAll();
-        softAssert = null;
-        softTotalCounter = 0;
-        softSuccessCounter = 0;
+        try {
+            softAssert.assertAll();
+        } finally {
+            softAssert = null;
+            softTotalCounter = 0;
+            softSuccessCounter = 0;
+        }
 
     }
 

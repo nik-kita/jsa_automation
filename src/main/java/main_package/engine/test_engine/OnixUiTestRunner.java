@@ -41,7 +41,7 @@ public class OnixUiTestRunner extends OnixTestRunner {
     public OnixWebDriver driver;
     private Main mainPO;
     String baseUrl = "https://www.jamessmithacademy.com/";
-    public Logger log;
+    public LogHtmlWrap log;
 
     public OnixWebDriver getDriver() {
         return driver;

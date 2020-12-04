@@ -108,7 +108,7 @@ public class WS extends OnixUiTestRunner {
         main = home.openUserDropDown().logout().clickHeaderJsaLogo();
         CreateAccount createAccount = main.clickGetStartedButton();
         onixUiAssert.softCheckCountOfElementByLocator(CreateAccount.Locator.CREATE_ACCOUNT_BUTTON, 1);
-        main = createAccount.goMainPage();
+        main = createAccount.clickJsaLogo();
         onixUiAssert.assertAll();
     }
 
