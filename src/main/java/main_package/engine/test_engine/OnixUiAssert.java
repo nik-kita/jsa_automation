@@ -82,7 +82,7 @@ public class OnixUiAssert extends OnixAssert{
         boolean result = actual == expected;
         message(result,
                 "Counting result is " + actual,
-                "Counting result is " + actual + ". However expected " + expected);
+                errorMessage);
         Assert.assertEquals(actual, expected, errorMessage);
     }
 
