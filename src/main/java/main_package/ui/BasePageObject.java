@@ -1,6 +1,8 @@
 package main_package.ui;
 
 import main_package.engine.test_engine.FlyTester;
+import main_package.engine.test_engine.OnixUiTestRunner;
+import main_package.ui.guest_mode.page_objects.main.Main;
 import org.openqa.selenium.By;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -39,4 +41,8 @@ public abstract class BasePageObject {
     }
 
     public abstract BasePageObject test(FlyTester flyTester);
+    public Main openFromScratch() {
+        driver.get(OnixUiTestRunner.baseUrl);
+        return new Main(driver);
+    }
 }

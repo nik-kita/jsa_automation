@@ -40,7 +40,7 @@ public class OnixUiTestRunner extends OnixTestRunner {
     public OnixUiAssert onixUiAssert;
     public OnixWebDriver driver;
     private Main mainPO;
-    String baseUrl = "https://www.jamessmithacademy.com/";
+    public static String baseUrl = "https://www.jamessmithacademy.com/";
     public LogHtmlWrap log;
 
     public OnixWebDriver getDriver() {
@@ -143,7 +143,7 @@ public class OnixUiTestRunner extends OnixTestRunner {
     protected Main openSite(OnixUiAssert onixUiAssert) {
         driver.get(baseUrl);
         log.debug("Open https://www.jamessmithacademy.com/");
-        mainPO = new Main(driver, onixUiAssert);
+        mainPO = new Main(driver).check(onixUiAssert);
         return mainPO;
     }
 

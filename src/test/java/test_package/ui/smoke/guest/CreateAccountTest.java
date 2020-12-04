@@ -19,22 +19,23 @@ public class CreateAccountTest extends OnixUiTestRunner {
     }
     @Test
     public void clickJsaLogoTest() {
-        createAccount.clickJsaLogo(onixUiAssert);
+        createAccount.clickJsaLogo().check(onixUiAssert);
         onixUiAssert.assertAll();
     }
     @Test
     public void clickSignInWithFacebook() {
-        createAccount.clickSignInWithFacebook(onixUiAssert);
+        createAccount.clickSignInWithFacebook().check(onixUiAssert);
         onixUiAssert.assertAll();
     }
     @Test
     public void clickSignInWithApple() {
+        //TODO after adding special AppleWindowForLogin class
         createAccount.clickSignInWithApple(onixUiAssert);
         onixUiAssert.assertAll();
     }
     @Test
     public void clickSignIn() {
-        createAccount.clickSignInButton(onixUiAssert);
+        createAccount.clickSignInButton().check(onixUiAssert);
         onixUiAssert.assertAll();
     }
     @Test

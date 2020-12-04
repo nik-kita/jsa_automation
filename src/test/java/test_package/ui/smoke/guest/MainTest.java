@@ -1,189 +1,195 @@
 package test_package.ui.smoke.guest;
 
 import main_package.engine.test_engine.OnixUiTestRunner;
+import main_package.ui.guest_mode.page_objects.main.Main;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import org.uncommons.reportng.HTMLReporter;
 
 public class MainTest extends OnixUiTestRunner {
-
+    Main main;
+    @BeforeMethod
+    public void openMain() {
+        main = openSite();
+    }
 
     @Test
     public void mainPageTest() {
-        openSite(onixUiAssert);
+        main.check(onixUiAssert);
         onixUiAssert.assertAll();
     }
 
     @Test
     public void clickGetStarted() {
-        openSite().clickGetStartedButton(onixUiAssert);
+        openSite().clickGetStartedButton().check(onixUiAssert);
         onixUiAssert.assertAll();
     }
 
     @Test
     public void clickPlayStore() {
-        openSite().clickPlayStoreBannerButton(onixUiAssert);
+        openSite().clickPlayStoreBannerButton().check(onixUiAssert);
         onixUiAssert.assertAll();
     }
 
     @Test
     public void clickAppStore() {
-        openSite().clickAppStoreBannerButton(onixUiAssert);
+        openSite().clickAppStoreBannerButton().check(onixUiAssert);
         onixUiAssert.assertAll();
     }
 
     @Test
     public void clickMyInstagram() {
-        openSite().clickMyInstagramBannerButton(onixUiAssert);
+        openSite().clickMyInstagramBannerButton().check(onixUiAssert);
         onixUiAssert.assertAll();
     }
 
     @Test
     public void clickMyFacebook() {
-        openSite().clickMyFacebookBannerButton(onixUiAssert);
+        openSite().clickMyFacebookBannerButton().check(onixUiAssert);
         onixUiAssert.assertAll();
     }
 
     @Test
     public void clickPlayStoreInDownloadSection() {
-        openSite().clickPlayStoreButtonInDownloadSection(onixUiAssert);
+        openSite().clickPlayStoreButtonInDownloadSection().check(onixUiAssert);
         onixUiAssert.assertAll();
     }
 
     @Test
     public void clickAppStoreButtonInDownloadSection() {
-        openSite().clickAppStoreButtonInDownloadSection(onixUiAssert);
+        openSite().clickAppStoreButtonInDownloadSection().check(onixUiAssert);
         onixUiAssert.assertAll();
     }
 
     @Test
     public void clickAboutChallenges() {
-        openSite().clickAboutChallengesButton(onixUiAssert);
+        openSite().clickAboutChallengesButton().check(onixUiAssert);
         onixUiAssert.assertAll();
     }
 
     @Test
     public void clickSeeMoreTransformations() {
-        openSite().clickSeeMoreTransformationsButton(onixUiAssert);
+        openSite().clickSeeMoreTransformationsButton().check(onixUiAssert);
         onixUiAssert.assertAll();
     }
 
     @Test
     public void signUpForFamousDailyEmails() {
-        openSite().cheaterClickFamousDailyEmail(onixUiAssert);
+        openSite().cheaterClickFamousDailyEmail().check(onixUiAssert);
         onixUiAssert.assertAll();
     }
 
     @Test
-    public void clickJsaFooterLogo() {
+    public void clickFooterJsaLogo() {
         //TODO
     }
 
     @Test
-    public void clickTermsOfService() {
-        openSite().clickFooterTermsOfService(onixUiAssert);
+    public void clickFooterTermsOfService() {
+        openSite().clickFooterTermsOfService().check(onixUiAssert);
         onixUiAssert.assertAll();
     }
 
     @Test
-    public void clickCookiesPolicy() {
-        openSite().clickFooterCookiesPolicy(onixUiAssert);
+    public void clickFooterCookiesPolicy() {
+        openSite().clickFooterCookiesPolicy().check(onixUiAssert);
         onixUiAssert.assertAll();
     }
 
     @Test
-    public void clickPrivacyPolicy() {
-        openSite().clickFooterPrivatePolicy(onixUiAssert);
+    public void clickFooterPrivacyPolicy() {
+        openSite().clickFooterPrivatePolicy().check(onixUiAssert);
         onixUiAssert.assertAll();
     }
 
     @Test
     public void clickFooterBlog() {
-        openSite().clickFooterBlog(onixUiAssert);
+        openSite().clickFooterBlog().check(onixUiAssert);
         onixUiAssert.assertAll();
     }
 
     @Test
-    public void clickBuReports() {
-        openSite().clickFooterBugReports(onixUiAssert);
+    public void clickFooterBugReports() {
+        openSite().clickFooterBugReports().check(onixUiAssert);
         onixUiAssert.assertAll();
     }
 
     @Test
-    public void clickContactUs() {
-        openSite().clickFooterContactUs(onixUiAssert);
+    public void clickFooterContactUs() {
+        openSite().clickFooterContactUs().check(onixUiAssert);
         onixUiAssert.assertAll();
     }
 
     @Test
-    public void clickAccess() {
-        openSite().clickFooterAccess(onixUiAssert);
+    public void clickFooterAccess() {
+        openSite().clickFooterAccess().check(onixUiAssert);
         onixUiAssert.assertAll();
     }
 
     @Test
-    public void clickFaqs() {
-        openSite().clickFooterFAQs(onixUiAssert);
+    public void clickFooterFaqs() {
+        openSite().clickFooterFAQs().check(onixUiAssert);
         onixUiAssert.assertAll();
     }
 
     @Test
     public void clickFooterFacebook() {
-        openSite().clickFooterFacebook(onixUiAssert);
+        openSite().clickFooterFacebook().check(onixUiAssert);
         onixUiAssert.assertAll();
     }
 
     @Test
     public void clickFooterInstagram() {
-        openSite().clickFooterInstagram(onixUiAssert);
+        openSite().clickFooterInstagram().check(onixUiAssert);
         onixUiAssert.assertAll();
     }
 
     @Test
     public void clickFooterSpotify() {
-        openSite().clickFooterSpotify(onixUiAssert);
+        openSite().clickFooterSpotify().check(onixUiAssert);
         onixUiAssert.assertAll();
     }
 
     @Test
     public void clickFooterPlayStore() {
-        openSite().clickFooterPlayStore(onixUiAssert);
+        openSite().clickFooterPlayStore().check(onixUiAssert);
         onixUiAssert.assertAll();
     }
 
     @Test
     public void clickFooterAppStore() {
-        openSite().clickFooterAppStore(onixUiAssert);
+        openSite().clickFooterAppStore().check(onixUiAssert);
         onixUiAssert.assertAll();
     }
 
     @Test
     public void clickHeaderPricing() {
-        openSite().clickHeaderPricing(onixUiAssert);
+        openSite().clickHeaderPricing().check(onixUiAssert);
         onixUiAssert.assertAll();
     }
 
     @Test
     public void clickHeaderJsaLogo() {
-        openSite().clickHeaderJsaLogo(onixUiAssert);
+        openSite().clickHeaderJsaLogo().check(onixUiAssert);
         onixUiAssert.assertAll();
     }
 
     @Test
     public void clickHeaderTransformations() {
-        openSite().clickHeaderTransformations(onixUiAssert);
+        openSite().clickHeaderTransformations().check(onixUiAssert);
         onixUiAssert.assertAll();
     }
 
     @Test
     public void clickHeaderChallenge() {
-        openSite().clickHeaderChallenge(onixUiAssert);
+        openSite().clickHeaderChallenge().check(onixUiAssert);
         onixUiAssert.assertAll();
     }
 
     @Test
     public void clickHeaderMyPodcast() {
-        openSite().clickHeaderMyPodcast(onixUiAssert);
+        openSite().clickHeaderMyPodcast().check(onixUiAssert);
         onixUiAssert.assertAll();
     }
 
@@ -195,13 +201,13 @@ public class MainTest extends OnixUiTestRunner {
 
     @Test
     public void clickHeaderLogin() {
-        openSite().clickHeaderLogin(onixUiAssert);
+        openSite().clickHeaderLogin().check(onixUiAssert);
         onixUiAssert.assertAll();
     }
 
     @Test
     public void clickHeaderJoinNow() {
-        openSite().clickHeaderJoinNow(onixUiAssert);
+        openSite().clickHeaderJoinNow().check(onixUiAssert);
         onixUiAssert.assertAll();
     }
 

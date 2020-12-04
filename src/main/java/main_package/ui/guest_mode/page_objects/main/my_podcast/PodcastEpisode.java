@@ -1,6 +1,7 @@
 package main_package.ui.guest_mode.page_objects.main.my_podcast;
 
 import main_package.engine.test_engine.FlyTester;
+import main_package.engine.test_engine.OnixUiAssert;
 import org.openqa.selenium.By;
 import main_package.ui.BasePageObject;
 import main_package.engine.OnixLocator;
@@ -24,6 +25,15 @@ public class PodcastEpisode extends BasePageObject implements MainHeader, Footer
         logger.debug("'MyPodcast' from 'PodcastEpisode'");
         return new MyPodcast(driver);
     }
+
+    @Override
+    public BasePageObject check(OnixUiAssert onixUiAssert) {
+        for(OnixLocator l : OnixUiAssert.mergeArrays(
+                PodcastEpisode.Locator.values(),
+
+        ))
+    }
+
     public enum Locator implements OnixLocator {
         BACK_ARROW_LINK(By.cssSelector("[href='/podcasts/']")),
         ;

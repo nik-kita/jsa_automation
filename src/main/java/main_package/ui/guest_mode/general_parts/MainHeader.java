@@ -2,6 +2,7 @@ package main_package.ui.guest_mode.general_parts;
 
 
 import main_package.engine.test_engine.OnixUiAssert;
+import main_package.ui.BasePageObject;
 import org.openqa.selenium.By;
 import main_package.ui.BasePart;
 import main_package.engine.OnixLocator;
@@ -12,6 +13,8 @@ import main_package.ui.guest_mode.page_objects.main.login.Login;
 import main_package.ui.guest_mode.page_objects.main.my_podcast.MyPodcast;
 
 public interface MainHeader extends BasePart {
+    BasePageObject check(OnixUiAssert onixUiAssert);
+    BasePageObject openFromScratch();
 
     default Main clickHeaderJsaLogo() {
         OnixWebDriver driver = getDriver();

@@ -49,17 +49,12 @@ public class CreateAccount extends BasePageObject {
         logger.info("Click 'Sign In' button.");
         return new Login(driver);
     }
-    public Login clickSignInButton(OnixUiAssert onixUiAssert) {
-        return clickSignInButton().check(onixUiAssert);
-    }
+
 
     public TermsOfService clickTermsOfServiceLink() {
         driver.findElement(Locator.TERMS_OF_SERVICE_LINK).click();
         logger.info("Click 'Terms of service' checkbox.");
         return new TermsOfService(driver);
-    }
-    public TermsOfService clickTermsOfServiceLink(OnixUiAssert onixUiAssert) {
-        return clickTermsOfServiceLink().check(onixUiAssert);
     }
 
     public FbWindowForLogin clickSignInWithFacebook() {
@@ -67,9 +62,7 @@ public class CreateAccount extends BasePageObject {
         logger.info("Click 'Sign in with Facebook' button.");
         return new FbWindowForLogin(driver);
     }
-    public FbWindowForLogin clickSignInWithFacebook(OnixUiAssert onixUiAssert) {
-        return clickSignInWithFacebook().check(onixUiAssert);
-    }
+
 
     public InCurrentTab clickSignInWithApple() {
         driver.findElement(Locator.APPLE_BUTTON).click();
@@ -86,10 +79,6 @@ public class CreateAccount extends BasePageObject {
                 return driver;
             }
 
-            public InCurrentTab check(OnixUiAssert onixUiAssert) {
-                onixUiAssert.softCheckUrlContains("apple");
-                return this;
-            }
         };
     }
     public InCurrentTab clickSignInWithApple(OnixUiAssert onixUiAssert) {
