@@ -5,7 +5,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import main_package.engine.OnixLocator;
-import main_package.ui.user_mode.page_objects.from_footer.AccessAndDownload;
+import main_package.ui.___U_S_E_R___.page_objects.from_footer.AccessAndDownload;
 import main_package.engine.test_engine.JsaLoginBaseUiTestRunner;
 
 

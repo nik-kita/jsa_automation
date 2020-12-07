@@ -13,8 +13,8 @@ import main_package.ui.guest_mode.page_objects.main.Transformations;
 import main_package.ui.guest_mode.page_objects.main.login.CreateAccount;
 import main_package.ui.guest_mode.page_objects.main.login.ResetPassword;
 import main_package.ui.related_sites.*;
-import main_package.ui.user_mode.page_objects.home_header.home.Home;
-import main_package.ui.user_mode.page_objects.main.pricing.pricingplans.PaymentMethodPopup;
+import main_package.ui.___U_S_E_R___.page_objects.home_header.home.Home;
+import main_package.ui.___U_S_E_R___.page_objects.main.pricing.pricingplans.PaymentMethodPopup;
 
 import java.io.FileNotFoundException;
 @Test(testName = "WS")

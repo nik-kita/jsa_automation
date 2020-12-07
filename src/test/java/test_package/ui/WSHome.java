@@ -7,9 +7,9 @@ import main_package.engine.test_engine.FlyTester;
 import main_package.engine.OnixLocator;
 import main_package.engine.OnixWebElement;
 import main_package.ui.guest_mode.page_objects.main.Main;
-import main_package.ui.user_mode.page_objects.home_header.home.Home;
-import main_package.ui.user_mode.page_objects.home_header.home.my_goal.MyGoal;
-import main_package.ui.user_mode.page_objects.home_header.home.steps.Steps;
+import main_package.ui.___U_S_E_R___.page_objects.home_header.home.Home;
+import main_package.ui.___U_S_E_R___.page_objects.home_header.home.my_goal.MyGoal;
+import main_package.ui.___U_S_E_R___.page_objects.home_header.home.steps.Steps;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 

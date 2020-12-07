@@ -8,7 +8,7 @@ import org.openqa.selenium.By;
 import main_package.ui.BasePageObject;
 import main_package.ui.data.User;
 import main_package.ui.guest_mode.page_objects.main.Main;
-import main_package.ui.user_mode.page_objects.home_header.home.Home;
+import main_package.ui.___U_S_E_R___.page_objects.home_header.home.Home;
 
 public class Login extends BasePageObject {
 

@@ -2,9 +2,8 @@ package main_package.engine.test_engine;
 
 
 import org.testng.annotations.BeforeClass;
-import main_package.engine.test_engine.OnixUiTestRunner;
 import main_package.ui.shortcuts.RouteHacks;
-import main_package.ui.user_mode.page_objects.home_header.home.Home;
+import main_package.ui.___U_S_E_R___.page_objects.home_header.home.Home;
 
 public abstract class JsaLoginBaseUiTestRunner extends OnixUiTestRunner {
     public Home homeLoginModePO;

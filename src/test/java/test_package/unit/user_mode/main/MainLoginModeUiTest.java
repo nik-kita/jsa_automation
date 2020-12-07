@@ -6,7 +6,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import main_package.engine.test_engine.OnixUiAssert;
 import main_package.engine.OnixLocator;
-import main_package.ui.user_mode.page_objects.main.Main;
+import main_package.ui.___U_S_E_R___.page_objects.main.Main;
 import main_package.engine.test_engine.JsaLoginBaseUiTestRunner;
 
 public class MainLoginModeUiTest extends JsaLoginBaseUiTestRunner {

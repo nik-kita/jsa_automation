@@ -2,10 +2,10 @@ package test_package.unit.user_mode.home.account.my_plan;
 
 import main_package.engine.OnixLocator;
 
-import main_package.ui.user_mode.general_parts.Footer;
-import main_package.ui.user_mode.general_parts.home.account.AccountHeader;
-import main_package.ui.user_mode.general_parts.home.account.AccountSidebar;
-import main_package.ui.user_mode.page_objects.home_header.home.account.my_plan.MyPlan;
+import main_package.ui.___U_S_E_R___.general_parts.Footer;
+import main_package.ui.___U_S_E_R___.general_parts.home.account.AccountHeader;
+import main_package.ui.___U_S_E_R___.general_parts.home.account.AccountSidebar;
+import main_package.ui.___U_S_E_R___.page_objects.home_header.home.account.my_plan.MyPlan;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;

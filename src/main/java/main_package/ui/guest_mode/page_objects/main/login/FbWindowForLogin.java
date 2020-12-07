@@ -5,7 +5,7 @@ import main_package.engine.OnixWebDriver;
 import main_package.engine.test_engine.FlyTester;
 import main_package.engine.test_engine.OnixUiAssert;
 import main_package.ui.BasePageObject;
-import main_package.ui.user_mode.page_objects.home_header.home.Home;
+import main_package.ui.___U_S_E_R___.page_objects.home_header.home.Home;
 import org.openqa.selenium.By;
 
 public class FbWindowForLogin extends BasePageObject {
