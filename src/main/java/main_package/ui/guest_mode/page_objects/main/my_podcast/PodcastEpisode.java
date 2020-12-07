@@ -29,9 +29,12 @@ public class PodcastEpisode extends BasePageObject implements MainHeader, Footer
     @Override
     public BasePageObject check(OnixUiAssert onixUiAssert) {
         for(OnixLocator l : OnixUiAssert.mergeArrays(
-                PodcastEpisode.Locator.values(),
+                PodcastEpisode.Locator.values()
+                //TODO
+        )){
 
-        ))
+        }
+        return this;
     }
 
     public enum Locator implements OnixLocator {
