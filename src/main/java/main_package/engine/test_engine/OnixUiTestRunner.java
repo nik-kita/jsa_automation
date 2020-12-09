@@ -3,7 +3,6 @@ package main_package.engine.test_engine;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Allure;
-import main_package.engine.OnixLocator;
 import main_package.engine.logger_engine.LogHtmlWrap;
 import org.commonmark.parser.Parser;
 import org.commonmark.renderer.html.HtmlRenderer;
@@ -16,7 +15,7 @@ import org.slf4j.MDC;
 import org.testng.*;
 import org.testng.annotations.*;
 import main_package.engine.OnixWebDriver;
-import main_package.ui.guest_mode.page_objects.main.Main;
+import main_package.ui.___G_U_E_S_T___.page_objects.main.Main;
 
 
 import java.io.FileInputStream;

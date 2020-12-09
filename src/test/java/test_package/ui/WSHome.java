@@ -6,7 +6,7 @@ import main_package.ui.data.User;
 import main_package.engine.test_engine.FlyTester;
 import main_package.engine.OnixLocator;
 import main_package.engine.OnixWebElement;
-import main_package.ui.guest_mode.page_objects.main.Main;
+import main_package.ui.___G_U_E_S_T___.page_objects.main.Main;
 import main_package.ui.___U_S_E_R___.page_objects.home_header.home.Home;
 import main_package.ui.___U_S_E_R___.page_objects.home_header.home.my_goal.MyGoal;
 import main_package.ui.___U_S_E_R___.page_objects.home_header.home.steps.Steps;

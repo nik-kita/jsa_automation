@@ -5,7 +5,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import main_package.engine.OnixLocator;
-import main_package.ui.guest_mode.page_objects.from_footer.CookiesPolicy;
+import main_package.ui.___G_U_E_S_T___.page_objects.from_footer.CookiesPolicy;
 
 public class CookiesPolicyUiTest extends OnixUiTestRunner {
     CookiesPolicy cookiesPolicy;

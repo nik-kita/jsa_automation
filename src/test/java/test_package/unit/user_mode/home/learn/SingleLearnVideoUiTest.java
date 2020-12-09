@@ -1,7 +1,7 @@
 package test_package.unit.user_mode.home.learn;
 
 import main_package.engine.OnixLocator;
-import main_package.ui.___U_S_E_R___.general_parts.home.HomeHeaderPart;
+import main_package.ui.___U_S_E_R___.general_parts.home.HomeHeader;
 import main_package.ui.___U_S_E_R___.page_objects.home_header.learn.SingleLearnVideo;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
@@ -21,7 +21,7 @@ public class SingleLearnVideoUiTest extends JsaLoginBaseUiTestRunner {
     @DataProvider
     public Object[] getOriginalLocators() {
         return mergeArrays(
-                HomeHeaderPart.HomeHeaderLocator.values(),
+                HomeHeader.HomeHeaderLocator.values(),
                 SingleLearnVideo.Locator.values()
         );
     }

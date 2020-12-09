@@ -12,56 +12,56 @@ public interface Footer extends BasePart {
 
     default Blog goBlogPageFromFooter() {
         OnixWebDriver driver = getDriver();
-        driver.findElement(main_package.ui.guest_mode.general_parts.Footer.FooterLocator.BLOG_SUPPORT_LINK).click();
+        driver.findElement(main_package.ui.___G_U_E_S_T___.general_parts.Footer.FooterLocator.BLOG_SUPPORT_LINK).click();
         getLogger().debug("'Blog' from footer");
         return new Blog(driver);
     }
 
     default CookiesPolicy goCookiesPolicyFromFooter() {
         OnixWebDriver driver = getDriver();
-        driver.findElement(main_package.ui.guest_mode.general_parts.Footer.FooterLocator.COOKIES_POLICY_LINK).click();
+        driver.findElement(main_package.ui.___G_U_E_S_T___.general_parts.Footer.FooterLocator.COOKIES_POLICY_LINK).click();
         getLogger().debug("'CookiesPolicy' from footer");
         return new CookiesPolicy(driver);
     }
 
     default PrivacyPolicy goPrivacyPolicyFromFooter() {
         OnixWebDriver driver = getDriver();
-        driver.findElement(main_package.ui.guest_mode.general_parts.Footer.FooterLocator.PRIVACY_POLICY_LINK).click();
+        driver.findElement(main_package.ui.___G_U_E_S_T___.general_parts.Footer.FooterLocator.PRIVACY_POLICY_LINK).click();
         getLogger().debug("'PrivacyPolicy' from footer");
         return new PrivacyPolicy(driver);
     }
 
     default TermsOfService goTermsOfServiceFromFooter() {
         OnixWebDriver driver = getDriver();
-        driver.findElement(main_package.ui.guest_mode.general_parts.Footer.FooterLocator.TERMS_OF_SERVICE_LINK).click();
+        driver.findElement(main_package.ui.___G_U_E_S_T___.general_parts.Footer.FooterLocator.TERMS_OF_SERVICE_LINK).click();
         getLogger().debug("'TermsOfService' from footer");
         return new TermsOfService(driver);
     }
 
     default ReportBugs goReportBugsFromFooter() {
         OnixWebDriver driver = getDriver();
-        driver.findElement(main_package.ui.guest_mode.general_parts.Footer.FooterLocator.BUG_SUPPORT_LINK).click();
+        driver.findElement(main_package.ui.___G_U_E_S_T___.general_parts.Footer.FooterLocator.BUG_SUPPORT_LINK).click();
         getLogger().debug("'ReportBugs' from footer");
         return new ReportBugs(driver);
     }
 
     default ContactUs goContactUsFromFooter() {
         OnixWebDriver driver = getDriver();
-        driver.findElement(main_package.ui.guest_mode.general_parts.Footer.FooterLocator.CONTACT_US_LINK).click();
+        driver.findElement(main_package.ui.___G_U_E_S_T___.general_parts.Footer.FooterLocator.CONTACT_US_LINK).click();
         getLogger().debug("'ContactUs' from footer");
         return new ContactUs(driver);
     }
 
     default AccessAndDownload goAccessAndDownloadFromFooter() {
         OnixWebDriver driver = getDriver();
-        driver.findElement(main_package.ui.guest_mode.general_parts.Footer.FooterLocator.ACCESS_LINK).click();
+        driver.findElement(main_package.ui.___G_U_E_S_T___.general_parts.Footer.FooterLocator.ACCESS_LINK).click();
         getLogger().debug("'AccessAndDownload' from footer");
         return new AccessAndDownload(driver);
     }
 
     default Faqs goFaqsFromFooter() {
         OnixWebDriver driver = getDriver();
-        driver.findElement(main_package.ui.guest_mode.general_parts.Footer.FooterLocator.FAQS_LINK).click();
+        driver.findElement(main_package.ui.___G_U_E_S_T___.general_parts.Footer.FooterLocator.FAQS_LINK).click();
         getLogger().debug("'Faqs' from footer");
         return new Faqs(driver);
     }

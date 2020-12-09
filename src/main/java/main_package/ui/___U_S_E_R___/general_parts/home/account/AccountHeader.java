@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import main_package.ui.BasePart;
 import main_package.engine.OnixLocator;
 import main_package.engine.OnixWebDriver;
-import main_package.ui.guest_mode.page_objects.AfterLogout;
+import main_package.ui.___G_U_E_S_T___.page_objects.AfterLogout;
 import main_package.ui.___U_S_E_R___.page_objects.home_header.home.account.my_plan.MyPlan;
 import main_package.ui.___U_S_E_R___.page_objects.home_header.home.Home;
 import main_package.ui.___U_S_E_R___.page_objects.main.Main;

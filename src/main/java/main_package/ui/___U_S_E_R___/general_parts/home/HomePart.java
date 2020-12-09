@@ -5,7 +5,7 @@ import main_package.engine.OnixWebDriver;
 import main_package.ui.___U_S_E_R___.page_objects.home_header.home.PersonalTrainer;
 import org.openqa.selenium.By;
 
-public interface HomePart extends HomeHeaderPart {
+public interface HomePart extends HomeHeader {
 
     default PersonalTrainer clickSupportButton() {
         OnixWebDriver driver = getDriver();

@@ -1,7 +1,7 @@
 package test_package.unit.user_mode.home;
 
 
-import main_package.ui.___U_S_E_R___.general_parts.home.HomeHeaderPart;
+import main_package.ui.___U_S_E_R___.general_parts.home.HomeHeader;
 import main_package.ui.___U_S_E_R___.general_parts.home.HomePart;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -24,7 +24,7 @@ public class HomeUiTest extends JsaLoginBaseUiTestRunner {
     public Object[] getHomeLoginModeLocators() {
         return mergeArrays(
                 Home.Locator.values(),
-                HomeHeaderPart.HomeHeaderLocator.values(),
+                HomeHeader.HomeHeaderLocator.values(),
                 HomePart.HomeFlyLocator.values()
         );
     }

@@ -5,10 +5,10 @@ import main_package.engine.test_engine.FlyTester;
 import main_package.engine.test_engine.OnixUiAssert;
 import org.openqa.selenium.By;
 import main_package.ui.BasePageObject;
-import main_package.ui.___U_S_E_R___.general_parts.home.HomeHeaderPart;
+import main_package.ui.___U_S_E_R___.general_parts.home.HomeHeader;
 import main_package.ui.___U_S_E_R___.page_objects.home_header.home.Home;
 
-public class MyGoal extends BasePageObject implements HomeHeaderPart {
+public class MyGoal extends BasePageObject implements HomeHeader {
     public MyGoal(OnixWebDriver driver) {
         super(driver);
         logger.debug("'MyGoal' page is open.");

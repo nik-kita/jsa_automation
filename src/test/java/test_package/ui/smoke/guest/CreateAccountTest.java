@@ -1,7 +1,7 @@
 package test_package.ui.smoke.guest;
 
 import main_package.engine.test_engine.OnixUiTestRunner;
-import main_package.ui.guest_mode.page_objects.main.login.CreateAccount;
+import main_package.ui.___G_U_E_S_T___.page_objects.main.login.CreateAccount;
 import org.testng.annotations.*;
 import org.uncommons.reportng.HTMLReporter;
 

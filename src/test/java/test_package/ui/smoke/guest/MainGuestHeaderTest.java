@@ -1,7 +1,7 @@
 package test_package.ui.smoke.guest;
 
 import main_package.engine.test_engine.OnixUiTestRunner;
-import main_package.ui.guest_mode.general_parts.MainHeader;
+import main_package.ui.___G_U_E_S_T___.general_parts.MainHeader;
 import org.testng.annotations.Test;
 
 public class MainGuestHeaderTest extends OnixUiTestRunner {

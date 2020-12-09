@@ -1,11 +1,9 @@
 package test_package.ui.smoke.guest;
 
 import main_package.engine.test_engine.OnixUiTestRunner;
-import main_package.ui.guest_mode.page_objects.main.Main;
+import main_package.ui.___G_U_E_S_T___.page_objects.main.Main;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import org.uncommons.reportng.HTMLReporter;
 
 public class MainTest extends OnixUiTestRunner {
     Main main;

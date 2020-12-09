@@ -5,7 +5,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import main_package.engine.test_engine.OnixUiTestRunner;
 import main_package.engine.OnixLocator;
-import main_package.ui.guest_mode.page_objects.main.FamousDailyEmails;
+import main_package.ui.___G_U_E_S_T___.page_objects.main.FamousDailyEmails;
 
 public class FamousDailyEmailsUiTest extends OnixUiTestRunner {
     FamousDailyEmails famousDailyEmails;

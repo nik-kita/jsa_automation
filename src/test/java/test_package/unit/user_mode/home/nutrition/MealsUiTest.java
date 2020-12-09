@@ -5,7 +5,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import main_package.engine.test_engine.OnixUiAssert;
 import main_package.engine.OnixLocator;
-import main_package.ui.___U_S_E_R___.general_parts.home.HomeHeaderPart;
+import main_package.ui.___U_S_E_R___.general_parts.home.HomeHeader;
 import main_package.ui.___U_S_E_R___.general_parts.home.HomePart;
 import main_package.ui.___U_S_E_R___.page_objects.home_header.nutrition.Meals;
 import main_package.engine.test_engine.JsaLoginBaseUiTestRunner;
@@ -22,7 +22,7 @@ public class MealsUiTest extends JsaLoginBaseUiTestRunner {
     @DataProvider
     public Object[] getMealsLocators() {
         return mergeArrays(
-                HomeHeaderPart.HomeHeaderLocator.values(),
+                HomeHeader.HomeHeaderLocator.values(),
                 HomePart.HomeFlyLocator.values(),
                 Meals.Locator.values()
         );

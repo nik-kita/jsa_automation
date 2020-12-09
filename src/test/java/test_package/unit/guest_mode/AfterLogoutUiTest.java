@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import main_package.ui.data.User;
 import main_package.engine.OnixLocator;
 
-import main_package.ui.guest_mode.page_objects.AfterLogout;
+import main_package.ui.___G_U_E_S_T___.page_objects.AfterLogout;
 
 public class AfterLogoutUiTest extends OnixUiTestRunner {
     AfterLogout afterLogout;

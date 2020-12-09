@@ -5,9 +5,9 @@ import org.openqa.selenium.By;
 import main_package.ui.BasePageObject;
 import main_package.engine.OnixLocator;
 import main_package.engine.OnixWebDriver;
-import main_package.ui.___U_S_E_R___.general_parts.home.HomeHeaderPart;
+import main_package.ui.___U_S_E_R___.general_parts.home.HomeHeader;
 
-public class MeasurementsTab extends BasePageObject implements HomeHeaderPart {
+public class MeasurementsTab extends BasePageObject implements HomeHeader {
     public MeasurementsTab(OnixWebDriver driver) {
         super(driver);
     }

@@ -8,7 +8,7 @@ import main_package.ui.___U_S_E_R___.page_objects.home_header.home.Home;
 import main_package.ui.___U_S_E_R___.page_objects.main.Challenge;
 import main_package.ui.___U_S_E_R___.page_objects.main.Transformations;
 import main_package.ui.___U_S_E_R___.page_objects.main.my_podcast.MyPodcast;
-import main_package.ui.___U_S_E_R___.general_parts.home.HomeHeaderPart;
+import main_package.ui.___U_S_E_R___.general_parts.home.HomeHeader;
 import main_package.ui.___U_S_E_R___.page_objects.main.Main;
 import main_package.ui.___U_S_E_R___.page_objects.main.pricing.Pricing;
 
@@ -22,7 +22,7 @@ public interface MainHeader extends BasePart {
 
     default Main goMainPage() {
         OnixWebDriver driver = getDriver();
-        driver.findElement(HomeHeaderPart.HomeHeaderLocator.JSA_LOGO).click();
+        driver.findElement(HomeHeader.HomeHeaderLocator.JSA_LOGO).click();
         getLogger().debug("'Main' from header");
         return new Main(driver);
     }
@@ -34,21 +34,21 @@ public interface MainHeader extends BasePart {
     }
     default Challenge goChallengePage() {
         OnixWebDriver driver = getDriver();
-        driver.findElement(main_package.ui.guest_mode.general_parts.MainHeader.HeaderLocator.CHALLENGE_HEADER_BUTTON).
+        driver.findElement(main_package.ui.___G_U_E_S_T___.general_parts.MainHeader.HeaderLocator.CHALLENGE_HEADER_BUTTON).
                 click();
         getLogger().debug("'Challenge' from header");
         return new Challenge(driver);
     }
     default Transformations goTransformationsPage() {
         OnixWebDriver driver = getDriver();
-        driver.findElement(main_package.ui.guest_mode.general_parts.MainHeader.HeaderLocator.TRANSFORMATIONS_HEADER_BUTTON).
+        driver.findElement(main_package.ui.___G_U_E_S_T___.general_parts.MainHeader.HeaderLocator.TRANSFORMATIONS_HEADER_BUTTON).
                 click();
         getLogger().debug("'Transformations' from header");
         return new Transformations(driver);
     }
     default MyPodcast goMyPodcastPageFromHeader() {
         OnixWebDriver driver = getDriver();
-        driver.findElement(main_package.ui.guest_mode.general_parts.MainHeader.HeaderLocator.MY_PODCAST_HEADER_BUTTON).click();
+        driver.findElement(main_package.ui.___G_U_E_S_T___.general_parts.MainHeader.HeaderLocator.MY_PODCAST_HEADER_BUTTON).click();
         getLogger().debug("'MyPodcast' from header");
         return new MyPodcast(driver);
     }

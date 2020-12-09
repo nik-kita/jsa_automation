@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import main_package.ui.BasePageObject;
 import main_package.engine.OnixLocator;
 import main_package.engine.OnixWebDriver;
-import main_package.ui.guest_mode.page_objects.AfterLogout;
+import main_package.ui.___G_U_E_S_T___.page_objects.AfterLogout;
 
 
 public class UserCabinetDropdown extends BasePageObject {
